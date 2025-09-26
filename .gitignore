@@ -26,4 +26,4 @@ code/Editor/.vscode/*
 *.vpk
 
 # Linux-fix
-./Libraries/tux*
+Libraries/tux.linuxfix/

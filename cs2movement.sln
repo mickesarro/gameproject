@@ -17,9 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hammer", "C:\Program Files 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cs2movement", "Code\cs2movement.csproj", "{AC78C5C3-A9C7-E269-A4D0-40EBD3001DB3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "linuxfix", "Libraries\tux.linuxfix\Code\linuxfix.csproj", "{8E1F8C35-51AB-FE79-F47E-926FFF8CB31F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "linuxfix", "C:\users\kille\documents\s&box projects\sauce-movement-base-main\sauce-movement-base-main\libraries\tux.linuxfix\Code\linuxfix.csproj", "{8E1F8C35-51AB-FE79-F47E-926FFF8CB31F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "linuxfix.editor", "Libraries\tux.linuxfix\Editor\linuxfix.editor.csproj", "{11989EE3-1613-8A36-882C-0910CC5BA9CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "linuxfix.editor", "C:\users\kille\documents\s&box projects\sauce-movement-base-main\sauce-movement-base-main\libraries\tux.linuxfix\Editor\linuxfix.editor.csproj", "{11989EE3-1613-8A36-882C-0910CC5BA9CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Addons", "Addons", "{7E84B5F6-56F9-A3B2-F215-7A71616B85A2}"
 EndProject
