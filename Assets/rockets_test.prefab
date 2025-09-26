@@ -34,7 +34,7 @@
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "42903eea-204f-49a1-8858-7fa09306ca08",
             "__enabled": true,
-            "AnimationGraph": "weapons/rocket.vanmgrph",
+            "AnimationGraph": "rocket.vanmgrph",
             "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
@@ -1620,7 +1620,7 @@
                   "DstName": "condition"
                 },
                 {
-                  "Id": 3,
+                  "Id": 17,
                   "Value": "attack1",
                   "DstId": 2,
                   "DstName": "action"
@@ -1675,17 +1675,13 @@
                 }
               ],
               "Defaults": {
-                "$6._value": {
+                "$13.gameobject": {
                   "_type": "gameobject",
-                  "prefab": "rockets_test.prefab"
+                  "go": "e0757b65-802e-415e-a527-a140268a35fa"
                 },
                 "$7._value": {
                   "_type": "gameobject",
                   "prefab": "projectile.prefab"
-                },
-                "$13.gameobject": {
-                  "_type": "gameobject",
-                  "go": "e0757b65-802e-415e-a527-a140268a35fa"
                 }
               }
             }

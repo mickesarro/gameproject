@@ -198,9 +198,10 @@
           "OnObjectTriggerEnter": {
             "__version": 9,
             "__guid": "136b579b-20d0-4bca-8d69-55267187fb5e",
-            "__changeId": 7,
+            "__changeId": 15,
             "UserData": {
-              "Title": "On Object Enter"
+              "Title": "On Object Enter",
+              "ReferencedComponentTypes": []
             },
             "Variables": [],
             "Nodes": [
@@ -281,7 +282,7 @@
                 "DstName": "_signal"
               },
               {
-                "Id": 9,
+                "Id": 17,
                 "Value": null,
                 "DstId": 2,
                 "DstName": "_target"
@@ -334,7 +335,7 @@
                 "_type": "gameobject",
                 "go": "e0757b65-802e-415e-a527-a140268a35fa"
               },
-              "$9._value": {
+              "$17._value": {
                 "_type": "gameobject",
                 "prefab": "rockets_test.prefab"
               }

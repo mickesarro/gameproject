@@ -1,42 +1,42 @@
 {
   "LocalAssetBrowser.History": {
-    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ShaderGraph\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ActionGraph\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ActionGraph\\\\Code\\\\NodeTypes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\\\\assets\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\\\\Code\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\shaders\\\\common\\\\classes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\prefabs\\\\surface\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\templates\\\\gameobject\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\prefabs\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\prefabs\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
-    "Timeout": 1761415109,
+    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\\\\scenes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ShaderGraph\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ActionGraph\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\editor\\\\ActionGraph\\\\Code\\\\NodeTypes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\\\\assets\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\tools\\\\Code\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\shaders\\\\common\\\\classes\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\prefabs\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\prefabs\\\\surface\u0022,\u0022C:\\\\Program Files (x86)\\\\Steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\base\\\\Assets\\\\templates\\\\gameobject\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\prefabs\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\arms_materials\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\prefabs\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\\\\animations\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\models\\\\first_person\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\\\\scenes\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
+    "Timeout": 1761494976,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.HistoryIdx": {
-    "Value": "31",
-    "Timeout": 1761415109,
+    "Value": "33",
+    "Timeout": 1761494976,
     "DeleteAt": 0
   },
   "scene.lastopened": {
     "Value": "[\u0022scenes/main.scene\u0022,\u0022scenes/player.prefab.prefab\u0022,\u0022rockets_test.prefab\u0022,\u0022projectile.prefab\u0022]",
-    "Timeout": 1761417157,
+    "Timeout": 1761494944,
     "DeleteAt": 0
   },
   "scenes/main.scene.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022212.074,-19.02686,-2.206868\u0022,\u0022CameraRotation\u0022:\u0022-0.1564098,0.161682,0.6774703,0.7003064\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422825,
+    "Value": "{\u0022CameraPosition\u0022:\u0022206.3551,-191.4998,81.96207\u0022,\u0022CameraRotation\u0022:\u0022-0.1564098,0.161682,0.6774703,0.7003064\u0022,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1761495172,
     "DeleteAt": 0
   },
   "SceneView.Viewport0.Settings": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-239.4238,-7475.017,-47629.95\u0022,\u0022CameraRotation\u0022:\u0022-0.04860991,0.190704,0.2421688,0.9500649\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022EnablePrefabLighting\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422826,
+    "Value": "{\u0022CameraPosition\u0022:\u0022206.3551,-191.4998,81.96207\u0022,\u0022CameraRotation\u0022:\u0022-0.1564098,0.161682,0.6774703,0.7003064\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022EnablePrefabLighting\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
+    "Timeout": 1761495172,
     "DeleteAt": 0
   },
   "Window.SboxSceneEditor.Dock": {
-    "Value": "{\u0022floatingWindows\u0022:[],\u0022mainWrapper\u0022:{\u0022geometry\u0022:\u0022AdnQywADAAAAAAAAAAAAAAAABNwAAARXAAAAAAAAAAAAAATcAAAEVwAAAAAAAAAABkAAAAAAAAAAAAAABNwAAARX\u0022,\u0022splitter\u0022:{\u0022items\u0022:[{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneTreeWidget\u0022,\u0022name\u0022:\u0022Hierarchy\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PanelInspectorWidget\u0022,\u0022name\u0022:\u0022UI Panels\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022\u0022,\u0022name\u0022:\u0022GameFrame\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/main.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/player.prefab.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:rockets_test.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:projectile.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:untitled\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:3,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MainAssetBrowser\u0022,\u0022name\u0022:\u0022Asset Browser\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022ConsoleWidget\u0022,\u0022name\u0022:\u0022Console\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MixerDock\u0022,\u0022name\u0022:\u0022Mixer\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022LibraryManagerDock\u0022,\u0022name\u0022:\u0022Library Manager\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAC3QAAAgQA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAABIQAAAywA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022Inspector\u0022,\u0022name\u0022:\u0022Inspector\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAEoAAAAZQA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}},\u0022toolWindowManagerStateFormat\u0022:1}",
-    "Timeout": 1761422824,
+    "Value": "{\u0022floatingWindows\u0022:[],\u0022mainWrapper\u0022:{\u0022geometry\u0022:\u0022AdnQywADAAAAAAAAAAAAAAAABjcAAARDAAAAAAAAAAAAAAY3AAAEQwAAAAAAAAAABkAAAAAAAAAAAAAABjcAAARD\u0022,\u0022splitter\u0022:{\u0022items\u0022:[{\u0022items\u0022:[{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneTreeWidget\u0022,\u0022name\u0022:\u0022Hierarchy\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022PanelInspectorWidget\u0022,\u0022name\u0022:\u0022UI Panels\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022items\u0022:[{\u0022currentIndex\u0022:2,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022\u0022,\u0022name\u0022:\u0022GameFrame\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/main.scene\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:scenes/player.prefab.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:rockets_test.prefab\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022SceneDock\u0022,\u0022name\u0022:\u0022SceneDock:projectile.prefab\u0022}],\u0022type\u0022:\u0022area\u0022},{\u0022currentIndex\u0022:3,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MainAssetBrowser\u0022,\u0022name\u0022:\u0022Asset Browser\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022ConsoleWidget\u0022,\u0022name\u0022:\u0022Console\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022MixerDock\u0022,\u0022name\u0022:\u0022Mixer\u0022},{\u0022data\u0022:null,\u0022managedType\u0022:\u0022LibraryManagerDock\u0022,\u0022name\u0022:\u0022Library Manager\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAC3QAAAgQA/////wEAAAACAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAABIQAAAywA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022},{\u0022currentIndex\u0022:0,\u0022objects\u0022:[{\u0022data\u0022:null,\u0022managedType\u0022:\u0022Inspector\u0022,\u0022name\u0022:\u0022Inspector\u0022}],\u0022type\u0022:\u0022area\u0022}],\u0022state\u0022:\u0022AAAA/wAAAAEAAAACAAAEoAAAAZQA/////wEAAAABAA==\u0022,\u0022type\u0022:\u0022splitter\u0022}},\u0022toolWindowManagerStateFormat\u0022:1}",
+    "Timeout": 1761494956,
     "DeleteAt": 0
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-239.4238,-7475.017,-47629.95\u0022,\u0022CameraRotation\u0022:\u0022-0.04860991,0.190704,0.2421688,0.9500649\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422826,
+    "Timeout": 1761495021,
     "DeleteAt": 0
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1761422826,
+    "Timeout": 1761495022,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Map.History": {
@@ -50,38 +50,38 @@
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.History": {
-    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
-    "Timeout": 1761422708,
+    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
+    "Timeout": 1761495127,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.HistoryIdx": {
     "Value": "1",
-    "Timeout": 1761422708,
+    "Timeout": 1761495127,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ViewMode": {
     "Value": "0",
-    "Timeout": 1761422708,
+    "Timeout": 1761495047,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ShowJunkFiles": {
     "Value": "false",
-    "Timeout": 1761422708,
+    "Timeout": 1761495047,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.HideNonAssets": {
     "Value": "false",
-    "Timeout": 1761422708,
+    "Timeout": 1761495047,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ShowRecursiveFiles": {
     "Value": "false",
-    "Timeout": 1761422708,
+    "Timeout": 1761495047,
     "DeleteAt": 0
   },
   "scenes/player.prefab.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022144.8086,26.6355,66.33953\u0022,\u0022CameraRotation\u0022:\u00220.1153181,0.01059492,-0.9891063,0.09087472\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422825,
+    "Timeout": 1761495172,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Model.History": {
@@ -95,13 +95,13 @@
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.History": {
-    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\weapons\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\weapons\\\\rocket\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\u0022,\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\u0022,\u0022C:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\weapons\u0022,\u0022c:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\weapons\u0022,\u0022c:\\\\program files (x86)\\\\steam\\\\steamapps\\\\common\\\\sbox\\\\addons\\\\citizen\\\\assets\\\\weapons\u0022]",
-    "Timeout": 1761336115,
+    "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.HistoryIdx": {
-    "Value": "11",
-    "Timeout": 1761336115,
+    "Value": "1",
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Surface Description.History": {
@@ -136,7 +136,7 @@
   },
   "gizmo.settings": {
     "Value": "{\u0022EditMode\u0022:\u0022position\u0022,\u0022Selection\u0022:true,\u0022ViewMode\u0022:\u00223d\u0022,\u0022GizmosEnabled\u0022:true,\u0022GizmoScale\u0022:1,\u0022GridSpacing\u0022:32,\u0022SnapToGrid\u0022:false,\u0022SnapToAngles\u0022:true,\u0022AngleSpacing\u0022:15,\u0022GlobalSpace\u0022:false,\u0022DebugActionGraphs\u0022:false}",
-    "Timeout": 1761415109,
+    "Timeout": 1761494944,
     "DeleteAt": 0
   },
   "expand.d46c27e2-3d89-43c8-8741-49a8d7c71d75.SkinnedModelRenderer": {
@@ -155,38 +155,38 @@
     "DeleteAt": 0
   },
   "MountsAssetBrowser.History": {
-    "Value": "[\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
-    "Timeout": 1761415109,
+    "Value": "[\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\\\\scenes\u0022,\u0022C:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
+    "Timeout": 1761494976,
     "DeleteAt": 0
   },
   "rockets_test.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-57.57802,-28.59509,19.55946\u0022,\u0022CameraRotation\u0022:\u0022-0.03355565,0.1430634,0.2258747,0.9630096\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422825,
+    "Timeout": 1761495172,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.ViewMode": {
     "Value": "0",
-    "Timeout": 1761336115,
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.ShowJunkFiles": {
     "Value": "false",
-    "Timeout": 1761336115,
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.HideNonAssets": {
     "Value": "false",
-    "Timeout": 1761336115,
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.ShowRecursiveFiles": {
     "Value": "false",
-    "Timeout": 1761336115,
+    "Timeout": 1761495171,
     "DeleteAt": 0
   },
   "MountsAssetBrowser.HistoryIdx": {
-    "Value": "0",
-    "Timeout": 1761415109,
+    "Value": "2",
+    "Timeout": 1761494976,
     "DeleteAt": 0
   },
   "expand.80c6dd38-304d-4ee3-9e93-445b199f6202.ModelRenderer": {
@@ -216,7 +216,7 @@
   },
   "projectile.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-62.34527,-149.507,87.99567\u0022,\u0022CameraRotation\u0022:\u0022-0.1352933,0.2582432,0.4439098,0.8473195\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761422825,
+    "Timeout": 1761495172,
     "DeleteAt": 0
   }
 }
