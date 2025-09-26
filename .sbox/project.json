@@ -16,12 +16,12 @@
   },
   "scenes/main.scene.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022206.3551,-191.4998,81.96207\u0022,\u0022CameraRotation\u0022:\u0022-0.1564098,0.161682,0.6774703,0.7003064\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495172,
+    "Timeout": 1761495233,
     "DeleteAt": 0
   },
   "SceneView.Viewport0.Settings": {
     "Value": "{\u0022CameraPosition\u0022:\u0022206.3551,-191.4998,81.96207\u0022,\u0022CameraRotation\u0022:\u0022-0.1564098,0.161682,0.6774703,0.7003064\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022EnablePrefabLighting\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495172,
+    "Timeout": 1761495233,
     "DeleteAt": 0
   },
   "Window.SboxSceneEditor.Dock": {
@@ -31,12 +31,12 @@
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-239.4238,-7475.017,-47629.95\u0022,\u0022CameraRotation\u0022:\u0022-0.04860991,0.190704,0.2421688,0.9500649\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495021,
+    "Timeout": 1761495180,
     "DeleteAt": 0
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1761495022,
+    "Timeout": 1761495180,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Map.History": {
@@ -51,37 +51,37 @@
   },
   "LocalAssetBrowser.Prefab.History": {
     "Value": "[\u0022C:\\\\Users\\\\kille\\\\Documents\\\\s\\u0026box projects\\\\Sauce-Movement-Base-main\\\\Sauce-Movement-Base-main\\\\Assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022,\u0022c:\\\\users\\\\kille\\\\documents\\\\s\\u0026box projects\\\\sauce-movement-base-main\\\\sauce-movement-base-main\\\\assets\u0022]",
-    "Timeout": 1761495127,
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.HistoryIdx": {
-    "Value": "1",
-    "Timeout": 1761495127,
+    "Value": "2",
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ViewMode": {
     "Value": "0",
-    "Timeout": 1761495047,
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ShowJunkFiles": {
     "Value": "false",
-    "Timeout": 1761495047,
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.HideNonAssets": {
     "Value": "false",
-    "Timeout": 1761495047,
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Prefab.ShowRecursiveFiles": {
     "Value": "false",
-    "Timeout": 1761495047,
+    "Timeout": 1761495190,
     "DeleteAt": 0
   },
   "scenes/player.prefab.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022144.8086,26.6355,66.33953\u0022,\u0022CameraRotation\u0022:\u00220.1153181,0.01059492,-0.9891063,0.09087472\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495172,
+    "Timeout": 1761495233,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Model.History": {
@@ -161,7 +161,7 @@
   },
   "rockets_test.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-57.57802,-28.59509,19.55946\u0022,\u0022CameraRotation\u0022:\u0022-0.03355565,0.1430634,0.2258747,0.9630096\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495172,
+    "Timeout": 1761495233,
     "DeleteAt": 0
   },
   "LocalAssetBrowser.Animation Graph.ViewMode": {
@@ -216,7 +216,7 @@
   },
   "projectile.prefab.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u0022-62.34527,-149.507,87.99567\u0022,\u0022CameraRotation\u0022:\u0022-0.1352933,0.2582432,0.4439098,0.8473195\u0022,\u0022CameraOrthoHeight\u0022:1000}",
-    "Timeout": 1761495172,
+    "Timeout": 1761495233,
     "DeleteAt": 0
   }
 }
