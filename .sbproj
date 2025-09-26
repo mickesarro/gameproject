@@ -1,0 +1,46 @@
+{
+  "Title": "Sauce Movement Base",
+  "Type": "game",
+  "Org": "smile",
+  "Ident": "cs2movement",
+  "Schema": 1,
+  "IncludeSourceFiles": true,
+  "Resources": "",
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Mounts": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {
+    "MaxPlayers": 64,
+    "MinPlayers": 1,
+    "TickRate": 50,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Unrestricted",
+    "MapList": [
+      "facepunch.flatgrass"
+    ],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "CsProjName": "",
+    "StartupScene": "scenes/main.scene",
+    "ProjectTemplate": null,
+    "ControlModes": {
+      "Keyboard": true
+    },
+    "MapStartupScene": "scenes/main.scene",
+    "LaunchMode": "QuickPlay",
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;",
+      "WarningsAsErrors": "",
+      "AssemblyReferences": [],
+      "IgnoreFolders": [
+        "editor",
+        "unittest"
+      ],
+      "DistinctAssemblyReferences": []
+    }
+  }
+}

@@ -1,0 +1,425 @@
+{
+  "__guid": "54f0cdbb-61fe-4664-be1f-dee8c37df2b8",
+  "GameObjects": [
+    {
+      "__guid": "e0757b65-802e-415e-a527-a140268a35fa",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "maincamera,skybox,camera",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "d7631e5c-0597-478f-83e2-d6200d7baad6",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 110,
+          "FovAxis": "Horizontal",
+          "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Orthographic": false,
+          "OrthographicHeight": 1024,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 1
+        },
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "03d0a895-1b4f-4751-9586-96165741437c",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
+          "ZIndex": 100
+        },
+        {
+          "__type": "TestUI",
+          "__guid": "7b691492-5184-4071-a01f-0b1c022bcf27",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Speed": 0
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "9bdd0439-ea64-4fb8-b319-d70a0b2d6cb1",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        }
+      ]
+    },
+    {
+      "__guid": "2fc26cb8-9044-4674-ae75-013769e5f599",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint",
+      "Position": "98.01984,-7726.277,-47755.04",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": []
+    },
+    {
+      "__guid": "c1c5d242-a6be-4c60-bf53-1d677b433c63",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Map",
+      "Position": "21.12942,-7726.277,-47772.14",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "9476e85a-d8fb-4888-82ce-728bc8879408",
+          "__enabled": true,
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "maps/dev/preview_flat.vmap",
+          "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        },
+        {
+          "__type": "Sandbox.NetworkHelper",
+          "__guid": "428d888e-da1c-4775-ac26-c4156a5603c3",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "scenes/player.prefab.prefab"
+          },
+          "SpawnPoints": [
+            {
+              "_type": "gameobject",
+              "go": "2fc26cb8-9044-4674-ae75-013769e5f599"
+            }
+          ],
+          "StartServer": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "1c8c4115-f56c-4ac6-8d6d-7aea7411f331",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Rockets pickup",
+      "Position": "-168.3139,-7487.275,-47722.89",
+      "Rotation": "0,0,0,1",
+      "Scale": "2,2,2",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SphereCollider",
+          "__guid": "008bd5eb-e5c8-4996-b3ac-a7338295ab43",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": {
+            "__version": 9,
+            "__guid": "136b579b-20d0-4bca-8d69-55267187fb5e",
+            "__changeId": 7,
+            "UserData": {
+              "Title": "On Object Enter"
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input",
+                "UserData": {
+                  "Position": "-168,-12"
+                }
+              },
+              {
+                "Id": 1,
+                "Type": "call",
+                "Properties": {
+                  "_isStatic": false,
+                  "_name": "Destroy",
+                  "_type": "Sandbox.GameObject"
+                },
+                "UserData": {
+                  "Position": "24,-24"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "call",
+                "Properties": {
+                  "_isStatic": false,
+                  "_name": "ToPrefabFile",
+                  "_type": "Sandbox.PrefabScene"
+                },
+                "UserData": {
+                  "Position": "348,36"
+                }
+              },
+              {
+                "Id": 3,
+                "Type": "scene.instantiate",
+                "UserData": {
+                  "Position": "636,36"
+                }
+              },
+              {
+                "Id": 4,
+                "Type": "scene.ref",
+                "UserData": {
+                  "Position": "420,156"
+                }
+              },
+              {
+                "Id": 5,
+                "Type": "property",
+                "Properties": {
+                  "_name": "LocalPosition",
+                  "_type": "Sandbox.GameObject"
+                },
+                "UserData": {
+                  "Position": "936,24"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 1,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 1,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 1,
+                "SrcName": "_signal",
+                "DstId": 2,
+                "DstName": "_signal"
+              },
+              {
+                "Id": 9,
+                "Value": null,
+                "DstId": 2,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 2,
+                "SrcName": "_signal",
+                "DstId": 3,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 4,
+                "SrcName": "_result",
+                "DstId": 3,
+                "DstName": "parent"
+              },
+              {
+                "Id": 10,
+                "Value": "0,0,0",
+                "DstId": 3,
+                "DstName": "position"
+              },
+              {
+                "SrcId": 2,
+                "SrcName": "_result",
+                "DstId": 3,
+                "DstName": "prefab"
+              },
+              {
+                "SrcId": 3,
+                "SrcName": "_signal",
+                "DstId": 5,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 3,
+                "SrcName": "_result",
+                "DstId": 5,
+                "DstName": "_target"
+              },
+              {
+                "Id": 11,
+                "Value": "0,0,0",
+                "DstId": 5,
+                "DstName": "_value"
+              }
+            ],
+            "Defaults": {
+              "$4.gameobject": {
+                "_type": "gameobject",
+                "go": "e0757b65-802e-415e-a527-a140268a35fa"
+              },
+              "$9._value": {
+                "_type": "gameobject",
+                "prefab": "rockets_test.prefab"
+              }
+            }
+          },
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Radius": 13.199987,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "3efec7a5-938e-4a65-afdc-bc638c3bcd58",
+          "__enabled": true,
+          "AnimationGraph": "weapons/rocket_spin.vanmgrph",
+          "BodyGroups": 18446744073709551615,
+          "BoneMergeTarget": null,
+          "CreateAttachments": false,
+          "CreateBoneObjects": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
+          "Morphs": {},
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parameters": {
+            "bools": {},
+            "ints": {},
+            "floats": {},
+            "vectors": {},
+            "rotations": {}
+          },
+          "PlaybackRate": 1,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Sequence": {
+            "Name": null,
+            "Looping": true,
+            "Blending": false
+          },
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": false
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [
+    "facepunch.v_recoillessrifle#116232"
+  ],
+  "__version": 3
+}

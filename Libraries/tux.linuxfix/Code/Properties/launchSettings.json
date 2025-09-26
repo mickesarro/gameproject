@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Editor": {
+      "commandName": "Executable",
+      "executablePath": "C:\\program files (x86)\\steam\\steamapps\\common\\sbox\\sbox-dev.exe",
+      "commandLineArgs": "-project \u0022C:\\Users\\kille\\Documents\\s\u0026box projects\\Sauce-Movement-Base-main\\Sauce-Movement-Base-main\\Libraries\\tux.linuxfix\\linuxfix.sbproj\u0022"
+    }
+  }
+}
