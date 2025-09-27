@@ -13,7 +13,28 @@
     "NetworkInterpolation": true,
     "NetworkOrphaned": 0,
     "OwnerTransfer": 1,
-    "Components": [],
+    "Components": [
+      {
+        "__type": "Shoot",
+        "__guid": "58565efd-f9f6-43b0-b92b-8726f52e13fa",
+        "__enabled": true,
+        "barrelEnd": {
+          "_type": "gameobject",
+          "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
+        },
+        "loadTime": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "projectilePrefab": {
+          "_type": "gameobject",
+          "prefab": "projectile.prefab"
+        }
+      }
+    ],
     "Children": [
       {
         "__guid": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e",
@@ -1453,7 +1474,7 @@
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "e6ff1af1-3ce9-4ecc-b105-adfb1c7569d1",
             "__enabled": true,
-            "AnimationGraph": "weapons/rocket.vanmgrph",
+            "AnimationGraph": null,
             "BodyGroups": 21,
             "BoneMergeTarget": {
               "_type": "component",
@@ -1510,7 +1531,7 @@
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
         "Tags": "",
-        "Enabled": true,
+        "Enabled": false,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
@@ -1533,7 +1554,7 @@
             "OnUpdateAction": {
               "__version": 9,
               "__guid": "a1f4e84d-765b-41d1-a8ce-4df2755bc972",
-              "__changeId": 46,
+              "__changeId": 47,
               "UserData": {
                 "Title": "On Update Action"
               },
@@ -1687,6 +1708,23 @@
             }
           }
         ],
+        "Children": []
+      },
+      {
+        "__guid": "1c5ad092-eebe-4872-9e93-b6fe4972a09b",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "barrel_end",
+        "Position": "19.21155,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [],
         "Children": []
       }
     ],

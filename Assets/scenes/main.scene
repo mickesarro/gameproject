@@ -300,7 +300,7 @@
                 "DstName": "parent"
               },
               {
-                "Id": 10,
+                "Id": 18,
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -324,7 +324,7 @@
                 "DstName": "_target"
               },
               {
-                "Id": 11,
+                "Id": 19,
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
@@ -354,7 +354,7 @@
           "__type": "Sandbox.SkinnedModelRenderer",
           "__guid": "3efec7a5-938e-4a65-afdc-bc638c3bcd58",
           "__enabled": true,
-          "AnimationGraph": "weapons/rocket_spin.vanmgrph",
+          "AnimationGraph": null,
           "BodyGroups": 18446744073709551615,
           "BoneMergeTarget": null,
           "CreateAttachments": false,
@@ -393,6 +393,74 @@
           },
           "Tint": "1,1,1,1",
           "UseAnimGraph": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "c8437991-2005-4123-9e1e-e36025de0e21",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Cube",
+      "Position": "212.496,-7140.876,-47735.93",
+      "Rotation": "0,0,0,1",
+      "Scale": "3.313711,2.985103,1.787579",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8fe5da23-84db-4f02-8baa-80834e0aa34e",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/dev/box.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,0,0,1"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "d994b960-4199-40c0-b67c-f3ce7a5faf83",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         }
       ],
       "Children": []
