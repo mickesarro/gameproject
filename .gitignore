@@ -27,3 +27,7 @@ code/Editor/.vscode/*
 
 # Linux-fix
 Libraries/tux.linuxfix/
+
+# Visual studio and S&box config files
+*.sln
+/.sbox
