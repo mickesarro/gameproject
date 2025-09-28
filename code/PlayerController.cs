@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Sandbox;
 using Sandbox.Citizen;
+using Sandbox.Utility;
 
 [Title("Sauce Character Controller")]
 [Category("Physics")]
@@ -11,6 +12,7 @@ using Sandbox.Citizen;
 
 public sealed class PlayerController : Component
 {
+	// omat custom jutut ehkä hyvä merkata
 
     [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
@@ -55,8 +57,6 @@ public sealed class PlayerController : Component
     [Sync] public bool IsCrouching {get;set;} = false;
     public bool IsWalking = false;
     [Sync] public bool IsOnGround {get;set;} = false;
-    
-    [Sync] public bool IsFiring {get;set;} = false;
 
     // Internal objects
     private CitizenAnimationHelper animationHelper;
@@ -233,18 +233,6 @@ public sealed class PlayerController : Component
         }
 
         if (Input.Pressed("Duck") || Input.Released("Duck")) CrouchTime += CrouchCost;
-
-        if ( Input.Pressed( "attack1" ) )
-        {
-	        Fire();
-        }
-    }
-    
-    private void Fire()
-    {
-	    IsFiring = true;
-	    IsFiring = false;
-	    Log.Info( "asdadasd" );
     }
 
     private void UpdateCitizenAnims() {

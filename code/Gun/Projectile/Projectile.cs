@@ -1,21 +1,22 @@
 
+using Sandbox.Utility;
+
 /// <summary>
 /// A simple class for e.g. bullets or rocket ammo.
 /// </summary>
 public sealed class Projectile : Component
 {
+	[Property] private float velocity = 1100f;
 
-	[Property] private float velocity = 20f;
-
-	private Collider collider;
+	private CapsuleCollider collider;
 
 	protected override void OnAwake()
 	{
 		base.OnAwake();
-		collider = GetComponent<Collider>();
+		collider = GetComponent<CapsuleCollider>();
 		if ( collider != null)
 		{
-			collider.OnTriggerEnter += OnCollision;
+			collider.OnObjectTriggerEnter = OnObjectTriggerEnter;
 		} else
 		{
 			Log.Warning( "No collider found" );
@@ -24,15 +25,20 @@ public sealed class Projectile : Component
 
 	protected override void OnFixedUpdate()
 	{
-		WorldPosition += WorldTransform.Forward * velocity;
+		// Time.Delta should decouple this calculation from game fps T: chatgpt
+		WorldPosition += WorldTransform.Forward * velocity * Time.Delta;
 	}
 
-
-	private void OnCollision(Collider collider)
+	private void OnObjectTriggerEnter( GameObject objectHit )
 	{
-		// So it doesn't collide immediately
-		// !! FOR TESTING ONLY
-		if ( collider.Tags.Contains( "player" ) )
+		Log.Info("Object hit tags: " + objectHit.Tags );
+		OnCollision( objectHit );
+	}
+
+	private void OnCollision(GameObject objectHit)
+	{
+		Log.Info("Projectile tags: " + collider.Tags);
+		if ( objectHit.Tags.Contains( Steam.SteamId.ToString() ))
 		{
 			return;
 		}

@@ -7,7 +7,7 @@
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
-    "Tags": "player",
+    "Tags": "",
     "Enabled": true,
     "NetworkMode": 1,
     "NetworkInterpolation": true,
@@ -50,7 +50,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "velocity": 20
+        "velocity": 1100
       },
       {
         "__type": "Sandbox.CapsuleCollider",
@@ -76,9 +76,94 @@
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
+      },
+      {
+        "__type": "Sandbox.Helpers.SetSteamId",
+        "__guid": "4fff217c-8544-4b40-b392-2a8f7fba998b",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
-    "Children": [],
+    "Children": [
+      {
+        "__guid": "494d9231-f199-4061-821a-3d8412e2af7f",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "trail",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.TrailRenderer",
+            "__guid": "d07844eb-3704-4e18-a991-3f867f8bc1d0",
+            "__enabled": true,
+            "BlendMode": "Lighten",
+            "CastShadows": false,
+            "Color": {
+              "blend": "Linear",
+              "color": [
+                {
+                  "t": 0.5,
+                  "c": "0,1,1,1"
+                }
+              ],
+              "alpha": []
+            },
+            "Emitting": true,
+            "Face": "Normal",
+            "LifeTime": 0.59999937,
+            "MaxPoints": 64,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opaque": false,
+            "PointDistance": 3.5000033,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "Texturing": {
+              "Texture": null,
+              "Material": null,
+              "WorldSpace": true,
+              "UnitsPerTexture": 9.999994,
+              "Scale": 1,
+              "Offset": 0,
+              "Scroll": 0,
+              "Clamp": false
+            },
+            "Width": [
+              {
+                "x": 0.5,
+                "y": 5,
+                "in": 0,
+                "out": 0,
+                "mode": "Mirrored"
+              }
+            ],
+            "Wireframe": false
+          }
+        ],
+        "Children": []
+      }
+    ],
     "__properties": {
       "NetworkInterpolation": true,
       "TimeScale": 1,

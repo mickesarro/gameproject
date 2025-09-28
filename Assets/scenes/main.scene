@@ -198,7 +198,7 @@
           "OnObjectTriggerEnter": {
             "__version": 9,
             "__guid": "136b579b-20d0-4bca-8d69-55267187fb5e",
-            "__changeId": 15,
+            "__changeId": 16,
             "UserData": {
               "Title": "On Object Enter",
               "ReferencedComponentTypes": []
@@ -405,7 +405,7 @@
       "Position": "212.496,-7140.876,-47735.93",
       "Rotation": "0,0,0,1",
       "Scale": "3.313711,2.985103,1.787579",
-      "Tags": "",
+      "Tags": "world",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
