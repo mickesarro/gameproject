@@ -1645,7 +1645,7 @@
                   "DstName": "condition"
                 },
                 {
-                  "Id": 16,
+                  "Id": 17,
                   "Value": "attack1",
                   "DstId": 2,
                   "DstName": "action"
