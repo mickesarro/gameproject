@@ -22,7 +22,7 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
-        "loadTime": 1,
+        "loadTime": 0.5,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -32,6 +32,10 @@
         "projectilePrefab": {
           "_type": "gameobject",
           "prefab": "projectile.prefab"
+        },
+        "viewmodel": {
+          "_type": "gameobject",
+          "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         }
       }
     ],
@@ -88,7 +92,7 @@
             },
             "RenderType": "Off",
             "Sequence": {
-              "Name": null,
+              "Name": "Fire_01",
               "Looping": true,
               "Blending": false
             },
@@ -1554,7 +1558,7 @@
             "OnUpdateAction": {
               "__version": 9,
               "__guid": "a1f4e84d-765b-41d1-a8ce-4df2755bc972",
-              "__changeId": 47,
+              "__changeId": 48,
               "UserData": {
                 "Title": "On Update Action"
               },
@@ -1641,7 +1645,7 @@
                   "DstName": "condition"
                 },
                 {
-                  "Id": 17,
+                  "Id": 16,
                   "Value": "attack1",
                   "DstId": 2,
                   "DstName": "action"
@@ -1715,7 +1719,7 @@
         "__version": 1,
         "Flags": 0,
         "Name": "barrel_end",
-        "Position": "19.21155,0,0",
+        "Position": "20,0,0",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
         "Tags": "",

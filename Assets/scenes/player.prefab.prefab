@@ -91,6 +91,17 @@
         "UseCustomFOV": false,
         "UseCustomGravity": true,
         "Weight": 1
+      },
+      {
+        "__type": "Sandbox.Helpers.SetSteamId",
+        "__guid": "527a1628-d7c2-43b5-ac71-82d4609d4558",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
