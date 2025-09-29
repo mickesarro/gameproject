@@ -1,7 +1,6 @@
 # "A movement shooter"
 The game is built with Facepunch's [S&box](https://sbox.game/) game engine/development framework.
 
-
 ## What is the goal of our game?​
 - First person movement shooter​
 - Fun and intuitive movement​
@@ -32,5 +31,12 @@ See:​
 Hear:​
 - Player movement​
 - Shooting​
-- Background music or other ambient sounds  (?)​
+- Background music or other ambient sounds (?)​
 - Various other SFXs
+
+## Attribution
+This project uses the "Sauce-Movement-Base" by SmileCorp,
+licensed under the Creative Commons Attribution 4.0 International License.\
+Original code available at: https://github.com/smilefordiscord/Sauce-Movement-Base.git
+
+License for that is in [this file](./SAUCE-MOVEMENT-BASE-LICENSE).
