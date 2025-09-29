@@ -1,9 +1,21 @@
+/*
+ * This file is based on "Sauce-Movement-Base" by SmileCorp,
+ * licensed under the Creative Commons Attribution 4.0 International License.
+ * Original available at: https://github.com/smilefordiscord/Sauce-Movement-Base.git
+ *
+ * Modifications include the following:
+ * - Updated obsolete S&box APIs to new ones
+ * - Removed unused imports
+ * - Refactored and optimized code structure
+ * - Removed Fire method and related functionality
+ *
+ * License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+ */
+
+// See OnUpdate method comments regarding line starting with "Body.WorldRotation"
+
 using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using Sandbox;
 using Sandbox.Citizen;
-using Sandbox.Utility;
 
 [Title("Sauce Character Controller")]
 [Category("Physics")]
@@ -80,7 +92,7 @@ public sealed class PlayerController : Component
     [Property, Group("Size"), Description("CS2 Default: 54f")] private float CroucingHeight {get;set;} = 54f;
     [Sync] private float Height {get;set;} = 72f;
     [Sync] private float HeightGoal {get;set;} = 72f;
-    private BBox BoundingBox => new BBox(new Vector3(-Radius * GameObject.Transform.Scale.x, -Radius * GameObject.Transform.Scale.y, 0f), new Vector3(Radius * GameObject.Transform.Scale.x, Radius * GameObject.Transform.Scale.y, HeightGoal * GameObject.Transform.Scale.z));
+    private BBox BoundingBox => new BBox(new Vector3(-Radius * GameObject.WorldScale.x, -Radius * GameObject.WorldScale.y, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, HeightGoal * GameObject.WorldScale.z));
     private int _stuckTries;
 
     // Synced internal vars
@@ -122,20 +134,20 @@ public sealed class PlayerController : Component
             return;
         }
 
-        Vector3 position = base.GameObject.Transform.Position;
+        Vector3 position = GameObject.WorldPosition;
         CharacterControllerHelper characterControllerHelper = new CharacterControllerHelper(BuildTrace(position, position), position, Velocity);
         characterControllerHelper.Bounce = 0;
         characterControllerHelper.MaxStandableAngle = 45.5f;
         if (step && IsOnGround)
         {
-            characterControllerHelper.TryMoveWithStep(Time.Delta, 18f * GameObject.Transform.Scale.z);
+            characterControllerHelper.TryMoveWithStep(Time.Delta, 18f * GameObject.WorldScale.z);
         }
         else
         {
             characterControllerHelper.TryMove(Time.Delta);
         }
 
-        base.Transform.Position = characterControllerHelper.Position;
+        base.WorldPosition = characterControllerHelper.Position;
         Velocity = characterControllerHelper.Velocity;
     }
     
@@ -155,7 +167,7 @@ public sealed class PlayerController : Component
     }
 
     private bool TryUnstuck() {
-        if (!BuildTrace(base.Transform.Position, base.Transform.Position).Run().StartedSolid)
+        if (!BuildTrace(base.WorldPosition, base.WorldPosition).Run().StartedSolid)
         {
             _stuckTries = 0;
             return false;
@@ -164,15 +176,15 @@ public sealed class PlayerController : Component
         int num = 20;
         for (int i = 0; i < num; i++)
         {
-            Vector3 vector = base.Transform.Position + Vector3.Random.Normal * ((float)_stuckTries / 2f);
+            Vector3 vector = base.WorldPosition + Vector3.Random.Normal * ((float)_stuckTries / 2f);
             if (i == 0)
             {
-                vector = base.Transform.Position + Vector3.Up * 2f;
+                vector = base.WorldPosition + Vector3.Up * 2f;
             }
 
             if (!BuildTrace(vector, vector).Run().StartedSolid)
             {
-                base.Transform.Position = vector;
+                base.WorldPosition = vector;
                 return false;
             }
         }
@@ -182,7 +194,7 @@ public sealed class PlayerController : Component
     }
 
     private void CategorizePosition() {
-        Vector3 position = base.Transform.Position;
+        Vector3 position = base.WorldPosition;
         Vector3 to = position + Vector3.Down * 2f;
         Vector3 from = position;
         bool isOnGround = IsOnGround;
@@ -205,7 +217,7 @@ public sealed class PlayerController : Component
         // GroundCollider = sceneTraceResult.Shape?.Collider as Collider;
         if (isOnGround && !sceneTraceResult.StartedSolid && sceneTraceResult.Fraction > 0f && sceneTraceResult.Fraction < 1f)
         { // for some reason this fixes sliding down slopes when standing still, idek
-            base.Transform.Position = sceneTraceResult.EndPosition + sceneTraceResult.Normal * 0f; 
+            base.WorldPosition = sceneTraceResult.EndPosition + sceneTraceResult.Normal * 0f;
         }
     }
 
@@ -328,8 +340,8 @@ public sealed class PlayerController : Component
         if (Velocity.z < 0) Velocity = Velocity.WithZ(0);
 
         if ((AutoBunnyhopping && Input.Down("Jump")) || Input.Pressed("Jump")) {
-            jumpStartHeight = GameObject.Transform.Position.z;
-            jumpHighestHeight = GameObject.Transform.Position.z;
+            jumpStartHeight = GameObject.WorldPosition.z;
+            jumpHighestHeight = GameObject.WorldPosition.z;
             animationHelper.TriggerJump();
             Punch(new Vector3(0, 0, JumpForce * StaminaMultiplier));
             Stamina -= Stamina * StaminaJumpCost * 2.9625f;
@@ -346,12 +358,12 @@ public sealed class PlayerController : Component
     
     protected override void DrawGizmos() {
         BBox box = new BBox(new Vector3(-Radius, -Radius, 0f), new Vector3(Radius, Radius, Height));
-        box.Rotate(GameObject.Transform.LocalRotation.Inverse);
+        box.Rotate(GameObject.LocalRotation.Inverse);
         Gizmo.Draw.LineBBox(in box);
     }
     
 	protected override void OnAwake() {
-        Scene.FixedUpdateFrequency = 64;
+		Sandbox.ProjectSettings.Physics.FixedUpdateFrequency = 64;
 
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
@@ -386,11 +398,11 @@ public sealed class PlayerController : Component
         if (IsCrouching) {
             HeightGoal = CroucingHeight;
         } else {
-            var startPos = GameObject.Transform.Position;
-            var endPos = GameObject.Transform.Position + new Vector3(0, 0, StandingHeight * GameObject.Transform.Scale.z);
+            var startPos = GameObject.WorldPosition;
+            var endPos = GameObject.WorldPosition + new Vector3(0, 0, StandingHeight * GameObject.WorldScale.z);
             var crouchTrace = Scene.Trace.Ray(startPos, endPos)
                                         .IgnoreGameObject(GameObject)
-                                        .Size(new BBox(new Vector3(-Radius, -Radius, 0f), new Vector3(Radius * GameObject.Transform.Scale.x, Radius * GameObject.Transform.Scale.y, 0)))
+                                        .Size(new BBox(new Vector3(-Radius, -Radius, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, 0)))
                                         .Run();
             if (crouchTrace.Hit) {
                 HeightGoal = CroucingHeight;
@@ -414,13 +426,13 @@ public sealed class PlayerController : Component
         
         if (AlreadyGrounded != IsOnGround) {
             if (IsOnGround) {
-                var heightMult = Math.Abs(jumpHighestHeight - GameObject.Transform.Position.z) / 46f;
+                var heightMult = Math.Abs(jumpHighestHeight - GameObject.WorldPosition.z) / 46f;
                 Stamina -= Stamina * StaminaLandingCost * 2.9625f * heightMult.Clamp(0, 1f);
                 Stamina = (Stamina * 10).FloorToInt() * 0.1f;
                 if (Stamina < 0) Stamina = 0;
             } else {
-                jumpStartHeight = GameObject.Transform.Position.z;
-                jumpHighestHeight = GameObject.Transform.Position.z;
+                jumpStartHeight = GameObject.WorldPosition.z;
+                jumpHighestHeight = GameObject.WorldPosition.z;
             }
         } else {
             if(IsOnGround) ApplyFriction();
@@ -442,18 +454,18 @@ public sealed class PlayerController : Component
         Stamina += StaminaRecoveryRate * Time.Delta;
         if (Stamina > MaxStamina) Stamina = MaxStamina;
         
-        if (HeightDiff > 0f) GameObject.Transform.Position += new Vector3(0, 0, HeightDiff * 0.5f);
-        Velocity *= GameObject.Transform.Scale;
+        if (HeightDiff > 0f) GameObject.WorldPosition += new Vector3(0, 0, HeightDiff * 0.5f);
+        Velocity *= GameObject.WorldScale;
         Move();
         CategorizePosition();
-        Velocity /= GameObject.Transform.Scale;
+        Velocity /= GameObject.WorldScale;
         
         Velocity += Gravity * Time.Delta * 0.5f;
         
         // Terminal velocity
         if (Velocity.Length > 3500) Velocity = Velocity.Normal * 3500;
 
-        if (jumpHighestHeight < GameObject.Transform.Position.z) jumpHighestHeight = GameObject.Transform.Position.z;
+        if (jumpHighestHeight < GameObject.WorldPosition.z) jumpHighestHeight = GameObject.WorldPosition.z;
     }
     
 	protected override void OnUpdate() {
@@ -465,7 +477,9 @@ public sealed class PlayerController : Component
         
 		BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.On;
 
-		Body.Transform.Rotation = SmoothLookAngleAngles.WithPitch(0).ToRotation();
+		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
+		// Body rotation might not need to happen in world space but rather in local space.
+		Body.WorldRotation = SmoothLookAngleAngles.WithPitch(0).ToRotation();
         
 		if ( IsProxy )
 			return;
@@ -486,8 +500,8 @@ public sealed class PlayerController : Component
             angles = angles + new Angles(0, 0, sidetiltLerp);
         }
 
-		Camera.Transform.Position = GameObject.Transform.Position + new Vector3(0, 0, Height * 0.89f * GameObject.Transform.Scale.z);
-		Camera.Transform.Rotation = angles.ToRotation();
+		Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
+		Camera.WorldRotation = angles.ToRotation();
 
         if (UseCustomFOV) {
             Camera.FieldOfView = CustomFOV;
