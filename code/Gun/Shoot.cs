@@ -32,6 +32,7 @@ public sealed class Shoot : Component
 			// + pitääköhän projektiilin spawnata ruudun keskeltä ja näyttää client side vaan jotai muuta?
 			// V: Voi olla näin, pitänee perehtyä tarkemmin
 			var projectile = projectilePrefab.Clone( barrelEnd.WorldTransform );
+			projectile.NetworkSpawn();
 			elapsed = 0.0f;
 			Animations();
 

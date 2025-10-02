@@ -102,6 +102,23 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.ManualHitbox",
+        "__guid": "85cef2cd-4b41-41f1-ae09-8cea0a424bc2",
+        "__enabled": true,
+        "CenterA": "0,0,36",
+        "CenterB": "32,32,72",
+        "HitboxTags": "",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 10,
+        "Shape": "Box",
+        "Target": null
       }
     ],
     "Children": [

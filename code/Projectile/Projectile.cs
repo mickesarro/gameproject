@@ -43,6 +43,8 @@ public sealed class Projectile : Component
 		{
 			BlastForce = 500.0f,
 		};
+		blastEffect.NetworkSpawn();
+		Log.Info( blastEffect + " " + WorldPosition );
 		blastEffect.TriggerBlast( WorldPosition );
 
 		// Just destroy for now
