@@ -32,4 +32,6 @@ Libraries/tux.linuxfix/
 # Visual studio and S&box config files
 *.sln
 *.sln.DotSettings.user
+*.slnx
+*.slnx.DotSettings.user
 /.sbox
