@@ -300,7 +300,7 @@
                 "DstName": "parent"
               },
               {
-                "Id": 20,
+                "Id": 24,
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -324,7 +324,7 @@
                 "DstName": "_target"
               },
               {
-                "Id": 21,
+                "Id": 25,
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
@@ -481,6 +481,23 @@
       "OwnerTransfer": 1,
       "Components": [
         {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "e7506767-e33b-4ba7-8c21-5d390f8963b4",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
+          "ZIndex": 100
+        },
+        {
           "__type": "UISystem.UIManager",
           "__guid": "1256d9bb-661c-493c-b34f-15349b674229",
           "__enabled": true,
@@ -625,6 +642,35 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "7e404c37-6a7a-436d-a698-b565283bce21",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "InputManager",
+      "Position": "-126.4293,-187.5311,115.5769",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "InputManager",
+          "__guid": "77c5aa28-8454-4725-aacc-eaff7178a653",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
