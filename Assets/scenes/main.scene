@@ -300,7 +300,7 @@
                 "DstName": "parent"
               },
               {
-                "Id": 18,
+                "Id": 20,
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -324,7 +324,7 @@
                 "DstName": "_target"
               },
               {
-                "Id": 19,
+                "Id": 21,
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
@@ -464,6 +464,167 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "18e80c97-3522-4da7-bdfe-7943c6870974",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "UI",
+      "Position": "300,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "UISystem.UIManager",
+          "__guid": "1256d9bb-661c-493c-b34f-15349b674229",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "StartLayer": {
+            "_type": "component",
+            "component_id": "f3203b22-c972-4d31-8f81-d595a799e1d8",
+            "go": "2a09932f-a2d2-48fa-a88f-be6f33909e36",
+            "component_type": "HUD"
+          },
+          "UILayers": [
+            {
+              "_type": "component",
+              "component_id": "f3203b22-c972-4d31-8f81-d595a799e1d8",
+              "go": "2a09932f-a2d2-48fa-a88f-be6f33909e36",
+              "component_type": "HUD"
+            },
+            {
+              "_type": "component",
+              "component_id": "c1115c74-fa64-47f0-976b-61ca650b3ae5",
+              "go": "372be5a0-37b7-4d93-8434-826e16fc3dd3",
+              "component_type": "PauseMenu"
+            },
+            {
+              "_type": "component",
+              "component_id": "f28ab37b-8502-42f3-b595-4ade4ab69378",
+              "go": "140335af-b0e7-4cae-b14b-b85a67f37a09",
+              "component_type": "Inventory"
+            }
+          ]
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "2a09932f-a2d2-48fa-a88f-be6f33909e36",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "HUD",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.HUD",
+              "__guid": "f3203b22-c972-4d31-8f81-d595a799e1d8",
+              "__enabled": true,
+              "ammunitionLeft": 7,
+              "maxAmmunition": 24,
+              "MyStringValue": "Hello World!",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "372be5a0-37b7-4d93-8434-826e16fc3dd3",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "PauseMenu",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.PauseMenu",
+              "__guid": "c1115c74-fa64-47f0-976b-61ca650b3ae5",
+              "__enabled": true,
+              "MyStringValue": "ajsdfaiöwejfiöasdf!",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "140335af-b0e7-4cae-b14b-b85a67f37a09",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Inventory",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.Inventory",
+              "__guid": "f28ab37b-8502-42f3-b595-4ade4ab69378",
+              "__enabled": true,
+              "InventoryItems": [
+                "sdfas",
+                "r",
+                "22321",
+                "wea",
+                "2",
+                "wawea",
+                "2",
+                "awa",
+                "w",
+                "wq2"
+              ],
+              "MyStringValue": "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Rows": 3
+            }
+          ],
+          "Children": []
+        }
+      ]
     }
   ],
   "SceneProperties": {

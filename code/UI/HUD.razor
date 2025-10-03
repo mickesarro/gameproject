@@ -1,0 +1,22 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits UISystem.UILayer
+@namespace Sandbox
+
+<root>
+    <div class="bullet-counter">@ammunitionLeft / @maxAmmunition</div>
+</root>
+
+@code
+{
+
+    [Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
+    [Property] public int ammunitionLeft { get; set; } = 7;
+    [Property] public int maxAmmunition { get; set; } = 24;
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+
+}
