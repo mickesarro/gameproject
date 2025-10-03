@@ -464,6 +464,175 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "04a12068-3e5c-4d53-9812-0ee528513d2c",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Line",
+      "Position": "98.01984,-7726.277,-47772.11",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.LineRenderer",
+          "__guid": "5670b0bf-5267-4cad-94df-6e1a1bfe2364",
+          "__enabled": true,
+          "Additive": false,
+          "AutoCalculateNormals": true,
+          "CastShadows": true,
+          "Color": {
+            "blend": "Linear",
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "CylinderSegments": 12,
+          "DepthFeather": 0,
+          "EndCap": "Rounded",
+          "Face": "Camera",
+          "FogStrength": 1,
+          "Lighting": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opaque": false,
+          "Points": [
+            {
+              "_type": "gameobject",
+              "go": "85226922-9c75-4efa-bc00-c93b3e1babfb"
+            },
+            {
+              "_type": "gameobject",
+              "go": "05ddcfae-22bd-4893-a655-192870c5e28a"
+            },
+            {
+              "_type": "gameobject",
+              "go": "f2d94d50-d791-473b-9ea2-acea9cba70cb"
+            },
+            {
+              "_type": "gameobject",
+              "go": "78068245-c58b-4b7f-8dfe-e23b98110bfb"
+            }
+          ],
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "SplineBias": 0,
+          "SplineContinuity": 0,
+          "SplineInterpolation": 8,
+          "SplineTension": 0,
+          "StartCap": "Rounded",
+          "Texturing": {
+            "Texture": null,
+            "Material": null,
+            "WorldSpace": true,
+            "UnitsPerTexture": 10,
+            "Scale": 1,
+            "Offset": 0,
+            "Scroll": 0,
+            "Clamp": false
+          },
+          "UseVectorPoints": false,
+          "VectorPoints": [],
+          "Width": [
+            {
+              "x": 0,
+              "y": 1,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
+            }
+          ],
+          "Wireframe": false
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "85226922-9c75-4efa-bc00-c93b3e1babfb",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Point 1",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "05ddcfae-22bd-4893-a655-192870c5e28a",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Point 2",
+          "Position": "-16,56,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "f2d94d50-d791-473b-9ea2-acea9cba70cb",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Point 3",
+          "Position": "16,56,48",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "78068245-c58b-4b7f-8dfe-e23b98110bfb",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Point 4",
+          "Position": "0,0,48",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        }
+      ]
     }
   ],
   "SceneProperties": {
