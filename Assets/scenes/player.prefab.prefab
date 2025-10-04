@@ -119,6 +119,20 @@
         "Radius": 10,
         "Shape": "Box",
         "Target": null
+      },
+      {
+        "__type": "CharacterHealth",
+        "__guid": "f5555499-6cc1-4c5a-9af7-3f20796ecf89",
+        "__enabled": true,
+        "Deaths": 0,
+        "Health": 100,
+        "MaxHealth": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

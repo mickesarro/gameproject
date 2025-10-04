@@ -1,10 +1,9 @@
-using Sandbox.UI;
 using Sandbox.Utility;
 
 /// <summary>
 /// 
 /// </summary>
-public sealed class ItemPickup : Component
+public sealed class ItemPickup : Component, Component.ITriggerListener
 {
 	// Imitates the one that was done using the visual script
 
@@ -15,17 +14,17 @@ public sealed class ItemPickup : Component
 	protected override void OnAwake()
 	{
 		base.OnAwake();
-		collider = GetComponent<Collider>();
-		collider.OnObjectTriggerEnter += OnTriggerEnter;
+		// collider = GetComponent<Collider>();
+		// collider.OnObjectTriggerEnter += OnTriggerEnter;
 	}
 
-	private void OnTriggerEnter(GameObject other)
+	public void OnTriggerEnter( Collider other )
 	{
 		if ( other.Tags.Contains( Steam.SteamId.ToString() ) )
 		{
 			var gun = GunPrefab.Clone( new Transform(), parent: Camera, startEnabled: true );
 
-			// This is for beginning testing only. Probably some interface or some other means needed.
+			// This is to get the first version of gun system workin only. Probably some interface or some other means needed.
 			gun.GetComponent<Gun>().User = other.GetComponent<PlayerController>();
 			DestroyGameObject();
 		}

@@ -1,6 +1,8 @@
-using System.Numerics;
 using Sandbox;
 
+/// <summary>
+/// Base class for gun behaviour
+/// </summary>
 public sealed class Gun : Component
 {
 	[Property] public PlayerController User { get; set; }
@@ -69,12 +71,11 @@ public sealed class Gun : Component
 	
 	private void FireBullet()
 	{
-
-		var screenCenter = Game.ActiveScene.Camera.WorldPosition;
-		var endPoint = screenCenter + WorldTransform.Forward * int.MaxValue;
+		// Shoot from the viewport
+		var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
+		var endPoint = screenCenter + (WorldTransform.Forward * int.MaxValue);
 
 		TraceBullet(screenCenter, endPoint, toIgnore: User.GameObject);
-
 	}
 
 	private void TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -99,17 +100,24 @@ public sealed class Gun : Component
 				}
 			);
 
-			Log.Info( "Ray hit" );
+			SpawnTracer();
+
+			Log.Info( "Ray hit" ); // Remove later
 		}
 	}
 
 	private void SpawnTracer()
 	{
-
+		// Shoot visual tracer for bullet
 	}
 
 	private void FireProjectile()
 	{
+		if (bulletData.ProjectilePrefab == null)
+		{
+			Log.Error( "No projectile prefab supplied, aborting." );
+		}
+
 		bulletData.ProjectilePrefab
 			.Clone(
 				gunData.BarrelEnd.WorldTransform
