@@ -5,6 +5,7 @@
 
 <root>
     <div class="bullet-counter">@ammunitionLeft / @maxAmmunition</div>
+    <TestUI Speed=@Speed />
 </root>
 
 @code
@@ -13,10 +14,11 @@
     [Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
     [Property] public int ammunitionLeft { get; set; } = 7;
     [Property] public int maxAmmunition { get; set; } = 24;
+    [Property, Hide] public int Speed { get; set; } = 0;
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+    protected override int BuildHash() => System.HashCode.Combine( ammunitionLeft + Speed );
 
 }

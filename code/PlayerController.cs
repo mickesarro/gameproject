@@ -8,6 +8,7 @@
  * - Removed unused imports
  * - Refactored and optimized code structure
  * - Removed Fire method and related functionality
+ * - Changed Speed update to go through HUD
  *
  * License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
  */
@@ -25,6 +26,7 @@ using Sandbox.Citizen;
 public sealed class PlayerController : Component
 {
 	// omat custom jutut ehkä hyvä merkata
+	[Property] private HUD HUD { get; set; }
 
     [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
@@ -369,6 +371,7 @@ public sealed class PlayerController : Component
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
 
 		Camera = Scene.Camera.Components.Get<CameraComponent>();
+		HUD = Scene.Get<HUD>();
         
         Height = StandingHeight;
         HeightGoal = StandingHeight;
@@ -440,10 +443,10 @@ public sealed class PlayerController : Component
         
         if(IsOnGround) {
             GroundMove();
-            Camera.Components.Get<TestUI>().Speed = Velocity.Length.CeilToInt();
+            HUD.Speed = Velocity.Length.CeilToInt();
         } else {
             AirMove();
-            Camera.Components.Get<TestUI>().Speed = Velocity.WithZ(0).Length.CeilToInt();
+			HUD.Speed = Velocity.WithZ(0).Length.CeilToInt();
         }
         
         AlreadyGrounded = IsOnGround;

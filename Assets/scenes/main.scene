@@ -40,35 +40,6 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 1
-        },
-        {
-          "__type": "Sandbox.ScreenPanel",
-          "__guid": "03d0a895-1b4f-4751-9586-96165741437c",
-          "__enabled": true,
-          "AutoScreenScale": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Opacity": 1,
-          "Scale": 1,
-          "ScaleStrategy": "ConsistentHeight",
-          "TargetCamera": null,
-          "ZIndex": 100
-        },
-        {
-          "__type": "TestUI",
-          "__guid": "7b691492-5184-4071-a01f-0b1c022bcf27",
-          "__enabled": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Speed": 0
         }
       ],
       "Children": [
@@ -300,7 +271,7 @@
                 "DstName": "parent"
               },
               {
-                "Id": 24,
+                "Id": 23,
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -324,7 +295,7 @@
                 "DstName": "_target"
               },
               {
-                "Id": 25,
+                "Id": 24,
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
