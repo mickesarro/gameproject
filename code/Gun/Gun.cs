@@ -3,7 +3,7 @@ using Sandbox;
 
 public sealed class Gun : Component
 {
-	[Property] public PlayerController User { get; private set; }
+	[Property] public PlayerController User { get; set; }
 	[Property] private GunData gunData { get; set; }
 	private BulletData bulletData; // Just for convenience
 
@@ -21,10 +21,22 @@ public sealed class Gun : Component
 		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>();
 
 		bulletData = gunData.BulletData;
+	}
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+
+		// If the player picks the weapon, it wont have a User pre-set
+		User ??= GameObject?.Parent.GetComponent<PlayerController>();
+
+		Log.Info( User );
+		Log.Info( GameObject?.Parent );
 
 		if (User != null)
 		{
 			playerBBox = User.GetComponent<BBox>();
+			Log.Info( "Bounding box found" );
 		}
 	}
 
@@ -61,7 +73,7 @@ public sealed class Gun : Component
 		var screenCenter = Game.ActiveScene.Camera.WorldPosition;
 		var endPoint = screenCenter + WorldTransform.Forward * int.MaxValue;
 
-		TraceBullet(screenCenter, endPoint);
+		TraceBullet(screenCenter, endPoint, toIgnore: User.GameObject);
 
 	}
 
