@@ -6,7 +6,7 @@ using Sandbox;
 public sealed class Gun : Component, IWeapon, ICollectable
 {
 	[Property] public GameObject User { get; set; }
-	[Property] private GunData gunData { get; set; }
+	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
 	private BulletData bulletData; // Just for convenience
@@ -34,13 +34,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// If the player picks the weapon, it wont have a User pre-set
 		User ??= GameObject?.Parent;
 
-		Log.Info( User );
-		Log.Info( GameObject?.Parent );
-
 		if (User != null)
 		{
 			playerBBox = User.GetComponent<BBox>();
-			Log.Info( "Bounding box found" );
 		}
 	}
 
@@ -136,6 +132,5 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
-		Log.Info( $"{enable}: {GameObject.Enabled}" );
 	}
 }

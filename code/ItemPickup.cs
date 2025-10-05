@@ -29,6 +29,8 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 		if ( other.Tags.Contains( Steam.SteamId.ToString() ) )
 		{
 			Parent ??= other.GameObject;
+
+			// Not enabling at first is important as picking up new weapons would then result in multiple enabled
 			var item = ItemPrefab.Clone( new Transform(), parent: Parent, startEnabled: false );
 
 			item.GetComponent<ICollectable>( includeDisabled: true )?.Collect( other.GameObject );

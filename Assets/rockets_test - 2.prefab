@@ -88,7 +88,7 @@
         "__type": "BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
-        "Damage": 100,
+        "Damage": 10,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

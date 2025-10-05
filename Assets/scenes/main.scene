@@ -195,152 +195,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": {
-            "__version": 9,
-            "__guid": "136b579b-20d0-4bca-8d69-55267187fb5e",
-            "__changeId": 16,
-            "UserData": {
-              "Title": "On Object Enter",
-              "ReferencedComponentTypes": []
-            },
-            "Variables": [],
-            "Nodes": [
-              {
-                "Id": 0,
-                "Type": "input",
-                "UserData": {
-                  "Position": "-168,-12"
-                }
-              },
-              {
-                "Id": 1,
-                "Type": "call",
-                "Properties": {
-                  "_isStatic": false,
-                  "_name": "Destroy",
-                  "_type": "Sandbox.GameObject"
-                },
-                "UserData": {
-                  "Position": "24,-24"
-                }
-              },
-              {
-                "Id": 2,
-                "Type": "call",
-                "Properties": {
-                  "_isStatic": false,
-                  "_name": "ToPrefabFile",
-                  "_type": "Sandbox.PrefabScene"
-                },
-                "UserData": {
-                  "Position": "348,36"
-                }
-              },
-              {
-                "Id": 3,
-                "Type": "scene.instantiate",
-                "UserData": {
-                  "Position": "636,36"
-                }
-              },
-              {
-                "Id": 4,
-                "Type": "scene.ref",
-                "UserData": {
-                  "Position": "420,156"
-                }
-              },
-              {
-                "Id": 5,
-                "Type": "property",
-                "Properties": {
-                  "_name": "LocalPosition",
-                  "_type": "Sandbox.GameObject"
-                },
-                "UserData": {
-                  "Position": "936,24"
-                }
-              }
-            ],
-            "Links": [
-              {
-                "SrcId": 0,
-                "SrcName": "_signal",
-                "DstId": 1,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 0,
-                "SrcName": "_target",
-                "DstId": 1,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 1,
-                "SrcName": "_signal",
-                "DstId": 2,
-                "DstName": "_signal"
-              },
-              {
-                "Id": 17,
-                "Value": null,
-                "DstId": 2,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 2,
-                "SrcName": "_signal",
-                "DstId": 3,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 4,
-                "SrcName": "_result",
-                "DstId": 3,
-                "DstName": "parent"
-              },
-              {
-                "Id": 18,
-                "Value": "0,0,0",
-                "DstId": 3,
-                "DstName": "position"
-              },
-              {
-                "SrcId": 2,
-                "SrcName": "_result",
-                "DstId": 3,
-                "DstName": "prefab"
-              },
-              {
-                "SrcId": 3,
-                "SrcName": "_signal",
-                "DstId": 5,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 3,
-                "SrcName": "_result",
-                "DstId": 5,
-                "DstName": "_target"
-              },
-              {
-                "Id": 19,
-                "Value": "0,0,0",
-                "DstId": 5,
-                "DstName": "_value"
-              }
-            ],
-            "Defaults": {
-              "$4.gameobject": {
-                "_type": "gameobject",
-                "go": "e0757b65-802e-415e-a527-a140268a35fa"
-              },
-              "$17._value": {
-                "_type": "gameobject",
-                "prefab": "rockets_test.prefab"
-              }
-            }
-          },
+          "OnObjectTriggerEnter": null,
           "OnObjectTriggerExit": null,
           "OnTriggerEnter": null,
           "OnTriggerExit": null,
@@ -353,6 +208,124 @@
         {
           "__type": "Sandbox.SkinnedModelRenderer",
           "__guid": "3efec7a5-938e-4a65-afdc-bc638c3bcd58",
+          "__enabled": true,
+          "AnimationGraph": null,
+          "BodyGroups": 18446744073709551615,
+          "BoneMergeTarget": null,
+          "CreateAttachments": false,
+          "CreateBoneObjects": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
+          "Morphs": {},
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parameters": {
+            "bools": {},
+            "ints": {},
+            "floats": {},
+            "vectors": {},
+            "rotations": {}
+          },
+          "PlaybackRate": 1,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Sequence": {
+            "Name": null,
+            "Looping": true,
+            "Blending": false
+          },
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": false
+        },
+        {
+          "__type": "ItemPickup",
+          "__guid": "afc4e059-5792-4bba-bd97-1902b1d5bfe4",
+          "__enabled": true,
+          "ItemPrefab": {
+            "_type": "gameobject",
+            "prefab": "rockets_test.prefab"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "77ac39fc-30a3-48d5-b528-0679ccf57c54",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Rockets pickup (1)",
+      "Position": "-398.947,-7487.275,-47722.89",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Scale": "2,2,2",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "ItemPickup",
+          "__guid": "bdb25dea-30bf-4961-a73a-1a92997cfd6a",
+          "__enabled": true,
+          "ItemPrefab": {
+            "_type": "gameobject",
+            "prefab": "rockets_test - 2.prefab"
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null
+        },
+        {
+          "__type": "Sandbox.SphereCollider",
+          "__guid": "1b643592-77f6-4690-b075-c13b2637ce68",
+          "__enabled": true,
+          "Center": "0,0,0",
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "Radius": 13.199987,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "95de5204-9422-4bee-aabc-71b4b3778b95",
           "__enabled": true,
           "AnimationGraph": null,
           "BodyGroups": 18446744073709551615,
