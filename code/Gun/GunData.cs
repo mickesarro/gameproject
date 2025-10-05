@@ -1,15 +1,13 @@
 using Sandbox;
 
-public enum ShootType { Bullet, Projectile };
-
+/// <summary>
+/// Holds the data specific to the gun agnostic of the firing data.
+/// </summary>
 public sealed class GunData : Component
 {
-
-	[Property] public ShootType ShootType { get; private set; } = ShootType.Bullet;
-
-	[Property] public BulletData BulletData { get; private set; }
+	// Might be better to move this to gun itself
+	[Property, RequireComponent] public FireData PrimaryFireData { get; private set; }
 	[Property] public GameObject BarrelEnd { get; private set; } // Spawn point
-	[Property] public float LoadTime { get; private set; } = 1.0f;
 
 	[Property] public GameObject Viewmodel { get; private set; }
 }

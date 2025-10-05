@@ -1,5 +1,8 @@
 using Sandbox;
 
+/// <summary>
+/// Bullet specific data.
+/// </summary>
 public sealed class BulletData : Component
 {
 	[Property] public float Damage { get; private set; } = 10.0f;

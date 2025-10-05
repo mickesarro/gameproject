@@ -65,24 +65,45 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
-        "BulletData": {
-          "_type": "component",
-          "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
-          "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
-          "component_type": "BulletData"
-        },
-        "LoadTime": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "ShootType": "Projectile",
+        "PrimaryFireData": {
+          "_type": "component",
+          "component_id": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
+          "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
+          "component_type": "FireData"
+        },
         "Viewmodel": {
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         }
+      },
+      {
+        "__type": "FireData",
+        "__guid": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
+        "__enabled": true,
+        "BulletData": {
+          "_type": "component",
+          "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
+          "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
+          "component_type": "BulletData"
+        },
+        "BulletType": "Projectile",
+        "FireType": "SemiAuto",
+        "LoadTime": 5,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Recoil": 10,
+        "RPM": 60,
+        "Spread": 10
       },
       {
         "__type": "BulletData",
