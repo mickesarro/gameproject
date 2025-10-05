@@ -271,7 +271,11 @@
                 "DstName": "parent"
               },
               {
+<<<<<<< HEAD
                 "Id": 23,
+=======
+                "Id": 20,
+>>>>>>> ce0bba3 (Omat jutut)
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -295,7 +299,11 @@
                 "DstName": "_target"
               },
               {
+<<<<<<< HEAD
                 "Id": 24,
+=======
+                "Id": 21,
+>>>>>>> ce0bba3 (Omat jutut)
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
@@ -526,8 +534,8 @@
               "__type": "Sandbox.HUD",
               "__guid": "f3203b22-c972-4d31-8f81-d595a799e1d8",
               "__enabled": true,
-              "ammunitionLeft": 7,
-              "maxAmmunition": 24,
+              "ammoLeft": 15,
+              "maxAmmo": 30,
               "MyStringValue": "Hello World!",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,

@@ -17,11 +17,12 @@
 
 using System;
 using Sandbox.Citizen;
+namespace Sandbox;
 
-[Title("Sauce Character Controller")]
-[Category("Physics")]
-[Icon("directions_walk")]
-[EditorHandle("materials/gizmo/charactercontroller.png")]
+    [Title("Sauce Character Controller")]
+    [Category("Physics")]
+    [Icon("directions_walk")]
+    [EditorHandle("materials/gizmo/charactercontroller.png")]
 
 public sealed class PlayerController : Component
 {
@@ -92,10 +93,14 @@ public sealed class PlayerController : Component
     [Property, Group("Size"), Description("CS2 Default: 16f")] private float Radius {get;set;} = 16f;
     [Property, Group("Size"), Description("CS2 Default: 72f")] private float StandingHeight {get;set;} = 72f;
     [Property, Group("Size"), Description("CS2 Default: 54f")] private float CroucingHeight {get;set;} = 54f;
-    [Sync] private float Height {get;set;} = 72f;
+    [Sync] public float Height {get;set;} = 72f;
     [Sync] private float HeightGoal {get;set;} = 72f;
     private BBox BoundingBox => new BBox(new Vector3(-Radius * GameObject.WorldScale.x, -Radius * GameObject.WorldScale.y, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, HeightGoal * GameObject.WorldScale.z));
     private int _stuckTries;
+
+    // HP
+    [Sync][Property, Group("Health Points"), Description("Maximum HP.")] public int MaxHealth {get;set;} = 100;
+    [Sync][Property, Group("Health Points"), Description("Current HP.")] public int CurrentHealth {get;set;} = 100;
 
     // Synced internal vars
     [Sync] private float InternalMoveSpeed {get;set;} = 250f;
@@ -248,6 +253,17 @@ public sealed class PlayerController : Component
 
         if (Input.Pressed("Duck") || Input.Released("Duck")) CrouchTime += CrouchCost;
     }
+
+    public void TakeDamage(int amount)
+{
+    CurrentHealth -= amount;
+    if (CurrentHealth <= 0)
+    {
+        CurrentHealth = 0;
+        // Toistaseks vaa logi, myöhemmin respawn tms.
+        Log.Info("Player has died.");
+    }
+}
 
     private void UpdateCitizenAnims() {
         if (animationHelper == null) return;
