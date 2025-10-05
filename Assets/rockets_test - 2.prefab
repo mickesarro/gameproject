@@ -48,6 +48,7 @@
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "GunData"
         },
+        "Name": "Gun",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -98,6 +99,17 @@
           "_type": "gameobject",
           "prefab": "projectile.prefab"
         }
+      },
+      {
+        "__type": "Sandbox.GunViewModelHandler",
+        "__guid": "58dd08ee-c1b5-4a80-a94a-3cb3046d3545",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

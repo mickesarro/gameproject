@@ -17,7 +17,7 @@
       {
         "__type": "Shoot",
         "__guid": "58565efd-f9f6-43b0-b92b-8726f52e13fa",
-        "__enabled": true,
+        "__enabled": false,
         "barrelEnd": {
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
@@ -37,6 +37,79 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         }
+      },
+      {
+        "__type": "Gun",
+        "__guid": "492261f3-b019-4eff-af9c-9b43153c31af",
+        "__enabled": true,
+        "gunData": {
+          "_type": "component",
+          "component_id": "62981691-f68e-4421-83db-af3a9d76d810",
+          "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
+          "component_type": "GunData"
+        },
+        "Name": "Gun",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "User": null
+      },
+      {
+        "__type": "GunData",
+        "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
+        "__enabled": true,
+        "BarrelEnd": {
+          "_type": "gameobject",
+          "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
+        },
+        "BulletData": {
+          "_type": "component",
+          "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
+          "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
+          "component_type": "BulletData"
+        },
+        "LoadTime": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "ShootType": "Projectile",
+        "Viewmodel": {
+          "_type": "gameobject",
+          "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
+        }
+      },
+      {
+        "__type": "BulletData",
+        "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
+        "__enabled": true,
+        "Damage": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "ProjectilePrefab": {
+          "_type": "gameobject",
+          "prefab": "projectile.prefab"
+        }
+      },
+      {
+        "__type": "Sandbox.GunViewModelHandler",
+        "__guid": "768b70fe-0617-4a30-9b01-7fb4cfeaf943",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

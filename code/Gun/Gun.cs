@@ -3,10 +3,12 @@ using Sandbox;
 /// <summary>
 /// Base class for gun behaviour
 /// </summary>
-public sealed class Gun : Component
+public sealed class Gun : Component, IWeapon, ICollectable
 {
-	[Property] public PlayerController User { get; set; }
+	[Property] public GameObject User { get; set; }
 	[Property] private GunData gunData { get; set; }
+	[Property] public string Name { get; set; } = "Gun";
+
 	private BulletData bulletData; // Just for convenience
 
 	private SkinnedModelRenderer modelRenderer;
@@ -30,7 +32,7 @@ public sealed class Gun : Component
 		base.OnStart();
 
 		// If the player picks the weapon, it wont have a User pre-set
-		User ??= GameObject?.Parent.GetComponent<PlayerController>();
+		User ??= GameObject?.Parent;
 
 		Log.Info( User );
 		Log.Info( GameObject?.Parent );
@@ -56,7 +58,7 @@ public sealed class Gun : Component
 		elapsed += Time.Delta;
 	}
 
-	private void Shoot()
+	public void Shoot()
 	{
 		if ( gunData.ShootType == ShootType.Bullet )
 		{
@@ -75,7 +77,7 @@ public sealed class Gun : Component
 		var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
 		var endPoint = screenCenter + (WorldTransform.Forward * int.MaxValue);
 
-		TraceBullet(screenCenter, endPoint, toIgnore: User.GameObject);
+		TraceBullet(screenCenter, endPoint, toIgnore: User);
 	}
 
 	private void TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -95,7 +97,7 @@ public sealed class Gun : Component
 				?.OnDamage( new DamageInfo()
 				{
 					Damage = bulletData.Damage,
-					Attacker = User.GameObject,
+					Attacker = User,
 					Position = traceRay.HitPosition,
 				}
 			);
@@ -124,4 +126,16 @@ public sealed class Gun : Component
 			);
 	}
 
+	public void Collect( GameObject interactor )
+	{
+		User = interactor;
+
+		IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
+	}
+
+	public void EnableGo( bool enable )
+	{
+		GameObject.Enabled = enable;
+		Log.Info( $"{enable}: {GameObject.Enabled}" );
+	}
 }

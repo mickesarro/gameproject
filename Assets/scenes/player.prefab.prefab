@@ -133,6 +133,41 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Inventory",
+        "__guid": "884387b8-9f28-4862-91a4-73b12f749608",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Owner": null
+      },
+      {
+        "__type": "PlayerInteraction",
+        "__guid": "e38dc272-9bb6-4cc3-8966-57f7b5b2b599",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Player": {
+          "_type": "component",
+          "component_id": "bef0961b-48de-4215-a5ec-22d284c7b717",
+          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
+          "component_type": "PlayerController"
+        },
+        "PlayerInventory": {
+          "_type": "component",
+          "component_id": "884387b8-9f28-4862-91a4-73b12f749608",
+          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
+          "component_type": "Inventory"
+        }
       }
     ],
     "Children": [
