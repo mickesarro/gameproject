@@ -100,10 +100,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		var traceRay = TraceBullet(screenCenter, endPoint, toIgnore: User);
 
 		var traceGo = traceRay.GameObject;
-		if ( traceRay.Hit && traceGo.Tags.Has( "player" ) )
+		if ( traceRay.Hit && traceGo.GetComponent<IDamageable>() is IDamageable damageable )
 		{
-			traceGo.GetComponent<IDamageable>()
-				?.OnDamage( new DamageInfo()
+			damageable.OnDamage( new DamageInfo()
 				{
 					Damage = FireData.Damage,
 					Attacker = User,
