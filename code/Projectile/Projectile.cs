@@ -33,7 +33,6 @@ public sealed class Projectile : Component
 	private void OnCollision( GameObject objectHit )
 	{
 
-		Log.Info( "Projectile tags: " + collider.Tags );
 		if ( objectHit.Tags.Contains( Steam.SteamId.ToString() ) )
 		{
 			return;
