@@ -17,13 +17,11 @@
 
 using System;
 using Sandbox.Citizen;
-namespace Sandbox;
 
-    [Title("Sauce Character Controller")]
-    [Category("Physics")]
-    [Icon("directions_walk")]
-    [EditorHandle("materials/gizmo/charactercontroller.png")]
-
+[Title("Sauce Character Controller")]
+[Category("Physics")]
+[Icon("directions_walk")]
+[EditorHandle("materials/gizmo/charactercontroller.png")]
 public sealed class PlayerController : Component
 {
 	// omat custom jutut ehkä hyvä merkata
@@ -459,10 +457,10 @@ public sealed class PlayerController : Component
         
         if(IsOnGround) {
             GroundMove();
-            HUD.Speed = Velocity.Length.CeilToInt();
+            // HUD.Speed = Velocity.Length.CeilToInt();
         } else {
             AirMove();
-			HUD.Speed = Velocity.WithZ(0).Length.CeilToInt();
+			// HUD.Speed = Velocity.WithZ(0).Length.CeilToInt();
         }
         
         AlreadyGrounded = IsOnGround;
