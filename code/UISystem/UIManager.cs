@@ -1,7 +1,7 @@
+using System;
 using Sandbox;
 
 namespace UISystem;
-
 
 /// <summary>
 /// Is responsible for showing and hiding different UI layers.
@@ -10,7 +10,9 @@ public class UIManager : SingletonBase<UIManager>
 {
 
     [Property] private UILayer StartLayer { get; set; }
+    
     [Property] private List<UILayer> UILayers { get; set; } = new();
+    private readonly Dictionary<Type, UILayer> UILayerLookup = new();
 
     private readonly Stack<UILayer> layerHistory = new();
 
@@ -24,6 +26,7 @@ public class UIManager : SingletonBase<UIManager>
 
         foreach ( var layer in UILayers )
         {
+            UILayerLookup.TryAdd( layer.GetType(), layer );
             if ( layer != StartLayer )
             {
                 layer.Hide();
@@ -100,29 +103,19 @@ public class UIManager : SingletonBase<UIManager>
     /// Can be used with toggling behavior like keyboard events.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public void ToggleLayer<T>() where T : UILayer
+    public void ToggleLayer<T>(object data = null) where T : UILayer
     {
         var layer = SearchLayer<T>();
-        ToggleLayer( layer, layer.GameObject.Active );
+        ToggleLayer(layer, layer.GameObject.Active, data);
     }
 
     /// <summary>
     /// Can be used with toggling behavior like keyboard events.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public void ToggleLayer<T>( bool isVisible ) where T : UILayer
+    public void ToggleLayer<T>(bool isVisible) where T : UILayer
     {
-        ToggleLayer( SearchLayer<T>(), isVisible );
-    }
-
-    /// <summary>
-    /// Can be used with toggling behavior like keyboard events.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public void ToggleLayer<T>( object data ) where T : UILayer
-    {
-        var layer = SearchLayer<T>();
-        ToggleLayer( layer, layer.GameObject.Active, data );
+        ToggleLayer(SearchLayer<T>(), isVisible);
     }
 
     private void ToggleLayer( UILayer layer, bool isVisible, object data = null )
@@ -180,6 +173,7 @@ public class UIManager : SingletonBase<UIManager>
         if ( layer != null )
         {
             UILayers.Remove( layer );
+            UILayerLookup.Remove( layer.GetType() );
             if ( layer == currentLayer )
             {
                 currentLayer = null;
@@ -189,13 +183,6 @@ public class UIManager : SingletonBase<UIManager>
 
     private UILayer SearchLayer<T>() where T : UILayer
     {
-        foreach ( var layer in UILayers )
-        {
-            if ( layer is T )
-            {
-                return layer;
-            }
-        }
-        return null;
+        return UILayerLookup.TryGetValue( typeof( T ), out var layer ) ? layer : null;
     }
 }
