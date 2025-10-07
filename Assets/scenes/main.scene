@@ -271,11 +271,7 @@
                 "DstName": "parent"
               },
               {
-<<<<<<< HEAD
-                "Id": 23,
-=======
                 "Id": 20,
->>>>>>> ce0bba3 (Omat jutut)
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "position"
@@ -299,11 +295,7 @@
                 "DstName": "_target"
               },
               {
-<<<<<<< HEAD
-                "Id": 24,
-=======
                 "Id": 21,
->>>>>>> ce0bba3 (Omat jutut)
                 "Value": "0,0,0",
                 "DstId": 5,
                 "DstName": "_value"
