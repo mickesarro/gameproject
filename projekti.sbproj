@@ -1,8 +1,8 @@
 {
-  "Title": "Sauce Movement Base",
+  "Title": "Movement shooter",
   "Type": "game",
-  "Org": "smile",
-  "Ident": "cs2movement",
+  "Org": "local",
+  "Ident": "movementshooter",
   "Schema": 1,
   "IncludeSourceFiles": true,
   "Resources": "",

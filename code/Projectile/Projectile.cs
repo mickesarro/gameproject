@@ -14,10 +14,11 @@ public sealed class Projectile : Component
 	{
 		base.OnAwake();
 		collider = GetComponent<Collider>();
-		if ( collider != null)
+		if ( collider != null )
 		{
 			collider.OnObjectTriggerEnter = OnCollision;
-		} else
+		}
+		else
 		{
 			Log.Warning( "No collider found" );
 		}
@@ -29,14 +30,21 @@ public sealed class Projectile : Component
 		WorldPosition += WorldTransform.Forward * velocity * Time.Delta;
 	}
 
-	private void OnCollision(GameObject objectHit)
+	private void OnCollision( GameObject objectHit )
 	{
 
-		Log.Info("Projectile tags: " + collider.Tags);
-		if ( objectHit.Tags.Contains( Steam.SteamId.ToString() ))
+		if ( objectHit.Tags.Contains( Steam.SteamId.ToString() ) )
 		{
 			return;
 		}
+
+		var blastEffect = new BlastEffect
+		{
+			BlastForce = 500.0f,
+		};
+		blastEffect.NetworkSpawn();
+		blastEffect.TriggerBlast( WorldPosition );
+
 		// Just destroy for now
 		DestroyGameObject();
 	}
