@@ -1,0 +1,29 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits UISystem.UILayer
+@namespace Sandbox
+
+<root>
+    <div class="HP-counter">@hpLeft / @maxHp HP</div>
+    <div class="Ammo-counter">@ammoLeft / @maxAmmo</div>
+</root>
+
+@code
+{
+
+    [Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
+    [Property] public int ammoLeft { get; set; } = 15;
+    [Property] public int maxAmmo { get; set; } = 30;
+
+    private PlayerController LocalplayerController => Scene.GetAllComponents<PlayerController>().FirstOrDefault(x => !x.IsProxy);
+
+    public int hpLeft => LocalplayerController.CurrentHealth;
+    public int maxHp => LocalplayerController.MaxHealth;
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( ammunitionLeft + Speed );
+
+}
+

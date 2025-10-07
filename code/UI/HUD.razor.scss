@@ -1,0 +1,28 @@
+HUD
+{
+    font-weight: bold;
+}
+
+.HP-counter {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.5);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.Ammo-counter {
+    position: absolute;
+    bottom: 20px;
+    right: 200px;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
