@@ -606,6 +606,92 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "4eeeee8d-3575-4230-977c-208bfa0073f0",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "waypoints",
+      "Position": "905.3444,-7335.735,-47655.88",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "waypoints",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [],
+      "Children": [
+        {
+          "__guid": "fb764455-e02b-48ea-9887-58547a093a3c",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "-132.9472,153.9102,-39.90625",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "74420e82-cb98-4763-a92a-a1e2b5d8be8a",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "296.7979,0,-117.6406",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "87a512a4-1f50-483e-a7a4-5d78299cc8cc",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "296.7979,-804.248,-117.6406",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        },
+        {
+          "__guid": "a6a11a2b-028a-4959-a84e-df9ca3e306c5",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "-962.533,-804.248,-117.6406",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [],
+          "Children": []
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -614,7 +700,7 @@
     "WantsSystemScene": true,
     "Metadata": {},
     "NavMesh": {
-      "Enabled": false,
+      "Enabled": true,
       "IncludeStaticBodies": true,
       "IncludeKeyframedBodies": true,
       "EditorAutoUpdate": true,

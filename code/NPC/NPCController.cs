@@ -1,0 +1,144 @@
+using Sandbox.Citizen;
+
+namespace NPC;
+
+/// <summary>
+/// Largely represents the NPC itself.
+/// Works as a common class for shared NPC state data and functionality.
+/// </summary>
+public class NPCController : Component {
+
+	[Title( "Hunting and detecting" )]
+	[Property] private GameObject hunted { get; set; }
+	[Property] private float detectionDistance { get; set; } = 5f;
+    [Property] private float FOV { get; set; } = 90f;
+
+    public GameObject Hunted => hunted;
+
+    public NavMeshAgent Agent { get; private set; }
+    // public Animator Animator { get; private set; }
+
+    [Property] public List<GameObject> Waypoints { get; set; } = new();
+    //public List<GameObject> Waypoints => waypoints;
+
+    public float agentProxThreshold { get; set; } = 1f;
+    public Vector3 lastKnownPos;
+
+    [Title( "States")]
+    public StateMachine StateMachine { get; private set; }
+    [Property] private StateEnum defaultState { get; set; } = StateEnum.None;
+    [Property] private List<StateEnum> states { get; set; } = new();
+
+	// Audio
+	// public AudioController NpcAudio { get; private set; }
+
+	private CitizenAnimationHelper animationHelper;
+
+	protected override void OnAwake()
+	{
+		base.OnAwake();
+
+		StateMachine = new StateMachine();
+		PopulateFSM();
+
+		animationHelper = GetComponent<CitizenAnimationHelper>();
+	}
+
+    protected override void OnStart()
+	{
+        Agent = GetComponent<NavMeshAgent>();
+
+        if (defaultState != StateEnum.None) {
+            StateMachine.Initialize(StateFactory(defaultState));
+        }
+    }
+
+	/// <summary>
+	/// Initialize the NPC with a new state type
+	/// </summary>
+	public void Initialize(StateEnum defaultState)
+	{
+		states.Add(defaultState);
+		PopulateFSM();
+		this.defaultState = defaultState;
+	}
+
+    /// <summary>
+    /// Add a new states to the states list.
+    /// </summary>
+    /// <param name="states"></param>
+    public void AddStates(StateEnum[] states) {
+        foreach (var state in states) {
+            this.states.Add(state);
+        }
+    }
+
+    private void PopulateFSM() {
+        foreach (var state in states) {
+            StateMachine.AddState(StateFactory(state));
+        }
+    }
+
+    private IState StateFactory(StateEnum state) => state switch
+    {
+        StateEnum.Guard => new GuardState(this, this.StateMachine),
+        StateEnum.Patrol => new PatrolState(this, this.StateMachine),
+        StateEnum.None => null,
+        _ => null,
+    };
+
+    protected override void OnFixedUpdate() {
+        StateMachine.Update();
+		UpdateCitizenAnims();
+	}
+
+    /// <summary>
+    /// Alert a guard to a location.
+    /// </summary>
+    /// <param name="location"></param>
+    public void AlertGuard(Vector3 location) {
+        lastKnownPos = location;
+        if (!states.Contains(StateEnum.Hunt)) {
+            StateMachine.AddState(StateFactory(StateEnum.Hunt));
+        }
+        // StateMachine.ChangeState<HuntState>();
+    }
+
+    /// <summary>
+    /// Checks if the hunted is in the NPC field of view or not. 
+    /// Criteria are distance, angle and direct sight.
+    /// </summary>
+    /// <returns>Return whether the hunted is in view or not.</returns>
+    public bool HuntedInView() {
+        if (WorldPosition.Distance(hunted.WorldPosition) > detectionDistance) {
+            return false;
+        }
+
+        var dirVec = (hunted.WorldPosition - WorldPosition).Normal;
+        if ( WorldTransform.Forward.Angle(dirVec) > FOV / 2) {
+            return false;
+        }
+
+		var hitInfo = Game.ActiveScene.Trace.Ray( (WorldPosition + Vector3.Up), dirVec * detectionDistance ).Run();
+
+		if ( hitInfo.Hit && hitInfo.GameObject.Tags.Has( "player" ) )
+		{
+			return true; // All checks pass
+		}
+
+		return false;
+    }
+
+	private void UpdateCitizenAnims()
+	{
+		if ( animationHelper == null || Agent == null || !Agent.IsValid ) return;
+
+		// animationHelper.WithWishVelocity( Agent.WorldTransform.Forward * Agent.Velocity );
+		animationHelper.WithVelocity( Agent.Velocity );
+		animationHelper.AimAngle = Agent.WorldTransform.Rotation;
+		animationHelper.IsGrounded = true;
+		animationHelper.WithLook( Agent.WorldTransform.Forward, 1f, 0.75f, 0.5f );
+		animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
+	}
+
+}
