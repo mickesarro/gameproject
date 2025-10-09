@@ -9,6 +9,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
+	public WeaponType WeaponType => gunData.WeaponType;
+
 	private FireData FireData; // Just for convenience
 
 	private SkinnedModelRenderer modelRenderer;

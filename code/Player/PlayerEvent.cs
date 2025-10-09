@@ -10,4 +10,5 @@ public interface IPlayerEvent : ISceneEvent<IPlayerEvent>
 	void OnWeaponAdded( IWeapon weapon ) { }
 	void OnItemAdded( ICollectable item ) { }
 	void OnSwitchItem( ICollectable collectable ) { }
+	void OnSwitchItem( InventorySlot slot ) { }
 }

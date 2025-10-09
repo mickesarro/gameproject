@@ -135,18 +135,6 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Inventory",
-        "__guid": "884387b8-9f28-4862-91a4-73b12f749608",
-        "__enabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Owner": null
-      },
-      {
         "__type": "PlayerInteraction",
         "__guid": "e38dc272-9bb6-4cc3-8966-57f7b5b2b599",
         "__enabled": true,
@@ -164,10 +152,32 @@
         },
         "PlayerInventory": {
           "_type": "component",
-          "component_id": "884387b8-9f28-4862-91a4-73b12f749608",
+          "component_id": "c77fea6d-eeeb-49b3-9e83-2e90a7d70da2",
           "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
-          "component_type": "Inventory"
+          "component_type": "PlayerInventory"
         }
+      },
+      {
+        "__type": "PlayerInventory",
+        "__guid": "c77fea6d-eeeb-49b3-9e83-2e90a7d70da2",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "PlayerInput",
+        "__guid": "1acf89e9-9773-49ec-82aa-9e220484bb6d",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [

@@ -80,12 +80,14 @@
         "Viewmodel": {
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
-        }
+        },
+        "WeaponType": "Secondary"
       },
       {
         "__type": "FireData",
         "__guid": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
         "__enabled": true,
+        "AmmoLeft": 10,
         "BulletData": {
           "_type": "component",
           "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
@@ -95,6 +97,7 @@
         "BulletType": "Projectile",
         "FireType": "SemiAuto",
         "LoadTime": 5,
+        "MaxAmmo": 10,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
