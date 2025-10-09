@@ -6,12 +6,12 @@ using Sandbox;
 public sealed class PlayerInteraction : Component, IPlayerEvent
 {
 	[Property, RequireComponent] private PlayerController Player { get; set; }
-	[Property, RequireComponent] private Inventory PlayerInventory { get; set; }
+	[Property, RequireComponent] private PlayerInventory PlayerInventory { get; set; }
 
 	protected override void OnAwake()
 	{
 		base.OnAwake();
-		PlayerInventory = GetComponent<Inventory>();
+		PlayerInventory = GetComponent<PlayerInventory>();
 	}
 
 	void IPlayerEvent.OnSwitchItem( ICollectable collectable )
@@ -21,12 +21,12 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 
 	void IPlayerEvent.OnItemAdded( ICollectable item )
 	{
-		AddToInventory( item );
+		//AddToInventory( item );
 	}
 
 	private void AddToInventory( ICollectable collectable )
 	{
-		PlayerInventory?.AddItem( collectable );
+		// Might not be needed
 	}
 
 }

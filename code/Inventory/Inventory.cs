@@ -4,13 +4,19 @@ using Sandbox;
 /// <summary>
 /// Represents a generic inventory for items.
 /// </summary>
-public class Inventory : Component
+public class Inventory : Component, IInventory
 {
+	// !!NOTE: This as of now is not very useful for this game,
+	// but either modifying this or inheriting, a generic box etc.
+	// inventory can be made.
+
 	[Property] private GameObject Owner { get; set; }
 
 	private readonly List<ICollectable> inventoryItems = new();
 
 	public ICollectable CurrentItem { get; private set; } = null;
+
+	public IEnumerable<ICollectable> Items => inventoryItems;
 
 	protected override void OnAwake()
 	{
@@ -59,8 +65,6 @@ public class Inventory : Component
 			CurrentItem?.EnableGo( false );
 			CurrentItem = item;
 			CurrentItem.EnableGo( true );
-
-			IPlayerEvent.PostToGameObject( GameObject, e => e.OnSwitchItem( item ) );
 			
 		}
 	}
