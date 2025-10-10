@@ -18,7 +18,7 @@
     
 @code
 {
-    private int Size;
+    private int Size => InventoryItems.Count;
     private int ratio;
     [Property] private int Rows { get; set; } = 3;
     [Property, TextArea] public string MyStringValue { get; set; } = "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!";
@@ -28,13 +28,12 @@
     protected override void OnAwake()
     {
         base.OnAwake();
-        Size = InventoryItems.Count;
         ratio = Size / Rows;
     }
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+    protected override int BuildHash() => System.HashCode.Combine( MyStringValue + Size );
 
 }

@@ -1,3 +1,5 @@
+using Sandbox;
+using UISystem;
 
 /// <summary>
 /// A centralized component for gathering player input.
@@ -17,9 +19,21 @@ public sealed class PlayerInput : Component, IPlayerEvent
 
 	protected override void OnUpdate()
 	{
-
 		PollItemChange();
+		PollUIToggle();
+	}
 
+	private void PollUIToggle()
+	{
+		if ( Input.Pressed( "OpenInventory" ) )
+		{
+			UIManager.Instance.ToggleLayer<InventoryUI>();
+		}
+
+		if ( Input.Pressed( "Menu" ) )
+		{
+			UIManager.Instance.ToggleLayer<PauseMenu>();
+		}
 	}
 
 	private void PollItemChange() {
