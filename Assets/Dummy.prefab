@@ -3,11 +3,11 @@
     "__guid": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
     "__version": 1,
     "Flags": 0,
-    "Name": "player.prefab",
+    "Name": "dummy",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
-    "Tags": "player",
+    "Tags": "npc",
     "Enabled": true,
     "NetworkMode": 1,
     "NetworkInterpolation": true,
@@ -39,71 +39,6 @@
         "SurfaceVelocity": "0,0,0"
       },
       {
-        "__type": "PlayerController",
-        "__guid": "bef0961b-48de-4215-a5ec-22d284c7b717",
-        "__enabled": true,
-        "Acceleration": 5.5,
-        "AirAcceleration": 150,
-        "AutoBunnyhopping": true,
-        "Body": {
-          "_type": "gameobject",
-          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09"
-        },
-        "CameraRollAngleLimit": 30,
-        "CameraRollDamping": 0.015,
-        "CameraRollEnabled": true,
-        "CameraRollSmoothing": 0.2,
-        "CollisionBox": {
-          "_type": "component",
-          "component_id": "056ce4fb-e997-4238-a5f6-4900aa9349b0",
-          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
-          "component_type": "BoxCollider"
-        },
-        "CrouchCost": 0.1,
-        "CrouchRecoveryRate": 0.33,
-        "CrouchSpeed": 85,
-        "CroucingHeight": 54,
-        "CustomFOV": 90,
-        "CustomGravity": "0,0,-800",
-        "Friction": 5.2,
-        "IgnoreLayers": "player",
-        "JumpForce": 301.99338,
-        "MaxAirWishSpeed": 30,
-        "MaxCrouchTime": 0.5,
-        "MaxSpeed": 1000,
-        "MaxStamina": 80,
-        "MinCrouchTime": 0.1,
-        "MoveSpeed": 250,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Radius": 16,
-        "ShiftSpeed": 130,
-        "StaminaJumpCost": 0.08,
-        "StaminaLandingCost": 0.05,
-        "StaminaRecoveryRate": 60,
-        "StandingHeight": 72,
-        "StopSpeed": 80,
-        "ToggleCrouch": false,
-        "UseCustomFOV": false,
-        "UseCustomGravity": true,
-        "Weight": 1
-      },
-      {
-        "__type": "Sandbox.Helpers.SetSteamId",
-        "__guid": "527a1628-d7c2-43b5-ac71-82d4609d4558",
-        "__enabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
-      },
-      {
         "__type": "Sandbox.ManualHitbox",
         "__guid": "85cef2cd-4b41-41f1-ae09-8cea0a424bc2",
         "__enabled": true,
@@ -121,8 +56,44 @@
         "Target": null
       },
       {
+        "__type": "Sandbox.NavMeshAgent",
+        "__guid": "321c05b4-87fe-471f-ba5d-2b267fb9fb9c",
+        "__enabled": true,
+        "Acceleration": 120,
+        "AutoTraverseLinks": true,
+        "Height": 64,
+        "MaxSpeed": 120,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 16,
+        "Separation": 0.25,
+        "UpdatePosition": true,
+        "UpdateRotation": true
+      },
+      {
+        "__type": "NPC.NPCController",
+        "__guid": "54df5d71-5e57-4b38-b6bb-bde2fb466ee2",
+        "__enabled": true,
+        "defaultState": "None",
+        "detectionDistance": 5,
+        "FOV": 90,
+        "hunted": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "states": [],
+        "Waypoints": []
+      },
+      {
         "__type": "CharacterHealth",
-        "__guid": "f5555499-6cc1-4c5a-9af7-3f20796ecf89",
+        "__guid": "28c69ccf-b6cb-4f9f-82e3-6da685364199",
         "__enabled": true,
         "Deaths": 0,
         "Health": 100,
@@ -135,49 +106,47 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "PlayerInteraction",
-        "__guid": "e38dc272-9bb6-4cc3-8966-57f7b5b2b599",
+        "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+        "__guid": "dc549d27-877d-4015-9ff7-aab97ee280a4",
         "__enabled": true,
+        "BodyWeight": 1,
+        "EyeSource": {
+          "_type": "gameobject",
+          "go": "e8187d63-38ba-4baa-b435-61e5f7536f2f"
+        },
+        "EyesWeight": 1,
+        "HeadWeight": 1,
+        "Height": null,
+        "IkLeftFoot": {
+          "_type": "gameobject",
+          "go": "bd337b2c-4494-49da-a0ba-348e8461d560"
+        },
+        "IkLeftHand": {
+          "_type": "gameobject",
+          "go": "c902cbed-d889-42c0-a00c-e278f99f2b58"
+        },
+        "IkRightFoot": {
+          "_type": "gameobject",
+          "go": "7d3b669d-04c5-458b-aaed-e9b48ff42ffa"
+        },
+        "IkRightHand": {
+          "_type": "gameobject",
+          "go": "dc5d45df-5860-4ad9-86aa-6110c40ae591"
+        },
+        "LookAt": null,
+        "LookAtEnabled": false,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Player": {
+        "Target": {
           "_type": "component",
-          "component_id": "bef0961b-48de-4215-a5ec-22d284c7b717",
-          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
-          "component_type": "PlayerController"
-        },
-        "PlayerInventory": {
-          "_type": "component",
-          "component_id": "c77fea6d-eeeb-49b3-9e83-2e90a7d70da2",
-          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
-          "component_type": "PlayerInventory"
+          "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+          "component_type": "SkinnedModelRenderer"
         }
-      },
-      {
-        "__type": "PlayerInventory",
-        "__guid": "c77fea6d-eeeb-49b3-9e83-2e90a7d70da2",
-        "__enabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
-      },
-      {
-        "__type": "PlayerInput",
-        "__guid": "1acf89e9-9773-49ec-82aa-9e220484bb6d",
-        "__enabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -271,7 +240,7 @@
           {
             "__type": "Footsteps",
             "__guid": "3ce04f5a-0e43-441c-89b7-c4efb382cf41",
-            "__enabled": true,
+            "__enabled": false,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 1,
     "Flags": 0,
-    "Name": "rockets_test",
+    "Name": "rockets_test - 2",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -73,46 +73,43 @@
         "OnComponentUpdate": null,
         "PrimaryFireData": {
           "_type": "component",
-          "component_id": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
+          "component_id": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "FireData"
         },
         "Viewmodel": {
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
-        },
-        "WeaponType": "Secondary"
+        }
       },
       {
         "__type": "FireData",
-        "__guid": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
+        "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
-        "AmmoLeft": 10,
         "BulletData": {
           "_type": "component",
           "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "BulletData"
         },
-        "BulletType": "Projectile",
-        "FireType": "SemiAuto",
-        "LoadTime": 5,
-        "MaxAmmo": 10,
+        "BulletType": "Bullet",
+        "FireType": "FullAuto",
+        "LoadTime": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Recoil": 10,
-        "RPM": 60,
-        "Spread": 10
+        "Recoil": 5,
+        "RPM": 800,
+        "Spread": 15
       },
       {
         "__type": "BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
-        "Damage": 100,
+        "Damage": 10,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -126,7 +123,7 @@
       },
       {
         "__type": "Sandbox.GunViewModelHandler",
-        "__guid": "768b70fe-0617-4a30-9b01-7fb4cfeaf943",
+        "__guid": "58dd08ee-c1b5-4a80-a94a-3cb3046d3545",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -1742,7 +1739,7 @@
                   "DstName": "condition"
                 },
                 {
-                  "Id": 18,
+                  "Id": 17,
                   "Value": "attack1",
                   "DstId": 2,
                   "DstName": "action"
