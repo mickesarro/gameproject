@@ -10,6 +10,6 @@ public sealed class SetSteamId : Component
 	protected override void OnAwake()
 	{
 		Tags.Add( Steam.SteamId.ToString() );
-		Log.Info("Added SteamId to: " + this.GameObject.ToString());
+		//Log.Info("Added SteamId to: " + this.GameObject.ToString());
 	}
 }

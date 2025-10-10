@@ -1,8 +1,8 @@
 {
-  "Title": "Sauce Movement Base",
+  "Title": "Movement shooter",
   "Type": "game",
-  "Org": "smile",
-  "Ident": "cs2movement",
+  "Org": "local",
+  "Ident": "movementshooter",
   "Schema": 1,
   "IncludeSourceFiles": true,
   "Resources": "",
@@ -26,7 +26,9 @@
     "StartupScene": "scenes/main.scene",
     "ProjectTemplate": null,
     "ControlModes": {
-      "Keyboard": true
+      "Keyboard": true,
+      "VR": false,
+      "Gamepad": false
     },
     "MapStartupScene": "scenes/main.scene",
     "LaunchMode": "QuickPlay",

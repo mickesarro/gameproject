@@ -1,0 +1,22 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System
+@inherits Panel
+@namespace Sandbox
+
+@typeparam T
+
+<root>
+    <button onclick="@ButtonCallback">@DisplayValue</button>
+</root>
+
+@code
+{
+
+    [Property, TextArea] public T DisplayValue { get; set; }
+    [Property] public Action ButtonCallback { get; set; }	
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( DisplayValue );
+}

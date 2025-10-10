@@ -1,0 +1,37 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits UISystem.UILayer
+@namespace Sandbox
+
+@*
+    This is a temporary ad-hoc until we define a proper namespace for the game
+    or change the name of the PlayerController class.
+    The problem is that Sandbox namespace contains a PlayerController class as well
+    and therefore the global one clashes with it.
+*@
+@using LocalPlayerController = global::PlayerController
+
+<root>
+    <div class="HP-counter">@hpLeft / @maxHp HP</div>
+    <div class="Ammo-counter">@ammoLeft / @maxAmmo</div>
+</root>
+
+@code
+{
+
+    [Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
+    [Property] public int ammoLeft { get; set; } = 15;
+    [Property] public int maxAmmo { get; set; } = 30;
+
+    private LocalPlayerController LocalplayerController => Scene.GetAllComponents<LocalPlayerController>().FirstOrDefault(x => !x.IsProxy);
+
+    public int hpLeft => LocalplayerController.CurrentHealth;
+    public int maxHp => LocalplayerController.MaxHealth;
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( ammoLeft + hpLeft );
+
+}
+

@@ -1,0 +1,54 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using UISystem
+@inherits UILayer
+@namespace Sandbox
+
+<root>
+    <div class="pause_menu">
+        <h1>Paused</h1>
+        <UIButton class="button" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
+        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
+        <UIButton class="button" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
+    </div>
+</root>
+
+@code
+{
+    [Property, TextArea] public string MyStringValue { get; set; } = "ajsdfaiöwejfiöasdf!";
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+
+    public override void Show()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameObject.Enabled = false;
+    }
+
+    private void ResumeGame()
+    {
+        UIManager.Instance.ResetToStartLayer();
+    }
+
+    private void ExitToMainMenu()
+    {
+        // Implement scene manager
+        Log.Info("Main menu");
+    }
+
+    private void OpenSettings()
+    {
+        // Implement settings
+        Log.Info("Settings");
+    }
+
+}
