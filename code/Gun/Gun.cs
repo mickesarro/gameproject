@@ -11,6 +11,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	public WeaponType WeaponType => gunData.WeaponType;
 
+	public GunData GunData => gunData;
+
 	private FireData FireData; // Just for convenience
 
 	private SkinnedModelRenderer modelRenderer;

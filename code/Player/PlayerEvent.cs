@@ -6,7 +6,10 @@ using Sandbox;
 public interface IPlayerEvent : ISceneEvent<IPlayerEvent>
 {
 	void OnTakeDamage( float damage ) { }
+	
 	void OnDied() { }
+	void OnSpawn( GameObject self ) { }
+
 	void OnWeaponAdded( IWeapon weapon ) { }
 	void OnItemAdded( ICollectable item ) { }
 	void OnSwitchItem( ICollectable collectable ) { }

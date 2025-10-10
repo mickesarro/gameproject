@@ -12,6 +12,8 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 	{
 		base.OnAwake();
 		PlayerInventory = GetComponent<PlayerInventory>();
+
+		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 	}
 
 	void IPlayerEvent.OnSwitchItem( ICollectable collectable )

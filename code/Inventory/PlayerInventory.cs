@@ -21,6 +21,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	public ICollectable MeleeWeapon => weapons[2];
 
 	public ICollectable CurrentItem { get; private set; } = null;
+	public IWeapon CurrentWeapon => (IWeapon)CurrentItem;
 	private int currentSlot = -1;
 
 	// The actual collection of the weapons
@@ -103,7 +104,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
-		CurrentItem.EnableGo( true );
+		CurrentItem?.EnableGo( true );
 	}
 
 	public void ChangeCurrentItem( ICollectable collectable ) {

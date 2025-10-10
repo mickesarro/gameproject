@@ -22,6 +22,7 @@
           "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
+          "EnablePostProcessing": true,
           "FieldOfView": 110,
           "FovAxis": "Horizontal",
           "IsMainCamera": true,
@@ -33,6 +34,7 @@
           "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1024,
+          "PostProcessAnchor": null,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
@@ -166,152 +168,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": {
-            "__version": 9,
-            "__guid": "136b579b-20d0-4bca-8d69-55267187fb5e",
-            "__changeId": 16,
-            "UserData": {
-              "Title": "On Object Enter",
-              "ReferencedComponentTypes": []
-            },
-            "Variables": [],
-            "Nodes": [
-              {
-                "Id": 0,
-                "Type": "input",
-                "UserData": {
-                  "Position": "-168,-12"
-                }
-              },
-              {
-                "Id": 1,
-                "Type": "call",
-                "Properties": {
-                  "_isStatic": false,
-                  "_name": "Destroy",
-                  "_type": "Sandbox.GameObject"
-                },
-                "UserData": {
-                  "Position": "24,-24"
-                }
-              },
-              {
-                "Id": 2,
-                "Type": "call",
-                "Properties": {
-                  "_isStatic": false,
-                  "_name": "ToPrefabFile",
-                  "_type": "Sandbox.PrefabScene"
-                },
-                "UserData": {
-                  "Position": "348,36"
-                }
-              },
-              {
-                "Id": 3,
-                "Type": "scene.instantiate",
-                "UserData": {
-                  "Position": "636,36"
-                }
-              },
-              {
-                "Id": 4,
-                "Type": "scene.ref",
-                "UserData": {
-                  "Position": "420,156"
-                }
-              },
-              {
-                "Id": 5,
-                "Type": "property",
-                "Properties": {
-                  "_name": "LocalPosition",
-                  "_type": "Sandbox.GameObject"
-                },
-                "UserData": {
-                  "Position": "936,24"
-                }
-              }
-            ],
-            "Links": [
-              {
-                "SrcId": 0,
-                "SrcName": "_signal",
-                "DstId": 1,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 0,
-                "SrcName": "_target",
-                "DstId": 1,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 1,
-                "SrcName": "_signal",
-                "DstId": 2,
-                "DstName": "_signal"
-              },
-              {
-                "Id": 17,
-                "Value": null,
-                "DstId": 2,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 2,
-                "SrcName": "_signal",
-                "DstId": 3,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 4,
-                "SrcName": "_result",
-                "DstId": 3,
-                "DstName": "parent"
-              },
-              {
-                "Id": 20,
-                "Value": "0,0,0",
-                "DstId": 3,
-                "DstName": "position"
-              },
-              {
-                "SrcId": 2,
-                "SrcName": "_result",
-                "DstId": 3,
-                "DstName": "prefab"
-              },
-              {
-                "SrcId": 3,
-                "SrcName": "_signal",
-                "DstId": 5,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 3,
-                "SrcName": "_result",
-                "DstId": 5,
-                "DstName": "_target"
-              },
-              {
-                "Id": 21,
-                "Value": "0,0,0",
-                "DstId": 5,
-                "DstName": "_value"
-              }
-            ],
-            "Defaults": {
-              "$4.gameobject": {
-                "_type": "gameobject",
-                "go": "e0757b65-802e-415e-a527-a140268a35fa"
-              },
-              "$17._value": {
-                "_type": "gameobject",
-                "prefab": "rockets_test.prefab"
-              }
-            }
-          },
+          "OnObjectTriggerEnter": null,
           "OnObjectTriggerExit": null,
           "OnTriggerEnter": null,
           "OnTriggerExit": null,
@@ -617,9 +474,9 @@
             },
             {
               "_type": "component",
-              "component_id": "f28ab37b-8502-42f3-b595-4ade4ab69378",
+              "component_id": "8cd34d70-d1b8-45b9-89fe-6d0ea8b577a1",
               "go": "140335af-b0e7-4cae-b14b-b85a67f37a09",
-              "component_type": "Inventory"
+              "component_type": "InventoryUI"
             }
           ]
         }
@@ -644,9 +501,6 @@
               "__type": "Sandbox.HUD",
               "__guid": "f3203b22-c972-4d31-8f81-d595a799e1d8",
               "__enabled": true,
-              "ammoLeft": 15,
-              "maxAmmo": 30,
-              "MyStringValue": "Hello World!",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -703,20 +557,16 @@
           "OwnerTransfer": 1,
           "Components": [
             {
-              "__type": "Sandbox.Inventory",
-              "__guid": "f28ab37b-8502-42f3-b595-4ade4ab69378",
+              "__type": "Sandbox.InventoryUI",
+              "__guid": "8cd34d70-d1b8-45b9-89fe-6d0ea8b577a1",
               "__enabled": true,
               "InventoryItems": [
-                "sdfas",
-                "r",
-                "22321",
-                "wea",
-                "2",
-                "wawea",
-                "2",
-                "awa",
-                "w",
-                "wq2"
+                "sdf",
+                "sadfasdfsd",
+                "333",
+                "333",
+                "13w4234",
+                "3242ese"
               ],
               "MyStringValue": "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!",
               "OnComponentDestroy": null,
@@ -725,7 +575,7 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Rows": 3
+              "Rows": 2
             }
           ],
           "Children": []
@@ -736,11 +586,11 @@
       "__guid": "7e404c37-6a7a-436d-a698-b565283bce21",
       "__version": 1,
       "Flags": 0,
-      "Name": "InputManager",
-      "Position": "-126.4293,-187.5311,115.5769",
+      "Name": "Waypoints",
+      "Position": "98.01984,-7726.277,-47755.04",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "",
+      "Tags": "waypoints",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,

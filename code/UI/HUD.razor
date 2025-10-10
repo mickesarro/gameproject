@@ -1,6 +1,7 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits UISystem.UILayer
+@implements IPlayerEvent
 @namespace Sandbox
 
 @*
@@ -9,29 +10,37 @@
     The problem is that Sandbox namespace contains a PlayerController class as well
     and therefore the global one clashes with it.
 *@
-@using LocalPlayerController = global::PlayerController
 
 <root>
-    <div class="HP-counter">@hpLeft / @maxHp HP</div>
-    <div class="Ammo-counter">@ammoLeft / @maxAmmo</div>
+    <div class="HP-counter">@GetHealth() HP</div>
+    <div class="Ammo-counter">@GetAmmo()</div>
 </root>
 
 @code
 {
+    private PlayerInventory PlayerInventory = null;
+    private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData.PrimaryFireData;
 
-    [Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
-    [Property] public int ammoLeft { get; set; } = 15;
-    [Property] public int maxAmmo { get; set; } = 30;
+    private CharacterHealth CharacterHealth = null;
 
-    private LocalPlayerController LocalplayerController => Scene.GetAllComponents<LocalPlayerController>().FirstOrDefault(x => !x.IsProxy);
+    void IPlayerEvent.OnSpawn( GameObject self )
+    {
+        CharacterHealth = self?.GetComponent<CharacterHealth>();
+        PlayerInventory = self?.GetComponent<PlayerInventory>();
+    }
 
-    public int hpLeft => LocalplayerController.CurrentHealth;
-    public int maxHp => LocalplayerController.MaxHealth;
+    public string GetAmmo() => FireData != null
+            ? $"{FireData.AmmoLeft} / {FireData.MaxAmmo}"
+            : "";
+
+    public string GetHealth() => CharacterHealth != null
+            ? $"{(int)CharacterHealth.Health} / {(int)CharacterHealth.MaxHealth}"
+            : "";
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( ammoLeft + hpLeft );
+    protected override int BuildHash() => System.HashCode.Combine( GetAmmo(), GetHealth(), FireData);
 
 }
 

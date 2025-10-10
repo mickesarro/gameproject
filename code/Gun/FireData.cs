@@ -14,12 +14,14 @@ public sealed class FireData : Component
 	[Property, Group( "Bullet" )] public BulletType BulletType { get; private set; } = BulletType.Bullet;
 	[Property, Group( "Bullet" )] public BulletData BulletData { get; private set; }
 	[Hide] public float Damage => BulletData.Damage;
+
 	[Property, Group( "Fire" )] public int RPM { get; private set; } = 100;
 	[Property, Group( "Fire" )] public float Spread { get; private set; } = 10f;
 	[Property, Group( "Fire" )] public float Recoil { get; private set; } = 5f;
 
-	[Property, Group( "Magazine" )] public float MaxAmmo { get; private set; } = 10f;
-	[Property, Group( "Magazine" )] public float AmmoLeft { get; set; } = 10f;
+	[Property, Group( "Magazine" )] public int MaxAmmo { get; private set; } = 10;
+	[Property, Group( "Magazine" )] public int AmmoLeft { get; set; } = 10;
+	[Property, Group( "Magazine" )] public bool HasInfiniteAmmo { get; set; } = false;
 	[Property, Group( "Magazine" )] public float LoadTime { get; private set; } = 1.0f;
 
 }

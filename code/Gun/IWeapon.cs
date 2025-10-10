@@ -9,6 +9,7 @@ public enum WeaponType {
 
 public interface IWeapon
 {
+	public GunData GunData { get; }
 	public WeaponType WeaponType { get; }
 	public GameObject User { get; set; }
 	public void Shoot();
