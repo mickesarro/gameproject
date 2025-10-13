@@ -1,0 +1,199 @@
+{
+  "RootObject": {
+    "__guid": "6aec1b73-e38e-4436-96db-4f884162970b",
+    "__version": 1,
+    "Flags": 0,
+    "Name": "ui",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 0,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.ScreenPanel",
+        "__guid": "098c2a99-4a7c-4185-9c78-7daf5d84f830",
+        "__enabled": true,
+        "AutoScreenScale": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opacity": 1,
+        "Scale": 1,
+        "ScaleStrategy": "ConsistentHeight",
+        "TargetCamera": null,
+        "ZIndex": 100
+      },
+      {
+        "__type": "UISystem.UIManager",
+        "__guid": "98bc413f-58fc-41a4-a624-18cbba8f6305",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "StartLayer": {
+          "_type": "component",
+          "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
+          "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
+          "component_type": "HUD"
+        },
+        "UILayers": [
+          {
+            "_type": "component",
+            "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
+            "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
+            "component_type": "HUD"
+          },
+          {
+            "_type": "component",
+            "component_id": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
+            "go": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
+            "component_type": "PauseMenu"
+          },
+          {
+            "_type": "component",
+            "component_id": "2c687285-9424-4bc9-b887-eec65fa0d576",
+            "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
+            "component_type": "InventoryUI"
+          }
+        ]
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "HUD",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 0,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.HUD",
+            "__guid": "10258580-d221-4671-a73a-df5651abc0c1",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "PauseMenu",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 0,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.PauseMenu",
+            "__guid": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
+            "__enabled": true,
+            "MyStringValue": "ajsdfaiöwejfiöasdf!",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "Inventory",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 0,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.InventoryUI",
+            "__guid": "2c687285-9424-4bc9-b887-eec65fa0d576",
+            "__enabled": true,
+            "InventoryItems": [
+              "sdf",
+              "sadfasdfsd",
+              "333",
+              "333",
+              "13w4234",
+              "3242ese"
+            ],
+            "MyStringValue": "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Rows": 2
+          }
+        ],
+        "Children": []
+      }
+    ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
