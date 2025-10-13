@@ -12,7 +12,13 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 	{
 		base.OnAwake();
 		PlayerInventory = GetComponent<PlayerInventory>();
+	}
 
+	protected override void OnStart()
+	{
+		base.OnStart();
+		// Perhaps should move this to some other place
+		// Needs to be called on start instead of awake
 		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 	}
 

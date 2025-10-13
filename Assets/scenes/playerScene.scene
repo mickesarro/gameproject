@@ -1,0 +1,50 @@
+{
+  "__guid": "9ff3ad1d-1074-4bce-bed8-cff669fd5f56",
+  "GameObjects": [
+    {
+      "__guid": "6cdc8734-2637-47c8-96c0-1529ab043dc2",
+      "__version": 1,
+      "__Prefab": "ui.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "6aec1b73-e38e-4436-96db-4f884162970b": "6cdc8734-2637-47c8-96c0-1529ab043dc2",
+        "098c2a99-4a7c-4185-9c78-7daf5d84f830": "7cdbc98a-c54c-416f-9d1b-35619e1e40ec",
+        "98bc413f-58fc-41a4-a624-18cbba8f6305": "9de31b4e-99c4-48ea-b58b-1ef72e6dfed8",
+        "172d4b78-a7f0-4510-b74a-07a09e1aed84": "231b4ed5-4a32-407e-b85e-23a87aa7e00f",
+        "10258580-d221-4671-a73a-df5651abc0c1": "fde5ac98-07aa-401e-b2ad-d14a5aede678",
+        "f1d627a5-b56c-44da-8de3-be7eb10c3836": "91dfc892-8a5d-4f37-8d7c-0e1da859f688",
+        "f182785c-cc51-4a8e-8a7d-ca81f211c63b": "cafbe729-187c-405b-b99a-96cab9ee4408",
+        "3c269391-9a4f-448a-81cd-80b1a4bdde8e": "8773f263-16d2-4505-8ede-390e92db7d38",
+        "2c687285-9424-4bc9-b887-eec65fa0d576": "dfbecb42-fec3-4c29-8e74-b0e565318ddc"
+      }
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": true,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}

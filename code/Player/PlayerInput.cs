@@ -4,7 +4,7 @@ using UISystem;
 /// <summary>
 /// A centralized component for gathering player input.
 /// </summary>
-public sealed class PlayerInput : Component, IPlayerEvent
+public sealed class PlayerInput : Component
 {
 	// !!TODO: Merge either this class to main branches InputManager
 	// or that to this one.
@@ -19,6 +19,8 @@ public sealed class PlayerInput : Component, IPlayerEvent
 
 	protected override void OnUpdate()
 	{
+		if ( IsProxy ) return;
+
 		PollItemChange();
 		PollUIToggle();
 	}

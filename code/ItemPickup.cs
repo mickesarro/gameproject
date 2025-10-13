@@ -1,4 +1,3 @@
-using Sandbox.Utility;
 
 /// <summary>
 /// Allows items in world to be pickable by running into them
@@ -26,15 +25,26 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 	/// <param name="other"></param>
 	public void OnTriggerEnter( Collider other )
 	{
-		if ( other.Tags.Contains( Steam.SteamId.ToString() ) )
+		if ( other.Tags.Contains( "player" ) )
 		{
-			Parent ??= other.GameObject;
+			if ( !other.IsProxy )
+			{
+				Parent ??= other.GameObject;
 
-			// Not enabling at first is important as picking up new weapons would then result in multiple enabled
-			var item = ItemPrefab.Clone( new Transform(), parent: Parent, startEnabled: false );
+				// Not enabling at first is important as picking up new weapons would then result in multiple enabled
+				var item = ItemPrefab.Clone( Parent.WorldTransform, parent: Parent, startEnabled: false, name: ItemPrefab.Name );
 
-			item.GetComponent<ICollectable>( includeDisabled: true )?.Collect( other.GameObject );
-			
+				var spawnOptions = new NetworkSpawnOptions
+				{
+					OrphanedMode = NetworkOrphaned.Destroy,
+					StartEnabled = item.Enabled,
+					Owner = Parent.Network.Owner,
+				};
+				item.NetworkSpawn( spawnOptions );
+
+				item.GetComponent<ICollectable>( includeDisabled: true )?.Collect( Parent );
+			}
+
 			DestroyGameObject();
 		}
 	}

@@ -8,16 +8,18 @@ using Sandbox.Utility;
 public sealed class CharacterHealth : Component, Component.IDamageable
 {
 	[Property] public float MaxHealth { get; private set; } = 100f;
-	[Property, Sync] public float Health { get; private set; } = 100f;
-	[Property, Hide, Sync] public int Deaths { get; private set; }
+	[Sync] public float Health { get; set; } = 100f;
+	[Hide, Sync] public int Deaths { get; private set; }
 
 	public bool IsAlive => Health > 0;
 
-	[Rpc.Broadcast]
-	public void OnDamage( DamageInfo damage )
+	[Rpc.Owner]
+	public void OnDamage( float damage, GameObject attacker )
 	{
-		Health -= damage.Damage;
-		Log.Info( $"Dealt {damage.Damage} by {damage.Attacker} " );
+		if ( IsProxy ) return;
+
+		Health -= damage;
+		Log.Info( $"Dealt {damage} by {attacker} " );
 
 		// Flinch animations, screen red etc.
 
@@ -30,12 +32,10 @@ public sealed class CharacterHealth : Component, Component.IDamageable
 	/// <summary>
 	/// Deal damage to character.
 	/// </summary>
-	/// <param name="damage"></param>
-	public void OnDamage( in DamageInfo damage ) 
+	/// <param name="damageInfo"></param>
+	void IDamageable.OnDamage( in DamageInfo damageInfo )
 	{
-		// This is needed to use Rpc.Broadcast on the proper one
-		// as it doesn't allow references
-		OnDamage( damage ); 
+		OnDamage( damageInfo.Damage, damageInfo.Attacker );
 	}
 
 	public void ReSpawn(float health)
@@ -46,7 +46,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable
 	/// <summary>
 	/// Called on the event of characters death.
 	/// </summary>
-	[Rpc.Broadcast]
+	[Rpc.Owner]
 	private void Death()
 	{
 		// Animations

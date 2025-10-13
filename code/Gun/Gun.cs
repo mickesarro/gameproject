@@ -5,7 +5,7 @@ using Sandbox;
 /// </summary>
 public sealed class Gun : Component, IWeapon, ICollectable
 {
-	[Property] public GameObject User { get; set; }
+	[Property, Sync] public GameObject User { get; set; }
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
@@ -24,9 +24,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		{
 			Log.Error( "[Gun] Gun data incomplete!" );
 			DestroyGameObject();
+			return;
 		}
 
-		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>();
+		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
 
 		FireData = gunData.PrimaryFireData;
 	}
@@ -47,6 +48,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private float elapsed = 0.0f;
 	protected override void OnUpdate()
 	{
+		if ( IsProxy ) return;
+
 		bool input = false;
 		switch (FireData.FireType)
 		{
@@ -56,7 +59,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			case FireType.SemiAuto:
 				input = Input.Pressed( "attack1" );
 				break;
-		} 
+		}
 
 		// Should be implemented with some form of events perhaps
 		if ( input && elapsed > shootInterval )
@@ -87,6 +90,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	}
 
 	// Small utility for now
+	[Rpc.Broadcast]
 	private void SetAnimation(string name, bool state) => modelRenderer?.Parameters.Set( name, state );
 
 	private void FireBullet()
@@ -145,8 +149,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
-		FireData.BulletData.ProjectilePrefab
+		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
+
+		projectile.NetworkSpawn();
 	}
 
 	public void Collect( GameObject interactor )
@@ -156,6 +162,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
 	}
 
+	[Rpc.Broadcast]
 	public void EnableGo( bool enable ) => GameObject.Enabled = enable;
 
 }

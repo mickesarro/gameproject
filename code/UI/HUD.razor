@@ -23,10 +23,12 @@
 
     private CharacterHealth CharacterHealth = null;
 
-    void IPlayerEvent.OnSpawn( GameObject self )
+    void IPlayerEvent.OnSpawn( GameObject player )
     {
-        CharacterHealth = self?.GetComponent<CharacterHealth>();
-        PlayerInventory = self?.GetComponent<PlayerInventory>();
+        if ( player.IsProxy ) return;
+
+        CharacterHealth = player?.GetComponent<CharacterHealth>();
+        PlayerInventory = player?.GetComponent<PlayerInventory>();
     }
 
     public string GetAmmo() => FireData != null
