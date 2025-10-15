@@ -7,7 +7,7 @@ using Sandbox.Utility;
 public sealed class Projectile : Component
 {
 	[Property] private float velocity = 1100f;
-
+	
 	private Collider collider; // Can be used with different types of colliders
 
 	protected override void OnAwake()

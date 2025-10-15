@@ -20,6 +20,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnAwake()
 	{
+		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
 			Log.Error( "[Gun] Gun data incomplete!" );
@@ -151,8 +152,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		var projectile = FireData.BulletData.ProjectilePrefab
-			.Clone( gunData.BarrelEnd.WorldTransform );
-
+			.Clone( gunData.BarrelEnd.WorldTransform, startEnabled: false );
+		
 		projectile.NetworkSpawn();
 	}
 

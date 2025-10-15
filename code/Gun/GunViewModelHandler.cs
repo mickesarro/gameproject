@@ -8,9 +8,9 @@ namespace Sandbox;
 public sealed class GunViewModelHandler : Component
 {
 	private CameraComponent camera;
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 		camera = Scene.Camera.Components.Get<CameraComponent>();
 		if (camera == null )
 		{
