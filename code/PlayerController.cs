@@ -115,15 +115,6 @@ public sealed class PlayerController : Component
     float sidetiltLerp = 0f;
 
     // Fucntions to make things slightly nicer
-
-    protected override void OnStart()
-    {
-	    base.OnStart();
-	    Log.Info( Scene.Camera );
-	    if ( Camera == null || IsProxy ) return;
-	    Camera.Enabled = true;
-	    //Log.Info( Camera.Enabled );
-    }
     
     public void Punch(in Vector3 amount) {
         ClearGround();
@@ -279,6 +270,7 @@ public sealed class PlayerController : Component
         animationHelper.WithVelocity(Velocity);
         animationHelper.AimAngle = SmoothLookAngleAngles.WithPitch(0).ToRotation();
         animationHelper.IsGrounded = IsOnGround;
+        // commenting out fixes model looking at direction other than actual
         //animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
         animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
         animationHelper.DuckLevel = ((1 - (Height / StandingHeight)) * 3).Clamp(0, 1);
