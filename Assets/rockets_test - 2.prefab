@@ -64,7 +64,6 @@
         "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
         "AmmoLeft": 10,
-        "AmmoType": 0,
         "BulletData": {
           "_type": "component",
           "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
@@ -125,7 +124,7 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 2,
+        "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
         "OwnerTransfer": 1,
@@ -1544,7 +1543,7 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 2,
+        "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
         "OwnerTransfer": 1,
@@ -1567,7 +1566,7 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/first_person/first_person_arms.vmdl",
+            "Model": "models/first_person/v_first_person_arms_human.vmdl",
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1645,6 +1644,7 @@
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
   "__references": [
+    "facepunch.v_first_person_arms_human#122024",
     "facepunch.v_recoillessrifle#116232"
   ],
   "__version": 2

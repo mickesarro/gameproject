@@ -1,3 +1,5 @@
+using System;
+
 namespace Sandbox;
 
 /// <summary>
@@ -19,6 +21,7 @@ public sealed class GunViewModelHandler : Component
 
 	protected override void OnUpdate()
 	{
+		if (IsProxy) return;
 		// This is not ideal and must be made independent later.
 		GameObject.WorldPosition = camera.WorldPosition;
 		GameObject.WorldRotation = camera.WorldRotation;

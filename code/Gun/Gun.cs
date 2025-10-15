@@ -34,6 +34,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnStart()
 	{
+		if ( IsProxy ) return;
 		base.OnStart();
 
 		// If the player picks the weapon, it wont have a User pre-set

@@ -116,6 +116,15 @@ public sealed class PlayerController : Component
 
     // Fucntions to make things slightly nicer
 
+    protected override void OnStart()
+    {
+	    base.OnStart();
+	    Log.Info( Scene.Camera );
+	    if ( Camera == null || IsProxy ) return;
+	    Camera.Enabled = true;
+	    //Log.Info( Camera.Enabled );
+    }
+    
     public void Punch(in Vector3 amount) {
         ClearGround();
         Velocity += amount;
@@ -268,9 +277,9 @@ public sealed class PlayerController : Component
 
         animationHelper.WithWishVelocity(WishDir * InternalMoveSpeed);
         animationHelper.WithVelocity(Velocity);
-        animationHelper.AimAngle = SmoothLookAngleAngles.ToRotation();
+        animationHelper.AimAngle = SmoothLookAngleAngles.WithPitch(0).ToRotation();
         animationHelper.IsGrounded = IsOnGround;
-        animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
+        //animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
         animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
         animationHelper.DuckLevel = ((1 - (Height / StandingHeight)) * 3).Clamp(0, 1);
     }
@@ -384,7 +393,7 @@ public sealed class PlayerController : Component
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
 
-		Camera = Scene.Camera.Components.Get<CameraComponent>();
+		Camera = Scene.Camera;
 		HUD = Scene.Get<HUD>();
         
         Height = StandingHeight;
@@ -486,23 +495,22 @@ public sealed class PlayerController : Component
     }
     
 	protected override void OnUpdate() {
+		BodyRenderer.RenderType =
+			Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
         UpdateCitizenAnims();
 
+      
         if (Body == null || Camera == null || BodyRenderer == null) return;
         
         SmoothLookAngle = SmoothLookAngle.LerpTo(LookAngle, Time.Delta / 0.035f);
         
-		BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.On;
-
 		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
 		// Body rotation might not need to happen in world space but rather in local space.
 		Body.WorldRotation = SmoothLookAngleAngles.WithPitch(0).ToRotation();
-        
+		
 		if ( IsProxy )
 			return;
-        
-		BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.ShadowsOnly;
-        
+		
         // var ControllerInput = Input.GetAnalog(InputAnalog.Look);
         // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
         // ControllerInput *= 25;
