@@ -100,6 +100,10 @@
         "ProjectilePrefab": {
           "_type": "gameobject",
           "prefab": "projectile.prefab"
+        },
+        "Tracer": {
+          "_type": "gameobject",
+          "prefab": "tracer.prefab"
         }
       },
       {
