@@ -20,6 +20,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnAwake()
 	{
+		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
 			Log.Error( "[Gun] Gun data incomplete!" );
@@ -40,6 +41,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnStart()
 	{
+		if ( IsProxy ) return;
 		base.OnStart();
 
 		// If the player picks the weapon, it wont have a User pre-set

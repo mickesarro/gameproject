@@ -25,8 +25,10 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 	/// <param name="other"></param>
 	public void OnTriggerEnter( Collider other )
 	{
+		
 		if ( other.Tags.Contains( "player" ) )
 		{
+			Log.Info( other );
 			if ( !other.IsProxy )
 			{
 				Parent ??= other.GameObject;
