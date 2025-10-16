@@ -9,6 +9,7 @@
  * - Refactored and optimized code structure
  * - Removed Fire method and related functionality
  * - Changed Speed update to go through HUD
+ * - Implements the ICharacterBase now
  *
  * License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
  */
@@ -22,7 +23,7 @@ using Sandbox.Citizen;
 [Category("Physics")]
 [Icon("directions_walk")]
 [EditorHandle("materials/gizmo/charactercontroller.png")]
-public sealed class PlayerController : Component
+public sealed class PlayerController : Component, ICharacterBase
 {
 	// omat custom jutut ehkä hyvä merkata
 	[Property] private HUD HUD { get; set; }
@@ -114,9 +115,15 @@ public sealed class PlayerController : Component
     [Property, ToggleGroup("CameraRollEnabled")] float CameraRollAngleLimit {get;set;} = 30f;
     float sidetiltLerp = 0f;
 
-    // Fucntions to make things slightly nicer
-    
-    public void Punch(in Vector3 amount) {
+	// Fucntions to make things slightly nicer
+
+	[Rpc.Owner]
+	void ICharacterBase.Punch( Vector3 amount )
+	{
+		Punch( in amount );
+	}
+
+	public void Punch(in Vector3 amount) {
         ClearGround();
         Velocity += amount;
     }

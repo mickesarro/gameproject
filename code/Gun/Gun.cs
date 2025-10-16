@@ -152,8 +152,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		var projectile = FireData.BulletData.ProjectilePrefab
-			.Clone( gunData.BarrelEnd.WorldTransform, startEnabled: false );
-		
+			.Clone( gunData.BarrelEnd.WorldTransform );
+
+		// A better solution is required for final product
+		projectile.GetComponent<Projectile>().Attacker = User;
+
 		projectile.NetworkSpawn();
 	}
 
