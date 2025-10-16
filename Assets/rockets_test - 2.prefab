@@ -64,7 +64,7 @@
         "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
         "AmmoLeft": 10,
-        "AmmoType": 0,
+        "AmmoType": "Medium",
         "BulletData": {
           "_type": "component",
           "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",

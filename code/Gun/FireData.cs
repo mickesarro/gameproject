@@ -2,6 +2,7 @@ using Sandbox;
 
 public enum BulletType { Bullet, Projectile };
 public enum FireType { FullAuto, SemiAuto, Burst };
+public enum AmmoType { Light, Medium, Heavy, Rocket }
 
 /// <summary>
 /// Holds the data specific to the firing functionality.
@@ -19,6 +20,7 @@ public sealed class FireData : Component
 	[Property, Group( "Fire" )] public float Spread { get; private set; } = 10f;
 	[Property, Group( "Fire" )] public float Recoil { get; private set; } = 5f;
 
+	[Property, Group( "Magazine" )] public AmmoType AmmoType { get; private set; }
 	[Property, Group( "Magazine" )] public int MaxAmmo { get; private set; } = 10;
 	[Property, Group( "Magazine" )] public int AmmoLeft { get; set; } = 10;
 	[Property, Group( "Magazine" )] public bool HasInfiniteAmmo { get; set; } = false;

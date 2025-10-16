@@ -16,7 +16,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private FireData FireData; // Just for convenience
 
 	private SkinnedModelRenderer modelRenderer;
-	private BBox playerBBox;
+	private AmmoInventory AmmoInventory;
 
 	protected override void OnAwake()
 	{
@@ -30,6 +30,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
 
 		FireData = gunData.PrimaryFireData;
+		if ( FireData.BulletData.ProjectilePrefab == null )
+		{
+			Log.Error( "No projectile prefab supplied, aborting." );
+			DestroyGameObject();
+			return;
+		}
 	}
 
 	protected override void OnStart()
@@ -39,7 +45,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// If the player picks the weapon, it wont have a User pre-set
 		User ??= GameObject?.Parent;
 
-		playerBBox = User != null ? User.GetComponent<BBox>() : default;
+		if ( User == null )
+		{
+			Log.Info( "No user found." );
+			return;
+		}
+
+		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		shootInterval = 60f / FireData.RPM;
 	}
@@ -80,12 +92,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		if ( FireData.BulletType == BulletType.Bullet )
 		{
 			FireBullet();
-			SetAnimation( "fire", true );
 		}
 		else if ( FireData.BulletType == BulletType.Projectile )
 		{
 			FireProjectile();
-			SetAnimation( "fire", true );
 		}
 	}
 
@@ -97,7 +107,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if (FireData.AmmoLeft == 0)
 		{
-			// Reload
+			Reload();
+			return;
 		}
 		--FireData.AmmoLeft;
 
@@ -122,6 +133,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 			Log.Info( "Ray hit" ); // Remove later
 		}
+		SetAnimation( "fire", true );
 	}
 
 	private SceneTraceResult TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -136,6 +148,17 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		return traceRay;
 	}
 
+	private void Reload()
+	{
+		int reloaded = AmmoInventory
+			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo );
+
+		FireData.AmmoLeft = reloaded;
+
+		// Should do some animation etc. as well
+		elapsed -= FireData.LoadTime; // Better solution required
+	}
+
 	private void SpawnTracer()
 	{
 		// Shoot visual tracer for bullet
@@ -143,11 +166,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireProjectile()
 	{
-		if (FireData.BulletData.ProjectilePrefab == null)
+		if ( FireData.AmmoLeft == 0 )
 		{
-			Log.Error( "No projectile prefab supplied, aborting." );
+			Reload();
 			return;
 		}
+		--FireData.AmmoLeft;
 
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
@@ -156,6 +180,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		projectile.GetComponent<Projectile>().Attacker = User;
 
 		projectile.NetworkSpawn();
+
+		if ( FireData.AmmoType == AmmoType.Rocket ) // If bazooka, reload
+		{
+			Reload();
+		}
+
+		SetAnimation( "fire", true );
 	}
 
 	public void Collect( GameObject interactor )
