@@ -35,7 +35,7 @@ public class BlastEffect : GameObject
 
 				if (trace.Hit && trace.GameObject == hittable)
 				{
-					character.Punch(direction * BlastForce * damageFalloff);
+					character.ApplyForce(direction * BlastForce * damageFalloff);
 					
 					hittable.GetComponent<IDamageable>()
 						?.OnDamage(new DamageInfo()

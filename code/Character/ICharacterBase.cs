@@ -6,6 +6,6 @@ using Sandbox;
 public interface ICharacterBase
 {
 
-	public void Punch( Vector3 amount );
+	public void ApplyForce( Vector3 amount );
 
 }
