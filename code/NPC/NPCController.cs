@@ -142,7 +142,7 @@ public class NPCController : Component, ICharacterBase {
 	}
 
 	[Rpc.Owner]
-	public void Punch( Vector3 amount )
+	public void ApplyForce( Vector3 amount )
 	{
 		Agent.Velocity += amount;
 	}
