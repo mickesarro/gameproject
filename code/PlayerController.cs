@@ -118,15 +118,15 @@ public sealed class PlayerController : Component, ICharacterBase
 	// Fucntions to make things slightly nicer
 
 	[Rpc.Owner]
-	void ICharacterBase.Punch( Vector3 amount )
+	void ICharacterBase.ApplyForce( Vector3 amount )
 	{
-		Punch( in amount );
+		Punch( in amount ); // Works for now
 	}
 
 	public void Punch(in Vector3 amount) {
         ClearGround();
-        Velocity += amount;
-    }
+		Velocity += amount;
+	}
 
     private void ClearGround() {
         IsOnGround = false;
