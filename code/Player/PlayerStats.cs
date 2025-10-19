@@ -1,18 +1,19 @@
 using Sandbox;
 
-public struct PlayerStats : ISerializable
+public sealed class PlayerStats : Component, ISerializable
 {
-	public int Kills { get; private set; }
-	public int Deaths { get; private set; }
+	public int Score { get; private set; } = 0;
+	public int Kills { get; private set; } = 0;
+	public float Damage { get; private set; } = 0;
+	public int Deaths { get; private set; } = 0;
 
 	public string Name => "player_stats";
 
 	// Assists, damage, favourite gun etc.
 
-	public void Add( PlayerStats playerStats )
-	{
-		// Could implement with reflection if a lot of members arise
-		Kills += playerStats.Kills;
-		Deaths += playerStats.Deaths;
-	}
+	public void AddKill() => Kills++;
+	public void AddDamage( float damage ) => Damage += damage; 
+	public void AddDeath() => Deaths++;
+	public void AddScore( int amount ) => Score += amount;
+
 }

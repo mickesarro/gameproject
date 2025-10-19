@@ -26,9 +26,11 @@ using Sandbox.Citizen;
 public sealed class PlayerController : Component, ICharacterBase
 {
 	// omat custom jutut ehkä hyvä merkata
-	[Property] private HUD HUD { get; set; }
 
-    [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
+	private PlayerStats playerStats;
+	public PlayerStats CharacterStats => playerStats;
+
+	[Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
     public Vector3 Gravity = new Vector3(0, 0, -800f);
     
@@ -393,7 +395,7 @@ public sealed class PlayerController : Component, ICharacterBase
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
 
 		Camera = Scene.Camera;
-		HUD = Scene.Get<HUD>();
+		playerStats = GetComponent<PlayerStats>();
         
         Height = StandingHeight;
         HeightGoal = StandingHeight;
