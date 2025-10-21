@@ -6,7 +6,8 @@ namespace NPC;
 /// Largely represents the NPC itself.
 /// Works as a common class for shared NPC state data and functionality.
 /// </summary>
-public class NPCController : Component, ICharacterBase {
+public class NPCController : Component, ICharacterBase
+{
 
 	[Title( "Hunting and detecting" )]
 	[Property] private GameObject hunted { get; set; }
@@ -34,6 +35,9 @@ public class NPCController : Component, ICharacterBase {
 
 	private CitizenAnimationHelper animationHelper;
 
+	private PlayerStats playerStats; // Not a player, but in-game stats
+	public PlayerStats CharacterStats => playerStats;
+
 	protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -42,6 +46,9 @@ public class NPCController : Component, ICharacterBase {
 		PopulateFSM();
 
 		animationHelper = GetComponent<CitizenAnimationHelper>();
+
+		MatchStatsManager.Instance.RegisterCharacter( GameObject );
+		playerStats = GetOrAddComponent<PlayerStats>();
 	}
 
     protected override void OnStart()
