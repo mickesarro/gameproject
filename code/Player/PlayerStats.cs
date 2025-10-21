@@ -8,6 +8,7 @@ public sealed class PlayerStats : Component, ISerializable
 	public int Deaths { get; private set; } = 0;
 
 	public string Name => "player_stats";
+	public bool ShouldAccumulate => true;
 
 	// Assists, damage, favourite gun etc.
 
@@ -16,4 +17,13 @@ public sealed class PlayerStats : Component, ISerializable
 	public void AddDeath() => Deaths++;
 	public void AddScore( int amount ) => Score += amount;
 
+	public void Accumulate( ISerializable data )
+	{
+		if ( data == null || data is not PlayerStats stats ) return;
+
+		this.Score += stats.Score;
+		this.Kills += stats.Kills;
+		this.Damage += stats.Damage;
+		this.Deaths += stats.Deaths;
+	}
 }

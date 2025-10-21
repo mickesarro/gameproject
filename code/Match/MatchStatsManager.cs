@@ -13,17 +13,19 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	{
 		if ( killed == null )
 		{
-			Log.Error( "No killed character given" );
+			Log.Error( "No killed character given, ignoring." );
 			return;
 		}
 
 		if ( !damageInfo.Attacker.Components.TryGet<ICharacterBase>( out var attacker ) )
 		{
-			Log.Error( "DamageInfo did not contain attacker" );
+			Log.Error( $"DamageInfo for death of {killed} did not contain attacker, ignoring." );
 			return;
 		}
 
 		killed.CharacterStats.AddDeath();
+
+		if ( killed == attacker ) return; // Killing yourself should not count as a kill
 
 		attacker.CharacterStats.AddKill();
 		attacker.CharacterStats.AddDamage( damageInfo.Damage );
@@ -35,10 +37,8 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	/// <param name="character"></param>
 	public void RegisterCharacter( GameObject character )
 	{
-		Log.Info( "Here" );
 		if (character.Components.TryGet<ICharacterBase>( out _ ))
 		{
-			Log.Info( "Here" );
 			tracked.Add( character );
 		}
 	}
