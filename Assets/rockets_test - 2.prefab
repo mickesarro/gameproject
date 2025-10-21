@@ -57,7 +57,8 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Primary"
+        "WeaponType": "Primary",
+        "Worldmodel": null
       },
       {
         "__type": "FireData",

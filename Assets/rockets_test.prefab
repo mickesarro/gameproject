@@ -41,6 +41,7 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
+        "holdType": "RPG",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -57,7 +58,11 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Secondary"
+        "WeaponType": "Secondary",
+        "Worldmodel": {
+          "_type": "gameobject",
+          "go": "c4082e21-d2b2-4b26-96c6-676da2defab7"
+        }
       },
       {
         "__type": "FireData",
@@ -1535,6 +1540,81 @@
         ]
       },
       {
+        "__guid": "c4082e21-d2b2-4b26-96c6-676da2defab7",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "worldmodel",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "8073f371-855f-489e-922b-c995c25efb04",
+            "__enabled": true,
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Materials": null,
+            "Model": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null,
+              "Looping": true,
+              "Blending": false
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.GunWorldModelHandler",
+            "__guid": "41b2bd3a-911b-4b64-be9a-fadd269fccb1",
+            "__enabled": true,
+            "AnchorObjectName": "hold_R",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PositionOffset": "-16.8,1.2,-5.8"
+          }
+        ],
+        "Children": []
+      },
+      {
         "__guid": "a3720b03-561e-4632-a168-85132f53e3d3",
         "__version": 1,
         "Flags": 0,
@@ -1646,7 +1726,8 @@
   "DontBreakAsTemplate": false,
   "__references": [
     "facepunch.v_first_person_arms_human#122024",
-    "facepunch.v_recoillessrifle#116232"
+    "facepunch.v_recoillessrifle#116232",
+    "facepunch.wrecoillessrifle#113432"
   ],
   "__version": 2
 }
