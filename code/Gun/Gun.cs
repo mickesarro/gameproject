@@ -119,7 +119,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			);
 		}
 
-		SpawnTracer( traceRay.HitPosition );
+		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
 	}
 
 	private SceneTraceResult TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -136,15 +136,16 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void SpawnTracer( Vector3 target )
 	{
+		// For future reference:
+		// If needed, consider object pooling the tracers.
+
 		if ( FireData.BulletData.Tracer == null ) return;
 
 		// Shoot visual tracer for bullet
 		var clnfg = new CloneConfig { Name = "tracer", StartEnabled = true, Transform = GunData.BarrelEnd.WorldTransform };
 
-		var go = FireData.BulletData.Tracer.Clone( clnfg );
-
-		go.GetComponent<BeamEffect>().TargetPosition = target;
-
+		FireData.BulletData.Tracer.Clone( clnfg )
+			.GetComponent<BeamEffect>().TargetPosition = target;
 	}
 
 	private void FireProjectile()

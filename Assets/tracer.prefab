@@ -18,20 +18,37 @@
         "__type": "Sandbox.BeamEffect",
         "__guid": "9d36acb4-0f9e-4650-837e-67e2b131a8ae",
         "__enabled": true,
-        "Additive": false,
+        "Additive": true,
         "Alpha": 1,
         "BeamColor": {
-          "Type": "Constant",
+          "Type": "Gradient",
           "Evaluation": "Life",
           "GradientA": {
             "blend": "Linear",
             "color": [
               {
-                "t": 0.5,
+                "t": 0,
                 "c": "1,1,1,1"
+              },
+              {
+                "t": 0.5,
+                "c": "1,0.82353,0,1"
+              },
+              {
+                "t": 1,
+                "c": "1,0.47843,0,1"
               }
             ],
-            "alpha": []
+            "alpha": [
+              {
+                "t": 0,
+                "a": 1
+              },
+              {
+                "t": 1,
+                "a": 1
+              }
+            ]
           },
           "GradientB": {
             "blend": "Linear",
@@ -54,7 +71,7 @@
         "InitialBurst": 1,
         "Lighting": false,
         "Looped": false,
-        "Material": null,
+        "Material": "materials/tracer.vmat",
         "MaxBeams": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -63,14 +80,14 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "Opaque": false,
-        "Scale": 2,
+        "Scale": 0.1,
         "Shadows": false,
         "TargetGameObject": null,
         "TargetPosition": "0,0,0",
         "TargetRandom": "0,0,0",
         "Texture": null,
         "TextureOffset": 1,
-        "TextureScale": 128,
+        "TextureScale": 60,
         "TextureScroll": 0,
         "TextureScrollSpeed": 0,
         "TravelBetweenPoints": true,
