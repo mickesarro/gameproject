@@ -7,14 +7,14 @@ using Sandbox.Utility;
 public sealed class Projectile : Component
 {
 	[Property] private float velocity = 1100f;
+	[Property] public GameObject Attacker { get; set; }
 
 	private Collider collider; // Can be used with different types of colliders
 
 	protected override void OnAwake()
 	{
 		base.OnAwake();
-		collider = GetComponent<Collider>();
-		if ( collider != null )
+		if ( Components.TryGet<Collider>( out var collider ) )
 		{
 			collider.OnObjectTriggerEnter = OnCollision;
 		}
@@ -33,7 +33,7 @@ public sealed class Projectile : Component
 	private void OnCollision( GameObject objectHit )
 	{
 
-		if ( objectHit.Tags.Contains( Steam.SteamId.ToString() ) )
+		if ( objectHit == Attacker )
 		{
 			return;
 		}
@@ -43,7 +43,7 @@ public sealed class Projectile : Component
 			BlastForce = 500.0f,
 		};
 		blastEffect.NetworkSpawn();
-		blastEffect.TriggerBlast( WorldPosition );
+		blastEffect.TriggerBlast( WorldPosition, Attacker );
 
 		// Just destroy for now
 		DestroyGameObject();

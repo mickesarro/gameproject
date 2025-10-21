@@ -1,3 +1,5 @@
+using System;
+
 namespace Sandbox;
 
 /// <summary>
@@ -6,9 +8,9 @@ namespace Sandbox;
 public sealed class GunViewModelHandler : Component
 {
 	private CameraComponent camera;
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 		camera = Scene.Camera.Components.Get<CameraComponent>();
 		if (camera == null )
 		{
@@ -19,6 +21,7 @@ public sealed class GunViewModelHandler : Component
 
 	protected override void OnUpdate()
 	{
+		if (IsProxy) return;
 		// This is not ideal and must be made independent later.
 		GameObject.WorldPosition = camera.WorldPosition;
 		GameObject.WorldRotation = camera.WorldRotation;

@@ -6,7 +6,7 @@ namespace NPC;
 /// Largely represents the NPC itself.
 /// Works as a common class for shared NPC state data and functionality.
 /// </summary>
-public class NPCController : Component {
+public class NPCController : Component, ICharacterBase {
 
 	[Title( "Hunting and detecting" )]
 	[Property] private GameObject hunted { get; set; }
@@ -141,4 +141,9 @@ public class NPCController : Component {
 		animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
 	}
 
+	[Rpc.Owner]
+	public void ApplyForce( Vector3 amount )
+	{
+		Agent.Velocity += amount;
+	}
 }

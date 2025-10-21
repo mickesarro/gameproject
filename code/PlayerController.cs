@@ -9,6 +9,7 @@
  * - Refactored and optimized code structure
  * - Removed Fire method and related functionality
  * - Changed Speed update to go through HUD
+ * - Implements the ICharacterBase now
  *
  * License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
  */
@@ -22,7 +23,7 @@ using Sandbox.Citizen;
 [Category("Physics")]
 [Icon("directions_walk")]
 [EditorHandle("materials/gizmo/charactercontroller.png")]
-public sealed class PlayerController : Component
+public sealed class PlayerController : Component, ICharacterBase
 {
 	// omat custom jutut ehkä hyvä merkata
 	[Property] private HUD HUD { get; set; }
@@ -114,12 +115,18 @@ public sealed class PlayerController : Component
     [Property, ToggleGroup("CameraRollEnabled")] float CameraRollAngleLimit {get;set;} = 30f;
     float sidetiltLerp = 0f;
 
-    // Fucntions to make things slightly nicer
+	// Fucntions to make things slightly nicer
 
-    public void Punch(in Vector3 amount) {
+	[Rpc.Owner]
+	void ICharacterBase.ApplyForce( Vector3 amount )
+	{
+		Punch( in amount ); // Works for now
+	}
+
+	public void Punch(in Vector3 amount) {
         ClearGround();
-        Velocity += amount;
-    }
+		Velocity += amount;
+	}
 
     private void ClearGround() {
         IsOnGround = false;
@@ -268,8 +275,9 @@ public sealed class PlayerController : Component
 
         animationHelper.WithWishVelocity(WishDir * InternalMoveSpeed);
         animationHelper.WithVelocity(Velocity);
-        animationHelper.AimAngle = SmoothLookAngleAngles.ToRotation();
+        animationHelper.AimAngle = SmoothLookAngleAngles.WithPitch(0).ToRotation();
         animationHelper.IsGrounded = IsOnGround;
+        // commenting out fixes model looking at direction other than actual
         animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
         animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
         animationHelper.DuckLevel = ((1 - (Height / StandingHeight)) * 3).Clamp(0, 1);
@@ -384,7 +392,7 @@ public sealed class PlayerController : Component
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
 
-		Camera = Scene.Camera.Components.Get<CameraComponent>();
+		Camera = Scene.Camera;
 		HUD = Scene.Get<HUD>();
         
         Height = StandingHeight;
@@ -484,47 +492,53 @@ public sealed class PlayerController : Component
 
         if (jumpHighestHeight < GameObject.WorldPosition.z) jumpHighestHeight = GameObject.WorldPosition.z;
     }
-    
-	protected override void OnUpdate() {
-        UpdateCitizenAnims();
 
-        if (Body == null || Camera == null || BodyRenderer == null) return;
-        
+    protected override void OnStart()
+    {
+	    BodyRenderer.RenderType =
+		    Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
+    }
+
+    protected override void OnUpdate() {
+		if ( !IsProxy ) {
+			// var ControllerInput = Input.GetAnalog(InputAnalog.Look);
+	        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
+	        // ControllerInput *= 25;
+	        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
+	        LookAngle += new Vector2((Input.MouseDelta.y), -(Input.MouseDelta.x)) * Preferences.Sensitivity * 0.022f;
+	        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
+			
+	        var angles = LookAngleAngles;
+
+	        if (CameraRollEnabled) {
+	            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
+	            angles = angles + new Angles(0, 0, sidetiltLerp); 
+	        }
+	        
+
+			Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
+			Camera.WorldRotation = angles.ToRotation();
+
+	        if (UseCustomFOV) {
+	            Camera.FieldOfView = CustomFOV;
+	        } else {
+	            Camera.FieldOfView = Preferences.FieldOfView;
+	        }
+		}
         SmoothLookAngle = SmoothLookAngle.LerpTo(LookAngle, Time.Delta / 0.035f);
         
-		BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.On;
-
+		UpdateCitizenAnims();
+      
+        if (Body == null || Camera == null || BodyRenderer == null) return;
+        
 		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
 		// Body rotation might not need to happen in world space but rather in local space.
 		Body.WorldRotation = SmoothLookAngleAngles.WithPitch(0).ToRotation();
-        
+		
 		if ( IsProxy )
 			return;
-        
-		BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.ShadowsOnly;
-        
-        // var ControllerInput = Input.GetAnalog(InputAnalog.Look);
-        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
-        // ControllerInput *= 25;
-        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
-        LookAngle += new Vector2((Input.MouseDelta.y), -(Input.MouseDelta.x)) * Preferences.Sensitivity * 0.022f;
-        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
 		
-        var angles = LookAngleAngles;
 
-        if (CameraRollEnabled) {
-            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
-            angles = angles + new Angles(0, 0, sidetiltLerp);
-        }
-
-		Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
-		Camera.WorldRotation = angles.ToRotation();
-
-        if (UseCustomFOV) {
-            Camera.FieldOfView = CustomFOV;
-        } else {
-            Camera.FieldOfView = Preferences.FieldOfView;
-        }
 	}
 
 }

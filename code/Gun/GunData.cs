@@ -1,5 +1,5 @@
 using Sandbox;
-
+using Sandbox.Citizen;
 
 
 /// <summary>
@@ -14,4 +14,7 @@ public sealed class GunData : Component
 	[Property] public GameObject BarrelEnd { get; private set; } // Spawn point
 
 	[Property] public GameObject Viewmodel { get; private set; }
+	
+	[Property] public GameObject Worldmodel { get; private set; }
+	[Property] public CitizenAnimationHelper.HoldTypes holdType { get; private set; } = CitizenAnimationHelper.HoldTypes.None;
 }

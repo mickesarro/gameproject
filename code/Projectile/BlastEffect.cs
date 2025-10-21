@@ -10,37 +10,38 @@ public class BlastEffect : GameObject
 	[Property] public float BlastForce { get; set; } = 500.0f; // Tweak blast force
 	[Property] public float Damage { get; set; } = 50.0f; // Ehkä joskus joku damage mikä riippuu etäisyydestä?
 	
-	public void TriggerBlast( Vector3 position )
+	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
 		//PlayBlastEffect(position); // Placeholder for visual/audio effects
 
 		var sphere = new Sphere( position, Radius );
 		
-		foreach ( var obj in Game.ActiveScene.FindInPhysics( sphere ) )
+		foreach ( var hittable in Game.ActiveScene.FindInPhysics( sphere ) )
 		{
 			// If PlayerController, apply force
-			if ( obj.GetComponent<PlayerController>() is PlayerController player )
+			// Something more generic such as hittable or the IDamageable interface would be better
+			if ( hittable.Components.TryGet<ICharacterBase>( out var character ) )
 			{
-				var playerWorldCenter = player.WorldPosition.WithZ( player.WorldPosition.z + 36 );
-				var direction = (playerWorldCenter - position).Normal; // Normalized direction vector
-				var distance = playerWorldCenter.Distance(position);
+				// var hittable = hittable.GetComponent<PlayerController>() as PlayerController;
+
+				var charWorldCenter = hittable.WorldPosition.WithZ( hittable.WorldPosition.z + 36 );
+				var direction = (charWorldCenter - position).Normal; // Normalized direction vector
+				var distance = charWorldCenter.Distance(position);
 				var damageFalloff = 1.0f - (distance / Radius).Clamp(0.0f, 1.0f);
 				
-				Ray hitRay = new Ray(position, direction);
 				var trace = Game.ActiveScene.Trace
-					.Ray( position, playerWorldCenter )
+					.Ray( position, charWorldCenter )
 					.Run();
 
-				if (trace.Hit && trace.GameObject == player.GameObject)
+				if (trace.Hit && trace.GameObject == hittable)
 				{
-					player.Punch(direction * BlastForce * damageFalloff);
+					character.ApplyForce(direction * BlastForce * damageFalloff);
 					
-					// !! For future reference
-					player.GetComponent<IDamageable>()
+					hittable.GetComponent<IDamageable>()
 						?.OnDamage(new DamageInfo()
 						{
 							Damage = Damage * damageFalloff,
-							Attacker = this, // Just a placeholder, need to pass the actual attacker, if at all necessary
+							Attacker = attacker,
 							Position = trace.HitPosition,
 						}
 					);

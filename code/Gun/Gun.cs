@@ -1,4 +1,5 @@
 using Sandbox;
+using Sandbox.Citizen;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -15,11 +16,15 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private FireData FireData; // Just for convenience
 
-	private SkinnedModelRenderer modelRenderer;
+	private SkinnedModelRenderer viewModelRenderer;
+	private SkinnedModelRenderer playerModelRenderer;
 	private BBox playerBBox;
+	private AmmoInventory AmmoInventory;
 
 	protected override void OnAwake()
 	{
+		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
+		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
 			Log.Error( "[Gun] Gun data incomplete!" );
@@ -27,19 +32,38 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
-		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
-
+		viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
+		
 		FireData = gunData.PrimaryFireData;
+		if ( FireData.BulletData.ProjectilePrefab == null )
+		{
+			Log.Error( "No projectile prefab supplied, aborting." );
+			DestroyGameObject();
+			return;
+		}
 	}
 
 	protected override void OnStart()
 	{
+		if ( IsProxy ) return;
 		base.OnStart();
 
 		// If the player picks the weapon, it wont have a User pre-set
 		User ??= GameObject?.Parent;
+		
+		if ( User == null )
+		{
+			Log.Info( "No user found." );
+			return;
+		}
 
-		playerBBox = User != null ? User.GetComponent<BBox>() : default;
+		AmmoInventory = User.GetComponent<AmmoInventory>();
+
+		playerBBox = User?.GetComponent<BBox>() ?? default;
+		var playerBody = User?.Children.Find(obj => obj.Name == "Body" );
+		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
+		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
+		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
 	}
@@ -80,24 +104,41 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		if ( FireData.BulletType == BulletType.Bullet )
 		{
 			FireBullet();
-			SetAnimation( "fire", true );
 		}
 		else if ( FireData.BulletType == BulletType.Projectile )
 		{
 			FireProjectile();
-			SetAnimation( "fire", true );
 		}
+	}
+
+	enum modelType
+	{
+		ViewModel,
+		WorldModel
 	}
 
 	// Small utility for now
 	[Rpc.Broadcast]
-	private void SetAnimation(string name, bool state) => modelRenderer?.Parameters.Set( name, state );
+	private void SetAnimation(modelType type, string name, bool state)
+	{
+		switch ( type )
+		{
+			case modelType.ViewModel:
+			viewModelRenderer?.Parameters.Set( name, state );
+			break;
+			
+			case modelType.WorldModel:
+			playerModelRenderer?.Parameters.Set( name, state );
+			break;
+		}
+	}
 
 	private void FireBullet()
 	{
 		if (FireData.AmmoLeft == 0)
 		{
-			// Reload
+			Reload();
+			return;
 		}
 		--FireData.AmmoLeft;
 
@@ -118,6 +159,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 				}
 			);
 		}
+		SetAnimation(modelType.ViewModel, "fire", true );
+		SetAnimation(modelType.WorldModel, "b_attack", true );
 
 		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
 	}
@@ -132,6 +175,17 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			.Run();
 
 		return traceRay;
+	}
+
+	private void Reload()
+	{
+		int reloaded = AmmoInventory
+			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo );
+
+		FireData.AmmoLeft = reloaded;
+
+		// Should do some animation etc. as well
+		elapsed -= FireData.LoadTime; // Better solution required
 	}
 
 	private void SpawnTracer( Vector3 target )
@@ -150,16 +204,25 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireProjectile()
 	{
-		if (FireData.BulletData.ProjectilePrefab == null)
+		if ( FireData.AmmoLeft == 0 )
 		{
-			Log.Error( "No projectile prefab supplied, aborting." );
+			Reload();
 			return;
 		}
+		--FireData.AmmoLeft;
 
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
 
+		// A better solution is required for final product
+		projectile.GetComponent<Projectile>().Attacker = User;
+
 		projectile.NetworkSpawn();
+
+		if ( FireData.AmmoType == AmmoType.Rocket ) // If bazooka, reload
+		{
+			Reload();
+		}
 	}
 
 	public void Collect( GameObject interactor )
@@ -171,5 +234,4 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	[Rpc.Broadcast]
 	public void EnableGo( bool enable ) => GameObject.Enabled = enable;
-
 }
