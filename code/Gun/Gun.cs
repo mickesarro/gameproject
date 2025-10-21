@@ -158,13 +158,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 					Position = traceRay.HitPosition,
 				}
 			);
-
-			SpawnTracer();
-
-			Log.Info( "Ray hit" ); // Remove later
 		}
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
+
+		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
 	}
 
 	private SceneTraceResult TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -190,9 +188,18 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		elapsed -= FireData.LoadTime; // Better solution required
 	}
 
-	private void SpawnTracer()
+	private void SpawnTracer( Vector3 target )
 	{
+		// For future reference:
+		// If needed, consider object pooling the tracers.
+
+		if ( FireData.BulletData.Tracer == null ) return;
+
 		// Shoot visual tracer for bullet
+		var clnfg = new CloneConfig { Name = "tracer", StartEnabled = true, Transform = GunData.BarrelEnd.WorldTransform };
+
+		FireData.BulletData.Tracer.Clone( clnfg )
+			.GetComponent<BeamEffect>().TargetPosition = target;
 	}
 
 	private void FireProjectile()
