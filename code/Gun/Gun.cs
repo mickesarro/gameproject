@@ -1,4 +1,5 @@
 using Sandbox;
+using Sandbox.Citizen;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -15,11 +16,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private FireData FireData; // Just for convenience
 
-	private SkinnedModelRenderer modelRenderer;
+	private SkinnedModelRenderer viewModelRenderer;
+	private SkinnedModelRenderer playerModelRenderer;
+	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 
 	protected override void OnAwake()
 	{
+		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
 		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
@@ -28,8 +32,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
-		modelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
-
+		viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
+		
 		FireData = gunData.PrimaryFireData;
 		if ( FireData.BulletData.ProjectilePrefab == null )
 		{
@@ -46,7 +50,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		// If the player picks the weapon, it wont have a User pre-set
 		User ??= GameObject?.Parent;
-
+		
 		if ( User == null )
 		{
 			Log.Info( "No user found." );
@@ -54,6 +58,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		AmmoInventory = User.GetComponent<AmmoInventory>();
+
+		playerBBox = User?.GetComponent<BBox>() ?? default;
+		var playerBody = User?.Children.Find(obj => obj.Name == "Body" );
+		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
+		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
+		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
 	}
@@ -101,9 +111,27 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 	}
 
+	enum modelType
+	{
+		ViewModel,
+		WorldModel
+	}
+
 	// Small utility for now
 	[Rpc.Broadcast]
-	private void SetAnimation(string name, bool state) => modelRenderer?.Parameters.Set( name, state );
+	private void SetAnimation(modelType type, string name, bool state)
+	{
+		switch ( type )
+		{
+			case modelType.ViewModel:
+			viewModelRenderer?.Parameters.Set( name, state );
+			break;
+			
+			case modelType.WorldModel:
+			playerModelRenderer?.Parameters.Set( name, state );
+			break;
+		}
+	}
 
 	private void FireBullet()
 	{
@@ -135,7 +163,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 			Log.Info( "Ray hit" ); // Remove later
 		}
-		SetAnimation( "fire", true );
+		SetAnimation(modelType.ViewModel, "fire", true );
+		SetAnimation(modelType.WorldModel, "b_attack", true );
 	}
 
 	private SceneTraceResult TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
@@ -187,8 +216,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		{
 			Reload();
 		}
-
-		SetAnimation( "fire", true );
 	}
 
 	public void Collect( GameObject interactor )
@@ -200,5 +227,4 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	[Rpc.Broadcast]
 	public void EnableGo( bool enable ) => GameObject.Enabled = enable;
-
 }

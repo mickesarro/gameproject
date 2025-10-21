@@ -278,7 +278,7 @@ public sealed class PlayerController : Component, ICharacterBase
         animationHelper.AimAngle = SmoothLookAngleAngles.WithPitch(0).ToRotation();
         animationHelper.IsGrounded = IsOnGround;
         // commenting out fixes model looking at direction other than actual
-        //animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
+        animationHelper.WithLook(SmoothLookAngleAngles.Forward, 1f, 0.75f, 0.5f);
         animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
         animationHelper.DuckLevel = ((1 - (Height / StandingHeight)) * 3).Clamp(0, 1);
     }
@@ -492,16 +492,44 @@ public sealed class PlayerController : Component, ICharacterBase
 
         if (jumpHighestHeight < GameObject.WorldPosition.z) jumpHighestHeight = GameObject.WorldPosition.z;
     }
-    
-	protected override void OnUpdate() {
-		BodyRenderer.RenderType =
-			Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
-        UpdateCitizenAnims();
 
+    protected override void OnStart()
+    {
+	    BodyRenderer.RenderType =
+		    Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
+    }
+
+    protected override void OnUpdate() {
+		if ( !IsProxy ) {
+			// var ControllerInput = Input.GetAnalog(InputAnalog.Look);
+	        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
+	        // ControllerInput *= 25;
+	        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
+	        LookAngle += new Vector2((Input.MouseDelta.y), -(Input.MouseDelta.x)) * Preferences.Sensitivity * 0.022f;
+	        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
+			
+	        var angles = LookAngleAngles;
+
+	        if (CameraRollEnabled) {
+	            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
+	            angles = angles + new Angles(0, 0, sidetiltLerp); 
+	        }
+	        
+
+			Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
+			Camera.WorldRotation = angles.ToRotation();
+
+	        if (UseCustomFOV) {
+	            Camera.FieldOfView = CustomFOV;
+	        } else {
+	            Camera.FieldOfView = Preferences.FieldOfView;
+	        }
+		}
+        SmoothLookAngle = SmoothLookAngle.LerpTo(LookAngle, Time.Delta / 0.035f);
+        
+		UpdateCitizenAnims();
       
         if (Body == null || Camera == null || BodyRenderer == null) return;
-        
-        SmoothLookAngle = SmoothLookAngle.LerpTo(LookAngle, Time.Delta / 0.035f);
         
 		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
 		// Body rotation might not need to happen in world space but rather in local space.
@@ -510,28 +538,7 @@ public sealed class PlayerController : Component, ICharacterBase
 		if ( IsProxy )
 			return;
 		
-        // var ControllerInput = Input.GetAnalog(InputAnalog.Look);
-        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
-        // ControllerInput *= 25;
-        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
-        LookAngle += new Vector2((Input.MouseDelta.y), -(Input.MouseDelta.x)) * Preferences.Sensitivity * 0.022f;
-        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
-		
-        var angles = LookAngleAngles;
 
-        if (CameraRollEnabled) {
-            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
-            angles = angles + new Angles(0, 0, sidetiltLerp);
-        }
-
-		Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
-		Camera.WorldRotation = angles.ToRotation();
-
-        if (UseCustomFOV) {
-            Camera.FieldOfView = CustomFOV;
-        } else {
-            Camera.FieldOfView = Preferences.FieldOfView;
-        }
 	}
 
 }

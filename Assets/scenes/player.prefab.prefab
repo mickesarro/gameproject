@@ -182,9 +182,24 @@
       },
       {
         "__type": "AmmoInventory",
-        "__guid": "22d7f90b-2a2a-449c-9650-2cce9f7dbdd3",
+        "__guid": "e94187b8-cb25-4410-8082-796abe1de9fa",
         "__enabled": true,
         "MaxAmount": 999,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Helpers.Anchor",
+        "__guid": "67d0ca49-9b39-4fdd-90b4-c75bc76ec7af",
+        "__enabled": true,
+        "Object": {
+          "_type": "gameobject",
+          "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
