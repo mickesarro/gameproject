@@ -6,7 +6,36 @@
       "__version": 1,
       "__Prefab": "ui.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "164aa83f-56ef-4067-91f4-fe967e6a7a6b"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "10258580-d221-4671-a73a-df5651abc0c1"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "CrosshairNew",
+              "__guid": "164aa83f-56ef-4067-91f4-fe967e6a7a6b",
+              "__enabled": true,
+              "CrosshairType": "Standard",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [],
         "MovedObjects": []
