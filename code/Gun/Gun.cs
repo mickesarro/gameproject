@@ -151,14 +151,17 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		var traceGo = traceRay.GameObject;
 		if ( traceRay.Hit && traceGo.GetComponent<IDamageable>() is IDamageable damageable )
 		{
-			damageable.OnDamage( new DamageInfo()
-				{
-					Damage = FireData.Damage,
-					Attacker = User,
-					Position = traceRay.HitPosition,
-				}
-			);
+			var damageInfo = new DamageInfo()
+			{
+				Damage = FireData.Damage,
+				Attacker = User,
+				Position = traceRay.HitPosition,
+			};
+
+			IDamageEvent.Post( e => e.OnDamage( traceGo, damageInfo ) );
+			damageable.OnDamage( damageInfo );
 		}
+
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
 

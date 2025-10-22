@@ -9,10 +9,6 @@ public enum CrosshairType
 	TStyle // German style three line without top one
 }
 
-// TODO: Best to implement possibly in own file so that it can be
-// triggered upon hits in some way
-public enum HitmarkerType { Cross }
-
 // Could be implemented with Razor, but as per https://sbox.game/dev/doc/systems/ui/hudpainter/
 // using this method is more efficient as we only draw geometry here.
 
@@ -20,7 +16,7 @@ public enum HitmarkerType { Cross }
 /// Draws crosshair with plain geometry using Camera HudPainter.
 /// Should be added to the HUD GameObject in the UI.
 /// </summary>
-public sealed class CrosshairNew : Component, IPlayerEvent
+public sealed class Crosshair : Component, IPlayerEvent
 {
 	private GunData gunData;
 	private PlayerInventory inventory;

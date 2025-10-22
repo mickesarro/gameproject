@@ -10,7 +10,7 @@
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "164aa83f-56ef-4067-91f4-fe967e6a7a6b"
+              "IdValue": "f2d007c0-721e-4fbd-9b14-bef758106eb7"
             },
             "Parent": {
               "Type": "GameObject",
@@ -23,10 +23,37 @@
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "CrosshairNew",
-              "__guid": "164aa83f-56ef-4067-91f4-fe967e6a7a6b",
+              "__type": "Crosshair",
+              "__guid": "f2d007c0-721e-4fbd-9b14-bef758106eb7",
               "__enabled": true,
               "CrosshairType": "Standard",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "63f739b4-30f2-4606-b9fe-77229a959eb9"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "f2d007c0-721e-4fbd-9b14-bef758106eb7"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Hitmarker",
+              "__guid": "63f739b4-30f2-4606-b9fe-77229a959eb9",
+              "__enabled": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
