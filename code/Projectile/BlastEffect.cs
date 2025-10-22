@@ -36,16 +36,18 @@ public class BlastEffect : GameObject
 				if (trace.Hit && trace.GameObject == hittable)
 				{
 					character.ApplyForce(direction * BlastForce * damageFalloff);
-					
-					hittable.GetComponent<IDamageable>()
-						?.OnDamage(new DamageInfo()
-						{
-							Damage = Damage * damageFalloff,
-							Attacker = attacker,
-							Position = trace.HitPosition,
-						}
-					);
 
+					var damageInfo = new DamageInfo()
+					{
+						Damage = Damage * damageFalloff,
+						Attacker = attacker,
+						Position = trace.HitPosition,
+					};
+
+					IDamageEvent.Post( e => e.OnDamage( hittable, damageInfo ) );
+
+					hittable.GetComponent<IDamageable>()
+						?.OnDamage( damageInfo );
 				}
 			}
 		}
