@@ -45,25 +45,7 @@
           "ZNear": 1
         }
       ],
-      "Children": [
-        {
-          "__guid": "9bdd0439-ea64-4fb8-b319-d70a0b2d6cb1",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "OwnerTransfer": 1,
-          "Components": [],
-          "Children": []
-        }
-      ]
+      "Children": []
     },
     {
       "__guid": "2fc26cb8-9044-4674-ae75-013769e5f599",
@@ -237,10 +219,50 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Parent": null
+          "Parent": null,
+          "Spin": 90
         }
       ],
-      "Children": []
+      "Children": [
+        {
+          "__guid": "6fd7545a-5f99-467f-9471-980f8046a41c",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Floaty position",
+          "Position": "0,0,26.29297",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ItemFloaty",
+              "__guid": "a10ff338-a550-4a75-b198-7e08e1640fcd",
+              "__enabled": true,
+              "Camera": {
+                "_type": "component",
+                "component_id": "d7631e5c-0597-478f-83e2-d6200d7baad6",
+                "go": "e0757b65-802e-415e-a527-a140268a35fa",
+                "component_type": "CameraComponent"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Size": 50,
+              "SpriteColor": "1000,0,0,1",
+              "Texture": "textures/shapes/spark2.vtex"
+            }
+          ],
+          "Children": []
+        }
+      ]
     },
     {
       "__guid": "77ac39fc-30a3-48d5-b528-0679ccf57c54",
@@ -271,7 +293,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Parent": null
+          "Parent": null,
+          "Spin": 0
         },
         {
           "__type": "Sandbox.SphereCollider",

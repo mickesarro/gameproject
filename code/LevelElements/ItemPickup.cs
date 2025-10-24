@@ -8,6 +8,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 
 	[Property] private GameObject Parent { get; set; }
 	[Property] private GameObject ItemPrefab { get; set; }
+	[Property] private float Spin { get; set; } = 0f;
 
 	protected override void OnAwake()
 	{
@@ -17,6 +18,12 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 			Log.Error( "No item prefab provided, destroying." );
 			DestroyGameObject();
 		}
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		GameObject.WorldRotation *= Rotation.FromYaw( Spin * Time.Delta );
 	}
 
 	/// <summary>
