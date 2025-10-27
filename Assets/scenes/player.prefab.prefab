@@ -181,9 +181,24 @@
       },
       {
         "__type": "AmmoInventory",
-        "__guid": "22d7f90b-2a2a-449c-9650-2cce9f7dbdd3",
+        "__guid": "af5e5d63-d697-433d-a444-1df5e9e30373",
         "__enabled": true,
         "MaxAmount": 999,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Helpers.Anchor",
+        "__guid": "42175bd2-cbe8-4dd8-8557-725c982a145e",
+        "__enabled": true,
+        "Object": {
+          "_type": "gameobject",
+          "go": "dc5d45df-5860-4ad9-86aa-6110c40ae591"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -307,6 +322,21 @@
               "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
               "component_type": "SkinnedModelRenderer"
             }
+          },
+          {
+            "__type": "Sandbox.Helpers.Anchor",
+            "__guid": "baa21ddc-ba94-4631-90ce-cb9228ab293d",
+            "__enabled": true,
+            "Object": {
+              "_type": "gameobject",
+              "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ],
         "Children": [
