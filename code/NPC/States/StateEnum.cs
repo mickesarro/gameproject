@@ -9,4 +9,5 @@ public enum StateEnum {
     Patrol,
     Search,
     PerformTask,
+	Attack
 }
