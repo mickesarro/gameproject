@@ -7,6 +7,7 @@ using Sandbox.Citizen;
 public sealed class Gun : Component, IWeapon, ICollectable
 {
 	[Property, Sync] public GameObject User { get; set; }
+	private bool isPlayer; // To not run OnUpdate on NPCs
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
@@ -57,6 +58,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
+		isPlayer = User.Components.TryGet<PlayerController>( out _ );
+
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
@@ -66,13 +69,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
+		timeSinceLastShot = 0; // Seems the sandbox time.now is messed up at object creation
 	}
 
 	private float shootInterval = 0.0f; 
-	private float elapsed = 0.0f;
+	private TimeSince timeSinceLastShot = 0;
 	protected override void OnUpdate()
 	{
-		if ( IsProxy ) return;
+		if ( IsProxy || !isPlayer ) return;
 
 		bool input = false;
 		switch (FireData.FireType)
@@ -86,13 +90,20 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		// Should be implemented with some form of events perhaps
-		if ( input && elapsed > shootInterval )
+		if ( input && CanShoot() )
 		{
 			Shoot();
-			elapsed = 0.0f;
 		}
+	}
 
-		elapsed += Time.Delta;
+	/// <summary>
+	/// Determines whether gun can be fired or not yet
+	/// </summary>
+	/// <returns></returns>
+	public bool CanShoot()
+	{
+		// Should likely be added more conditionals
+		return timeSinceLastShot > shootInterval;
 	}
 
 	public void Shoot()
@@ -109,6 +120,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		{
 			FireProjectile();
 		}
+
+		timeSinceLastShot = 0.0f;
 	}
 
 	enum modelType
@@ -188,7 +201,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		FireData.AmmoLeft = reloaded;
 
 		// Should do some animation etc. as well
-		elapsed -= FireData.LoadTime; // Better solution required
+		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 	}
 
 	private void SpawnTracer( Vector3 target )
