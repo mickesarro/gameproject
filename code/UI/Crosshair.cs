@@ -21,17 +21,18 @@ public sealed class Crosshair : Component, IPlayerEvent
         ("Magenta", "#FF00FF")
     };
 
-    protected override void OnAwake()
+    protected override void OnStart() // Start so all are created
     {
-        base.OnAwake();
-        UpdateCrosshairColor(SettingsManager.CrosshairColor);
-        SettingsManager.OnCrosshairColorChanged += UpdateCrosshairColor;
+        base.OnStart();
+
+		UpdateCrosshairColor( SettingsManager.Instance.PlayerPreferences.CrosshairColor );
+		SettingsManager.Instance.OnCrosshairColorChanged += UpdateCrosshairColor;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        SettingsManager.OnCrosshairColorChanged -= UpdateCrosshairColor;
+		SettingsManager.Instance.OnCrosshairColorChanged -= UpdateCrosshairColor;
     }
 
     private void UpdateCrosshairColor(string hex)
@@ -47,7 +48,7 @@ public sealed class Crosshair : Component, IPlayerEvent
         var hud = Scene.Camera.Hud;
         var center = Screen.Size * 0.5f;
 
-        var crosshairType = SettingsManager.CrosshairStyle;
+        var crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
 
         switch (crosshairType)
         {

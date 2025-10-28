@@ -18,8 +18,13 @@ public static class FileManager
 		Save( data, data.Name );
 	}
 
-	public static T Load<T> (string name) where T : ISerializable
+	public static T Load<T> (string name, T defaults = default) where T : ISerializable
 	{
-		return FileSystem.Data.ReadJson<T>( $"{name}.json" );
+		return FileSystem.Data.ReadJson<T>( $"{name}.json", defaults );
+	}
+
+	public static void Load<T>( ref T serializable ) where T : ISerializable
+	{
+		serializable = FileSystem.Data.ReadJson<T>( $"{serializable.Name}.json", serializable );
 	}
 }
