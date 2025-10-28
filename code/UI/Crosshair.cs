@@ -1,104 +1,121 @@
 using Sandbox;
 using Sandbox.Rendering;
+using System;
+using System.Linq;
 
-public enum CrosshairType
-{
-	Standard, // Four lines
-	Dot, // Single dot in center
-	Circle, // Circle with a dot inside
-	TStyle // German style three line without top one
-}
-
-// Could be implemented with Razor, but as per https://sbox.game/dev/doc/systems/ui/hudpainter/
-// using this method is more efficient as we only draw geometry here.
-
-/// <summary>
-/// Draws crosshair with plain geometry using Camera HudPainter.
-/// Should be added to the HUD GameObject in the UI.
-/// </summary>
 public sealed class Crosshair : Component, IPlayerEvent
 {
-	private GunData gunData;
-	private PlayerInventory inventory;
+    private GunData gunData;
+    private PlayerInventory inventory;
 
-	// Later add an option to settings and get this via player preferences
-	[Property] private CrosshairType CrosshairType { get; set; } = CrosshairType.Standard;
+    public Color CurrentCrosshairColor { get; private set; } = Color.White;
 
-	protected override void OnUpdate()
-	{
-		if ( inventory.CurrentWeapon == null || Scene.Camera == null )
-			return;
+    // --- Available colors ---
+    public static readonly (string Name, string Hex)[] AvailableColors = new[]
+    {
+        ("White", "#FFFFFF"),
+        ("Green", "#00FF00"),
+        ("Cyan", "#00FFFF"),
+        ("Yellow", "#FFFF00"),
+        ("Red", "#FF0000"),
+        ("Magenta", "#FF00FF")
+    };
 
-		var hudPainter = Scene.Camera.Hud;
-		var center = Screen.Size * 0.5f;
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        UpdateCrosshairColor(SettingsManager.CrosshairColor);
+        SettingsManager.OnCrosshairColorChanged += UpdateCrosshairColor;
+    }
 
-		switch ( CrosshairType )
-		{
-			case CrosshairType.Standard:
-			case CrosshairType.TStyle:
-				Lines( hudPainter, center );
-				break;
-			case CrosshairType.Dot:
-				Dot( hudPainter, center );
-				break;
-			case CrosshairType.Circle:
-				Circle( hudPainter, center );
-				break;
-		}
-	}
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        SettingsManager.OnCrosshairColorChanged -= UpdateCrosshairColor;
+    }
 
-	void IPlayerEvent.OnSpawn( GameObject player )
-	{
-		if ( player.IsProxy ) return;
+    private void UpdateCrosshairColor(string hex)
+    {
+        try { CurrentCrosshairColor = Color.Parse(hex) ?? Color.White; }
+        catch { CurrentCrosshairColor = Color.White; }
+    }
 
-		gunData = player.GetComponent<GunData>();
-		inventory = player.GetComponent<PlayerInventory>();
-	}
+    protected override void OnUpdate()
+    {
+        if (inventory?.CurrentWeapon == null || Scene.Camera == null) return;
 
-	private void Lines( HudPainter hudPainter, Vector2 center )
-	{
-		// Define later in crosshair settings, these are just placeholders until then
-		float gap = 10f;
-		float length = 50f;
-		float width = 10f;
-		Color color = Color.White;
+        var hud = Scene.Camera.Hud;
+        var center = Screen.Size * 0.5f;
 
-		hudPainter.DrawLine( center + Vector2.Left * (length + gap), center + Vector2.Left * gap, width, color );
-		hudPainter.DrawLine( center + Vector2.Right * (length + gap), center + Vector2.Right * gap, width, color );
-		hudPainter.DrawLine( center + Vector2.Down * (length + gap), center + Vector2.Down * gap, width, color );
+        var crosshairType = SettingsManager.CrosshairStyle;
 
-		if ( CrosshairType == CrosshairType.Standard )
-		{
-			hudPainter.DrawLine( center + Vector2.Up * (length + gap), center + Vector2.Up * gap, width, color );
-		}
+        switch (crosshairType)
+        {
+            case CrosshairType.Dot:
+                DrawDot(hud, center);
+                break;
+            case CrosshairType.Circle:
+                DrawCircle(hud, center);
+                break;
+            default:
+                DrawLines(hud, center, crosshairType);
+                break;
+        }
+    }
 
-	}
+    void IPlayerEvent.OnSpawn(GameObject player)
+    {
+        if (player.IsProxy) return;
+        gunData = player.GetComponent<GunData>();
+        inventory = player.GetComponent<PlayerInventory>();
+    }
 
-	private void Dot( HudPainter hudPainter, Vector2 center )
-	{
-		// Define later in crosshair settings, these are just placeholders until then
-		float width = 10f;
-		Color color = Color.White;
+    private void DrawLines(HudPainter hud, Vector2 center, CrosshairType type)
+    {
+        float gap = type == CrosshairType.Cross ? 0f : 3f;
+        float length = 15f;
+        float width = 2f;
+        var color = CurrentCrosshairColor;
 
-		hudPainter.DrawCircle( center, width, color );
-	}
+        if (type != CrosshairType.TStyle)
+            hud.DrawLine(center + Vector2.Up * (length + gap), center + Vector2.Up * gap, width, color);
 
-	private void Circle( HudPainter hudPainter, Vector2 center )
-	{
-		// Define later in crosshair settings, these are just placeholders until then
-		float width = 5f;
-		float size = 50f;
-		Color color = Color.White;
+        hud.DrawLine(center + Vector2.Left * (length + gap), center + Vector2.Left * gap, width, color);
+        hud.DrawLine(center + Vector2.Right * (length + gap), center + Vector2.Right * gap, width, color);
+        hud.DrawLine(center + Vector2.Down * (length + gap), center + Vector2.Down * gap, width, color);
+    }
 
-		Dot( hudPainter, center );
+    private void DrawDot(HudPainter hud, Vector2 center) => hud.DrawCircle(center, 3f, CurrentCrosshairColor);
 
-		hudPainter.DrawRect(
-			new Rect( center - (size / 2), size ),
-			Color.Transparent,
-			new Vector4( all: float.MaxValue ),
-			new Vector4(all: width), color
-		);
+    private void DrawCircle(HudPainter hud, Vector2 center)
+    {
+        DrawDot(hud, center);
+        float size = 30f, width = 2f;
+        hud.DrawRect(new Rect(center - new Vector2(size / 2), new Vector2(size, size)),
+                     Color.Transparent,
+                     new Vector4(all: size / 2),
+                     new Vector4(all: width),
+                     CurrentCrosshairColor);
+    }
+}
 
-	}
+// --- Crosshair type enum ---
+public enum CrosshairType
+{
+    Standard, // Four lines
+    TStyle,   // Three lines (no top)
+    Dot,      // Center dot
+    Circle,   // Circle + dot
+    Cross     // Four lines, no gap
+}
 
+// --- Enum display names ---
+public static class CrosshairTypeExtensions
+{
+    public static string ToDisplayName(this CrosshairType type) =>
+        type switch
+        {
+            CrosshairType.TStyle => "T-Style",
+            _ => type.ToString()
+        };
 }
