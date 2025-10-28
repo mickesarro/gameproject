@@ -197,7 +197,7 @@
         "__enabled": true,
         "Object": {
           "_type": "gameobject",
-          "go": "dc5d45df-5860-4ad9-86aa-6110c40ae591"
+          "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
         },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -326,7 +326,7 @@
           {
             "__type": "Sandbox.Helpers.Anchor",
             "__guid": "baa21ddc-ba94-4631-90ce-cb9228ab293d",
-            "__enabled": true,
+            "__enabled": false,
             "Object": {
               "_type": "gameobject",
               "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
