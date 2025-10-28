@@ -61,10 +61,134 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null
             }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "6aec1b73-e38e-4436-96db-4f884162970b"
+            },
+            "PreviousElement": {
+              "Type": "GameObject",
+              "IdValue": "3c269391-9a4f-448a-81cd-80b1a4bdde8e"
+            },
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "d170f632-c920-4730-8ee5-f7718e15b15c",
+              "__version": 1,
+              "Flags": 0,
+              "Name": "SettingsMenu",
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
+              "NetworkOrphaned": 0,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "976860c1-1481-4316-a6c6-da76d2715c78"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "976860c1-1481-4316-a6c6-da76d2715c78",
+              "__enabled": true,
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "TargetCamera": null,
+              "ZIndex": 100
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "976860c1-1481-4316-a6c6-da76d2715c78"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.SettingsMenu",
+              "__guid": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
           }
         ],
         "RemovedObjects": [],
-        "PropertyOverrides": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "98bc413f-58fc-41a4-a624-18cbba8f6305"
+            },
+            "Property": "UILayers",
+            "Value": [
+              {
+                "_type": "component",
+                "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
+                "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
+                "component_type": "HUD"
+              },
+              {
+                "_type": "component",
+                "component_id": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
+                "go": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
+                "component_type": "PauseMenu"
+              },
+              {
+                "_type": "component",
+                "component_id": "2c687285-9424-4bc9-b887-eec65fa0d576",
+                "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
+                "component_type": "InventoryUI"
+              },
+              {
+                "_type": "component",
+                "component_id": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
+                "go": "d170f632-c920-4730-8ee5-f7718e15b15c",
+                "component_type": "SettingsMenu"
+              }
+            ]
+          }
+        ],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
