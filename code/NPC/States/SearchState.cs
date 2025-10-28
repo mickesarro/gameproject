@@ -1,4 +1,4 @@
-using NPC;
+namespace NPC;
 
 /// <summary>
 /// A state for searching the player once its lost.
@@ -74,8 +74,9 @@ public class SearchState : NPCBaseState
 		float lowest = float.MaxValue;
 
 		// Search for the closest player in the match
-		foreach ( var player in controller.huntedList ) {
-			float dist = DistanceTo( controller.GameObject, player );
+		foreach ( var player in controller.huntedList )
+		{
+			float dist = controller.WorldPosition.Distance( player.WorldPosition );
 
 			if ( dist < lowest && PlayerInView( player ) )
 			{
@@ -87,20 +88,13 @@ public class SearchState : NPCBaseState
 		return closest;
 	}
 
-	private static float DistanceTo( GameObject first, GameObject second )
-	{
-		if ( first == null || second == null ) return -1f;
-
-		return first.WorldPosition.Distance( second.WorldPosition );
-	}
-
 	private bool PlayerInView( GameObject player )
 	{
 		// This method is more or less a duplication of the one in NPCController.
 		// The situation is subject to change, but this is just to get the search working.
 		// NOTE: Perhaps the one in NPCController should be centralized elsewhere as it makes no sense there.
 
-		if ( DistanceTo( controller.GameObject, player ) > controller.detectionDistance )
+		if ( controller.WorldPosition.Distance( player.WorldPosition ) > controller.detectionDistance )
 		{
 			return false;
 		}

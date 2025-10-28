@@ -1,5 +1,4 @@
-using System.Diagnostics;
-using NPC;
+namespace NPC;
 
 /// <summary>
 /// NPC state responsible for hunting the player when its in sight.
@@ -21,14 +20,10 @@ public class HuntState : NPCBaseState
 		controller.lastKnownPos = hunted.WorldPosition;
 	}
 
-	public override void OnExit( IState nextState )
-	{
-		if ( nextState is SearchState ) return;
-	}
+	public override void OnExit( IState nextState ) {}
 
 	public override void OnUpdate()
 	{
-
 		checkTimer -= Time.Delta;
 		if ( checkTimer < checkInterval )
 		{
@@ -44,10 +39,9 @@ public class HuntState : NPCBaseState
 			}
 		}
 
-		// If the hunted i.e. player is close, end game
 		if ( hunted.WorldPosition.Distance( controller.WorldPosition ) < controller.agentProxThreshold )
 		{
-			stateMachine.ChangeState( new GuardState( controller, controller.StateMachine ) );
+			stateMachine.ChangeState<AttackState>();
 		}
 	}
 }
