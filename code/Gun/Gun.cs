@@ -74,19 +74,22 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
+		isPlayer = User.Components.TryGet<PlayerController>( out _ );
+
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
 		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
+		timeSinceLastShot = 0; // Seems the sandbox time.now is messed up at object creation
 	}
 
 	private float shootInterval = 0.0f; 
-	private float elapsed = 0.0f;
+	private TimeSince timeSinceLastShot = 0;
 	protected override void OnUpdate()
 	{
-		if ( IsProxy ) return;
+		if ( IsProxy || !isPlayer ) return;
 
 		bool input = false;
 		switch (FireData.FireType)
@@ -100,13 +103,20 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		// Should be implemented with some form of events perhaps
-		if ( input && elapsed > shootInterval )
+		if ( input && CanShoot() )
 		{
 			Shoot();
-			elapsed = 0.0f;
 		}
+	}
 
-		elapsed += Time.Delta;
+	/// <summary>
+	/// Determines whether gun can be fired or not yet
+	/// </summary>
+	/// <returns></returns>
+	public bool CanShoot()
+	{
+		// Should likely be added more conditionals
+		return timeSinceLastShot > shootInterval;
 	}
 
 	public void Shoot()
@@ -123,6 +133,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		{
 			FireProjectile();
 		}
+
+		timeSinceLastShot = 0.0f;
 	}
 
 	enum modelType
@@ -157,10 +169,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		--FireData.AmmoLeft;
 
 		// Shoot from the viewport
-		var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
-		var endPoint = screenCenter + (WorldTransform.Forward * 9999);
+		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
 
-		var traceRay = TraceBullet(screenCenter, endPoint, toIgnore: User);
+		// !! We need a proper solution to the "spawn" point of the bullet
+		var startPoint = isPlayer ? Game.ActiveScene.Camera.WorldPosition : WorldPosition + Vector3.Up;
+		var endPoint = startPoint + (WorldTransform.Forward * 9999);
+
+		var traceRay = TraceBullet( startPoint, endPoint, toIgnore: User);
 
 		var traceGo = traceRay.GameObject;
 		if ( traceRay.Hit && traceGo.GetComponent<IDamageable>() is IDamageable damageable )
@@ -202,7 +217,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		FireData.AmmoLeft = reloaded;
 
 		// Should do some animation etc. as well
-		elapsed -= FireData.LoadTime; // Better solution required
+		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 	}
 
 	private void SpawnTracer( Vector3 target )

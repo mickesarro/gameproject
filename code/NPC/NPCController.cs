@@ -6,13 +6,14 @@ namespace NPC;
 /// Largely represents the NPC itself.
 /// Works as a common class for shared NPC state data and functionality.
 /// </summary>
-public class NPCController : Component, ICharacterBase
+public class NPCController : Component, ICharacterBase, IPlayerEvent
 {
-
 	[Title( "Hunting and detecting" )]
-	[Property] private GameObject hunted { get; set; }
-	[Property] private float detectionDistance { get; set; } = 5f;
-    [Property] private float FOV { get; set; } = 90f;
+	[Property] public GameObject hunted { get; set; }
+	public NetList<GameObject> huntedList { get; private set; } = new();
+
+	[Property] public float detectionDistance { get; private set; } = 500f;
+    [Property] public float FOV { get; private set; } = 90f;
 
     public GameObject Hunted => hunted;
 
@@ -22,8 +23,8 @@ public class NPCController : Component, ICharacterBase
     [Property] public List<GameObject> Waypoints { get; set; } = new();
     //public List<GameObject> Waypoints => waypoints;
 
-    public float agentProxThreshold { get; set; } = 1f;
-    public Vector3 lastKnownPos;
+    public float agentProxThreshold { get; set; } = 50f;
+	public Vector3 lastKnownPos;
 
     [Title( "States")]
     public StateMachine StateMachine { get; private set; }
@@ -32,6 +33,8 @@ public class NPCController : Component, ICharacterBase
 
 	// Audio
 	// public AudioController NpcAudio { get; private set; }
+
+	public Gun gun { get; private set; }
 
 	private CitizenAnimationHelper animationHelper;
 
@@ -49,13 +52,19 @@ public class NPCController : Component, ICharacterBase
 
 		MatchStatsManager.Instance.RegisterCharacter( GameObject );
 		playerStats = GetOrAddComponent<PlayerStats>();
+
+		gun = GetComponentInChildren<Gun>();
+		
+		// Needs to be handled in some other way once gun has proper handling of world/view models
+		gun.GameObject.GetComponent<GunViewModelHandler>()?.Destroy();
 	}
 
     protected override void OnStart()
 	{
         Agent = GetComponent<NavMeshAgent>();
+		lastKnownPos = GameObject.WorldPosition; // To avoid default problems
 
-        if (defaultState != StateEnum.None) {
+		if (defaultState != StateEnum.None) {
             StateMachine.Initialize(StateFactory(defaultState));
         }
     }
@@ -90,6 +99,9 @@ public class NPCController : Component, ICharacterBase
     {
         StateEnum.Guard => new GuardState(this, this.StateMachine),
         StateEnum.Patrol => new PatrolState(this, this.StateMachine),
+		StateEnum.Attack => new AttackState(this, this.StateMachine, hunted),
+		StateEnum.Search => new SearchState(this, this.StateMachine),
+		StateEnum.Hunt => new HuntState(this, this.StateMachine),
         StateEnum.None => null,
         _ => null,
     };
@@ -126,7 +138,11 @@ public class NPCController : Component, ICharacterBase
             return false;
         }
 
-		var hitInfo = Game.ActiveScene.Trace.Ray( (WorldPosition + Vector3.Up), dirVec * detectionDistance ).Run();
+		var hitInfo = Game.ActiveScene.Trace
+			.Ray( WorldPosition, dirVec )
+			.Size( detectionDistance )
+			.WithAnyTags( "player" )
+			.Run();
 
 		if ( hitInfo.Hit && hitInfo.GameObject.Tags.Has( "player" ) )
 		{
@@ -153,4 +169,11 @@ public class NPCController : Component, ICharacterBase
 	{
 		Agent.Velocity += amount;
 	}
+
+	void IPlayerEvent.OnSpawn( GameObject player )
+	{
+		// So that in search state the NPC can search all players for the closest one
+		huntedList.Add( player );
+	}
+
 }
