@@ -156,10 +156,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		--FireData.AmmoLeft;
 
 		// Shoot from the viewport
-		var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
-		var endPoint = screenCenter + (WorldTransform.Forward * 9999);
+		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
 
-		var traceRay = TraceBullet(screenCenter, endPoint, toIgnore: User);
+		// !! We need a proper solution to the "spawn" point of the bullet
+		var startPoint = isPlayer ? Game.ActiveScene.Camera.WorldPosition : WorldPosition + Vector3.Up;
+		var endPoint = startPoint + (WorldTransform.Forward * 9999);
+
+		var traceRay = TraceBullet( startPoint, endPoint, toIgnore: User);
 
 		var traceGo = traceRay.GameObject;
 		if ( traceRay.Hit && traceGo.GetComponent<IDamageable>() is IDamageable damageable )

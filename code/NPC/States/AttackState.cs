@@ -1,4 +1,5 @@
 using System;
+using Sandbox.Services;
 
 namespace NPC;
 
@@ -40,6 +41,7 @@ public class AttackState : NPCBaseState
 
 				memoryTimer = 0f;
 				controller.lastKnownPos = controller.hunted.WorldPosition;
+				controller.Agent.MoveTo( controller.hunted.WorldPosition );
 
 				if ( controller.gun.CanShoot() )
 				{
@@ -57,12 +59,19 @@ public class AttackState : NPCBaseState
 		}
 	}
 
-	private static readonly Random rand = new();
 	private void Movement()
 	{
+		if ( controller.Agent.IsTraversingLink ) return;
+
 		// Just some random movement, the area can be adjusted
-		var newPos = controller.lastKnownPos + new Vector3(1f, 1f, 1f) * rand.Next(0, 100);
+		var newPos = controller.lastKnownPos + RandomVector( higher: 200 ) * controller.WorldTransform.Forward;
 
 		controller.Agent.MoveTo( newPos );
+	}
+
+	private static readonly Random rand = new();
+	private static Vector3 RandomVector(int lower = 0, int higher = 100)
+	{
+		return new Vector3( 1f, 1f, 1f ) * rand.Next( lower, higher );
 	}
 }
