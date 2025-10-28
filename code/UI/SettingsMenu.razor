@@ -70,11 +70,11 @@
     {
         Mouse.Visibility = MouseVisibility.Hidden;
         GameObject.Enabled = false;
+        SettingsManager.Instance?.Save();
     }
 
     private void GoBack()
     {
-        SettingsManager.Instance.Save();
         UIManager.Instance.ShowLastLayer();
     }
 
