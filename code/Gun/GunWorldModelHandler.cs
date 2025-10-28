@@ -10,27 +10,24 @@ namespace Sandbox;
 public sealed class GunWorldModelHandler : Component
 {
 	/// <summary>
-	/// Set anchor object, remember to add the Anchor component to Parent of Parent.
-	/// this class could be made more general purpose, atm just assumes hierarchy (asc):
-	/// worldmodel -> gun prefab -> player prefab. Lisää muistiinpanoja koodissa
+	/// Set anchor object
 	/// </summary>
 
 	// Anchor komponentti mahdollistaa vaan yhden objektin ankkuriksi, tätä luokkaa kannattaa käyttää
 	// varmaan jatkossa myös itemien yms. piirtämiseenm, jolloin pitäisi erotella varmaankin tyypin mukaan
 	// mikä ankkuri on aseille, itemeille tms.. Eri asetyypitkin voi vaatia eri ankkurin
 	
-	[Property] private String AnchorObjectName { get; set; }
 	[Property] private Vector3 PositionOffset { get; set; } = Vector3.Zero;
 	private GameObject anchor;
 	
 	protected override void OnAwake()
 	{
 		base.OnAwake();
-		if ( Components.TryGet<SkinnedModelRenderer>( out var renderer ) 
-			&& GameObject.Parent.Parent.Components.TryGet<Anchor>(out var anchorC) )
+		if ( Components.TryGet<SkinnedModelRenderer>( out var renderer )) 
 		{
 			renderer.RenderType =
 				Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
+			var anchorC = GameObject.GetComponentInParent<Anchor>();
 			anchor = anchorC.Object;
 		}
 		else
