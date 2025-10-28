@@ -502,6 +502,7 @@ public sealed class PlayerController : Component, ICharacterBase
     }
 
     protected override void OnUpdate() {
+	    
 		if ( !IsProxy ) {
 			// var ControllerInput = Input.GetAnalog(InputAnalog.Look);
 	        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
