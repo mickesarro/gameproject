@@ -17,6 +17,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 	}
 	private GameObject _user;
+	private bool isPlayer; // To not run OnUpdate on NPCs
+
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
