@@ -67,7 +67,6 @@
         "CustomFOV": 90,
         "CustomGravity": "0,0,-800",
         "Friction": 5.2,
-        "HUD": null,
         "IgnoreLayers": "player",
         "JumpForce": 301.99338,
         "MaxAirWishSpeed": 30,
@@ -200,6 +199,17 @@
           "_type": "gameobject",
           "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
         },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "PlayerStats",
+        "__guid": "6ca89243-2c91-47e2-85d6-74f9a5baf466",
+        "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

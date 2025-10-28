@@ -5,7 +5,6 @@ using Sandbox;
 /// </summary>
 public interface ICharacterBase
 {
-
+	public PlayerStats CharacterStats { get; }
 	public void ApplyForce( Vector3 amount );
-
 }

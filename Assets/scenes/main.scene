@@ -2,6 +2,47 @@
   "__guid": "54f0cdbb-61fe-4664-be1f-dee8c37df2b8",
   "GameObjects": [
     {
+      "__guid": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Match",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 1,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "MatchManager",
+          "__guid": "ff220bc7-c807-40cd-a440-874f04df7537",
+          "__enabled": true,
+          "GameMode": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "MatchStatsManager",
+          "__guid": "2a6a20ea-07c9-4575-b19b-ddca6de6db3a",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "e0757b65-802e-415e-a527-a140268a35fa",
       "__version": 1,
       "Flags": 0,
