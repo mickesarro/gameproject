@@ -6,8 +6,17 @@ using Sandbox.Citizen;
 /// </summary>
 public sealed class Gun : Component, IWeapon, ICollectable
 {
-	[Property, Sync] public GameObject User { get; set; }
-	private bool isPlayer; // To not run OnUpdate on NPCs
+	[Property, Sync]
+	public GameObject User
+	{
+		get => _user;
+		set
+		{
+			_user = value;
+			OnUserChanged();
+		}
+	}
+	private GameObject _user;
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
@@ -21,10 +30,18 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private SkinnedModelRenderer playerModelRenderer;
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
+	
+	private void OnUserChanged()
+	{
+		if (User == null) return;
+
+		var playerBody = User.Children.Find(obj => obj.Name == "Body");
+		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
+		playerModelRenderer?.Parameters.Set("holdtype", gunData.holdType.AsInt());
+	}
 
 	protected override void OnAwake()
 	{
-		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
 		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
@@ -46,12 +63,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnStart()
 	{
-		if ( IsProxy ) return;
 		base.OnStart();
-
-		// If the player picks the weapon, it wont have a User pre-set
-		User ??= GameObject?.Parent;
+		if ( IsProxy ) return;
 		
+		User ??= GameObject.Parent;
+
 		if ( User == null )
 		{
 			Log.Info( "No user found." );
@@ -63,9 +79,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
-		var playerBody = User?.Children.Find(obj => obj.Name == "Body" );
-		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
-		playerModelRenderer?.Parameters.Set( "holdtype", gunData.holdType.AsInt() );
 		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
@@ -247,10 +260,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void Collect( GameObject interactor )
 	{
 		User = interactor;
-
 		IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
 	}
 
 	[Rpc.Broadcast]
-	public void EnableGo( bool enable ) => GameObject.Enabled = enable;
+	public void EnableGo( bool enable )
+	{
+		GameObject.Enabled = enable;
+	}
 }

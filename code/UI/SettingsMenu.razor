@@ -1,0 +1,119 @@
+@using Sandbox.UI
+@using UISystem
+@using System
+@inherits UILayer
+@namespace Sandbox
+
+<root>
+    <div class="settings_menu">
+        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
+        <h1>Settings</h1>
+
+        <!-- Crosshair Style Dropdown -->
+        <div class="dropdown_section">
+            <UIButton class="dropdown_button"
+                      T="string"
+                      DisplayValue="Crosshair: @SelectedCrosshairLabel ▼"
+                      ButtonCallback="@(() => OpenSettingContextMenu("Style"))" /> 
+
+            <DropDown @ref="CrosshairDropdown" class="crosshair_dropdown" style="display:none;" />
+        </div>
+
+        <!-- Crosshair Color Dropdown -->
+        <div class="dropdown_section">
+            <UIButton class="dropdown_button"
+                      T="string"
+                      DisplayValue="Color: @SelectedColorLabel ▼"
+                      ButtonCallback="@(() => OpenSettingContextMenu("Color"))" /> 
+
+            <DropDown @ref="ColorDropdown" class="color_dropdown" style="display:none;" />
+        </div>
+    </div>
+</root>
+
+@code {
+    private DropDown CrosshairDropdown;
+    private DropDown ColorDropdown;
+
+    // Selected internal values
+    private CrosshairType SelectedCrosshair = SettingsManager.CrosshairStyle;
+    private string SelectedColorHex = SettingsManager.CrosshairColor;
+
+    // Display labels
+    private string SelectedCrosshairLabel => SelectedCrosshair.ToDisplayName();
+    private string SelectedColorLabel => Crosshair.AvailableColors
+                                            .FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
+
+    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex);
+
+    public override void Show()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameObject.Enabled = false;
+    }
+
+    private void GoBack()
+    {
+        Hide();
+        UIManager.Instance.ShowLayer<PauseMenu>();
+    }
+
+    private void OpenSettingContextMenu(string settingType)
+    {
+        DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : ColorDropdown;
+        if (targetDropdown == null) return;
+
+        var popup = new Popup(targetDropdown, Popup.PositionMode.BelowLeft, 45);
+
+        if (settingType == "Style")
+        {
+            foreach (CrosshairType type in Enum.GetValues<CrosshairType>())
+            {
+                string label = type.ToDisplayName();
+
+                var panel = popup.AddOption(label, "", () =>
+                {
+                    SelectedCrosshair = type;
+                    SettingsManager.SetCrosshairStyle(type);
+                    StateHasChanged();
+                });
+
+                if (type == SelectedCrosshair)
+                    panel.AddClass("active");
+                
+                panel.Style.Width = 280;
+                panel.Style.BackgroundColor = Color.Parse("#444");
+                panel.Style.FontColor = Color.Parse("#ffffffff");
+            }
+
+        }
+        else if (settingType == "Color")
+        {
+            foreach (var color in Crosshair.AvailableColors)
+            {
+                var panel = popup.AddOption(color.Name, "", () =>
+                {
+                    SelectedColorHex = color.Hex;
+                    SettingsManager.SetCrosshairColor(color.Hex);
+                    StateHasChanged();
+                });
+
+                if (color.Hex == SelectedColorHex)
+                    panel.AddClass("active");
+
+                panel.Style.BackgroundColor = Color.Parse("#444");
+                panel.Style.Width = 280;
+                panel.Style.FontFamily = "Poppins";
+                panel.Style.FontColor = Color.Parse(color.Hex);
+            }
+        }
+
+        popup.CloseWhenParentIsHidden = true;
+    }
+}

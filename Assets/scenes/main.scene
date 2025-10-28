@@ -295,10 +295,50 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Parent": null
+          "Parent": null,
+          "Spin": 90
         }
       ],
-      "Children": []
+      "Children": [
+        {
+          "__guid": "ed7ce93a-868f-43ca-aebc-1f8bfa3aad21",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "0,0,48.48",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ItemFloaty",
+              "__guid": "8f3d4dbc-d385-471e-af70-627e7aa59d51",
+              "__enabled": true,
+              "Camera": {
+                "_type": "component",
+                "component_id": "d7631e5c-0597-478f-83e2-d6200d7baad6",
+                "go": "e0757b65-802e-415e-a527-a140268a35fa",
+                "component_type": "CameraComponent"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Size": 90,
+              "SpriteColor": "1,0,0,1",
+              "Texture": "textures/shapes/spark3.vtex"
+            }
+          ],
+          "Children": []
+        }
+      ]
     },
     {
       "__guid": "77ac39fc-30a3-48d5-b528-0679ccf57c54",
@@ -329,7 +369,8 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Parent": null
+          "Parent": null,
+          "Spin": 90
         },
         {
           "__type": "Sandbox.SphereCollider",
