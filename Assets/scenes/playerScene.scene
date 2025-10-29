@@ -26,7 +26,6 @@
               "__type": "Crosshair",
               "__guid": "f2d007c0-721e-4fbd-9b14-bef758106eb7",
               "__enabled": true,
-              "CrosshairType": "Standard",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -98,7 +97,7 @@
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "976860c1-1481-4316-a6c6-da76d2715c78"
+              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
             },
             "Parent": {
               "Type": "GameObject",
@@ -108,27 +107,21 @@
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Sandbox.ScreenPanel",
-              "__guid": "976860c1-1481-4316-a6c6-da76d2715c78",
+              "__type": "Sandbox.SettingsMenu",
+              "__guid": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
               "__enabled": true,
-              "AutoScreenScale": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Opacity": 1,
-              "Scale": 1,
-              "ScaleStrategy": "ConsistentHeight",
-              "TargetCamera": null,
-              "ZIndex": 100
+              "OnComponentUpdate": null
             }
           },
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
+              "IdValue": "2937a245-c3b1-49a9-8944-d3130b32759c"
             },
             "Parent": {
               "Type": "GameObject",
@@ -136,13 +129,13 @@
             },
             "PreviousElement": {
               "Type": "Component",
-              "IdValue": "976860c1-1481-4316-a6c6-da76d2715c78"
+              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
             },
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Sandbox.SettingsMenu",
-              "__guid": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
+              "__type": "SettingsManager",
+              "__guid": "2937a245-c3b1-49a9-8944-d3130b32759c",
               "__enabled": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,

@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using Sandbox;
-
 using NPC;
+using Sandbox;
 
 /// <summary>
 /// Can be used to run scripts in the editor.
@@ -11,24 +10,41 @@ public static class EditorScene
 {
 
 	[Event( "scene.play", Priority = 100 )]
-	public static void SpawnDummy()
+	public static void SpawnDummys()
 	{
 		if ( !Application.IsEditor ) return;
 
 		Log.Info( "[EditorScene.SpawnDummy] Spawned a dummy player." );
-		var spawnPoints = Game.ActiveScene.GetAllComponents<SpawnPoint>().ToArray();
 
+		var spawnPoints = Game.ActiveScene.FindAllWithTag("spawnpoint").ToArray();
 		var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
 
+		SpawnDummy( startLocation, StateEnum.Patrol, [StateEnum.Patrol] );
+
+		// Second one
+		startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
+
+		SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+	}
+
+	private static void SpawnDummy( Transform startLocation, StateEnum startState, StateEnum[] states )
+	{
 		var NPCGo = GameObject.Clone( "/Dummy.prefab", new CloneConfig { Name = "Dummy", StartEnabled = true, Transform = startLocation } );
 
 		var NPC = NPCGo.GetComponent<NPCController>();
 
-		var waypoints = Game.ActiveScene.FindAllWithTag( "waypoints" );
-		NPC.Waypoints = waypoints.First().Children;
+		NPC.AddStates( states );
 
-		NPC.Initialize( StateEnum.Patrol );
+		if ( states.Contains( StateEnum.Patrol ) )
+		{
+			var waypoints = Game.ActiveScene.FindAllWithTag( "waypoints" );
+			NPC.Waypoints = waypoints.First().Children;
+		}
+
+		//var player = Game.ActiveScene.FindAllWithTag( "player" ).First( e => !e.IsProxy );
+		NPC.Initialize( startState );
 
 		NPCGo.NetworkSpawn();
 	}
+
 }

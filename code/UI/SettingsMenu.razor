@@ -35,9 +35,11 @@
     private DropDown CrosshairDropdown;
     private DropDown ColorDropdown;
 
+    private PlayerPreferences playerPreferences;
+
     // Selected internal values
-    private CrosshairType SelectedCrosshair = SettingsManager.CrosshairStyle;
-    private string SelectedColorHex = SettingsManager.CrosshairColor;
+    private CrosshairType SelectedCrosshair => playerPreferences.CrosshairStyle;
+    private string SelectedColorHex => playerPreferences.CrosshairColor;
 
     // Display labels
     private string SelectedCrosshairLabel => SelectedCrosshair.ToDisplayName();
@@ -46,22 +48,34 @@
 
     protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex);
 
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+        // Set this here to cache for the duration of showing the menu
+        playerPreferences = SettingsManager.Instance.PlayerPreferences;
+    }
+
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
+
+        if ( !SettingsManager.Instance.IsLoaded )
+        {
+            SettingsManager.Instance.Load();
+        }
     }
 
     public override void Hide()
     {
         Mouse.Visibility = MouseVisibility.Hidden;
         GameObject.Enabled = false;
+        SettingsManager.Instance?.Save();
     }
 
     private void GoBack()
     {
-        Hide();
-        UIManager.Instance.ShowLayer<PauseMenu>();
+        UIManager.Instance.ShowLastLayer();
     }
 
     private void OpenSettingContextMenu(string settingType)
@@ -79,8 +93,7 @@
 
                 var panel = popup.AddOption(label, "", () =>
                 {
-                    SelectedCrosshair = type;
-                    SettingsManager.SetCrosshairStyle(type);
+                    SettingsManager.Instance.SetCrosshairStyle(type);
                     StateHasChanged();
                 });
 
@@ -99,8 +112,7 @@
             {
                 var panel = popup.AddOption(color.Name, "", () =>
                 {
-                    SelectedColorHex = color.Hex;
-                    SettingsManager.SetCrosshairColor(color.Hex);
+                    SettingsManager.Instance.SetCrosshairColor(color.Hex);
                     StateHasChanged();
                 });
 
