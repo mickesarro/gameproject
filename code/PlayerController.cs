@@ -393,9 +393,6 @@ public sealed class PlayerController : Component, ICharacterBase
 
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
-
-		Camera = Scene.Camera;
-		playerStats = GetComponent<PlayerStats>();
         
         Height = StandingHeight;
         HeightGoal = StandingHeight;
@@ -497,12 +494,33 @@ public sealed class PlayerController : Component, ICharacterBase
 
     protected override void OnStart()
     {
+	    if ( !IsProxy )
+	    {
+		    var camera = Game.ActiveScene.CreateObject( enabled: false );
+		    camera.NetworkMode = NetworkMode.Never;
+		    camera.AddComponent<CameraComponent>().Tags.Add( new TagSet { "maincamera", "skybox", "camera" } );
+		    camera.Enabled = true;
+		    Camera = camera.GetComponent<CameraComponent>();
+		    playerStats = GetComponent<PlayerStats>();
+
+		    Height = StandingHeight;
+		    HeightGoal = StandingHeight;
+
+		    if ( UseCustomFOV )
+		    {
+			    Camera.FieldOfView = CustomFOV;
+		    }
+		    else
+		    {
+			    Camera.FieldOfView = Preferences.FieldOfView;
+		    }
+	    }
+
 	    BodyRenderer.RenderType =
 		    Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
     }
 
     protected override void OnUpdate() {
-	    
 		if ( !IsProxy ) {
 			// var ControllerInput = Input.GetAnalog(InputAnalog.Look);
 	        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
@@ -521,27 +539,17 @@ public sealed class PlayerController : Component, ICharacterBase
 
 			Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
 			Camera.WorldRotation = angles.ToRotation();
-
-	        if (UseCustomFOV) {
-	            Camera.FieldOfView = CustomFOV;
-	        } else {
-	            Camera.FieldOfView = Preferences.FieldOfView;
-	        }
+			
 		}
-        SmoothLookAngle = SmoothLookAngle.LerpTo(LookAngle, Time.Delta / 0.035f);
-        
+		SmoothLookAngle = SmoothLookAngle.LerpTo( LookAngle, Time.Delta / 0.035f );
+
 		UpdateCitizenAnims();
-      
-        if (Body == null || Camera == null || BodyRenderer == null) return;
-        
+
+		//if ( Body == null || Camera == null || BodyRenderer == null ) return;
+		
 		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
 		// Body rotation might not need to happen in world space but rather in local space.
-		Body.WorldRotation = SmoothLookAngleAngles.WithPitch(0).ToRotation();
-		
-		if ( IsProxy )
-			return;
-		
-
-	}
+		Body.WorldRotation = SmoothLookAngleAngles.WithPitch( 0 ).ToRotation();
+    }
 
 }

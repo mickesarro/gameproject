@@ -10,6 +10,7 @@ public sealed class GunViewModelHandler : Component
 	private CameraComponent camera;
 	protected override void OnStart()
 	{
+		if (IsProxy) return;
 		base.OnStart();
 		camera = Scene.Camera.Components.Get<CameraComponent>();
 		if (camera == null )

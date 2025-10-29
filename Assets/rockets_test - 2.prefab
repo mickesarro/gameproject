@@ -41,7 +41,7 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
-        "holdType": "None",
+        "holdType": "Rifle",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -59,7 +59,10 @@
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
         "WeaponType": "Primary",
-        "Worldmodel": null
+        "Worldmodel": {
+          "_type": "gameobject",
+          "go": "c7e69da2-d212-4b8d-a4ee-91107120513f"
+        }
       },
       {
         "__type": "FireData",
@@ -140,8 +143,8 @@
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "42903eea-204f-49a1-8858-7fa09306ca08",
             "__enabled": true,
-            "AnimationGraph": "rocket.vanmgrph",
-            "BodyGroups": 18446744073709551615,
+            "AnimationGraph": "smg.vanmgrph",
+            "BodyGroups": 42259,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
@@ -149,7 +152,7 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
+            "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1541,6 +1544,80 @@
         ]
       },
       {
+        "__guid": "c7e69da2-d212-4b8d-a4ee-91107120513f",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "worldmodel",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "89dbb194-730d-4c2b-a05f-092da3e71b7f",
+            "__enabled": true,
+            "AnimationGraph": null,
+            "BodyGroups": 171,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Materials": null,
+            "Model": "models/weapons/sbox_assault_m4a1/w_m4a1.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null,
+              "Looping": true,
+              "Blending": false
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.GunWorldModelHandler",
+            "__guid": "81f52bdf-0bc3-438a-b5a3-9e2b64ccf7a8",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PositionOffset": "0,0,0"
+          }
+        ],
+        "Children": []
+      },
+      {
         "__guid": "a3720b03-561e-4632-a168-85132f53e3d3",
         "__version": 1,
         "Flags": 0,
@@ -1652,7 +1729,8 @@
   "DontBreakAsTemplate": false,
   "__references": [
     "facepunch.v_first_person_arms_human#122024",
-    "facepunch.v_recoillessrifle#116232"
+    "facepunch.v_m4a1#125828",
+    "facepunch.w_m4a1#60166"
   ],
   "__version": 2
 }

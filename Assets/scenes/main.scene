@@ -51,8 +51,8 @@
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "maincamera,skybox,camera",
-      "Enabled": true,
-      "NetworkMode": 2,
+      "Enabled": false,
+      "NetworkMode": 0,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
       "OwnerTransfer": 1,
@@ -60,7 +60,7 @@
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "d7631e5c-0597-478f-83e2-d6200d7baad6",
-          "__enabled": true,
+          "__enabled": false,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "EnablePostProcessing": true,
@@ -302,12 +302,6 @@
               "__type": "Sandbox.ItemFloaty",
               "__guid": "8f3d4dbc-d385-471e-af70-627e7aa59d51",
               "__enabled": true,
-              "Camera": {
-                "_type": "component",
-                "component_id": "d7631e5c-0597-478f-83e2-d6200d7baad6",
-                "go": "e0757b65-802e-415e-a527-a140268a35fa",
-                "component_type": "CameraComponent"
-              },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -424,7 +418,40 @@
           "UseAnimGraph": false
         }
       ],
-      "Children": []
+      "Children": [
+        {
+          "__guid": "85d1eb3f-d538-4f06-8d8b-a2cb4a1ff62e",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ItemFloaty",
+              "__guid": "ce848b1b-dff9-454f-b67a-2f6e6e323859",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Size": 90,
+              "SpriteColor": "0,1,0.1,1",
+              "Texture": "textures/shapes/square2.vtex"
+            }
+          ],
+          "Children": []
+        }
+      ]
     },
     {
       "__guid": "c8437991-2005-4123-9e1e-e36025de0e21",

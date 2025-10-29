@@ -33,10 +33,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	
 	private void OnUserChanged()
 	{
-		if (User == null) return;
-
+		if (User == null || gunData == null) return;
 		var playerBody = User.Children.Find(obj => obj.Name == "Body");
-		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
+		playerBody?.Components.TryGet<SkinnedModelRenderer>(out playerModelRenderer);
 		playerModelRenderer?.Parameters.Set("holdtype", gunData.holdType.AsInt());
 	}
 

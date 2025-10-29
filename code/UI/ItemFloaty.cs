@@ -4,10 +4,10 @@ namespace Sandbox;
 
 public sealed class ItemFloaty : Component
 {
-	[Property] private CameraComponent Camera { get; set; }
 	[Property] private Texture Texture { get; set; }
 	[Property] private Color SpriteColor { get; set; }
 	[Property] private float Size { get; set; }
+	private CameraComponent Camera;
 	private float offset;
 	
 	const float minDistance = 150f;
@@ -15,15 +15,16 @@ public sealed class ItemFloaty : Component
 	const float minScale = 3f;
 	const float maxScale = 1f;
 	
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 		offset = Size / 2;
 	}
 
 	protected override void OnUpdate()
 	{
-		if (IsProxy) return;
+		Camera ??= Game.ActiveScene.Camera;
+		if (IsProxy || Camera == null) return;
 		base.OnUpdate();
 		
 		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);
