@@ -54,7 +54,7 @@ public class UIManager : SingletonBase<UIManager>
         // layers Show method to unify the methods below.
 
         currentLayer = layer;
-    }
+    } 
 
     /// <summary>
     /// Display a UI layer of type T.
@@ -133,7 +133,8 @@ public class UIManager : SingletonBase<UIManager>
         }
         else
         {
-            ShowLastLayer();
+            Log.Info("MOi");
+            ResetToStartLayer();
         }
     }
 
