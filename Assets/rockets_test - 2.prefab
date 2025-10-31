@@ -75,6 +75,7 @@
         },
         "BulletType": "Bullet",
         "FireType": "FullAuto",
+        "FiringSound": "GunshotAR",
         "HasInfiniteAmmo": false,
         "LoadTime": 1,
         "MaxAmmo": 100,

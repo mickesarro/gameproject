@@ -1,6 +1,4 @@
 using Sandbox;
-using Sandbox.Citizen;
-using Sandbox.Audio;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -128,24 +126,16 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Both could be components that implement e.g. a IFireable interface.
 		// The logic of of the fireable (bullet or projectile) would be handled
 		// by their respective fire methods.
-		if ( FireData.AmmoLeft <= 0 )
+		if ( FireData.BulletType == BulletType.Bullet )
 		{
-			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f);
+			FireBullet();
 		}
-		else
+		else if ( FireData.BulletType == BulletType.Projectile )
 		{
-			if ( FireData.BulletType == BulletType.Bullet )
-			{
-				FireBullet();
-				SoundManager.PlayGlobal( SoundManager.SoundType.GunshotAR, GameObject.WorldPosition, 1000f, 0.3f );
+			FireProjectile();
+		}
 
-			}
-			else if ( FireData.BulletType == BulletType.Projectile )
-			{
-				FireProjectile();
-				SoundManager.PlayGlobal( SoundManager.SoundType.GunshotRocket, GameObject.WorldPosition, 1000f, 0.3f );
-			}
-		}		
+		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 
 		timeSinceLastShot = 0.0f;
 	}
@@ -176,7 +166,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if (FireData.AmmoLeft == 0)
 		{
-			Reload();
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+			Reload(); // Perhaps move it to manual reload or then on subsequent fire
 			return;
 		}
 		--FireData.AmmoLeft;
@@ -231,6 +222,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
+
+		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 	}
 
 	private void SpawnTracer( Vector3 target )
@@ -251,6 +244,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if ( FireData.AmmoLeft == 0 )
 		{
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
 			Reload();
 			return;
 		}
