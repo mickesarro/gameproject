@@ -22,9 +22,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
-	[Property] public string GunSoundEvent { get; set; } = "sounds/m4a1 shot.sound";
-	[Property] public string RocketSoundEvent { get; set; } = "sounds/vine boom.sound";
-	[Property] public string OutOfAmmoEvent { get; set; } = "sounds/hits/nope.sound";
 
 	public WeaponType WeaponType => gunData.WeaponType;
 
@@ -133,20 +130,20 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// by their respective fire methods.
 		if ( FireData.AmmoLeft <= 0 )
 		{
-			Sound.Play( OutOfAmmoEvent, GameObject.WorldPosition );
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f);
 		}
 		else
 		{
 			if ( FireData.BulletType == BulletType.Bullet )
 			{
 				FireBullet();
-				Sound.Play( GunSoundEvent, GameObject.WorldPosition );
+				SoundManager.PlayGlobal( SoundManager.SoundType.GunshotAR, GameObject.WorldPosition, 1000f, 0.3f );
 
 			}
 			else if ( FireData.BulletType == BulletType.Projectile )
 			{
 				FireProjectile();
-				Sound.Play( RocketSoundEvent, GameObject.WorldPosition );
+				SoundManager.PlayGlobal( SoundManager.SoundType.GunshotRocket, GameObject.WorldPosition, 1000f, 0.3f );
 			}
 		}		
 

@@ -14,11 +14,10 @@ public enum HitmarkerType {
 /// </summary>
 public sealed class Hitmarker : Component, IDamageEvent
 {
-	[Property] public string HitmarkerSound { get; set; } = "sounds/voicer-lines/hit.sound";
 	void IDamageEvent.OnDamage( GameObject receiver, DamageInfo damageInfo )
 	{
-		//Play hitmarker sound
-		Sound.Play( HitmarkerSound);
+
+		SoundManager.PlayLocal( SoundManager.SoundType.Hitmarker);
 
 		if ( Scene.Camera == null )
 			return;
