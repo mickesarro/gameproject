@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Citizen;
+using Sandbox.Audio;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -21,6 +22,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
+	[Property] public string GunSoundEvent { get; set; } = "sounds/m4a1 shot.sound";
+	[Property] public string RocketSoundEvent { get; set; } = "sounds/vine boom.sound";
+	[Property] public string OutOfAmmoEvent { get; set; } = "sounds/hits/nope.sound";
 
 	public WeaponType WeaponType => gunData.WeaponType;
 
@@ -127,14 +131,24 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Both could be components that implement e.g. a IFireable interface.
 		// The logic of of the fireable (bullet or projectile) would be handled
 		// by their respective fire methods.
-		if ( FireData.BulletType == BulletType.Bullet )
+		if ( FireData.AmmoLeft <= 0 )
 		{
-			FireBullet();
+			Sound.Play( OutOfAmmoEvent, GameObject.WorldPosition );
 		}
-		else if ( FireData.BulletType == BulletType.Projectile )
+		else
 		{
-			FireProjectile();
-		}
+			if ( FireData.BulletType == BulletType.Bullet )
+			{
+				FireBullet();
+				Sound.Play( GunSoundEvent, GameObject.WorldPosition );
+
+			}
+			else if ( FireData.BulletType == BulletType.Projectile )
+			{
+				FireProjectile();
+				Sound.Play( RocketSoundEvent, GameObject.WorldPosition );
+			}
+		}		
 
 		timeSinceLastShot = 0.0f;
 	}

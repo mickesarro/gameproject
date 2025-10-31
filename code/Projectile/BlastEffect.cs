@@ -1,5 +1,6 @@
 using Sandbox;
 using static Sandbox.Component;
+using Sandbox.Audio;
 
 /// <summary>
 /// Simulates a blast created by projectile collission / other explosion
@@ -9,10 +10,11 @@ public class BlastEffect : GameObject
 	[Property] public float Radius { get; set; } = 200.0f; // Tweak the blast radius
 	[Property] public float BlastForce { get; set; } = 500.0f; // Tweak blast force
 	[Property] public float Damage { get; set; } = 50.0f; // Ehkä joskus joku damage mikä riippuu etäisyydestä?
+	[Property] public string GunSoundEvent { get; set; } = "sounds/explosion_urban.sound";
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
-		//PlayBlastEffect(position); // Placeholder for visual/audio effects
+		Sound.Play( GunSoundEvent, position );
 
 		var sphere = new Sphere( position, Radius );
 		
