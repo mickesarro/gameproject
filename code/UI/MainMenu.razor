@@ -1,0 +1,60 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using UISystem
+@inherits UILayer
+@namespace Sandbox
+
+<root>
+    <div class="main_menu">
+        <h1>Main Menu</h1>
+        <UIButton class="button" T="string" DisplayValue="Join game" ButtonCallback="@StartGame"></UIButton>
+        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
+        <UIButton class="button" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
+    </div>
+</root>
+
+@code
+{
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        Show();
+    }
+
+    public override void Show()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        GameObject.Enabled = false;
+    }
+
+    private void StartGame()
+    {
+        // Make a scene manager for loading
+        // Also a loading screen that is additively loaded
+        Log.Info( "Loading game scene" );
+
+        var slo = new SceneLoadOptions {};
+        slo.SetScene( "/scenes/main.scene" );
+        Scene.Load( slo );
+    }
+
+    private void Quit()
+    {
+        Log.Info( "Quitting game" );
+        Game.Close();
+    }
+
+    private void OpenSettings()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
+        Log.Info("Settings");
+    }
+
+}

@@ -12,7 +12,7 @@ public static class EditorScene
 	[Event( "scene.play", Priority = 100 )]
 	public static void SpawnDummys()
 	{
-		if ( !Application.IsEditor ) return;
+		if ( !Application.IsEditor || Game.ActiveScene.Name == "mainmenu" ) return;
 
 		Log.Info( "[EditorScene.SpawnDummy] Spawned a dummy player." );
 

@@ -8,6 +8,10 @@ public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetw
 	void ISceneStartup.OnClientInitialize()
 	{
 		// Currently sets up the UI for the client
+		if ( Game.ActiveScene.Name == "mainmenu" )
+		{
+			return;
+		}
 
 		var slo = new SceneLoadOptions
 		{
