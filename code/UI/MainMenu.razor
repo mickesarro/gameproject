@@ -43,6 +43,9 @@
         var slo = new SceneLoadOptions {};
         slo.SetScene( "/scenes/main.scene" );
         Scene.Load( slo );
+
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameManager.Current.LoadUI();
     }
 
     private void Quit()

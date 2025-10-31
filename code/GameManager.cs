@@ -13,6 +13,11 @@ public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetw
 			return;
 		}
 
+		LoadUI();
+	}
+
+	public void LoadUI()
+	{
 		var slo = new SceneLoadOptions
 		{
 			IsAdditive = true
