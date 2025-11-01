@@ -18,9 +18,9 @@ public static class SoundManager
 
     private static readonly Dictionary<SoundType, string> SoundPaths = new()
     {
-        {SoundType.GunshotAR, "sounds/m4a1 shot.sound" },
-        {SoundType.Explosion, "sounds/explosion_urban.sound"},
-        {SoundType.Hitmarker, "sounds/soundboard/hitmarker.sound_c"},
+        {SoundType.GunshotAR, "sounds/weapons/m4a1 shot.sound" },
+        {SoundType.Explosion, "sounds/weapons/explosion_urban.sound"},
+        {SoundType.Hitmarker, "sounds/weapons/hitmarker.sound"},
         {SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         {SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };
