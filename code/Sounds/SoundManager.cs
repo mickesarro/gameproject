@@ -1,7 +1,9 @@
-using System;
 using Sandbox;
 using Sandbox.Audio;
 
+/// <summary>
+/// Centralized manager for playing audio.
+/// </summary>
 public static class SoundManager
 {
     public enum SoundType
@@ -26,7 +28,7 @@ public static class SoundManager
     };
 
     /// <summary>
-    /// Plays sounds globally
+    /// Plays sounds globally using the predefined dictionary
     /// </summary>
     public static void PlayGlobal( SoundType type, Vector3 position, float range = 2000f, float volume = 1f )
     {
@@ -44,7 +46,27 @@ public static class SoundManager
     }
 
     /// <summary>
-    /// Plays sounds locally
+    /// Play any sound globally that is provided as a sound event
+    /// </summary>
+    /// <param name="soundEvent"></param>
+    /// <param name="position"></param>
+    /// <param name="range"></param>
+    /// <param name="volume"></param>
+    public static void PlayGlobal( SoundEvent soundEvent, Vector3 position, float range = 2000f, float volume = 1f )
+    {
+        if ( soundEvent == null )
+        {
+            Log.Warning( "Provided sound event null." );
+            return;
+        }
+
+        var sound = Sound.Play( soundEvent, position );
+        sound.Distance = range;
+        sound.Falloff = 0.2f;
+    }
+
+    /// <summary>
+    /// Plays sounds locally using the predefined dictionary
     /// </summary>
     public static void PlayLocal( SoundType type, float volume = 1f )
     {
