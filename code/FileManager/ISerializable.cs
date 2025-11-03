@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Used to mark types that are safe to serialize via FileManager.
 /// </summary>

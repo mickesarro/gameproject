@@ -17,7 +17,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "MatchManager",
+          "__type": "Shooter.MatchManager",
           "__guid": "ff220bc7-c807-40cd-a440-874f04df7537",
           "__enabled": true,
           "GameMode": null,
@@ -29,7 +29,7 @@
           "OnComponentUpdate": null
         },
         {
-          "__type": "MatchStatsManager",
+          "__type": "Shooter.MatchStatsManager",
           "__guid": "2a6a20ea-07c9-4575-b19b-ddca6de6db3a",
           "__enabled": true,
           "OnComponentDestroy": null,
@@ -282,7 +282,7 @@
           "UseAnimGraph": false
         },
         {
-          "__type": "ItemPickup",
+          "__type": "Shooter.ItemPickup",
           "__guid": "afc4e059-5792-4bba-bd97-1902b1d5bfe4",
           "__enabled": true,
           "ItemPrefab": {
@@ -356,7 +356,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "ItemPickup",
+          "__type": "Shooter.ItemPickup",
           "__guid": "bdb25dea-30bf-4961-a73a-1a92997cfd6a",
           "__enabled": true,
           "ItemPrefab": {
@@ -637,7 +637,7 @@
           "SurfaceVelocity": "0,0,0"
         },
         {
-          "__type": "AmmoPickup",
+          "__type": "Shooter.AmmoPickup",
           "__guid": "332b865c-e7d4-4e2c-8029-62acd656e626",
           "__enabled": true,
           "AmmoType": "Rocket",
@@ -712,7 +712,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "JumpPad",
+          "__type": "Shooter.JumpPad",
           "__guid": "aef1b803-8526-443a-ab12-e1bf5d5d4b8c",
           "__enabled": true,
           "Force": 800,

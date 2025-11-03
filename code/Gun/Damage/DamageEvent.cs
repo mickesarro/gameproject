@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Can be used to respond to hitting enemies with e.g. hitmarkers.
 /// </summary>

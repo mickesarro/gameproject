@@ -1,6 +1,8 @@
 using System;
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Manages characters ammunition inventory.
 /// Add and remove return the amount that were added/removed.

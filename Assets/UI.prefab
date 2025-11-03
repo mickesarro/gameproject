@@ -32,8 +32,8 @@
         "ZIndex": 100
       },
       {
-        "__type": "UISystem.UIManager",
-        "__guid": "98bc413f-58fc-41a4-a624-18cbba8f6305",
+        "__type": "Shooter.UISystem.UIManager",
+        "__guid": "b3cbec8b-fae9-45af-9ec0-8c9222684eb1",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -43,26 +43,26 @@
         "OnComponentUpdate": null,
         "StartLayer": {
           "_type": "component",
-          "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
+          "component_id": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e",
           "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
           "component_type": "HUD"
         },
         "UILayers": [
           {
             "_type": "component",
-            "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
+            "component_id": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e",
             "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
             "component_type": "HUD"
           },
           {
             "_type": "component",
-            "component_id": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
+            "component_id": "e774a10d-6e14-4d3d-a9a2-59a457d5e70a",
             "go": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
             "component_type": "PauseMenu"
           },
           {
             "_type": "component",
-            "component_id": "2c687285-9424-4bc9-b887-eec65fa0d576",
+            "component_id": "0dcfd391-02ef-4e46-9182-dfaf380905d8",
             "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
             "component_type": "InventoryUI"
           }
@@ -86,8 +86,8 @@
         "OwnerTransfer": 1,
         "Components": [
           {
-            "__type": "Sandbox.HUD",
-            "__guid": "10258580-d221-4671-a73a-df5651abc0c1",
+            "__type": "Shooter.UI.HUD",
+            "__guid": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e",
             "__enabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -115,8 +115,8 @@
         "OwnerTransfer": 1,
         "Components": [
           {
-            "__type": "Sandbox.PauseMenu",
-            "__guid": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
+            "__type": "Shooter.UI.PauseMenu",
+            "__guid": "e774a10d-6e14-4d3d-a9a2-59a457d5e70a",
             "__enabled": true,
             "MyStringValue": "ajsdfaiöwejfiöasdf!",
             "OnComponentDestroy": null,
@@ -145,17 +145,10 @@
         "OwnerTransfer": 1,
         "Components": [
           {
-            "__type": "Sandbox.InventoryUI",
-            "__guid": "2c687285-9424-4bc9-b887-eec65fa0d576",
+            "__type": "Shooter.UI.InventoryUI",
+            "__guid": "0dcfd391-02ef-4e46-9182-dfaf380905d8",
             "__enabled": true,
-            "InventoryItems": [
-              "sdf",
-              "sadfasdfsd",
-              "333",
-              "333",
-              "13w4234",
-              "3242ese"
-            ],
+            "InventoryItems": [],
             "MyStringValue": "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -163,7 +156,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Rows": 2
+            "Rows": 3
           }
         ],
         "Children": []

@@ -1,6 +1,6 @@
 using System;
 
-namespace Sandbox;
+namespace Shooter;
 
 /// <summary>
 /// Handles the movement of the gun.

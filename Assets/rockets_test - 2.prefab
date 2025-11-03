@@ -15,7 +15,7 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Gun",
+        "__type": "Shooter.Gun",
         "__guid": "492261f3-b019-4eff-af9c-9b43153c31af",
         "__enabled": true,
         "gunData": {
@@ -34,7 +34,7 @@
         "User": null
       },
       {
-        "__type": "GunData",
+        "__type": "Shooter.GunData",
         "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
         "__enabled": true,
         "BarrelEnd": {
@@ -62,7 +62,7 @@
         "Worldmodel": null
       },
       {
-        "__type": "FireData",
+        "__type": "Shooter.FireData",
         "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
         "AmmoLeft": 100,
@@ -90,7 +90,7 @@
         "Spread": 15
       },
       {
-        "__type": "BulletData",
+        "__type": "Shooter.BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
         "Damage": 10,
@@ -110,8 +110,8 @@
         }
       },
       {
-        "__type": "Sandbox.GunViewModelHandler",
-        "__guid": "58dd08ee-c1b5-4a80-a94a-3cb3046d3545",
+        "__type": "Shooter.GunViewModelHandler",
+        "__guid": "5189792b-90b3-40a3-bd3f-7f4062c8fa25",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,

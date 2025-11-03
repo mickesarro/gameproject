@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Simple bounce pad that applies the specified amount of force to pad up direction
 /// </summary>

@@ -1,6 +1,6 @@
 using Sandbox.Citizen;
 
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// Largely represents the NPC itself.

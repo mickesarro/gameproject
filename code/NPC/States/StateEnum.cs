@@ -1,5 +1,4 @@
-
-namespace NPC;
+namespace Shooter.NPC;
 
 [System.Serializable]
 public enum StateEnum {

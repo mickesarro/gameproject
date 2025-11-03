@@ -19,6 +19,8 @@
 using System;
 using Sandbox.Citizen;
 
+namespace Shooter;
+
 [Title("Sauce Character Controller")]
 [Category("Physics")]
 [Icon("directions_walk")]

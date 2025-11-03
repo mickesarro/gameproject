@@ -1,3 +1,4 @@
+namespace Shooter;
 
 public sealed class AmmoPickup : Component, Component.ITriggerListener
 {

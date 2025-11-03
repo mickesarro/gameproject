@@ -11,6 +11,8 @@
 
 using Sandbox;
 
+namespace Shooter;
+
 public sealed class Footsteps : Component
 {
 	[Property] SkinnedModelRenderer Source { get; set; }

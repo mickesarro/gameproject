@@ -2,7 +2,7 @@
 using Sandbox.Citizen;
 using Sandbox.Helpers;
 
-namespace Sandbox;
+namespace Shooter;
 
 /// <summary>
 /// Handles gun worldmodel.

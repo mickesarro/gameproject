@@ -1,5 +1,7 @@
 ﻿using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Central authority on logging match stats
 /// </summary>

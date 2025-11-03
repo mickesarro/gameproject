@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Common interface to enable players and other characters to react similarly
 /// </summary>

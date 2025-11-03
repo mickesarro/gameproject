@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Implement to subscribe to player events.
 /// </summary>

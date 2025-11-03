@@ -1,6 +1,8 @@
 using System;
 using Sandbox.Rendering;
-using Sandbox.Audio;
+using Shooter.Sounds;
+
+namespace Shooter.UI;
 
 public enum HitmarkerType {
 	Regular,

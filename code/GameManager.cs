@@ -1,4 +1,4 @@
-
+namespace Shooter;
 public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetworkListener, ISceneStartup
 {
 	public GameManager( Scene scene ) : base( scene )

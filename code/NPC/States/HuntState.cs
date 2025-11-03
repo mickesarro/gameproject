@@ -1,4 +1,4 @@
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// NPC state responsible for hunting the player when its in sight.

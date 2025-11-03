@@ -1,5 +1,6 @@
-
 using Sandbox.Utility;
+
+namespace Shooter;
 
 /// <summary>
 /// A simple class for e.g. bullets or rocket ammo.

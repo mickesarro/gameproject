@@ -1,6 +1,7 @@
 using Sandbox;
 using Sandbox.Citizen;
 
+namespace Shooter;
 
 /// <summary>
 /// Holds the data specific to the gun agnostic of the firing data.

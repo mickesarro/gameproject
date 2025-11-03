@@ -1,6 +1,6 @@
 using System;
 
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// NPC state for patrolling between pre-definend waypoints.

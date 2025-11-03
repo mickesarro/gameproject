@@ -1,4 +1,7 @@
 using Sandbox;
+using Shooter.Sounds;
+
+namespace Shooter;
 
 /// <summary>
 /// Base class for gun behaviour
