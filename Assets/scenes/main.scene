@@ -316,22 +316,17 @@
           "OwnerTransfer": 1,
           "Components": [
             {
-              "__type": "Sandbox.ItemFloaty",
-              "__guid": "8f3d4dbc-d385-471e-af70-627e7aa59d51",
+              "__type": "Shooter.UI.ItemFloaty",
+              "__guid": "772f7c6a-f3a1-4dd0-81e4-9bf670c45961",
               "__enabled": true,
-              "Camera": {
-                "_type": "component",
-                "component_id": "d7631e5c-0597-478f-83e2-d6200d7baad6",
-                "go": "e0757b65-802e-415e-a527-a140268a35fa",
-                "component_type": "CameraComponent"
-              },
+              "Camera": null,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Size": 90,
+              "Size": 100,
               "SpriteColor": "1,0,0,1",
               "Texture": "textures/shapes/spark3.vtex"
             }

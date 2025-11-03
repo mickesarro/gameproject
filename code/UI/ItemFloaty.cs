@@ -21,6 +21,13 @@ public sealed class ItemFloaty : Component
 		offset = Size / 2;
 	}
 
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        Camera ??= Scene.Camera;
+    }
+
 	protected override void OnUpdate()
 	{
 		if (IsProxy) return;
@@ -40,10 +47,10 @@ public sealed class ItemFloaty : Component
 		
 		// If the dot product is positive, the item is in front of the camera
 
-		var scale = Scale();
 		if (dotProduct > 0)
 		{
-			var sizeWithScale = Size * scale;
+            var scale = Scale();
+            var sizeWithScale = Size * scale;
 			var offsetWithScale = offset * scale;
 			Camera.Hud.DrawTexture(Texture, new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), SpriteColor);
 		}

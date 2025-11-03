@@ -62,6 +62,12 @@
           },
           {
             "_type": "component",
+            "component_id": "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4",
+            "go": "a57483a2-781b-4ede-b4fd-5131df48da5e",
+            "component_type": "SettingsMenu"
+          },
+          {
+            "_type": "component",
             "component_id": "0dcfd391-02ef-4e46-9182-dfaf380905d8",
             "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
             "component_type": "InventoryUI"
@@ -119,6 +125,46 @@
             "__guid": "e774a10d-6e14-4d3d-a9a2-59a457d5e70a",
             "__enabled": true,
             "MyStringValue": "ajsdfaiöwejfiöasdf!",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "a57483a2-781b-4ede-b4fd-5131df48da5e",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "SettingsMenu",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 0,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Shooter.UI.SettingsMenu",
+            "__guid": "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Shooter.SettingsManager",
+            "__guid": "35a82ac1-decf-4fd7-99ec-3317fca9a176",
+            "__enabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
