@@ -1,4 +1,7 @@
 using Sandbox;
+using Shooter.Sounds;
+
+namespace Shooter;
 
 public enum BulletType { Bullet, Projectile };
 public enum FireType { FullAuto, SemiAuto, Burst };

@@ -1,4 +1,4 @@
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// A state for searching the player once its lost.

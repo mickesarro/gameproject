@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public sealed class PlayerStats : Component, ISerializable
 {
 	public int Score { get; private set; } = 0;

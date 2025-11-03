@@ -1,5 +1,4 @@
-
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// Abstract class for all NPC states to inherit from.

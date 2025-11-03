@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public enum WeaponType { 
 	Primary = 0,
 	Secondary = 1,

@@ -60,7 +60,10 @@
         "__guid": "321c05b4-87fe-471f-ba5d-2b267fb9fb9c",
         "__enabled": true,
         "Acceleration": 120,
+        "AllowDefaultArea": true,
+        "AllowedAreas": [],
         "AutoTraverseLinks": true,
+        "ForbiddenAreas": [],
         "Height": 64,
         "MaxSpeed": 120,
         "OnComponentDestroy": null,
@@ -75,8 +78,8 @@
         "UpdateRotation": true
       },
       {
-        "__type": "NPC.NPCController",
-        "__guid": "54df5d71-5e57-4b38-b6bb-bde2fb466ee2",
+        "__type": "Shooter.NPC.NPCController",
+        "__guid": "d41283fc-b61a-4c46-9146-a8b89624275b",
         "__enabled": true,
         "defaultState": "None",
         "detectionDistance": 1000,
@@ -92,7 +95,7 @@
         "Waypoints": []
       },
       {
-        "__type": "CharacterHealth",
+        "__type": "Shooter.CharacterHealth",
         "__guid": "28c69ccf-b6cb-4f9f-82e3-6da685364199",
         "__enabled": true,
         "MaxHealth": 100,
@@ -201,7 +204,9 @@
             "OnComponentUpdate": null,
             "Parameters": {
               "bools": {},
-              "ints": {},
+              "ints": {
+                "holdtype": 0
+              },
               "floats": {},
               "vectors": {},
               "rotations": {}
@@ -251,7 +256,7 @@
             }
           },
           {
-            "__type": "Footsteps",
+            "__type": "Shooter.Footsteps",
             "__guid": "3ce04f5a-0e43-441c-89b7-c4efb382cf41",
             "__enabled": false,
             "OnComponentDestroy": null,
@@ -2663,7 +2668,7 @@
           "62981691-f68e-4421-83db-af3a9d76d810": "570bd902-e1d0-4355-a6d8-4fb0d4637343",
           "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8": "8c794067-c497-4266-b614-78c9adb2a62a",
           "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c": "3f2f9c4e-ea04-4914-b55d-3aa68695ee22",
-          "58dd08ee-c1b5-4a80-a94a-3cb3046d3545": "fdc314f0-b1a1-4119-ad74-2547fe82e7c9",
+          "5189792b-90b3-40a3-bd3f-7f4062c8fa25": "63c01cc9-97ed-4efc-bc1c-f2fabb60e74a",
           "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e": "8da2cd29-9e54-4a75-8c6b-11beed8e125a",
           "42903eea-204f-49a1-8858-7fa09306ca08": "b5741aaf-8e75-429e-bcf5-58df7139ab91",
           "275dd32a-0ee1-489c-8bbf-174f5643ec20": "a8693dc0-2186-4088-82ce-a0a586ccded8",

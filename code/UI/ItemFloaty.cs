@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sandbox;
+namespace Shooter.UI;
 
 public sealed class ItemFloaty : Component
 {

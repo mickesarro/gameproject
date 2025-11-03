@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Represents a generic inventory for items.
 /// </summary>

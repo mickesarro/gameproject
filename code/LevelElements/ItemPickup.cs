@@ -1,3 +1,4 @@
+namespace Shooter;
 
 /// <summary>
 /// Allows items in world to be pickable by running into them

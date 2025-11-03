@@ -1,6 +1,9 @@
 using Sandbox;
 using static Sandbox.Component;
 using Sandbox.Audio;
+using Shooter.Sounds;
+
+namespace Shooter;
 
 /// <summary>
 /// Simulates a blast created by projectile collission / other explosion

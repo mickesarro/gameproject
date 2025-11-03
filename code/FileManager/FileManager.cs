@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public static class FileManager
 {
 	public static void Save<T>( T data, string name ) where T : ISerializable

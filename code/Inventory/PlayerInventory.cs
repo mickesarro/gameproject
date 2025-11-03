@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public enum InventorySlot
 {
 	First = 0,

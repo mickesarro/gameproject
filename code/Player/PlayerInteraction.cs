@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Acts as a proxy for different player interactions.
 /// </summary>

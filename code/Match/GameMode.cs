@@ -1,5 +1,7 @@
 ﻿using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Defines details common with all game modes.
 /// </summary>

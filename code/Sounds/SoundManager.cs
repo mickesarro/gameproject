@@ -1,6 +1,8 @@
 using Sandbox;
 using Sandbox.Audio;
 
+namespace Shooter.Sounds;
+
 /// <summary>
 /// Centralized manager for playing audio.
 /// </summary>

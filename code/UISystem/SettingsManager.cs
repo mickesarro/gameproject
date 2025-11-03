@@ -1,6 +1,7 @@
 using Sandbox;
 using System;
 
+namespace Shooter;
 public class SettingsManager : SingletonBase<SettingsManager>
 {
 	private PlayerPreferences playerPreferences = new();

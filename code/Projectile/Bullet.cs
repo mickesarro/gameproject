@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public sealed class Bullet : Component
 {
 	/* The projectile class is not suitable for simple bullets.

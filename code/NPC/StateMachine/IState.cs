@@ -1,5 +1,5 @@
 
-namespace NPC;
+namespace Shooter;
 
 /// <summary>
 /// Interface to make states work with the state machine.
