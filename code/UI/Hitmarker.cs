@@ -1,5 +1,6 @@
 using System;
 using Sandbox.Rendering;
+using Sandbox.Audio;
 
 public enum HitmarkerType {
 	Regular,
@@ -15,6 +16,9 @@ public sealed class Hitmarker : Component, IDamageEvent
 {
 	void IDamageEvent.OnDamage( GameObject receiver, DamageInfo damageInfo )
 	{
+
+		SoundManager.PlayLocal( SoundManager.SoundType.Hitmarker);
+
 		if ( Scene.Camera == null )
 			return;
 

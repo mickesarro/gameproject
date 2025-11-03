@@ -19,6 +19,8 @@ public sealed class FireData : Component
 	[Property, Group( "Fire" )] public int RPM { get; private set; } = 100;
 	[Property, Group( "Fire" )] public float Spread { get; private set; } = 10f;
 	[Property, Group( "Fire" )] public float Recoil { get; private set; } = 5f;
+	[Property, Group( "Fire" )] public SoundManager.SoundType FiringSound { get; private set; } 
+		= SoundManager.SoundType.None;
 
 	[Property, Group( "Magazine" )] public AmmoType AmmoType { get; private set; }
 	[Property, Group( "Magazine" )] public int MaxAmmo { get; private set; } = 10;

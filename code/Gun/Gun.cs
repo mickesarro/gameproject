@@ -1,5 +1,4 @@
 using Sandbox;
-using Sandbox.Citizen;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -136,6 +135,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			FireProjectile();
 		}
 
+		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+
 		timeSinceLastShot = 0.0f;
 	}
 
@@ -165,7 +166,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if (FireData.AmmoLeft == 0)
 		{
-			Reload();
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+			Reload(); // Perhaps move it to manual reload or then on subsequent fire
 			return;
 		}
 		--FireData.AmmoLeft;
@@ -220,6 +222,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
+
+		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 	}
 
 	private void SpawnTracer( Vector3 target )
@@ -240,6 +244,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if ( FireData.AmmoLeft == 0 )
 		{
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
 			Reload();
 			return;
 		}
