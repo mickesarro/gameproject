@@ -59,7 +59,10 @@
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
         "WeaponType": "Primary",
-        "Worldmodel": null
+        "Worldmodel": {
+          "_type": "gameobject",
+          "go": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8"
+        }
       },
       {
         "__type": "Shooter.FireData",
@@ -1542,6 +1545,80 @@
         ]
       },
       {
+        "__guid": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8",
+        "__version": 1,
+        "Flags": 0,
+        "Name": "worldmodel",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "NetworkOrphaned": 0,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "a41aad0c-67f7-4660-8126-0950773e89f3",
+            "__enabled": true,
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Materials": null,
+            "Model": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null,
+              "Looping": true,
+              "Blending": false
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Shooter.GunWorldModelHandler",
+            "__guid": "bad25921-c071-498d-99f2-6f778055270a",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PositionOffset": "0,0,0"
+          }
+        ],
+        "Children": []
+      },
+      {
         "__guid": "a3720b03-561e-4632-a168-85132f53e3d3",
         "__version": 1,
         "Flags": 0,
@@ -1653,7 +1730,8 @@
   "DontBreakAsTemplate": false,
   "__references": [
     "facepunch.v_first_person_arms_human#122024",
-    "facepunch.v_recoillessrifle#116232"
+    "facepunch.v_recoillessrifle#116232",
+    "facepunch.wrecoillessrifle#113432"
   ],
   "__version": 2
 }
