@@ -2,7 +2,7 @@
 using Sandbox.Citizen;
 using Sandbox.Helpers;
 
-namespace Sandbox;
+namespace Shooter;
 
 /// <summary>
 /// Handles gun worldmodel.
@@ -20,13 +20,15 @@ public sealed class GunWorldModelHandler : Component
 	[Property, Sync] private Vector3 PositionOffset { get; set; } = Vector3.Zero;
 	private GameObject anchor;
 	
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
-		if ( Components.TryGet<SkinnedModelRenderer>( out var renderer )) 
+		base.OnStart();
+        if ( Components.TryGet<SkinnedModelRenderer>( out var renderer )) 
 		{
-			renderer.RenderType =
-				Network.IsProxy ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
+            bool shouldRender = Network.IsProxy || !GetComponentInParent<Gun>().IsPlayer;
+
+            renderer.RenderType =
+                shouldRender ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
 			var anchorC = GameObject.GetComponentInParent<Anchor>();
 			anchor = anchorC.Object;
 		}

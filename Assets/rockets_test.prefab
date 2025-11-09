@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 1,
     "Flags": 0,
-    "Name": "Rockets",
+    "Name": "rockets_test",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -15,7 +15,7 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Gun",
+        "__type": "Shooter.Gun",
         "__guid": "492261f3-b019-4eff-af9c-9b43153c31af",
         "__enabled": true,
         "gunData": {
@@ -34,7 +34,7 @@
         "User": null
       },
       {
-        "__type": "GunData",
+        "__type": "Shooter.GunData",
         "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
         "__enabled": true,
         "BarrelEnd": {
@@ -65,10 +65,10 @@
         }
       },
       {
-        "__type": "FireData",
+        "__type": "Shooter.FireData",
         "__guid": "c51df4b6-6023-4daa-9d06-b6786af6f1cd",
         "__enabled": true,
-        "AmmoLeft": 100,
+        "AmmoLeft": 1,
         "AmmoType": "Rocket",
         "BulletData": {
           "_type": "component",
@@ -78,9 +78,10 @@
         },
         "BulletType": "Projectile",
         "FireType": "SemiAuto",
-        "HasInfiniteAmmo": true,
+        "FiringSound": "GunshotRocket",
+        "HasInfiniteAmmo": false,
         "LoadTime": 5,
-        "MaxAmmo": 100,
+        "MaxAmmo": 1,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -92,7 +93,7 @@
         "Spread": 10
       },
       {
-        "__type": "BulletData",
+        "__type": "Shooter.BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
         "Damage": 100,
@@ -109,8 +110,8 @@
         "Tracer": null
       },
       {
-        "__type": "Sandbox.GunViewModelHandler",
-        "__guid": "768b70fe-0617-4a30-9b01-7fb4cfeaf943",
+        "__type": "Shooter.GunViewModelHandler",
+        "__guid": "b13f29ff-f945-49a3-906c-0f7fc8a10564",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -1600,8 +1601,8 @@
             "UseAnimGraph": true
           },
           {
-            "__type": "Sandbox.GunWorldModelHandler",
-            "__guid": "5307ad07-8c4c-4ffa-8c5d-c8546bce8262",
+            "__type": "Shooter.GunWorldModelHandler",
+            "__guid": "9757c7f1-66c8-4851-b428-7beb3af915bf",
             "__enabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1609,7 +1610,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "-14.8,0,-2.5"
+            "PositionOffset": "0,0,0"
           }
         ],
         "Children": []

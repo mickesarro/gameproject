@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 1,
     "Flags": 0,
-    "Name": "Smg",
+    "Name": "rockets_test - 2",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -15,7 +15,7 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Gun",
+        "__type": "Shooter.Gun",
         "__guid": "492261f3-b019-4eff-af9c-9b43153c31af",
         "__enabled": true,
         "gunData": {
@@ -34,7 +34,7 @@
         "User": null
       },
       {
-        "__type": "GunData",
+        "__type": "Shooter.GunData",
         "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
         "__enabled": true,
         "BarrelEnd": {
@@ -61,11 +61,11 @@
         "WeaponType": "Smg",
         "Worldmodel": {
           "_type": "gameobject",
-          "go": "c7e69da2-d212-4b8d-a4ee-91107120513f"
+          "go": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8"
         }
       },
       {
-        "__type": "FireData",
+        "__type": "Shooter.FireData",
         "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
         "AmmoLeft": 100,
@@ -78,6 +78,7 @@
         },
         "BulletType": "Bullet",
         "FireType": "FullAuto",
+        "FiringSound": "GunshotAR",
         "HasInfiniteAmmo": false,
         "LoadTime": 1,
         "MaxAmmo": 100,
@@ -92,7 +93,7 @@
         "Spread": 15
       },
       {
-        "__type": "BulletData",
+        "__type": "Shooter.BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
         "Damage": 10,
@@ -112,8 +113,8 @@
         }
       },
       {
-        "__type": "Sandbox.GunViewModelHandler",
-        "__guid": "58dd08ee-c1b5-4a80-a94a-3cb3046d3545",
+        "__type": "Shooter.GunViewModelHandler",
+        "__guid": "5189792b-90b3-40a3-bd3f-7f4062c8fa25",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -143,8 +144,8 @@
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "42903eea-204f-49a1-8858-7fa09306ca08",
             "__enabled": true,
-            "AnimationGraph": "smg.vanmgrph",
-            "BodyGroups": 42259,
+            "AnimationGraph": "rocket.vanmgrph",
+            "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
@@ -152,7 +153,7 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
+            "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1544,7 +1545,7 @@
         ]
       },
       {
-        "__guid": "c7e69da2-d212-4b8d-a4ee-91107120513f",
+        "__guid": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8",
         "__version": 1,
         "Flags": 0,
         "Name": "worldmodel",
@@ -1560,10 +1561,10 @@
         "Components": [
           {
             "__type": "Sandbox.SkinnedModelRenderer",
-            "__guid": "89dbb194-730d-4c2b-a05f-092da3e71b7f",
+            "__guid": "a41aad0c-67f7-4660-8126-0950773e89f3",
             "__enabled": true,
             "AnimationGraph": null,
-            "BodyGroups": 171,
+            "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
@@ -1571,7 +1572,7 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/weapons/sbox_assault_m4a1/w_m4a1.vmdl",
+            "Model": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl",
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1603,8 +1604,8 @@
             "UseAnimGraph": true
           },
           {
-            "__type": "Sandbox.GunWorldModelHandler",
-            "__guid": "81f52bdf-0bc3-438a-b5a3-9e2b64ccf7a8",
+            "__type": "Shooter.GunWorldModelHandler",
+            "__guid": "bad25921-c071-498d-99f2-6f778055270a",
             "__enabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1729,8 +1730,8 @@
   "DontBreakAsTemplate": false,
   "__references": [
     "facepunch.v_first_person_arms_human#122024",
-    "facepunch.v_m4a1#125828",
-    "facepunch.w_m4a1#60166"
+    "facepunch.v_recoillessrifle#116232",
+    "facepunch.wrecoillessrifle#113432"
   ],
   "__version": 2
 }

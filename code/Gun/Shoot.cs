@@ -1,3 +1,4 @@
+namespace Shooter;
 
 /// <summary>
 /// Component to enable shooting for guns

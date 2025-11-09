@@ -19,6 +19,7 @@
         "__guid": "056ce4fb-e997-4238-a5f6-4900aa9349b0",
         "__enabled": true,
         "Center": "0,0,36",
+        "ColliderFlags": 0,
         "Elasticity": null,
         "Friction": null,
         "IsTrigger": false,
@@ -60,7 +61,10 @@
         "__guid": "321c05b4-87fe-471f-ba5d-2b267fb9fb9c",
         "__enabled": true,
         "Acceleration": 120,
+        "AllowDefaultArea": true,
+        "AllowedAreas": [],
         "AutoTraverseLinks": true,
+        "ForbiddenAreas": [],
         "Height": 64,
         "MaxSpeed": 120,
         "OnComponentDestroy": null,
@@ -75,8 +79,8 @@
         "UpdateRotation": true
       },
       {
-        "__type": "NPC.NPCController",
-        "__guid": "54df5d71-5e57-4b38-b6bb-bde2fb466ee2",
+        "__type": "Shooter.NPC.NPCController",
+        "__guid": "d41283fc-b61a-4c46-9146-a8b89624275b",
         "__enabled": true,
         "defaultState": "None",
         "detectionDistance": 1000,
@@ -92,7 +96,7 @@
         "Waypoints": []
       },
       {
-        "__type": "CharacterHealth",
+        "__type": "Shooter.CharacterHealth",
         "__guid": "28c69ccf-b6cb-4f9f-82e3-6da685364199",
         "__enabled": true,
         "MaxHealth": 100,
@@ -201,7 +205,9 @@
             "OnComponentUpdate": null,
             "Parameters": {
               "bools": {},
-              "ints": {},
+              "ints": {
+                "holdtype": 2
+              },
               "floats": {},
               "vectors": {},
               "rotations": {}
@@ -251,7 +257,7 @@
             }
           },
           {
-            "__type": "Footsteps",
+            "__type": "Shooter.Footsteps",
             "__guid": "3ce04f5a-0e43-441c-89b7-c4efb382cf41",
             "__enabled": false,
             "OnComponentDestroy": null,
@@ -2551,65 +2557,40 @@
           "AddedObjects": [
             {
               "Id": {
-                "Type": "GameObject",
-                "IdValue": "9be3246d-3ce2-47f4-975b-62c85ca3963f"
+                "Type": "Component",
+                "IdValue": "dbc5ce92-59f5-4f7d-a763-ee4b0222b974"
               },
               "Parent": {
                 "Type": "GameObject",
-                "IdValue": "301d39c9-6e96-490b-9aba-537bb96735bd"
+                "IdValue": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
               },
               "PreviousElement": {
-                "Type": "GameObject",
-                "IdValue": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
-              },
-              "ContainerProperty": "Children",
-              "IsContainerArray": true,
-              "Data": {
-                "__guid": "9be3246d-3ce2-47f4-975b-62c85ca3963f",
-                "__version": 1,
-                "Flags": 0,
-                "Name": "Worldmodel",
-                "Position": "0,0,0",
-                "Rotation": "0,0,0,1",
-                "Scale": "1,1,1",
-                "Tags": "",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
-                "NetworkOrphaned": 0,
-                "OwnerTransfer": 1,
-                "Components": [],
-                "Children": []
-              }
-            },
-            {
-              "Id": {
                 "Type": "Component",
-                "IdValue": "563489b4-ca40-4a3d-aa1c-e42832910d4e"
+                "IdValue": "42903eea-204f-49a1-8858-7fa09306ca08"
               },
-              "Parent": {
-                "Type": "GameObject",
-                "IdValue": "9be3246d-3ce2-47f4-975b-62c85ca3963f"
-              },
-              "PreviousElement": null,
               "ContainerProperty": "Components",
               "IsContainerArray": true,
               "Data": {
-                "__type": "Sandbox.GunWorldModelHandler",
-                "__guid": "563489b4-ca40-4a3d-aa1c-e42832910d4e",
+                "__type": "Shooter.GunViewModelHandler",
+                "__guid": "dbc5ce92-59f5-4f7d-a763-ee4b0222b974",
                 "__enabled": true,
-                "AnchorObjectName": null,
                 "OnComponentDestroy": null,
                 "OnComponentDisabled": null,
                 "OnComponentEnabled": null,
                 "OnComponentFixedUpdate": null,
                 "OnComponentStart": null,
-                "OnComponentUpdate": null,
-                "PositionOffset": "0,0,0"
+                "OnComponentUpdate": null
               }
             }
           ],
-          "RemovedObjects": [],
+          "RemovedObjects": [
+            {
+              "Id": {
+                "Type": "Component",
+                "IdValue": "5189792b-90b3-40a3-bd3f-7f4062c8fa25"
+              }
+            }
+          ],
           "PropertyOverrides": [
             {
               "Target": {
@@ -2629,6 +2610,14 @@
                 "_type": "gameobject",
                 "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
               }
+            },
+            {
+              "Target": {
+                "Type": "Component",
+                "IdValue": "62981691-f68e-4421-83db-af3a9d76d810"
+              },
+              "Property": "holdType",
+              "Value": "RPG"
             },
             {
               "Target": {
@@ -2663,7 +2652,7 @@
           "62981691-f68e-4421-83db-af3a9d76d810": "570bd902-e1d0-4355-a6d8-4fb0d4637343",
           "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8": "8c794067-c497-4266-b614-78c9adb2a62a",
           "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c": "3f2f9c4e-ea04-4914-b55d-3aa68695ee22",
-          "58dd08ee-c1b5-4a80-a94a-3cb3046d3545": "fdc314f0-b1a1-4119-ad74-2547fe82e7c9",
+          "5189792b-90b3-40a3-bd3f-7f4062c8fa25": "63c01cc9-97ed-4efc-bc1c-f2fabb60e74a",
           "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e": "8da2cd29-9e54-4a75-8c6b-11beed8e125a",
           "42903eea-204f-49a1-8858-7fa09306ca08": "b5741aaf-8e75-429e-bcf5-58df7139ab91",
           "275dd32a-0ee1-489c-8bbf-174f5643ec20": "a8693dc0-2186-4088-82ce-a0a586ccded8",
@@ -2745,7 +2734,10 @@
           "6f4181ed-3cfe-4416-aeda-e441e76bcc7c": "544a7856-5bb4-4c90-847c-7f63a0e2b63b",
           "a3720b03-561e-4632-a168-85132f53e3d3": "1d3b81dc-b0a2-45b9-a3b2-0e0789b0baf9",
           "e6ff1af1-3ce9-4ecc-b105-adfb1c7569d1": "51e4b690-75a1-4a23-b50b-9b5d984ef3a1",
-          "1c5ad092-eebe-4872-9e93-b6fe4972a09b": "5e4a4db4-945c-4dcb-9f5e-6fe1a4231a40"
+          "1c5ad092-eebe-4872-9e93-b6fe4972a09b": "5e4a4db4-945c-4dcb-9f5e-6fe1a4231a40",
+          "4090ac0a-4623-4939-ad64-9ed2d37bc2e8": "b2a584de-2095-459f-939d-38403d269743",
+          "a41aad0c-67f7-4660-8126-0950773e89f3": "15ca47cb-5688-4c67-b9ce-7b840b86ced4",
+          "bad25921-c071-498d-99f2-6f778055270a": "65bc7217-4d2f-478e-a5dd-a2a8ae7cc7d7"
         }
       }
     ],

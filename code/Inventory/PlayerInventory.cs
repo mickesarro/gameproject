@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public enum InventorySlot
 {
 	Melee = 0,

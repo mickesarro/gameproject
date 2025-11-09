@@ -1,6 +1,6 @@
 using Sandbox.Citizen;
 
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// Largely represents the NPC itself.
@@ -56,7 +56,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 		gun = GetComponentInChildren<Gun>();
 		
 		// Needs to be handled in some other way once gun has proper handling of world/view models
-		gun.GameObject.GetComponent<GunViewModelHandler>()?.Destroy();
+		//gun.GameObject.GetComponent<GunViewModelHandler>()?.Destroy();
 	}
 
     protected override void OnStart()

@@ -1,7 +1,6 @@
 using System;
-using Sandbox.Services;
 
-namespace NPC;
+namespace Shooter.NPC;
 
 /// <summary>
 /// NPC state responsible for simply stationary guarding.

@@ -16,14 +16,11 @@
               "Type": "GameObject",
               "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
             },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "10258580-d221-4671-a73a-df5651abc0c1"
-            },
+            "PreviousElement": null,
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Crosshair",
+              "__type": "Shooter.UI.Crosshair",
               "__guid": "f2d007c0-721e-4fbd-9b14-bef758106eb7",
               "__enabled": true,
               "OnComponentDestroy": null,
@@ -50,92 +47,8 @@
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Hitmarker",
+              "__type": "Shooter.UI.Hitmarker",
               "__guid": "63f739b4-30f2-4606-b9fe-77229a959eb9",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null
-            }
-          },
-          {
-            "Id": {
-              "Type": "GameObject",
-              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "6aec1b73-e38e-4436-96db-4f884162970b"
-            },
-            "PreviousElement": {
-              "Type": "GameObject",
-              "IdValue": "3c269391-9a4f-448a-81cd-80b1a4bdde8e"
-            },
-            "ContainerProperty": "Children",
-            "IsContainerArray": true,
-            "Data": {
-              "__guid": "d170f632-c920-4730-8ee5-f7718e15b15c",
-              "__version": 1,
-              "Flags": 0,
-              "Name": "SettingsMenu",
-              "Position": "0,0,0",
-              "Rotation": "0,0,0,1",
-              "Scale": "1,1,1",
-              "Tags": "",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkInterpolation": true,
-              "NetworkOrphaned": 0,
-              "OwnerTransfer": 1,
-              "Components": [],
-              "Children": []
-            }
-          },
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
-            },
-            "PreviousElement": null,
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Sandbox.SettingsMenu",
-              "__guid": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null
-            }
-          },
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "2937a245-c3b1-49a9-8944-d3130b32759c"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "d170f632-c920-4730-8ee5-f7718e15b15c"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "32f31183-96ab-4a72-b06c-9a1b8285b7f8"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "SettingsManager",
-              "__guid": "2937a245-c3b1-49a9-8944-d3130b32759c",
               "__enabled": true,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -147,53 +60,39 @@
           }
         ],
         "RemovedObjects": [],
-        "PropertyOverrides": [
+        "PropertyOverrides": [],
+        "MovedObjects": [
           {
-            "Target": {
+            "Id": {
               "Type": "Component",
-              "IdValue": "98bc413f-58fc-41a4-a624-18cbba8f6305"
+              "IdValue": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e"
             },
-            "Property": "UILayers",
-            "Value": [
-              {
-                "_type": "component",
-                "component_id": "10258580-d221-4671-a73a-df5651abc0c1",
-                "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
-                "component_type": "HUD"
-              },
-              {
-                "_type": "component",
-                "component_id": "f182785c-cc51-4a8e-8a7d-ca81f211c63b",
-                "go": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
-                "component_type": "PauseMenu"
-              },
-              {
-                "_type": "component",
-                "component_id": "2c687285-9424-4bc9-b887-eec65fa0d576",
-                "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
-                "component_type": "InventoryUI"
-              },
-              {
-                "_type": "component",
-                "component_id": "32f31183-96ab-4a72-b06c-9a1b8285b7f8",
-                "go": "d170f632-c920-4730-8ee5-f7718e15b15c",
-                "component_type": "SettingsMenu"
-              }
-            ]
+            "NewParent": {
+              "Type": "GameObject",
+              "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
+            },
+            "NewContainerProperty": "Components",
+            "IsNewContainerArray": true,
+            "NewPreviousElement": {
+              "Type": "Component",
+              "IdValue": "63f739b4-30f2-4606-b9fe-77229a959eb9"
+            }
           }
-        ],
-        "MovedObjects": []
+        ]
       },
       "__PrefabIdToInstanceId": {
         "6aec1b73-e38e-4436-96db-4f884162970b": "6cdc8734-2637-47c8-96c0-1529ab043dc2",
         "098c2a99-4a7c-4185-9c78-7daf5d84f830": "7cdbc98a-c54c-416f-9d1b-35619e1e40ec",
-        "98bc413f-58fc-41a4-a624-18cbba8f6305": "9de31b4e-99c4-48ea-b58b-1ef72e6dfed8",
+        "dda31a64-6e25-4a53-b6c9-7daa84d6b20e": "dc839019-fa92-4bb4-b9e3-5a8ade430040",
         "172d4b78-a7f0-4510-b74a-07a09e1aed84": "231b4ed5-4a32-407e-b85e-23a87aa7e00f",
-        "10258580-d221-4671-a73a-df5651abc0c1": "fde5ac98-07aa-401e-b2ad-d14a5aede678",
+        "b3cbec8b-fae9-45af-9ec0-8c9222684eb1": "20b43970-ff78-4c03-bd4a-449b23acec07",
         "f1d627a5-b56c-44da-8de3-be7eb10c3836": "91dfc892-8a5d-4f37-8d7c-0e1da859f688",
-        "f182785c-cc51-4a8e-8a7d-ca81f211c63b": "cafbe729-187c-405b-b99a-96cab9ee4408",
+        "0dcfd391-02ef-4e46-9182-dfaf380905d8": "a0e554a8-6ab9-43c4-9872-f202c98dd89a",
         "3c269391-9a4f-448a-81cd-80b1a4bdde8e": "8773f263-16d2-4505-8ede-390e92db7d38",
-        "2c687285-9424-4bc9-b887-eec65fa0d576": "dfbecb42-fec3-4c29-8e74-b0e565318ddc"
+        "e774a10d-6e14-4d3d-a9a2-59a457d5e70a": "549a668b-ae41-48b5-867e-c22d2a4cedfa",
+        "a57483a2-781b-4ede-b4fd-5131df48da5e": "11374794-7ce1-4341-883d-d51832cc5482",
+        "35a82ac1-decf-4fd7-99ec-3317fca9a176": "86e7c761-799a-4c21-a2a5-f65ecd097814",
+        "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4": "67ec42fa-06e4-41ed-9947-a17a04b77071"
       }
     }
   ],

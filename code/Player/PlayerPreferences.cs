@@ -1,6 +1,8 @@
 using System;
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Used as a data class for the preferences of the player.
 /// Can be serialized with FileManager without type conversions.

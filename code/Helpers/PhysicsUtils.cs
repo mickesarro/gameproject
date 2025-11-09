@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter.Helpers;
+
 /// <summary>
 /// Static utility class for physics calculations
 /// </summary>

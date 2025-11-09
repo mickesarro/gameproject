@@ -1,5 +1,8 @@
 using Sandbox;
-using UISystem;
+using Shooter.UISystem;
+using Shooter.UI;
+
+namespace Shooter;
 
 /// <summary>
 /// A centralized component for gathering player input.

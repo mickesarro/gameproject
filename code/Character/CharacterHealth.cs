@@ -1,6 +1,8 @@
 using Sandbox;
 using Sandbox.Utility;
 
+namespace Shooter;
+
 /// <summary>
 /// Component for adding health and related functionality to a character.
 /// Implements IDamageable.

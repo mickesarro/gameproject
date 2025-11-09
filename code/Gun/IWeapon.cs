@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 public enum WeaponType { 
 	Melee = 0,
 	Smg = 1,

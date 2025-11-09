@@ -1,5 +1,7 @@
 using Sandbox;
-using Sandbox.Citizen;
+using Shooter.Sounds;
+
+namespace Shooter;
 
 /// <summary>
 /// Base class for gun behaviour
@@ -17,7 +19,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 	}
 	private GameObject _user;
-	private bool isPlayer; // To not run OnUpdate on NPCs
+	public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
@@ -60,7 +62,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			DestroyGameObject();
 			return;
 		}
-	}
+
+        IsPlayer = User.Components.TryGet<PlayerController>( out _ );
+    }
 
 	protected override void OnStart()
 	{
@@ -75,8 +79,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
-		isPlayer = User.Components.TryGet<PlayerController>( out _ );
-
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
@@ -90,7 +92,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private TimeSince timeSinceLastShot = 0;
 	protected override void OnUpdate()
 	{
-		if ( IsProxy || !isPlayer ) return;
+		if ( IsProxy || !IsPlayer ) return;
 
 		bool input = false;
 		switch (FireData.FireType)
@@ -135,6 +137,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			FireProjectile();
 		}
 
+		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+
 		timeSinceLastShot = 0.0f;
 	}
 
@@ -164,7 +168,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if (FireData.AmmoLeft == 0)
 		{
-			Reload();
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+			Reload(); // Perhaps move it to manual reload or then on subsequent fire
 			return;
 		}
 		--FireData.AmmoLeft;
@@ -173,7 +178,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
 
 		// !! We need a proper solution to the "spawn" point of the bullet
-		var startPoint = isPlayer ? Game.ActiveScene.Camera.WorldPosition : WorldPosition + Vector3.Up;
+		var startPoint = IsPlayer ? Game.ActiveScene.Camera.WorldPosition : WorldPosition + Vector3.Up;
 		var endPoint = startPoint + (WorldTransform.Forward * 9999);
 
 		var traceRay = TraceBullet( startPoint, endPoint, toIgnore: User);
@@ -219,6 +224,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
+
+		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 	}
 
 	private void SpawnTracer( Vector3 target )
@@ -239,6 +246,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if ( FireData.AmmoLeft == 0 )
 		{
+			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
 			Reload();
 			return;
 		}

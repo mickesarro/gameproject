@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace NPC;
+namespace Shooter;
 
 /// <summary>
 /// Can be added to classes to make their components state machines.

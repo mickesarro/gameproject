@@ -1,7 +1,7 @@
 using System;
 using Sandbox;
 
-namespace UISystem;
+namespace Shooter.UISystem;
 
 /// <summary>
 /// Is responsible for showing and hiding different UI layers.

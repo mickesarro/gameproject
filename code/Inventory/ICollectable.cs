@@ -1,3 +1,4 @@
+namespace Shooter;
 
 /// <summary>
 /// Allows GameObject to become collectable.

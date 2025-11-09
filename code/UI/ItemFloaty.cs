@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sandbox;
+namespace Shooter.UI;
 
 public sealed class ItemFloaty : Component
 {
@@ -14,17 +14,16 @@ public sealed class ItemFloaty : Component
 	const float maxDistance = 400f;
 	const float minScale = 3f;
 	const float maxScale = 1f;
-	
-	protected override void OnStart()
-	{
-		base.OnStart();
-		offset = Size / 2;
-	}
+    
+    protected override void OnStart()
+    {
+        base.OnStart();
+        Camera ??= Scene.Camera;
+        offset = Size / 2;
+    }
 
 	protected override void OnUpdate()
 	{
-		Camera ??= Game.ActiveScene.Camera;
-		if (IsProxy || Camera == null) return;
 		base.OnUpdate();
 		
 		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);
@@ -41,10 +40,10 @@ public sealed class ItemFloaty : Component
 		
 		// If the dot product is positive, the item is in front of the camera
 
-		var scale = Scale();
 		if (dotProduct > 0)
 		{
-			var sizeWithScale = Size * scale;
+            var scale = Scale();
+            var sizeWithScale = Size * scale;
 			var offsetWithScale = offset * scale;
 			Camera.Hud.DrawTexture(Texture, new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), SpriteColor);
 		}

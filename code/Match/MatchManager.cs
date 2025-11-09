@@ -1,5 +1,7 @@
 using Sandbox;
 
+namespace Shooter;
+
 /// <summary>
 /// Is reponsible for managing connections and other high level match details.
 /// </summary>

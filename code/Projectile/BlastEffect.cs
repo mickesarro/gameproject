@@ -1,5 +1,9 @@
 using Sandbox;
 using static Sandbox.Component;
+using Sandbox.Audio;
+using Shooter.Sounds;
+
+namespace Shooter;
 
 /// <summary>
 /// Simulates a blast created by projectile collission / other explosion
@@ -12,7 +16,7 @@ public class BlastEffect : GameObject
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
-		//PlayBlastEffect(position); // Placeholder for visual/audio effects
+		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 5000f );
 
 		var sphere = new Sphere( position, Radius );
 		

@@ -1,4 +1,5 @@
-﻿
+﻿namespace Shooter;
+
 /// <summary>
 /// Defines events for use during matches.
 /// </summary>

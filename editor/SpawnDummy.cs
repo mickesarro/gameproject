@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
-using NPC;
 using Sandbox;
+using Shooter.NPC;
+
+namespace Shooter.Editor;
 
 /// <summary>
 /// Can be used to run scripts in the editor.

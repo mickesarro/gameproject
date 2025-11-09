@@ -17,7 +17,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "MatchManager",
+          "__type": "Shooter.MatchManager",
           "__guid": "ff220bc7-c807-40cd-a440-874f04df7537",
           "__enabled": true,
           "GameMode": null,
@@ -29,7 +29,7 @@
           "OnComponentUpdate": null
         },
         {
-          "__type": "MatchStatsManager",
+          "__type": "Shooter.MatchStatsManager",
           "__guid": "2a6a20ea-07c9-4575-b19b-ddca6de6db3a",
           "__enabled": true,
           "OnComponentDestroy": null,
@@ -51,8 +51,8 @@
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "maincamera,skybox,camera",
-      "Enabled": false,
-      "NetworkMode": 0,
+      "Enabled": true,
+      "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
       "OwnerTransfer": 1,
@@ -60,7 +60,7 @@
         {
           "__type": "Sandbox.CameraComponent",
           "__guid": "d7631e5c-0597-478f-83e2-d6200d7baad6",
-          "__enabled": false,
+          "__enabled": true,
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "EnablePostProcessing": true,
@@ -111,7 +111,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "SpawnPoint",
-      "Position": "98.01984,-7726.277,-47755.04",
+      "Position": "98.01984,-7726.277,1",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "spawnpoint",
@@ -128,7 +128,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "SpawnPoint (1)",
-      "Position": "416.7306,-8143.958,-47755.04",
+      "Position": "416.7306,-8143.958,1",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "spawnpoint",
@@ -145,7 +145,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "Map",
-      "Position": "21.12942,-7726.277,-47772.14",
+      "Position": "21.12942,-7726.277,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -203,7 +203,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "Rockets pickup",
-      "Position": "-168.3139,-7487.275,-47722.89",
+      "Position": "-168.3139,-7487.275,42.35448",
       "Rotation": "0,0,0,1",
       "Scale": "2,2,2",
       "Tags": "",
@@ -283,7 +283,7 @@
           "UseAnimGraph": false
         },
         {
-          "__type": "ItemPickup",
+          "__type": "Shooter.ItemPickup",
           "__guid": "afc4e059-5792-4bba-bd97-1902b1d5bfe4",
           "__enabled": true,
           "ItemPrefab": {
@@ -317,16 +317,17 @@
           "OwnerTransfer": 1,
           "Components": [
             {
-              "__type": "Sandbox.ItemFloaty",
-              "__guid": "8f3d4dbc-d385-471e-af70-627e7aa59d51",
+              "__type": "Shooter.UI.ItemFloaty",
+              "__guid": "772f7c6a-f3a1-4dd0-81e4-9bf670c45961",
               "__enabled": true,
+              "Camera": null,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "Size": 90,
+              "Size": 100,
               "SpriteColor": "1,0,0,1",
               "Texture": "textures/shapes/spark3.vtex"
             }
@@ -339,8 +340,8 @@
       "__guid": "77ac39fc-30a3-48d5-b528-0679ccf57c54",
       "__version": 1,
       "Flags": 0,
-      "Name": "smg pickup",
-      "Position": "-398.947,-7487.275,-47722.89",
+      "Name": "Rockets pickup (1)",
+      "Position": "-398.947,-7487.275,42.35448",
       "Rotation": "0,0,0.7071068,0.7071068",
       "Scale": "2,2,2",
       "Tags": "",
@@ -351,7 +352,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "ItemPickup",
+          "__type": "Shooter.ItemPickup",
           "__guid": "bdb25dea-30bf-4961-a73a-1a92997cfd6a",
           "__enabled": true,
           "ItemPrefab": {
@@ -397,7 +398,7 @@
           "__guid": "95de5204-9422-4bee-aabc-71b4b3778b95",
           "__enabled": true,
           "AnimationGraph": null,
-          "BodyGroups": 171,
+          "BodyGroups": 18446744073709551615,
           "BoneMergeTarget": null,
           "CreateAttachments": false,
           "CreateBoneObjects": false,
@@ -405,7 +406,7 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Materials": null,
-          "Model": "models/weapons/sbox_assault_m4a1/w_m4a1.vmdl",
+          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
           "Morphs": {},
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -437,47 +438,14 @@
           "UseAnimGraph": false
         }
       ],
-      "Children": [
-        {
-          "__guid": "85d1eb3f-d538-4f06-8d8b-a2cb4a1ff62e",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.ItemFloaty",
-              "__guid": "ce848b1b-dff9-454f-b67a-2f6e6e323859",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 90,
-              "SpriteColor": "0,1,0.1,1",
-              "Texture": "textures/shapes/square2.vtex"
-            }
-          ],
-          "Children": []
-        }
-      ]
+      "Children": []
     },
     {
       "__guid": "c8437991-2005-4123-9e1e-e36025de0e21",
       "__version": 1,
       "Flags": 0,
       "Name": "Cube",
-      "Position": "212.496,-7140.876,-47735.93",
+      "Position": "212.496,-7140.876,38.25038",
       "Rotation": "0,0,0,1",
       "Scale": "3.313711,2.985103,1.787579",
       "Tags": "world",
@@ -546,7 +514,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "Waypoints",
-      "Position": "98.01984,-7726.277,-47755.04",
+      "Position": "98.01984,-7726.277,1",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "waypoints",
@@ -562,7 +530,7 @@
           "__version": 1,
           "Flags": 0,
           "Name": "Object",
-          "Position": "-132.9472,153.9102,-39.90625",
+          "Position": "-132.9472,153.9102,1",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -579,7 +547,7 @@
           "__version": 1,
           "Flags": 0,
           "Name": "Object",
-          "Position": "296.7979,0,-117.6406",
+          "Position": "296.7979,0,1",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -596,7 +564,7 @@
           "__version": 1,
           "Flags": 0,
           "Name": "Object",
-          "Position": "296.7979,-804.248,-117.6406",
+          "Position": "349.7658,-804.2476,1",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -613,7 +581,7 @@
           "__version": 1,
           "Flags": 0,
           "Name": "Object",
-          "Position": "-962.533,-804.248,-117.6406",
+          "Position": "-962.533,-804.248,1",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
@@ -632,7 +600,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "AmmoPickup",
-      "Position": "7.234924,-7487.275,-47722.89",
+      "Position": "7.234924,-7487.275,47.04886",
       "Rotation": "0,0,0,1",
       "Scale": "2,2,2",
       "Tags": "",
@@ -668,7 +636,7 @@
           "SurfaceVelocity": "0,0,0"
         },
         {
-          "__type": "AmmoPickup",
+          "__type": "Shooter.AmmoPickup",
           "__guid": "332b865c-e7d4-4e2c-8029-62acd656e626",
           "__enabled": true,
           "AmmoType": "Rocket",
@@ -732,7 +700,7 @@
       "__version": 1,
       "Flags": 0,
       "Name": "Jump Pad",
-      "Position": "246.5123,-7399.958,-47745.87",
+      "Position": "262.0622,-7399.959,26.93323",
       "Rotation": "0,0.258819,0,0.9659258",
       "Scale": "2,2,0.1",
       "Tags": "",
@@ -743,7 +711,7 @@
       "OwnerTransfer": 1,
       "Components": [
         {
-          "__type": "JumpPad",
+          "__type": "Shooter.JumpPad",
           "__guid": "aef1b803-8526-443a-ab12-e1bf5d5d4b8c",
           "__enabled": true,
           "Force": 800,
@@ -844,7 +812,7 @@
       "Enabled": true,
       "IncludeStaticBodies": true,
       "IncludeKeyframedBodies": true,
-      "EditorAutoUpdate": true,
+      "EditorAutoUpdate": false,
       "AgentHeight": 64,
       "AgentRadius": 16,
       "AgentStepSize": 18,
@@ -858,8 +826,7 @@
   "Description": null,
   "__references": [
     "baik.projectile_rocket#43884",
-    "facepunch.v_recoillessrifle#116232",
-    "facepunch.w_m4a1#60166"
+    "facepunch.v_recoillessrifle#116232"
   ],
   "__version": 3
 }
