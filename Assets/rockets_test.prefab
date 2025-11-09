@@ -1609,7 +1609,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "0,0,0"
+            "PositionOffset": "-14.8,0,-2.5"
           }
         ],
         "Children": []
