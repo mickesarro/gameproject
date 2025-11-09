@@ -13,7 +13,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		set
 		{
 			_user = value;
-			OnUserChanged();
+			HandleProxyAnimations();
 		}
 	}
 	private GameObject _user;
@@ -33,7 +33,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
-	private void OnUserChanged()
+	private void HandleProxyAnimations()
 	{
 		if (User == null || gunData == null) return;
 		var playerBody = User.Children.Find(obj => obj.Name == "Body");
@@ -272,5 +272,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
+		switch ( IsProxy )
+		{
+			case false:
+				HandleProxyAnimations();
+				break;
+			case true:
+				playerModelRenderer?.Parameters?.Set("holdtype", gunData.holdType.AsInt());
+				break;
+		}
 	}
 }

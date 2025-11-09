@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 1,
     "Flags": 0,
-    "Name": "smg",
+    "Name": "Smg",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -41,7 +41,7 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
-        "holdType": "Rifle",
+        "holdType": "Pistol",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -58,7 +58,7 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Primary",
+        "WeaponType": "Smg",
         "Worldmodel": {
           "_type": "gameobject",
           "go": "c7e69da2-d212-4b8d-a4ee-91107120513f"

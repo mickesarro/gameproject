@@ -2,9 +2,11 @@ using Sandbox;
 
 public enum InventorySlot
 {
-	First = 0,
-	Second = 1,
-	Third = 2,
+	Melee = 0,
+	Smg = 1,
+	Rockets = 2,
+	RailGun = 3,
+	Other = 4,
 	Next,
 	Previous,
 }
@@ -16,9 +18,12 @@ public enum InventorySlot
 public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 {
 	// Weapons slots
-	public ICollectable PrimaryWeapon => weapons[0];
-	public ICollectable SecondaryWeapon => weapons[1];
-	public ICollectable MeleeWeapon => weapons[2];
+	public ICollectable Melee => weapons[0];
+	public ICollectable Smg => weapons[1];
+	public ICollectable Rockets => weapons[2];
+	public ICollectable RailGun => weapons[3];
+	public ICollectable Other => weapons[4];
+
 
 	public ICollectable CurrentItem { get; private set; } = null;
 	public IWeapon CurrentWeapon => (IWeapon)CurrentItem;
@@ -97,7 +102,18 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// <param name="ind"></param>
 	public void ChangeCurrentItem( int ind )
 	{
-		if (ind < 0  || ind >= weapons.Length) return;
+		if (ind < 0  || ind >= weapons.Length ) return;
+
+		// todo
+		if ( ind == 0 ) Log.Info( "no melee yet" );
+		// estää ottamasta tyhjän slotin käteen
+		if ( weapons[ind] == null ) return;
+		
+		// estää valitsemasta jo kädessä olevan aseen
+		if ( CurrentWeapon?.WeaponType != null )
+		{ 
+			if ((int) CurrentWeapon.WeaponType == ind) return;
+		}
 
 		CurrentItem?.EnableGo( false );
 
@@ -105,13 +121,12 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		currentSlot = ind;
 
 		CurrentItem?.EnableGo( true );
+		Log.Info( CurrentWeapon?.WeaponType );
 	}
 
 	public void ChangeCurrentItem( ICollectable collectable ) {
 		if ( collectable is not IWeapon weapon ) return;
-
 		ChangeCurrentItem( (int)weapon.WeaponType );
-
 	}
 
 	public void ChangeCurrentItem( InventorySlot slot )

@@ -7,7 +7,7 @@ using Sandbox.Citizen;
 /// </summary>
 public sealed class GunData : Component
 {
-	[Property] public WeaponType WeaponType { get; private set; } = WeaponType.Primary;
+	[Property] public WeaponType WeaponType { get; private set; } = WeaponType.Other;
 
 	// Might be better to move this to gun itself
 	[Property, RequireComponent] public FireData PrimaryFireData { get; private set; }

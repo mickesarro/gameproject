@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 1,
     "Flags": 0,
-    "Name": "rockets_test",
+    "Name": "Rockets",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -58,7 +58,7 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Secondary",
+        "WeaponType": "Rockets",
         "Worldmodel": {
           "_type": "gameobject",
           "go": "c4082e21-d2b2-4b26-96c6-676da2defab7"
