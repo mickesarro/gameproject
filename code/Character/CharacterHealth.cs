@@ -12,7 +12,9 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	private ICharacterBase ownerCharacter;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
-	[Sync] public float Health { get; set; } = 100000f;
+
+    [Description("Should not be manually altered in editor outside testing!")]
+	[Property, Sync] public float Health { get; set; } = 100f;
 	[Hide, Sync] public int Deaths { get; private set; }
 
 	public bool IsAlive => Health > 0;
@@ -20,6 +22,11 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	protected override void OnAwake()
 	{
 		base.OnAwake();
+
+        if ( Health > MaxHealth )
+        {
+            Log.Warning( "[CharacterHealth] Health property set too high manually." );
+        }
 
 		ownerCharacter = GetComponent<ICharacterBase>();
 	}
