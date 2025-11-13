@@ -111,17 +111,6 @@
           "_type": "gameobject",
           "prefab": "tracer.prefab"
         }
-      },
-      {
-        "__type": "Shooter.GunViewModelHandler",
-        "__guid": "5189792b-90b3-40a3-bd3f-7f4062c8fa25",
-        "__enabled": true,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -183,6 +172,17 @@
             },
             "Tint": "1,1,1,1",
             "UseAnimGraph": true
+          },
+          {
+            "__type": "Shooter.GunViewModelHandler",
+            "__guid": "601cee9d-01f5-4949-be38-d0bbf0e6dfe7",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ],
         "Children": [
@@ -1265,23 +1265,6 @@
                 ]
               }
             ]
-          },
-          {
-            "__guid": "0d80a4dd-fca4-47ff-934b-089181e0e749",
-            "__version": 1,
-            "Flags": 0,
-            "Name": "camera",
-            "Position": "0.003177871,0.00001571318,0.000004505539",
-            "Rotation": "-0.0000002682208,-0.00000004470348,0.000002950429,1",
-            "Scale": "1,1,1",
-            "Tags": "",
-            "Enabled": true,
-            "NetworkMode": 0,
-            "NetworkInterpolation": true,
-            "NetworkOrphaned": 0,
-            "OwnerTransfer": 1,
-            "Components": [],
-            "Children": []
           },
           {
             "__guid": "8db837e1-4f39-4862-a706-7ee7def787ce",

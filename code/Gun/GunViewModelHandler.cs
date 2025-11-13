@@ -7,31 +7,21 @@ namespace Shooter;
 /// </summary>
 public sealed class GunViewModelHandler : Component
 {
-	private CameraComponent camera;
-	protected override void OnStart()
-	{
-        // NPC does not need viewmodel
-        // e: this deletes the viewmodel on the player, not dummy
-        if ( !GetComponentInParent<Gun>().IsPlayer )
-        {
-            DestroyGameObject();
-        }
-        
-		if (IsProxy) return;
-		base.OnStart();
-        camera = Scene.Camera;
-		if (camera == null )
-		{
-			Log.Info( "No camera found, destroying." );
-			Destroy();
-		}
-	}
-
-	protected override void OnUpdate()
+    protected override void OnStart()
 	{
         if (IsProxy) return;
-		// This is not ideal and must be made independent later.
-		GameObject.WorldPosition = camera.WorldPosition;
-		GameObject.WorldRotation = camera.WorldRotation;
-	}
+		base.OnStart();
+        // NPC does not need viewmodel
+        // tägit jostain syystä luotettavempia kun Gunin isPlayer
+        // jos sitä käyttää, niin komponentti suoritettiin kaks kertaa per npc,
+        // minkä ansiosta DestroyGameObject() heitää npe:n :)
+        if ( Tags.Has( "npc" ) )
+        {
+            var arms = GameObject.Parent?.Children?.Find(o => o.Name == "arms");
+            arms?.Destroy();
+            DestroyGameObject();
+            return;
+        }
+        GameObject.Parent = Scene.Camera.GameObject;
+    }
 }
