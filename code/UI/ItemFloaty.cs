@@ -4,33 +4,26 @@ namespace Shooter.UI;
 
 public sealed class ItemFloaty : Component
 {
-	[Property] private CameraComponent Camera { get; set; }
 	[Property] private Texture Texture { get; set; }
 	[Property] private Color SpriteColor { get; set; }
 	[Property] private float Size { get; set; }
+	private CameraComponent Camera;
 	private float offset;
 	
 	const float minDistance = 150f;
 	const float maxDistance = 400f;
 	const float minScale = 3f;
 	const float maxScale = 1f;
-	
-	protected override void OnAwake()
-	{
-		base.OnAwake();
-		offset = Size / 2;
-	}
-
+    
     protected override void OnStart()
     {
         base.OnStart();
-
-        Camera ??= Scene.Camera;
+        offset = Size / 2;
+        Camera = Scene.Camera;
     }
-
+    
 	protected override void OnUpdate()
 	{
-		if (IsProxy) return;
 		base.OnUpdate();
 		
 		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);

@@ -4,9 +4,9 @@ namespace Shooter;
 
 public enum InventorySlot
 {
-	First = 0,
-	Second = 1,
-	Third = 2,
+    First = 0,
+    Second = 1,
+    Third = 2,
 	Next,
 	Previous,
 }
@@ -99,7 +99,18 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// <param name="ind"></param>
 	public void ChangeCurrentItem( int ind )
 	{
-		if (ind < 0  || ind >= weapons.Length) return;
+		if (ind < 0  || ind >= weapons.Length ) return;
+
+		// todo
+		if ( ind == 2 ) Log.Info( "no melee yet" );
+		// estää ottamasta tyhjän slotin käteen
+		if ( weapons[ind] == null ) return;
+		
+		// estää valitsemasta jo kädessä olevan aseen
+		if ( CurrentWeapon?.WeaponType != null )
+		{ 
+			if ((int) CurrentWeapon.WeaponType == ind) return;
+		}
 
 		CurrentItem?.EnableGo( false );
 
@@ -111,9 +122,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 
 	public void ChangeCurrentItem( ICollectable collectable ) {
 		if ( collectable is not IWeapon weapon ) return;
-
 		ChangeCurrentItem( (int)weapon.WeaponType );
-
 	}
 
 	public void ChangeCurrentItem( InventorySlot slot )

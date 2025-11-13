@@ -320,7 +320,6 @@
               "__type": "Shooter.UI.ItemFloaty",
               "__guid": "772f7c6a-f3a1-4dd0-81e4-9bf670c45961",
               "__enabled": true,
-              "Camera": null,
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,

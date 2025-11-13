@@ -15,7 +15,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		set
 		{
 			_user = value;
-			OnUserChanged();
+			HandleProxyAnimations();
 		}
 	}
 	private GameObject _user;
@@ -35,12 +35,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
-	private void OnUserChanged()
+	private void HandleProxyAnimations()
 	{
-		if (User == null) return;
-
+		if (User == null || gunData == null) return;
 		var playerBody = User.Children.Find(obj => obj.Name == "Body");
-		playerModelRenderer = playerBody?.GetComponent<SkinnedModelRenderer>(true);
+		playerBody?.Components.TryGet<SkinnedModelRenderer>(out playerModelRenderer);
 		playerModelRenderer?.Parameters.Set("holdtype", gunData.holdType.AsInt());
 	}
 
@@ -219,7 +218,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private void Reload()
 	{
 		int reloaded = AmmoInventory
-			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo );
+			.RemoveAmmo( FireData.AmmoType, 1 );
 
 		FireData.AmmoLeft = reloaded;
 
@@ -252,7 +251,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 		--FireData.AmmoLeft;
-
+		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
 
@@ -263,8 +262,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		if ( FireData.AmmoType == AmmoType.Rocket ) // If bazooka, reload
 		{
-			Reload();
+			// ??
+			//Reload();
 		}
+		
+		SetAnimation(modelType.ViewModel, "fire", true );
+		SetAnimation(modelType.WorldModel, "b_attack", true );
 	}
 
 	public void Collect( GameObject interactor )
@@ -277,5 +280,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
+		switch ( IsProxy )
+		{
+			case false:
+				HandleProxyAnimations();
+				break;
+			case true:
+				playerModelRenderer?.Parameters?.Set("holdtype", gunData.holdType.AsInt());
+				break;
+		}
 	}
 }

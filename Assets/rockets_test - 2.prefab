@@ -41,7 +41,7 @@
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
         },
-        "holdType": "None",
+        "holdType": "Pistol",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -58,7 +58,7 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Primary",
+        "WeaponType": "Secondary",
         "Worldmodel": {
           "_type": "gameobject",
           "go": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8"

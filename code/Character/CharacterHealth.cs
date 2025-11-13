@@ -12,7 +12,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	private ICharacterBase ownerCharacter;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
-	[Sync] public float Health { get; set; } = 100f;
+	[Sync] public float Health { get; set; } = 100000f;
 	[Hide, Sync] public int Deaths { get; private set; }
 
 	public bool IsAlive => Health > 0;

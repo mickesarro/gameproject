@@ -133,7 +133,7 @@ public class UIManager : SingletonBase<UIManager>
         }
         else
         {
-            ShowLastLayer();
+            ResetToStartLayer();
         }
     }
 

@@ -17,7 +17,7 @@ public sealed class GunWorldModelHandler : Component
 	// varmaan jatkossa myös itemien yms. piirtämiseenm, jolloin pitäisi erotella varmaankin tyypin mukaan
 	// mikä ankkuri on aseille, itemeille tms.. Eri asetyypitkin voi vaatia eri ankkurin
 	
-	[Property] private Vector3 PositionOffset { get; set; } = Vector3.Zero;
+	[Property, Sync] private Vector3 PositionOffset { get; set; } = Vector3.Zero;
 	private GameObject anchor;
 	
 	protected override void OnStart()
@@ -43,7 +43,7 @@ public sealed class GunWorldModelHandler : Component
 		base.OnUpdate();
 
 		var worldOffset = anchor.WorldTransform.Rotation * PositionOffset;
-		GameObject.WorldPosition = anchor.WorldPosition + worldOffset;
+		GameObject.WorldPosition = anchor.WorldPosition.WithZ( anchor.WorldPosition.z - 5f ) + worldOffset;
 		GameObject.WorldRotation = anchor.WorldRotation;
 	}
 }
