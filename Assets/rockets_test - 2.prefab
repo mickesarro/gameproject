@@ -24,7 +24,7 @@
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "GunData"
         },
-        "Name": "Gun",
+        "Name": "AR",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

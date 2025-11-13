@@ -28,6 +28,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	public GunData GunData => gunData;
 
+	public MeleeData MeleeData => null;
+
 	private FireData FireData; // Just for convenience
 
 	private SkinnedModelRenderer viewModelRenderer;

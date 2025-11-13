@@ -14,13 +14,39 @@
 <root>
     <div class="HP-counter">@GetHealth() HP</div>
     <div class="Ammo-counter">@GetAmmo()</div>
-    @*<Crosshair Inventory=@PlayerInventory ></Crosshair>*@
+    
+    <div class="weapon-hud">
+        @if (PlayerInventory != null)
+        {
+            foreach (var weapon in PlayerInventory.Items)
+            {
+                if (weapon == null) continue;
+
+                <div class="weapon-slot @(weapon == PlayerInventory.CurrentItem ? "active" : "")">
+                    <div class="icon">
+                        @if (weapon is Gun gun && gun.GunData != null)
+                        {
+                            @gun.Name
+                        }
+                        else
+                        {
+                            @weapon.Name
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
 </root>
 
 @code
 {
     private PlayerInventory PlayerInventory = null;
-    private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData.PrimaryFireData;
+    private IWeapon CurrentWeapon => PlayerInventory?.CurrentWeapon;
+    private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData?.PrimaryFireData;
+
 
     private CharacterHealth CharacterHealth = null;
 
@@ -43,7 +69,21 @@
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( GetAmmo(), GetHealth(), FireData);
+    protected override int BuildHash()
+    {
+        int hash = System.HashCode.Combine(GetAmmo(), GetHealth(), PlayerInventory?.CurrentItem);
+
+        if (PlayerInventory != null)
+        {
+            foreach (var w in PlayerInventory.Items)
+            {
+                if (w != null)
+                    hash = System.HashCode.Combine(hash, w.GetHashCode());
+            }
+        }
+
+        return hash;
+    }
 
 }
 
