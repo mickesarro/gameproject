@@ -1,9 +1,10 @@
 @using Sandbox;
 @using Sandbox.UI;
+@using Sandbox.Network
 @using System.Collections.Generic;
 @using UISystem
 @inherits UILayer
-@namespace Sandbox
+@namespace Shooter.UI
 
 <root>
     <div class="browser">
@@ -33,7 +34,7 @@
 
 @code
 {
-    private List<Network.LobbyInformation> lobbies = new();
+    private List<LobbyInformation> lobbies = new();
 
     protected override void OnAwake()
     {
@@ -57,7 +58,7 @@
         // Just for testing purposes
         if ( lobbies.Count == 0 )
         {
-            var temp = new Network.LobbyInformation();
+            var temp = new LobbyInformation();
             temp.Name = "Grand lobby";
             lobbies.Add( temp );
         }
