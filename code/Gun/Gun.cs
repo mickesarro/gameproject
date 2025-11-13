@@ -45,6 +45,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	protected override void OnAwake()
 	{
+        base.OnAwake();
+
 		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
@@ -63,6 +65,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
+        // Could be implemented with tags for example
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
     }
 
@@ -82,7 +85,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
-		Log.Info( playerModelRenderer );
 
 		shootInterval = 60f / FireData.RPM;
 		timeSinceLastShot = 0; // Seems the sandbox time.now is messed up at object creation
@@ -137,9 +139,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			FireProjectile();
 		}
 
-		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+        if ( GunData.AutomaticReload && TryReload() ) return;
 
-		timeSinceLastShot = 0.0f;
+        SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+        timeSinceLastShot = 0.0f;
+        
 	}
 
 	enum modelType
@@ -166,13 +170,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireBullet()
 	{
-		if (FireData.AmmoLeft == 0)
-		{
-			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
-			Reload(); // Perhaps move it to manual reload or then on subsequent fire
-			return;
-		}
-		--FireData.AmmoLeft;
+        TryReload();
+
+        --FireData.AmmoLeft;
 
 		// Shoot from the viewport
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
@@ -218,7 +218,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private void Reload()
 	{
 		int reloaded = AmmoInventory
-			.RemoveAmmo( FireData.AmmoType, 1 );
+			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo ); // Intentionally MaxAmmo as it is the magazine size
 
 		FireData.AmmoLeft = reloaded;
 
@@ -227,6 +227,20 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 	}
+
+    /// <summary>
+    /// Reloads if no ammo left
+    /// </summary>
+    /// <returns></returns>
+    private bool TryReload()
+    {
+        if ( FireData.AmmoLeft > 0 ) return false;
+
+        SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+        Reload();
+
+        return true;
+    }
 
 	private void SpawnTracer( Vector3 target )
 	{
@@ -244,13 +258,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireProjectile()
 	{
-		if ( FireData.AmmoLeft == 0 )
-		{
-			SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
-			Reload();
-			return;
-		}
-		--FireData.AmmoLeft;
+        TryReload();
+
+        --FireData.AmmoLeft;
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
@@ -259,12 +269,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		projectile.GetComponent<Projectile>().Attacker = User;
 
 		projectile.NetworkSpawn();
-
-		if ( FireData.AmmoType == AmmoType.Rocket ) // If bazooka, reload
-		{
-			// ??
-			//Reload();
-		}
 		
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
@@ -280,14 +284,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
-		switch ( IsProxy )
-		{
-			case false:
-				HandleProxyAnimations();
-				break;
-			case true:
-				playerModelRenderer?.Parameters?.Set("holdtype", gunData.holdType.AsInt());
-				break;
-		}
+        if ( IsProxy )
+        {
+            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
+        }
+        else
+        {
+            HandleProxyAnimations();
+        }
 	}
 }
