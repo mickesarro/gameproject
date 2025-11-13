@@ -12,7 +12,7 @@ public sealed class GunViewModelHandler : Component
 	{
 		if (IsProxy) return;
 		base.OnStart();
-        camera = Scene.Camera.Components.Get<CameraComponent>();
+        camera = Scene.Camera;
 		if (camera == null )
 		{
 			Log.Info( "No camera found, destroying." );

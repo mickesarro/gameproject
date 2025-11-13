@@ -390,7 +390,9 @@ public sealed class PlayerController : Component, ICharacterBase
         Gizmo.Draw.LineBBox(in box);
     }
     
-	protected override void OnAwake() {
+	protected override void OnAwake()
+    {
+        Camera = Scene.Camera;
 		Sandbox.ProjectSettings.Physics.FixedUpdateFrequency = 64;
 
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
@@ -497,12 +499,7 @@ public sealed class PlayerController : Component, ICharacterBase
     protected override void OnStart()
     {
 	    if ( !IsProxy )
-	    {
-		    var camera = Game.ActiveScene.CreateObject( enabled: false );
-		    camera.NetworkMode = NetworkMode.Never;
-		    camera.AddComponent<CameraComponent>().Tags.Add( new TagSet { "maincamera", "skybox", "camera" } );
-		    camera.Enabled = true;
-		    Camera = camera.GetComponent<CameraComponent>();
+        {
 		    playerStats = GetComponent<PlayerStats>();
 
 		    Height = StandingHeight;

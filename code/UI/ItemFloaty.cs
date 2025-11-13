@@ -18,10 +18,10 @@ public sealed class ItemFloaty : Component
     protected override void OnStart()
     {
         base.OnStart();
-        Camera ??= Scene.Camera;
         offset = Size / 2;
+        Camera = Scene.Camera;
     }
-
+    
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
