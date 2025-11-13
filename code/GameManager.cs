@@ -1,4 +1,7 @@
-namespace Shooter;
+using System;
+
+namespace Shooter
+    ;
 public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetworkListener, ISceneStartup
 {
 	public GameManager( Scene scene ) : base( scene )
@@ -7,8 +10,9 @@ public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetw
 
 	void ISceneStartup.OnClientInitialize()
 	{
-		// Currently sets up the UI for the client
-		if ( Game.ActiveScene.Name == "mainmenu" )
+        // Currently sets up the UI for the client
+        // Game.ActiveScene.Name == "mainmenu"
+        if ( string.Equals( Game.ActiveScene.Name, "mainmenu", StringComparison.OrdinalIgnoreCase ) )
 		{
 			return;
 		}
