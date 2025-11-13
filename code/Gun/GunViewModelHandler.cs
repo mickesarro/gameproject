@@ -10,6 +10,13 @@ public sealed class GunViewModelHandler : Component
 	private CameraComponent camera;
 	protected override void OnStart()
 	{
+        // NPC does not need viewmodel
+        // e: this deletes the viewmodel on the player, not dummy
+        if ( !GetComponentInParent<Gun>().IsPlayer )
+        {
+            DestroyGameObject();
+        }
+        
 		if (IsProxy) return;
 		base.OnStart();
         camera = Scene.Camera;
@@ -18,12 +25,6 @@ public sealed class GunViewModelHandler : Component
 			Log.Info( "No camera found, destroying." );
 			Destroy();
 		}
-
-        // NPC does not need viewmodel
-        if ( !GetComponentInParent<Gun>().IsPlayer )
-        {
-            DestroyGameObject();
-        }
 	}
 
 	protected override void OnUpdate()

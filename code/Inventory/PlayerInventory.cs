@@ -4,9 +4,9 @@ namespace Shooter;
 
 public enum InventorySlot
 {
-    Primary = 0,
-    Secondary = 1,
-    Melee = 2,
+    First = 0,
+    Second = 1,
+    Third = 2,
 	Next,
 	Previous,
 }

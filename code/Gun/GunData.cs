@@ -8,7 +8,7 @@ namespace Shooter;
 /// </summary>
 public sealed class GunData : Component
 {
-	[Property] public WeaponType WeaponType { get; private set; } = WeaponType.Secondary;
+	[Property] public WeaponType WeaponType { get; private set; } = WeaponType.Primary;
 
 	// Might be better to move this to gun itself
 	[Property, RequireComponent] public FireData PrimaryFireData { get; private set; }

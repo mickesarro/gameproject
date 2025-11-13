@@ -206,7 +206,7 @@
             "Parameters": {
               "bools": {},
               "ints": {
-                "holdtype": 2
+                "holdtype": 7
               },
               "floats": {},
               "vectors": {},

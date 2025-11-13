@@ -58,7 +58,7 @@
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
         },
-        "WeaponType": "Secondary",
+        "WeaponType": "Primary",
         "Worldmodel": {
           "_type": "gameobject",
           "go": "c4082e21-d2b2-4b26-96c6-676da2defab7"
