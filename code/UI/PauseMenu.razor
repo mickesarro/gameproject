@@ -43,6 +43,12 @@
     {
         // Implement scene manager
         Log.Info("Main menu");
+
+        // Once again, make a scene manager
+        // Save stats etc. cleanup
+        var slo = new SceneLoadOptions {};
+        slo.SetScene( "/scenes/mainMenu.scene" );
+        Scene.Load( slo );
     }
 
     private void OpenSettings()
