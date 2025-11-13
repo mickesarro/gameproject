@@ -9,14 +9,24 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
 
-	[Property] public GameMode GameMode { get; private set; }
+	[Property] public GameObject GameMode { get; private set; }
 
 	public void StartGame()
 	{
-		IMatchEvents.Post( e => e.OnGameStart() );
+        if ( GameMode == null || !GameMode.Components.TryGet<GameMode>( out _ ) )
+        {
+            Log.Error( "[MatchManager] Passed gameobject prefab does not contain GameMode!" );
+            return;
+        }
+        
+        // Instantiate the actual gamemode to the scene
+        // Should this be network spawned or not?
+        GameMode.Clone( WorldTransform, parent: GameObject );
+
+        IMatchEvents.Post( e => e.OnGameStart() );
 	}
 
-	public void StartGame( GameMode gameMode )
+	public void StartGame( GameObject gameMode )
 	{
 		this.GameMode = gameMode;
 		StartGame();

@@ -20,7 +20,10 @@
           "__type": "Shooter.MatchManager",
           "__guid": "ff220bc7-c807-40cd-a440-874f04df7537",
           "__enabled": true,
-          "GameMode": null,
+          "GameMode": {
+            "_type": "gameobject",
+            "prefab": "gamemodes/deathmatch.prefab"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,

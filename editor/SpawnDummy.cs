@@ -51,4 +51,10 @@ public static class EditorScene
 		NPCGo.NetworkSpawn();
 	}
 
+    [Event( "scene.play", Priority = 100 )]
+    public static void StartGame()
+    {
+        MatchManager.Instance?.StartGame();
+    }
+
 }
