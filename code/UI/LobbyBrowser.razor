@@ -1,0 +1,101 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Network
+@using System.Collections.Generic;
+@using UISystem
+@inherits UILayer
+@namespace Shooter.UI
+
+<root>
+    <div class="browser">
+        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
+        <h1 class="title">Lobbies</h1>
+
+        <div class="container">
+            <UIButton class="button" T="string" DisplayValue="Refresh" ButtonCallback="@Refresh"></UIButton>
+
+            <div>
+                <div class="info">Automatic</div>
+                <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
+            </div>
+            @for (int i = 0; i < lobbies.Count; ++i)
+            {
+                <div>
+                    <div> @*Just a quick working versio*@
+                        <p class="info">@lobbies[i].Name</p> 
+                        <p class="info">Players: @lobbies[i].Members</p>
+                    </div>
+                    <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
+                </div>
+            }
+        </div>
+    </div>
+</root>
+
+@code
+{
+    private List<LobbyInformation> lobbies = new();
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+    }
+
+    public override void Show()
+    {
+        base.Show();
+
+        GetLobbies();
+    }
+
+    /// <summary>
+    /// Fetches the lobbies available and queries a change after
+    /// </summary>
+    private async void GetLobbies()
+    {
+        lobbies = await Networking.QueryLobbies();
+
+        // Just for testing purposes
+        if ( lobbies.Count == 0 )
+        {
+            var temp = new LobbyInformation();
+            temp.Name = "Grand lobby";
+            lobbies.Add( temp );
+        }
+
+        StateHasChanged();
+    }
+
+    private void Refresh()
+    {
+        GetLobbies();
+    }
+
+    private void GoBack()
+    {
+        UIManager.Instance.ShowLastLayer();
+    }
+
+    // This is just a version for testing purposes
+    private void StartGame( string scene = "/scenes/main.scene" )
+    {
+        // Make a scene manager for loading
+        // Also a loading screen that is additively loaded??
+        Log.Info( "Loading game scene" );
+        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
+        slo.SetScene( scene );
+        Scene.Load( slo );
+
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameManager.Current.LoadUI();
+
+        // Just for reference, I have no clue how they work
+        LoadingScreen.Media = "splash.png";
+        LoadingScreen.Title = "Loading the game";
+    }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( lobbies );
+}

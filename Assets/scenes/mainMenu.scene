@@ -1,0 +1,250 @@
+{
+  "__guid": "f4fcc7ec-4b01-400f-b704-f4be42f9e6db",
+  "GameObjects": [
+    {
+      "__guid": "d39947c9-ff4f-4e2a-adf4-7e7cb60e5664",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Main Camera",
+      "Position": "-300,0,100",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 0,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "1413907a-f65b-44be-932c-7f2238b71ee9",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "EnablePostProcessing": true,
+          "FieldOfView": 60,
+          "FovAxis": "Horizontal",
+          "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "PostProcessAnchor": null,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "RenderTexture": null,
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "dd692e9e-0f48-4d5f-bd45-b441f14f9a88",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "Main",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 0,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "1b5f737e-ee2b-48c9-8e24-0c1cd4cb3c72",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": {
+            "_type": "component",
+            "component_id": "1413907a-f65b-44be-932c-7f2238b71ee9",
+            "go": "d39947c9-ff4f-4e2a-adf4-7e7cb60e5664",
+            "component_type": "CameraComponent"
+          },
+          "ZIndex": 100
+        },
+        {
+          "__type": "Shooter.UISystem.UIManager",
+          "__guid": "83e1f256-b7f0-4367-a0b0-dc1b3b3ca28a",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "StartLayer": {
+            "_type": "component",
+            "component_id": "9a5d1f21-e639-4dd5-a883-13560e876d77",
+            "go": "0313383c-b9f3-460c-8a35-880426e94d3e",
+            "component_type": "MainMenu"
+          },
+          "UILayers": [
+            {
+              "_type": "component",
+              "component_id": "9a5d1f21-e639-4dd5-a883-13560e876d77",
+              "go": "0313383c-b9f3-460c-8a35-880426e94d3e",
+              "component_type": "MainMenu"
+            },
+            {
+              "_type": "component",
+              "component_id": "9798d78a-3454-44b4-9792-f8af2eda1ae7",
+              "go": "fdcb536f-4d8c-42b3-8d0f-b7cebecbea01",
+              "component_type": "SettingsMenu"
+            },
+            {
+              "_type": "component",
+              "component_id": "355d62b2-87ab-4e1d-8f88-ca3d09dad090",
+              "go": "5466ab65-a35f-4a64-ade2-53ed26998602",
+              "component_type": "LobbyBrowser"
+            }
+          ]
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "0313383c-b9f3-460c-8a35-880426e94d3e",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Menu",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 0,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.UI.MainMenu",
+              "__guid": "9a5d1f21-e639-4dd5-a883-13560e876d77",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "fdcb536f-4d8c-42b3-8d0f-b7cebecbea01",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "Settings",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 0,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.UI.SettingsMenu",
+              "__guid": "9798d78a-3454-44b4-9792-f8af2eda1ae7",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            },
+            {
+              "__type": "Shooter.SettingsManager",
+              "__guid": "94414d49-d108-4205-bfdb-890dc331ae35",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "5466ab65-a35f-4a64-ade2-53ed26998602",
+          "__version": 1,
+          "Flags": 0,
+          "Name": "LobbyBrowser",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "NetworkOrphaned": 0,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.UI.LobbyBrowser",
+              "__guid": "355d62b2-87ab-4e1d-8f88-ca3d09dad090",
+              "__enabled": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": false,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}
