@@ -35,8 +35,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
-    private CameraComponent camera;
-    
 	private void HandleProxyAnimations()
 	{
 		if (User == null || gunData == null) return;
@@ -76,8 +74,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		base.OnStart();
 		if ( IsProxy ) return;
 
-        camera = Scene.Camera;
-		
 		User ??= GameObject.Parent;
 
 		if ( User == null )
@@ -99,10 +95,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	protected override void OnUpdate()
 	{
 		if ( IsProxy || !IsPlayer ) return;
-        
-		// This is not ideal and must be made independent later.
-		GameObject.WorldPosition = camera.WorldPosition;
-		GameObject.WorldRotation = camera.WorldRotation;
 
 		bool input = false;
 		switch (FireData.FireType)
