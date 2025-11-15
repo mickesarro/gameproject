@@ -43,7 +43,7 @@ public sealed class GunWorldModelHandler : Component
 		base.OnUpdate();
 
 		var worldOffset = anchor.WorldTransform.Rotation * PositionOffset;
-		GameObject.WorldPosition = anchor.WorldPosition.WithZ( anchor.WorldPosition.z - 5f ) + worldOffset;
+		GameObject.WorldPosition = anchor.WorldPosition + worldOffset;
 		GameObject.WorldRotation = anchor.WorldRotation;
 	}
 }

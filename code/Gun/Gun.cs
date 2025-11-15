@@ -286,12 +286,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		GameObject.Enabled = enable;
         if ( IsProxy )
         {
-            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
+            HandleProxyAnimations();
         }
         else
         {
+            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
             SetAnimation(modelType.ViewModel, "fire", false );
-            HandleProxyAnimations();
         }
 	}
 }

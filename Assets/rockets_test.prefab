@@ -112,7 +112,7 @@
       },
       {
         "__type": "Shooter.GunViewModelHandler",
-        "__guid": "0efa04eb-2b38-47b6-992c-1248dc2b23ef",
+        "__guid": "b13f29ff-f945-49a3-906c-0f7fc8a10564",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -1265,6 +1265,23 @@
             ]
           },
           {
+            "__guid": "0d80a4dd-fca4-47ff-934b-089181e0e749",
+            "__version": 1,
+            "Flags": 0,
+            "Name": "camera",
+            "Position": "0.003177871,0.00001571318,0.000004505539",
+            "Rotation": "-0.0000002682208,-0.00000004470348,0.000002950429,1",
+            "Scale": "1,1,1",
+            "Tags": "",
+            "Enabled": true,
+            "NetworkMode": 0,
+            "NetworkInterpolation": true,
+            "NetworkOrphaned": 0,
+            "OwnerTransfer": 1,
+            "Components": [],
+            "Children": []
+          },
+          {
             "__guid": "8db837e1-4f39-4862-a706-7ee7def787ce",
             "__version": 1,
             "Flags": 0,
@@ -1594,7 +1611,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "0,0,0"
+            "PositionOffset": "-15.4,0,-6"
           }
         ],
         "Children": []
