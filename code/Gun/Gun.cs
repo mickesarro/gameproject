@@ -300,7 +300,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
         }
         else
         {
-            gunData.Viewmodel.Enabled = enable;
             HandleProxyAnimations();
         }
 	}
