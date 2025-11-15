@@ -37,6 +37,7 @@
         "__type": "Shooter.GunData",
         "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
         "__enabled": true,
+        "AutomaticReload": true,
         "BarrelEnd": {
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
@@ -111,6 +112,17 @@
           "_type": "gameobject",
           "prefab": "tracer.prefab"
         }
+      },
+      {
+        "__type": "Shooter.GunViewModelHandler",
+        "__guid": "ab32811a-91b0-426c-8a80-fbdbc710c2fd",
+        "__enabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
@@ -172,17 +184,6 @@
             },
             "Tint": "1,1,1,1",
             "UseAnimGraph": true
-          },
-          {
-            "__type": "Shooter.GunViewModelHandler",
-            "__guid": "601cee9d-01f5-4949-be38-d0bbf0e6dfe7",
-            "__enabled": true,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
           }
         ],
         "Children": [
