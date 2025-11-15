@@ -23,9 +23,10 @@ public sealed class GunViewModelHandler : Component
         if ( Tags.Has( "npc" ))
         {
             var arms = GameObject.Parent?.Children?.Find(o => o.Name == "arms");
+            var viewmodel = GameObject.Parent?.Children?.Find(o => o.Name == "viewmodel");
             arms?.Destroy();
-            DestroyGameObject();
-            return;
+            viewmodel?.Destroy();
+            Destroy();
         }
         
     }
