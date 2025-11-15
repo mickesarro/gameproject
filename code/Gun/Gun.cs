@@ -199,7 +199,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
-        SetAnimation(modelType.ViewModel, "fire", false );
 
 		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
 	}
@@ -273,7 +272,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
-        SetAnimation(modelType.ViewModel, "fire", false );
 	}
 
 	public void Collect( GameObject interactor )
@@ -292,6 +290,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         }
         else
         {
+            SetAnimation(modelType.ViewModel, "fire", false );
             HandleProxyAnimations();
         }
 	}
