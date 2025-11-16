@@ -1,3 +1,4 @@
+using System;
 using Sandbox;
 using Shooter.Sounds;
 
@@ -40,7 +41,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		if (User == null || gunData == null) return;
 		var playerBody = User.Children.Find(obj => obj.Name == "Body");
 		playerBody?.Components.TryGet<SkinnedModelRenderer>(out playerModelRenderer);
-		playerModelRenderer?.Parameters.Set("holdtype", gunData.holdType.AsInt());
+        SetAnimation(modelType.WorldModel, "holdtype", gunData.holdType.AsInt());
 	}
 
 	protected override void OnAwake()
@@ -154,19 +155,32 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	// Small utility for now
 	[Rpc.Broadcast]
-	private void SetAnimation(modelType type, string name, bool state)
-	{
-		switch ( type )
-		{
-			case modelType.ViewModel:
-			viewModelRenderer?.Parameters.Set( name, state );
-			break;
-			
-			case modelType.WorldModel:
-			playerModelRenderer?.Parameters.Set( name, state );
-			break;
-		}
-	}
+    private void SetAnimation(modelType type, string name, object state)
+    {
+        var renderer = type switch
+        {
+            modelType.ViewModel  => viewModelRenderer,
+            modelType.WorldModel => playerModelRenderer,
+            _ => null
+        };
+
+        if (renderer == null) return;
+
+        switch (state)
+        {
+            case bool b:
+                renderer.Parameters.Set(name, b);
+                break;
+
+            case int i:
+                renderer.Parameters.Set(name, i);
+                break;
+
+            default:
+                throw new ArgumentException("state must be bool or int", nameof(state));
+        }
+    }
+
 
 	private void FireBullet()
 	{
@@ -290,7 +304,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         }
         else
         {
-            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
+            SetAnimation(modelType.WorldModel, "holdtype", gunData.holdType.AsInt());
             SetAnimation(modelType.ViewModel, "fire", false );
         }
 	}
