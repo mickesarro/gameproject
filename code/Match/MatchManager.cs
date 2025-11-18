@@ -1,4 +1,5 @@
 using Sandbox;
+using static Sandbox.PhysicsGroupDescription.BodyPart;
 
 namespace Shooter;
 
@@ -9,26 +10,46 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
 
-	[Property] public GameObject GameMode { get; private set; }
+	public GameObject MatchGameMode { get; private set; }
 
-	public void StartGame()
-	{
-        if ( GameMode == null || !GameMode.Components.TryGet<GameMode>( out _ ) )
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        // This might not be the correct place depending on the flow we want
+        // e.g. start game only when all players are loaded, or something. 
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        var clcfg = new CloneConfig
+        {
+            Parent = GameObject,
+            StartEnabled = true,
+            Transform = WorldTransform
+        };
+
+        var mode = GameObject.Clone( GameMode.Current, clcfg );
+
+        if ( mode == null || !mode.Components.TryGet<GameMode>( out _ ) )
         {
             Log.Error( "[MatchManager] Passed gameobject prefab does not contain GameMode!" );
             return;
         }
-        
+        Log.Info( mode.Name );
+
         // Instantiate the actual gamemode to the scene
         // Should this be network spawned or not?
-        GameMode.Clone( WorldTransform, parent: GameObject );
+        //MatchGameMode.Clone( WorldTransform, parent: GameObject );
+        MatchGameMode = mode;
 
         IMatchEvents.Post( e => e.OnGameStart() );
 	}
 
 	public void StartGame( GameObject gameMode )
 	{
-		this.GameMode = gameMode;
+		MatchGameMode = gameMode;
 		StartGame();
 	}
 

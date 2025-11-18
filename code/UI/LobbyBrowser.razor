@@ -76,7 +76,7 @@
         UIManager.Instance.ShowLastLayer();
     }
 
-    // This is just a version for testing purposes
+    // !! This is just a version for testing purposes
     private void StartGame( string scene = "/scenes/main.scene" )
     {
         // Make a scene manager for loading
@@ -85,6 +85,8 @@
         var slo = new SceneLoadOptions { ShowLoadingScreen = true };
         slo.SetScene( scene );
         Scene.Load( slo );
+
+        GameMode.SetGameMode( "gamemodes/deathmatch.prefab" );
 
         Mouse.Visibility = MouseVisibility.Hidden;
         GameManager.Current.LoadUI();

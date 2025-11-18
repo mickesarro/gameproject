@@ -16,7 +16,7 @@
     "Components": [
       {
         "__type": "Shooter.Deathmatch",
-        "__guid": "e6ebe144-0a7d-4cf1-b899-c07299bd7820",
+        "__guid": "7acd0b80-cfc3-4c72-aaac-ea0846edbab3",
         "__enabled": true,
         "maxPlayers": 12,
         "minPlayers": 2,
@@ -27,7 +27,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "scoreLimit": 1
+        "scoreLimit": 40
       }
     ],
     "Children": [],
