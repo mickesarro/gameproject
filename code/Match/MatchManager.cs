@@ -1,5 +1,4 @@
 using Sandbox;
-using static Sandbox.PhysicsGroupDescription.BodyPart;
 
 namespace Shooter;
 
@@ -10,7 +9,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
 
-	public GameObject MatchGameMode { get; private set; }
+	public GameMode MatchGameMode { get; private set; }
 
     protected override void OnStart()
     {
@@ -32,7 +31,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
         var mode = GameObject.Clone( GameMode.Current, clcfg );
 
-        if ( mode == null || !mode.Components.TryGet<GameMode>( out _ ) )
+        if ( mode == null || !mode.Components.TryGet<GameMode>( out var gameMode ) )
         {
             Log.Error( "[MatchManager] Passed gameobject prefab does not contain GameMode!" );
             return;
@@ -42,18 +41,19 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         // Instantiate the actual gamemode to the scene
         // Should this be network spawned or not?
         //MatchGameMode.Clone( WorldTransform, parent: GameObject );
-        MatchGameMode = mode;
+        MatchGameMode = gameMode;
 
         IMatchEvents.Post( e => e.OnGameStart() );
-	}
+    }
 
-	public void StartGame( GameObject gameMode )
-	{
-		MatchGameMode = gameMode;
-		StartGame();
-	}
+    public void StartGame( GameObject gameMode )
+    {
+        // MatchGameMode = gameMode;
+        StartGame();
+    }
 
-	public void EndGame()
+
+    public void EndGame()
 	{
 		IMatchEvents.Post( e => e.OnGameEnd() );
 	}

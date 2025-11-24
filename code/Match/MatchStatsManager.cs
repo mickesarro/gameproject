@@ -35,6 +35,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 		attacker.CharacterStats.AddDamage( damageInfo.Damage );
 
         attacker.CharacterStats.AddScore( 100 ); // Define score amounts somewhere
+        IMatchEvents.Post( e => e.OnScore( 100 ) );
         UpdateTop( attacker );
 	}
 

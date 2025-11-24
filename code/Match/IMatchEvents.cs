@@ -12,4 +12,6 @@ public interface IMatchEvents : ISceneEvent<IMatchEvents>
 	void OnPlayerLeft() { }
 
 	void OnKill( ICharacterBase killed, DamageInfo damageInfo ) { }
+
+    void OnScore( int amount ) { }
 }

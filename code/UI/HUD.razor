@@ -2,6 +2,7 @@
 @using Sandbox.UI;
 @inherits UISystem.UILayer
 @implements IPlayerEvent
+@implements IMatchEvents
 @namespace Shooter.UI
 
 @*
@@ -15,6 +16,7 @@
     <div class="HP-counter">@GetHealth() HP</div>
     <div class="Ammo-counter">@GetAmmo()</div>
     @*<Crosshair Inventory=@PlayerInventory ></Crosshair>*@
+    <GameScore @ref="gameScore" />
 </root>
 
 @code
@@ -23,6 +25,8 @@
     private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData.PrimaryFireData;
 
     private CharacterHealth CharacterHealth = null;
+
+    private GameScore gameScore { get; set; }
 
     void IPlayerEvent.OnSpawn( GameObject player )
     {
@@ -39,6 +43,16 @@
     public string GetHealth() => CharacterHealth != null
             ? $"{(int)CharacterHealth.Health} / {(int)CharacterHealth.MaxHealth}"
             : "";
+
+    void IMatchEvents.OnScore(int amount)
+    {
+        gameScore.Score += amount;
+    }
+
+    void IMatchEvents.OnGameStart()
+    {
+        gameScore.TargetScore = MatchManager.Instance.MatchGameMode.ScoreLimit;
+    }
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt

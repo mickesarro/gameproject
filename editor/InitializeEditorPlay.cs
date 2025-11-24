@@ -63,7 +63,7 @@ public static class EditorScene
 
             go.Destroy();
 
-            MatchManager.Instance?.StartGame();
+            //MatchManager.Instance?.StartGame();
         }
     }
 
