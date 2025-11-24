@@ -16,6 +16,9 @@ public sealed class Deathmatch : GameMode
     [Property] private int minPlayers { get; set; } = 2;
     public override int MinPlayers => minPlayers;
 
+    private Scores scores;
+    public override Scores Scores => scores;
+
     private MatchStatsManager statsManager;
 
     protected override void OnStart()
@@ -23,6 +26,12 @@ public sealed class Deathmatch : GameMode
         base.OnStart();
 
         statsManager = MatchStatsManager.Instance;
+        
+        if ( !GameObject.Components.TryGet<Scores>( out scores ) )
+        {
+            Log.Error( "No scores in the gamemode prefab, adding a default one." );
+            scores = GameObject.AddComponent<Scores>();
+        }
     }
 
     protected override void OnUpdate()

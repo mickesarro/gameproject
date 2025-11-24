@@ -13,6 +13,13 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
 	public IEnumerable<GameObject> Tracked => [.. tracked];
 
+    private GameMode GameMode { get; set; }
+
+    void IMatchEvents.OnGameStart()
+    {
+        GameMode = MatchManager.Instance.MatchGameMode;
+    }
+
 	void IMatchEvents.OnKill( ICharacterBase killed, DamageInfo damageInfo )
 	{
 		if ( killed == null )
@@ -34,8 +41,8 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 		attacker.CharacterStats.AddKill();
 		attacker.CharacterStats.AddDamage( damageInfo.Damage );
 
-        attacker.CharacterStats.AddScore( 100 ); // Define score amounts somewhere
-        IMatchEvents.Post( e => e.OnScore( 100 ) );
+        attacker.CharacterStats.AddScore( GameMode.Scores.Objective );
+        IMatchEvents.Post( e => e.OnScore( GameMode.Scores.Objective ) );
         UpdateTop( attacker );
 	}
 

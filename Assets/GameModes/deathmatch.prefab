@@ -12,6 +12,7 @@
     "NetworkMode": 2,
     "NetworkInterpolation": true,
     "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
     "OwnerTransfer": 1,
     "Components": [
       {
@@ -28,6 +29,21 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "scoreLimit": 40
+      },
+      {
+        "__type": "Shooter.Scores",
+        "__guid": "7d68347a-e384-465a-a977-60a517540966",
+        "__enabled": true,
+        "Assist": 50,
+        "CriticalMultiplier": 1.5,
+        "Kill": 100,
+        "Objective": 200,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [],

@@ -24,6 +24,7 @@ public abstract class GameMode : Component
 
     public virtual string ModeName { get; } = "GameMode";
     public abstract int ScoreLimit { get; }
+    public abstract Scores Scores { get; }
 
     public abstract int MaxPlayers { get; }
     public abstract int MinPlayers { get; }
