@@ -73,7 +73,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		base.OnStart();
 		if ( IsProxy ) return;
-		
+
 		User ??= GameObject.Parent;
 
 		if ( User == null )
@@ -286,11 +286,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		GameObject.Enabled = enable;
         if ( IsProxy )
         {
-            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
+            HandleProxyAnimations();
         }
         else
         {
-            HandleProxyAnimations();
+            playerModelRenderer?.Parameters?.Set( "holdtype", gunData.holdType.AsInt() );
+            SetAnimation(modelType.ViewModel, "fire", false );
         }
 	}
 }
