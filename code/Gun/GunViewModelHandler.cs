@@ -28,12 +28,14 @@ public sealed class GunViewModelHandler : Component
             viewmodel?.Destroy();
             Destroy();
         }
-        
     }
+    
     protected override void OnPreRender()
     {
         if (IsProxy) return;
         base.OnPreRender();
+        // also not ideal but fixes npe without separate OnStart and OnAwake
+        camera ??= Scene.Camera;
         // This is not ideal and must be made independent later.
         GameObject.WorldPosition = camera.WorldPosition;
         GameObject.WorldRotation = camera.WorldRotation;
