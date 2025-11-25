@@ -25,7 +25,7 @@ public sealed class GunWorldModelHandler : Component
 		base.OnStart();
         if ( Components.TryGet<SkinnedModelRenderer>( out var renderer )) 
 		{
-            bool shouldRender = Network.IsProxy || !GetComponentInParent<Gun>().IsPlayer;
+            bool shouldRender = Network.IsProxy || GameObject.Tags.Has( "npc");
 
             renderer.RenderType =
                 shouldRender ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
@@ -43,7 +43,7 @@ public sealed class GunWorldModelHandler : Component
 		base.OnUpdate();
 
 		var worldOffset = anchor.WorldTransform.Rotation * PositionOffset;
-		GameObject.WorldPosition = anchor.WorldPosition.WithZ( anchor.WorldPosition.z - 5f ) + worldOffset;
+		GameObject.WorldPosition = anchor.WorldPosition + worldOffset;
 		GameObject.WorldRotation = anchor.WorldRotation;
 	}
 }
