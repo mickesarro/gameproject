@@ -9,4 +9,6 @@ public interface ICharacterBase
 {
 	public PlayerStats CharacterStats { get; }
 	public void ApplyForce( Vector3 amount );
+
+    public void ShakeScreen( ScreenShake screenShake ) { }
 }
