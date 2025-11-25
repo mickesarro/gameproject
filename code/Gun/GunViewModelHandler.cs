@@ -7,31 +7,37 @@ namespace Shooter;
 /// </summary>
 public sealed class GunViewModelHandler : Component
 {
-	private CameraComponent camera;
-	protected override void OnStart()
-	{
-        // NPC does not need viewmodel
-        // e: this deletes the viewmodel on the player, not dummy
-        if ( !GetComponentInParent<Gun>().IsPlayer )
+    private CameraComponent camera;
+    protected override void OnAwake()
+    {
+        if (IsProxy) return;
+        base.OnAwake();
+        camera = Scene.Camera;
+        if (camera == null )
         {
-            DestroyGameObject();
+            Log.Info( "No camera found, destroying." );
+            Destroy();
         }
         
-		if (IsProxy) return;
-		base.OnStart();
-        camera = Scene.Camera;
-		if (camera == null )
-		{
-			Log.Info( "No camera found, destroying." );
-			Destroy();
-		}
-	}
-
-	protected override void OnUpdate()
-	{
+        // NPC does not need viewmodel
+        if ( Tags.Has( "npc" ))
+        {
+            var arms = GameObject.Parent?.Children?.Find(o => o.Name == "arms");
+            var viewmodel = GameObject.Parent?.Children?.Find(o => o.Name == "viewmodel");
+            arms?.Destroy();
+            viewmodel?.Destroy();
+            Destroy();
+        }
+    }
+    
+    protected override void OnPreRender()
+    {
         if (IsProxy) return;
-		// This is not ideal and must be made independent later.
-		GameObject.WorldPosition = camera.WorldPosition;
-		GameObject.WorldRotation = camera.WorldRotation;
-	}
+        base.OnPreRender();
+        // also not ideal but fixes npe without separate OnStart and OnAwake
+        camera ??= Scene.Camera;
+        // This is not ideal and must be made independent later.
+        GameObject.WorldPosition = camera.WorldPosition;
+        GameObject.WorldRotation = camera.WorldRotation;
+    }
 }

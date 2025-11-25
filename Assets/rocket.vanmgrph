@@ -83,7 +83,7 @@
 											}
 										},
 									]
-									m_blendDuration = 0.0
+									m_blendDuration = 0.2
 									m_destState = 
 									{
 										m_id = 592175199
@@ -122,7 +122,7 @@
 							{
 								m_id = 1894439626
 							}
-							m_position = [ -144.0, -32.0 ]
+							m_position = [ -160.0, -16.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -244,7 +244,7 @@
 							{
 								m_id = 61996874
 							}
-							m_position = [ 16.0, 16.0 ]
+							m_position = [ -16.0, 0.0 ]
 							m_bIsStartState = true
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -272,9 +272,9 @@
 							{
 								m_id = 1129515137
 							}
-							m_position = [ 160.0, -64.0 ]
+							m_position = [ 128.0, -48.0 ]
 							m_bIsStartState = false
-							m_bIsEndtState = false
+							m_bIsEndtState = true
 							m_bIsPassthrough = false
 							m_bIsRootMotionExclusive = false
 							m_bAlwaysEvaluate = false
@@ -341,7 +341,7 @@
 				value = 
 				{
 					_class = "CSequenceAnimNode"
-					m_sName = "fure"
+					m_sName = "fire"
 					m_vecPosition = [ -240.0, 48.0 ]
 					m_nNodeID = 
 					{

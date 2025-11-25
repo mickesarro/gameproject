@@ -86,25 +86,7 @@
           "ZNear": 1
         }
       ],
-      "Children": [
-        {
-          "__guid": "9bdd0439-ea64-4fb8-b319-d70a0b2d6cb1",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "OwnerTransfer": 1,
-          "Components": [],
-          "Children": []
-        }
-      ]
+      "Children": []
     },
     {
       "__guid": "2fc26cb8-9044-4674-ae75-013769e5f599",
