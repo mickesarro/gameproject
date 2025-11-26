@@ -30,7 +30,7 @@ public abstract class GameMode : Component
     public abstract int MinPlayers { get; }
 
     public virtual string Objective { get; } = "Score points"; // Simple for now
-
+    
     /// <summary>
     /// Get a random spawnpoint
     /// </summary>
@@ -38,9 +38,9 @@ public abstract class GameMode : Component
     public virtual SpawnPoint GetSpawnPoint()
     {
         // This could, and in the future probably should, live in utils
-        return Random.Shared.FromArray<SpawnPoint>(
-            [.. Game.ActiveScene.GetAllComponents<SpawnPoint>()]
-        );
+        return Random.Shared.FromArray<GameObject>(
+            [.. Scene.GetComponentInChildren<NetworkHelper>().SpawnPoints]
+        ).GetComponent<Shooter.SpawnPoint>(  );
 
     }
 

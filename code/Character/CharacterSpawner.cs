@@ -11,7 +11,7 @@ public sealed class CharacterSpawner : Component
     // One way is to have one client side (not the static) spawner that can just spawn
     // the whole player prefab again
 
-    [Property] private string CharacterPrefab { get; set; }
+    [Property] private PrefabFile CharacterPrefab { get; set; }
 
     public void Spawn( SpawnPoint spawnPoint )
     {
