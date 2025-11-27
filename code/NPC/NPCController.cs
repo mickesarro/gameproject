@@ -40,8 +40,9 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 	private PlayerStats playerStats; // Not a player, but in-game stats
 	public PlayerStats CharacterStats => playerStats;
+    public bool IsPlayer => false;
 
-	protected override void OnAwake()
+    protected override void OnAwake()
 	{
 		base.OnAwake();
 
