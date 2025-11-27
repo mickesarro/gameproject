@@ -193,6 +193,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 				Position = traceRay.HitPosition,
 			};
 
+            if ( !IsPlayer )
+            {
+                damageInfo.Tags.Add( "npc" );
+            }
+
 			IDamageEvent.Post( e => e.OnDamage( traceGo, damageInfo ) );
 			damageable.OnDamage( damageInfo );
 		}
