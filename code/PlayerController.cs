@@ -119,6 +119,8 @@ public sealed class PlayerController : Component, ICharacterBase
     [Property, ToggleGroup("CameraRollEnabled")] float CameraRollAngleLimit {get;set;} = 30f;
     float sidetiltLerp = 0f;
 
+    public bool IsPlayer => true;
+
 	// Fucntions to make things slightly nicer
 
 	[Rpc.Owner]
