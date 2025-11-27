@@ -37,6 +37,7 @@
         "__type": "Shooter.GunData",
         "__guid": "62981691-f68e-4421-83db-af3a9d76d810",
         "__enabled": true,
+        "AutomaticReload": true,
         "BarrelEnd": {
           "_type": "gameobject",
           "go": "1c5ad092-eebe-4872-9e93-b6fe4972a09b"
@@ -1613,7 +1614,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "0,0,0"
+            "PositionOffset": "-15.4,0,-6"
           }
         ],
         "Children": []
