@@ -139,18 +139,18 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
             return false;
         }
 
-		var hitInfo = Game.ActiveScene.Trace
-			.Ray( WorldPosition, dirVec )
-			.Size( detectionDistance )
-			.WithAnyTags( "player" )
-			.Run();
+        var hitInfo = Game.ActiveScene.Trace
+            .Ray( WorldPosition, dirVec )
+            .Size( detectionDistance )
+            .WithAnyTags( "shootable" )
+            .Run();
 
-		if ( hitInfo.Hit && hitInfo.GameObject.Tags.Has( "player" ) )
-		{
-			return true; // All checks pass
-		}
+        if ( hitInfo.Hit )
+        {
+            return true; // All checks pass
+        }
 
-		return false;
+        return false;
     }
 
 	private void UpdateCitizenAnims()
