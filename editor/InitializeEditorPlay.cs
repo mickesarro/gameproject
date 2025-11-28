@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Sandbox;
 using Shooter.NPC;
 
@@ -14,9 +15,7 @@ public static class EditorScene
 	[Event( "scene.play", Priority = 100 )]
 	public static void SpawnDummys()
 	{
-		if ( !Application.IsEditor 
-            || string.Equals( Game.ActiveScene.Name, "mainmenu", StringComparison.OrdinalIgnoreCase )
-        ) { return; }
+		if ( !Application.IsEditor || IsMainMenu() ) return;
 
 		Log.Info( "[EditorScene.SpawnDummy] Spawned a dummy player." );
 
@@ -48,7 +47,29 @@ public static class EditorScene
 		//var player = Game.ActiveScene.FindAllWithTag( "player" ).First( e => !e.IsProxy );
 		NPC.Initialize( startState );
 
-		NPCGo.NetworkSpawn();
+        NPCGo.NetworkSpawn();
 	}
+
+    [Event( "scene.play", Priority = 100 )]
+    public static void StartGame()
+    {
+        if ( Application.IsEditor && !IsMainMenu() )
+        {
+            var go = GameObject.Clone( "gamemodes/deathmatch.prefab", new CloneConfig { StartEnabled = true } );
+            
+            var dm = go.GetComponent<GameMode>();
+
+            GameMode.SetGameMode( dm );
+
+            go.Destroy();
+
+            //MatchManager.Instance?.StartGame();
+        }
+    }
+
+    private static bool IsMainMenu()
+    {
+        return string.Equals( Game.ActiveScene.Name, "mainmenu", StringComparison.OrdinalIgnoreCase );
+    }
 
 }

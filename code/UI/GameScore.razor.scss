@@ -1,0 +1,18 @@
+GameScore {
+	font-weight: bold;
+	text-stroke: 8px black;
+	font-family: poppins;
+
+	.Score {
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		text-align: center;
+		margin: auto;
+		font-size: 24px;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 6px 12px;
+		border-radius: 6px;
+	}
+}

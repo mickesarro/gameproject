@@ -1,0 +1,77 @@
+{
+  "RootObject": {
+    "__guid": "da206018-3b84-4cbc-8673-b9371357f465",
+    "__version": 1,
+    "Flags": 0,
+    "Name": "deathmatch",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Shooter.Deathmatch",
+        "__guid": "7acd0b80-cfc3-4c72-aaac-ea0846edbab3",
+        "__enabled": true,
+        "maxPlayers": 12,
+        "minPlayers": 2,
+        "modeName": "Deathmatch",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "scoreLimit": 40
+      },
+      {
+        "__type": "Shooter.Scores",
+        "__guid": "7d68347a-e384-465a-a977-60a517540966",
+        "__enabled": true,
+        "Assist": 50,
+        "CriticalMultiplier": 1.5,
+        "Kill": 100,
+        "Objective": 200,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

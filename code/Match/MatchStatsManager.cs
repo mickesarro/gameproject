@@ -7,9 +7,18 @@ namespace Shooter;
 /// </summary>
 public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatchEvents, IPlayerEvent
 {
+    // Custom leaderboard data class for team based stats might be needed
 	[Sync] private NetList<GameObject> tracked { get; set; } = new();
+    public ICharacterBase Top { get; private set; } = null;
 
 	public IEnumerable<GameObject> Tracked => [.. tracked];
+
+    private GameMode GameMode { get; set; }
+
+    void IMatchEvents.OnGameStart()
+    {
+        GameMode = MatchManager.Instance.MatchGameMode;
+    }
 
 	void IMatchEvents.OnKill( ICharacterBase killed, DamageInfo damageInfo )
 	{
@@ -31,6 +40,10 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
 		attacker.CharacterStats.AddKill();
 		attacker.CharacterStats.AddDamage( damageInfo.Damage );
+
+        attacker.CharacterStats.AddScore( GameMode.Scores.Objective );
+        IMatchEvents.Post( e => e.OnScore( GameMode.Scores.Objective ) );
+        UpdateTop( attacker );
 	}
 
 	/// <summary>
@@ -39,11 +52,21 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	/// <param name="character"></param>
 	public void RegisterCharacter( GameObject character )
 	{
-		if (character.Components.TryGet<ICharacterBase>( out _ ))
+		if (character.Components.TryGet<ICharacterBase>( out var characterBase ))
 		{
 			tracked.Add( character );
-		}
+
+            Top ??= characterBase;
+        }
 	}
+
+    private void UpdateTop( ICharacterBase updated )
+    {
+        if (updated.CharacterStats.Score > (Top?.CharacterStats.Score ?? -1))
+        {
+            Top = updated;
+        }
+    }
 
 	void IPlayerEvent.OnSpawn( GameObject character )
 	{
