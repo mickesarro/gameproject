@@ -18,6 +18,9 @@ public sealed class Hitmarker : Component, IDamageEvent
 {
 	void IDamageEvent.OnDamage( GameObject receiver, DamageInfo damageInfo )
 	{
+        // NPC inflicted the damage, hitmarker should not be shown
+        // Previously displayed this on the host
+        if ( damageInfo.Tags.Has( "npc" ) ) return;
 
 		SoundManager.PlayLocal( SoundManager.SoundType.Hitmarker);
 

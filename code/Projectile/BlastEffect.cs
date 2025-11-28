@@ -19,6 +19,8 @@ public class BlastEffect : GameObject
 		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 5000f );
 
 		var sphere = new Sphere( position, Radius );
+
+        bool IsPlayer = attacker.GetComponent<ICharacterBase>().IsPlayer; // !! Quick solution for now
 		
 		foreach ( var hittable in Game.ActiveScene.FindInPhysics( sphere ) )
 		{
@@ -48,7 +50,12 @@ public class BlastEffect : GameObject
 						Position = trace.HitPosition,
 					};
 
-					IDamageEvent.Post( e => e.OnDamage( hittable, damageInfo ) );
+                    if ( !IsPlayer )
+                    {
+                        damageInfo.Tags.Add( "npc" );
+                    }
+
+                    IDamageEvent.Post( e => e.OnDamage( hittable, damageInfo ) );
 
 					hittable.GetComponent<IDamageable>()
 						?.OnDamage( damageInfo );
