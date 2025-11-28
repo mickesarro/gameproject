@@ -12,8 +12,8 @@ public sealed class GunViewModelHandler : Component
     {
         if (IsProxy) return;
         base.OnAwake();
-        camera = Scene.Camera;
-        if (camera == null )
+
+        if (Scene.Camera == null )
         {
             Log.Info( "No camera found, destroying." );
             Destroy();
@@ -29,13 +29,19 @@ public sealed class GunViewModelHandler : Component
             Destroy();
         }
     }
+
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+
+        camera = Scene.Camera;
+    }
     
     protected override void OnPreRender()
     {
         if (IsProxy) return;
         base.OnPreRender();
-        // also not ideal but fixes npe without separate OnStart and OnAwake
-        camera ??= Scene.Camera;
+
         // This is not ideal and must be made independent later.
         GameObject.WorldPosition = camera.WorldPosition;
         GameObject.WorldRotation = camera.WorldRotation;
