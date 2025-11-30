@@ -6,29 +6,46 @@ namespace Shooter;
 /// Simple melee weapon.
 /// Inherits from Gun for inventory compatibility, but ignores GunData.
 /// </summary>
-public sealed class MeleeWeapon : Gun
+public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 {
     [Property, RequireComponent] private MeleeData meleeData { get; set; }
+    public GunData GunData => null;
 
-    public override WeaponType WeaponType => WeaponType.Melee;
-    public override MeleeData MeleeData => meleeData;
-    public override GunData GunData => null;
+    [Property, Sync]
+    public GameObject User
+    {
+        get => _user;
+        set
+        {
+            _user = value;
+        }
+    }
+    private GameObject _user;
+
+    public MeleeData MeleeData => meleeData;
+
+    public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
+
+    private SkinnedModelRenderer viewModelRenderer;
+    private SkinnedModelRenderer playerModelRenderer;
+
+    public WeaponType WeaponType => WeaponType.Melee;
+
+    [Property] public string Name { get; set; } = "Gun";
 
     private TimeSince timeSinceLastAttack;
-
-    public override void Shoot() => Attack();
 
     /// <summary>
     /// Performs melee attack and returns true if it hit a target.
     /// </summary>
-    public bool Attack()
+    public void Attack()
     {
         if (timeSinceLastAttack < (meleeData?.Cooldown ?? 0.5f))
-            return false;
+            return;
 
         timeSinceLastAttack = 0;
 
-        if (User == null) return false;
+        if (User == null) return;
 
         // Trace start and direction
         var startPos = IsPlayer ? Game.ActiveScene.Camera.WorldPosition : User.WorldTransform.Position + Vector3.Up * 50f;
@@ -56,7 +73,6 @@ public sealed class MeleeWeapon : Gun
         }
 
         PlaySwingAnimation();
-        return hit;
     }
 
     /// <summary>
@@ -70,16 +86,35 @@ public sealed class MeleeWeapon : Gun
 
     }
 
+    enum modelType
+    {
+        ViewModel,
+        WorldModel
+    }
+
+    // Small utility for now
+    [Rpc.Broadcast]
+    private void SetAnimation( modelType type, string name, bool state )
+    {
+        switch ( type )
+        {
+            case modelType.ViewModel:
+                viewModelRenderer?.Parameters.Set( name, state );
+                break;
+
+            case modelType.WorldModel:
+                playerModelRenderer?.Parameters.Set( name, state );
+                break;
+        }
+    }
+
     protected override void OnUpdate()
     {
         if (IsProxy || User == null) return;
 
         if (Input.Pressed("attack1"))
         {
-            if (Attack())
-                Log.Info("Hit the target!");
-            else
-                Log.Info("Missed!");
+            Attack();
         }
     }
 
@@ -97,8 +132,13 @@ public sealed class MeleeWeapon : Gun
         IsPlayer = User?.Components.TryGet<PlayerController>(out var _) ?? false;
     }
 
-    public override void EnableGo(bool enable)
+    public void EnableGo(bool enable)
     {
         GameObject.Enabled = enable;
+    }
+
+    public void Collect( GameObject interactor )
+    {
+        throw new System.NotImplementedException();
     }
 }

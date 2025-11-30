@@ -44,7 +44,7 @@ public class AttackState : NPCBaseState
 
 				if ( controller.gun.CanShoot() )
 				{
-					controller.gun.Shoot();
+					controller.gun.Attack();
 				}
 			}
 			else if ( memoryTimer < memoryDuration )

@@ -97,32 +97,20 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// Changes the current item in the players hand.
 	/// </summary>
 	/// <param name="ind"></param>
-	public void ChangeCurrentItem(int ind)
+	public void ChangeCurrentItem( int ind )
 	{
-		if (ind < 0 || ind >= weapons.Length) return;
+        if ( ind < 0 || ind >= weapons.Length ) return;
 
-		// Disable previous weapon safely
-		if (CurrentItem != null)
-		{
-			CurrentItem.EnableGo(false);
-		}
+        // Disable previous weapon safely
+        CurrentItem?.EnableGo( false );
 
 		// Set new weapon
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
-		// Enable the new weapon
-		if (CurrentItem != null)
-		{
-			CurrentItem.EnableGo(true);
-
-			// Optional: reset state for melee / gun
-			if (CurrentItem is Gun g)
-			{
-				// For guns, reset cooldown / ammo UI etc.
-				g.EnableGo(true);
-			}
-		}
+        // Uses null propagation to safelu set it
+        // Also all ICollectable implementing interfaces have EnableGo method
+        CurrentItem?.EnableGo( true );
 	}
 
 

@@ -12,13 +12,19 @@
     "NetworkMode": 2,
     "NetworkInterpolation": true,
     "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
     "OwnerTransfer": 1,
     "Components": [
       {
         "__type": "Shooter.MeleeWeapon",
         "__guid": "34ead94e-7fc5-49dd-8a35-55e6cbf4db3c",
         "__enabled": true,
-        "meleeData": null,
+        "meleeData": {
+          "_type": "component",
+          "component_id": "c3426db4-21dc-4802-9c60-128c84292d53",
+          "go": "857661b7-7b45-413f-ad48-b6984cd12959",
+          "component_type": "MeleeData"
+        },
         "Name": "Melee",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -42,11 +48,25 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "Range": 100,
-        "ViewModel": null
+        "ViewModel": {
+          "_type": "gameobject",
+          "go": "40f2203b-e245-42b8-be10-03d1de529377"
+        }
       },
       {
         "__type": "Shooter.GunViewModelHandler",
         "__guid": "ab8b3113-6eeb-417e-9023-b566f44037ef",
+        "__enabled": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Shooter.MeleeViewModelHandler",
+        "__guid": "bf77dcef-088a-4853-a86b-1d6361adc409",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -70,6 +90,7 @@
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {

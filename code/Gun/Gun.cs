@@ -6,7 +6,7 @@ namespace Shooter;
 /// <summary>
 /// Base class for gun behaviour
 /// </summary>
-public class Gun : Component, IWeapon, ICollectable
+public sealed class Gun : Component, IWeapon, ICollectable
 {
 	[Property, Sync]
 	public GameObject User
@@ -19,21 +19,21 @@ public class Gun : Component, IWeapon, ICollectable
 		}
 	}
 	private GameObject _user;
-	public bool IsPlayer { get; protected set; } // To not run OnUpdate on NPCs
+	public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
-	public virtual WeaponType WeaponType => gunData.WeaponType;
+	public WeaponType WeaponType => gunData.WeaponType;
 
-	public virtual GunData GunData => gunData;
+	public GunData GunData => gunData;
 
-	public virtual MeleeData MeleeData => null;
+    public MeleeData MeleeData => null;
 
-	private FireData FireData; // Just for convenience
+    private FireData FireData; // Just for convenience
 
-	public SkinnedModelRenderer viewModelRenderer;
-	public SkinnedModelRenderer playerModelRenderer;
+	private SkinnedModelRenderer viewModelRenderer;
+	private SkinnedModelRenderer playerModelRenderer;
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
@@ -50,26 +50,23 @@ public class Gun : Component, IWeapon, ICollectable
         base.OnAwake();
 
 		if ( IsProxy ) return;
-
-		if (WeaponType != WeaponType.Melee)
+		if (gunData == null || gunData.PrimaryFireData == null)
 		{
-			if (gunData == null || gunData.PrimaryFireData == null)
-			{
-				Log.Error( "[Gun] Gun data incomplete!" );
-				DestroyGameObject();
-				return;
-			}
+			Log.Error( "[Gun] Gun data incomplete!" );
+			DestroyGameObject();
+			return;
+		}
 
-			viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
-			FireData = gunData.PrimaryFireData;
+		viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
+		
+		FireData = gunData.PrimaryFireData;
+		if ( FireData.BulletData.ProjectilePrefab == null )
+		{
+			Log.Error( "No projectile prefab supplied, aborting." );
+			DestroyGameObject();
+			return;
+		}
 
-			if ( FireData.BulletData.ProjectilePrefab == null )
-			{
-				Log.Error( "No projectile prefab supplied, aborting." );
-				DestroyGameObject();
-				return;
-			}
-		}			
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
     }
 
@@ -83,11 +80,6 @@ public class Gun : Component, IWeapon, ICollectable
 		if ( User == null )
 		{
 			Log.Info( "No user found." );
-			return;
-		}
-
-		if (WeaponType == WeaponType.Melee)
-		{
 			return;
 		}
 
@@ -105,10 +97,6 @@ public class Gun : Component, IWeapon, ICollectable
 	{
 		if ( IsProxy || !IsPlayer ) return;
 
-		if (WeaponType == WeaponType.Melee) return;
-
-		if (FireData == null) return;
-
 		bool input = false;
 		switch (FireData.FireType)
 		{
@@ -123,7 +111,7 @@ public class Gun : Component, IWeapon, ICollectable
 		// Should be implemented with some form of events perhaps
 		if ( input && CanShoot() )
 		{
-			Shoot();
+			Attack();
 		}
 	}
 
@@ -137,7 +125,7 @@ public class Gun : Component, IWeapon, ICollectable
 		return timeSinceLastShot > shootInterval;
 	}
 
-	public virtual void Shoot()
+	public void Attack()
 	{
 		// For future reference:
 		// Both could be components that implement e.g. a IFireable interface.
@@ -159,7 +147,7 @@ public class Gun : Component, IWeapon, ICollectable
         
 	}
 
-	protected enum modelType
+	enum modelType
 	{
 		ViewModel,
 		WorldModel
@@ -167,7 +155,7 @@ public class Gun : Component, IWeapon, ICollectable
 
 	// Small utility for now
 	[Rpc.Broadcast]
-	protected virtual void SetAnimation(modelType type, string name, bool state)
+	private void SetAnimation(modelType type, string name, bool state)
 	{
 		switch ( type )
 		{
@@ -299,7 +287,7 @@ public class Gun : Component, IWeapon, ICollectable
 	}
 
 	[Rpc.Broadcast]
-	public virtual void EnableGo( bool enable )
+	public void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
         if ( IsProxy )

@@ -23,24 +23,15 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 		// Needs to be called on start instead of awake
 		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 
-	    if (PlayerInventory != null)
-		{
-			var meleePrefab = GameObject.GetPrefab("assets/melee.prefab");
-			if (meleePrefab != null)
-			{
-				var meleeInstance = meleePrefab.Clone();
-				meleeInstance.Name = "Melee";
-				meleeInstance.Parent = GameObject;
-				meleeInstance.Enabled = true;
+        if ( PlayerInventory == null ) return;
 
-				var meleeWeapon = meleeInstance.Components.Get<MeleeWeapon>();
-				if (meleeWeapon != null)
-				{
-					meleeWeapon.User = GameObject;
-					PlayerInventory.AddItem(meleeWeapon);
-				}
-			}
-		}
+        var meleePrefab = GameObject.Clone( "melee.prefab", new CloneConfig { Name = "Melee", Parent = GameObject, StartEnabled = true} );
+        Log.Info( meleePrefab );
+        if ( meleePrefab != null && meleePrefab.Components.TryGet<IWeapon>( out var meleeWeapon ) )
+        {
+            meleeWeapon.User = GameObject;
+            PlayerInventory.AddItem( (ICollectable) meleeWeapon );
+        }
 
 	}
 
