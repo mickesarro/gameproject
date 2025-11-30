@@ -6,7 +6,7 @@ namespace Shooter;
 /// <summary>
 /// Base class for gun behaviour
 /// </summary>
-public sealed class Gun : Component, IWeapon, ICollectable
+public class Gun : Component, IWeapon, ICollectable
 {
 	[Property, Sync]
 	public GameObject User
@@ -19,21 +19,21 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 	}
 	private GameObject _user;
-	public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
+	public bool IsPlayer { get; protected set; } // To not run OnUpdate on NPCs
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
 	[Property] public string Name { get; set; } = "Gun";
 
-	public WeaponType WeaponType => gunData.WeaponType;
+	public virtual WeaponType WeaponType => gunData.WeaponType;
 
-	public GunData GunData => gunData;
+	public virtual GunData GunData => gunData;
 
-	public MeleeData MeleeData => null;
+	public virtual MeleeData MeleeData => null;
 
 	private FireData FireData; // Just for convenience
 
-	private SkinnedModelRenderer viewModelRenderer;
-	private SkinnedModelRenderer playerModelRenderer;
+	public SkinnedModelRenderer viewModelRenderer;
+	public SkinnedModelRenderer playerModelRenderer;
 	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
@@ -50,24 +50,26 @@ public sealed class Gun : Component, IWeapon, ICollectable
         base.OnAwake();
 
 		if ( IsProxy ) return;
-		if (gunData == null || gunData.PrimaryFireData == null)
-		{
-			Log.Error( "[Gun] Gun data incomplete!" );
-			DestroyGameObject();
-			return;
-		}
 
-		viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
-		
-		FireData = gunData.PrimaryFireData;
-		if ( FireData.BulletData.ProjectilePrefab == null )
+		if (WeaponType != WeaponType.Melee)
 		{
-			Log.Error( "No projectile prefab supplied, aborting." );
-			DestroyGameObject();
-			return;
-		}
+			if (gunData == null || gunData.PrimaryFireData == null)
+			{
+				Log.Error( "[Gun] Gun data incomplete!" );
+				DestroyGameObject();
+				return;
+			}
 
-        // Could be implemented with tags for example
+			viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
+			FireData = gunData.PrimaryFireData;
+
+			if ( FireData.BulletData.ProjectilePrefab == null )
+			{
+				Log.Error( "No projectile prefab supplied, aborting." );
+				DestroyGameObject();
+				return;
+			}
+		}			
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
     }
 
@@ -84,6 +86,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
+		if (WeaponType == WeaponType.Melee)
+		{
+			return;
+		}
+
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		playerBBox = User?.GetComponent<BBox>() ?? default;
@@ -97,6 +104,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	protected override void OnUpdate()
 	{
 		if ( IsProxy || !IsPlayer ) return;
+
+		if (WeaponType == WeaponType.Melee) return;
+
+		if (FireData == null) return;
 
 		bool input = false;
 		switch (FireData.FireType)
@@ -126,7 +137,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		return timeSinceLastShot > shootInterval;
 	}
 
-	public void Shoot()
+	public virtual void Shoot()
 	{
 		// For future reference:
 		// Both could be components that implement e.g. a IFireable interface.
@@ -148,7 +159,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         
 	}
 
-	enum modelType
+	protected enum modelType
 	{
 		ViewModel,
 		WorldModel
@@ -156,7 +167,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	// Small utility for now
 	[Rpc.Broadcast]
-	private void SetAnimation(modelType type, string name, bool state)
+	protected virtual void SetAnimation(modelType type, string name, bool state)
 	{
 		switch ( type )
 		{
@@ -288,7 +299,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	}
 
 	[Rpc.Broadcast]
-	public void EnableGo( bool enable )
+	public virtual void EnableGo( bool enable )
 	{
 		GameObject.Enabled = enable;
         if ( IsProxy )

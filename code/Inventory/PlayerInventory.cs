@@ -45,7 +45,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		int ind = (int)weapon.WeaponType;
 
 		var current = weapons[ind];
-		if ( current != null || current != item )
+		if ( current != null && current != item )
 		{
 			DropWeapon( current );
 		}
@@ -97,28 +97,34 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// Changes the current item in the players hand.
 	/// </summary>
 	/// <param name="ind"></param>
-	public void ChangeCurrentItem( int ind )
+	public void ChangeCurrentItem(int ind)
 	{
-		if (ind < 0  || ind >= weapons.Length ) return;
+		if (ind < 0 || ind >= weapons.Length) return;
 
-		// todo
-		if ( ind == 2 ) Log.Info( "no melee yet" );
-		// estää ottamasta tyhjän slotin käteen
-		if ( weapons[ind] == null ) return;
-		
-		// estää valitsemasta jo kädessä olevan aseen
-		if ( CurrentWeapon?.WeaponType != null )
-		{ 
-			if ((int) CurrentWeapon.WeaponType == ind) return;
+		// Disable previous weapon safely
+		if (CurrentItem != null)
+		{
+			CurrentItem.EnableGo(false);
 		}
 
-		CurrentItem?.EnableGo( false );
-
+		// Set new weapon
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
-		CurrentItem?.EnableGo( true );
+		// Enable the new weapon
+		if (CurrentItem != null)
+		{
+			CurrentItem.EnableGo(true);
+
+			// Optional: reset state for melee / gun
+			if (CurrentItem is Gun g)
+			{
+				// For guns, reset cooldown / ammo UI etc.
+				g.EnableGo(true);
+			}
+		}
 	}
+
 
 	public void ChangeCurrentItem( ICollectable collectable ) {
 		if ( collectable is not IWeapon weapon ) return;

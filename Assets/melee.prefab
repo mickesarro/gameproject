@@ -16,14 +16,9 @@
     "Components": [
       {
         "__type": "Shooter.MeleeWeapon",
-        "__guid": "9b298aae-e940-4f13-8fe2-6e6afa941413",
+        "__guid": "34ead94e-7fc5-49dd-8a35-55e6cbf4db3c",
         "__enabled": true,
-        "meleeDatai": {
-          "_type": "component",
-          "component_id": "5843cd9a-12e6-40a0-87b3-6f4782b31cc0",
-          "go": "857661b7-7b45-413f-ad48-b6984cd12959",
-          "component_type": "MeleeData"
-        },
+        "meleeData": null,
         "Name": "Melee",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -35,7 +30,7 @@
       },
       {
         "__type": "Shooter.MeleeData",
-        "__guid": "5843cd9a-12e6-40a0-87b3-6f4782b31cc0",
+        "__guid": "c3426db4-21dc-4802-9c60-128c84292d53",
         "__enabled": true,
         "Cooldown": 1,
         "Damage": 25,
@@ -46,11 +41,12 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Range": 100
+        "Range": 100,
+        "ViewModel": null
       },
       {
-        "__type": "Shooter.MeleeViewModelHandler",
-        "__guid": "e9783bd9-bdee-44f8-b511-c2215dfe7379",
+        "__type": "Shooter.GunViewModelHandler",
+        "__guid": "ab8b3113-6eeb-417e-9023-b566f44037ef",
         "__enabled": true,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -65,8 +61,8 @@
         "__guid": "40f2203b-e245-42b8-be10-03d1de529377",
         "__version": 1,
         "Flags": 0,
-        "Name": "arms",
-        "Position": "54.32251,135.2646,-97.24976",
+        "Name": "viewmodel",
+        "Position": "0,0,0",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
         "Tags": "",
@@ -100,7 +96,13 @@
             "Parameters": {
               "bools": {},
               "ints": {},
-              "floats": {},
+              "floats": {
+                "aim_yaw": 0,
+                "move_bob": 0.56050956,
+                "aim_yaw_inertia": 0,
+                "aim_pitch_inertia": 0,
+                "aim_pitch": 0
+              },
               "vectors": {},
               "rotations": {}
             },
