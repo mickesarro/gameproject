@@ -2,30 +2,26 @@ using System;
 
 namespace Shooter;
 
-public sealed class MeleeViewModelHandler : Component
+public sealed class MeleeViewModelHandler : GunViewModelHandler
 {
-    private CameraComponent camera;
-
-    protected override void OnStart()
+    protected override void OnAwake()
     {
-        base.OnStart();
-        camera = Scene.Camera.Components.Get<CameraComponent>();
-        if (camera == null)
+        if ( IsProxy ) return;
+        base.OnAwake();
+
+        if ( Scene.Camera == null )
         {
+            Log.Info( "No camera found, destroying." );
             Destroy();
-            return;
         }
 
-        if (!GetComponentInParent<MeleeWeapon>().User.Components.TryGet<PlayerController>(out _))
+        // NPC does not need viewmodel
+        if ( Tags.Has( "npc" ) )
         {
-            DestroyGameObject();
-        }
-    }
+            GameObject.Parent?.Children?.Find( o => o.Name == "viewmodel" )
+                ?.Destroy();
 
-    protected override void OnUpdate()
-    {
-        if (IsProxy) return;
-        GameObject.WorldPosition = camera.WorldPosition;
-        GameObject.WorldRotation = camera.WorldRotation;
+            Destroy();
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace Shooter;
 /// <summary>
 /// Handles the movement of the gun.
 /// </summary>
-public sealed class GunViewModelHandler : Component
+public class GunViewModelHandler : Component
 {
     private CameraComponent camera;
     protected override void OnAwake()

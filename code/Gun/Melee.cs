@@ -9,7 +9,9 @@ namespace Shooter;
 public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 {
     [Property, RequireComponent] private MeleeData meleeData { get; set; }
-    public GunData GunData => null;
+
+    // This needs to be solved in some other way
+    public GunData GunData => null; 
 
     [Property, Sync]
     public GameObject User
@@ -40,12 +42,12 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     /// </summary>
     public void Attack()
     {
-        if (timeSinceLastAttack < (meleeData?.Cooldown ?? 0.5f))
+        if ( timeSinceLastAttack < (meleeData?.Cooldown) )
             return;
 
         timeSinceLastAttack = 0;
 
-        if (User == null) return;
+        if ( User == null ) return;
 
         // Trace start and direction
         var startPos = IsPlayer ? Game.ActiveScene.Camera.WorldPosition : User.WorldTransform.Position + Vector3.Up * 50f;
@@ -53,13 +55,12 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         var endPos   = startPos + forward * (meleeData?.Range ?? 100f);
 
         var trace = Game.ActiveScene.Trace
-            .Ray(startPos, endPos)
-            .UseHitboxes(true)
-            .Size(meleeData?.HitRadius ?? 30f)
-            .IgnoreGameObjectHierarchy(User)
+            .Ray( startPos, endPos )
+            .UseHitboxes( true )
+            .Size( meleeData?.HitRadius ?? 30f )
+            .IgnoreGameObjectHierarchy( User )
             .Run();
 
-        bool hit = false;
         if (trace.Hit && trace.GameObject.GetComponent<IDamageable>() is IDamageable target)
         {
             var damageInfo = new DamageInfo
@@ -69,7 +70,6 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
                 Position = trace.HitPosition
             };
             target.OnDamage(damageInfo);
-            hit = true;
         }
 
         PlaySwingAnimation();
@@ -110,9 +110,9 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 
     protected override void OnUpdate()
     {
-        if (IsProxy || User == null) return;
+        if ( IsProxy || User == null ) return;
 
-        if (Input.Pressed("attack1"))
+        if ( Input.Pressed( "attack1" ) )
         {
             Attack();
         }
@@ -122,14 +122,19 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     {
         base.OnAwake();
 
-        if (User != null)
+        if ( IsProxy || User == null ) return;
+        if ( meleeData == null )
         {
-            var viewmodelObj = User.Children.Find(x => x.Name == "viewmodel");
-            viewModelRenderer = viewmodelObj?.Components.Get<SkinnedModelRenderer>();
+            Log.Error( "[Melee] Melee data incomplete!" );
+            DestroyGameObject();
+            return;
         }
 
+        var viewmodelObj = User.Children.Find( x => x.Name == "viewmodel" );
+        viewModelRenderer = viewmodelObj?.Components.Get<SkinnedModelRenderer>();
+
         // Set IsPlayer
-        IsPlayer = User?.Components.TryGet<PlayerController>(out var _) ?? false;
+        IsPlayer = User.Components.TryGet<PlayerController>( out var _ );
     }
 
     public void EnableGo(bool enable)
@@ -139,6 +144,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 
     public void Collect( GameObject interactor )
     {
-        throw new System.NotImplementedException();
+        User = interactor;
+        IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
     }
 }
