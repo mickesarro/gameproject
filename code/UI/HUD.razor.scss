@@ -27,3 +27,32 @@ HUD
     padding: 6px 12px;
     border-radius: 6px;
 }
+
+.weapon-hud {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translatex(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.weapon-slot {
+    padding: 6px 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    transition: all 0.1s;
+}
+
+.weapon-slot.active {
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    transform: scale(1.1);
+}

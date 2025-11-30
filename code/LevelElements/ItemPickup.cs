@@ -54,7 +54,6 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 
 				item.GetComponent<ICollectable>( includeDisabled: true )?.Collect( Parent );
 			}
-
 			DestroyGameObject();
 		}
 	}
