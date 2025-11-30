@@ -62,8 +62,6 @@ public static class EditorScene
             GameMode.SetGameMode( dm );
 
             go.Destroy();
-
-            MatchManager.Instance?.StartGame();
         }
     }
 
