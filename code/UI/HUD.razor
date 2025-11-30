@@ -24,14 +24,7 @@
 
                 <div class="weapon-slot @(weapon == PlayerInventory.CurrentItem ? "active" : "")">
                     <div class="icon">
-                        @if (weapon is Gun gun && gun.GunData != null)
-                        {
-                            @gun.Name
-                        }
-                        else
-                        {
-                            @weapon.Name
-                        }
+                        @weapon.Name
                     </div>
                 </div>
             }
