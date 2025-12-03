@@ -30,9 +30,15 @@ public sealed class PlayerInput : Component
 
 	private void PollUIToggle()
 	{
-		if ( Input.Pressed( "OpenInventory" ) )
+		if ( Input.Pressed( "OpenStats" ) )
 		{
-			UIManager.Instance.ToggleLayer<InventoryUI>();
+			var pauseOpen = UIManager.Instance.SearchLayer<PauseMenu>()?.GameObject.Active == true;
+			var settingsOpen = UIManager.Instance.SearchLayer<SettingsMenu>()?.GameObject.Active == true;
+
+			if (!pauseOpen && !settingsOpen)
+			{
+				UIManager.Instance.ToggleLayer<StatsUI>();
+			}
 		}
 
 		if ( Input.Pressed( "Menu" ) )

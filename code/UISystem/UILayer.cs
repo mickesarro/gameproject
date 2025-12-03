@@ -11,6 +11,8 @@ public abstract class UILayer : PanelComponent
 
     public virtual void Show() => GameObject.Enabled = true;
 
+    public virtual bool IsOverlay { get; set; } = false;
+
     /// <summary>
     /// Override this method if layer accepts data, default is empty.
     /// </summary>

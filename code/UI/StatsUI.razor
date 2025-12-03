@@ -1,0 +1,89 @@
+@using Sandbox
+@using Sandbox.UI
+@using UISystem
+@inherits UILayer
+@namespace Shooter.UI
+
+<root>
+    <div class="stats_menu">
+        <h1>Match Stats</h1>
+
+        <div class="stats_table">
+            <div class="stats_header">
+                <span class="col player">Player</span>
+                <span class="col score">Score</span>
+                <span class="col kills">Kills</span>
+                <span class="col deaths">Deaths</span>
+            </div>
+
+            @{
+                int botCounter = 1;
+            }
+
+            @foreach (var characterObj in MatchStatsManager.Instance.Tracked)
+            {
+                if (!characterObj.Components.TryGet<ICharacterBase>(out var character))
+                    continue;
+
+                string displayName;
+
+                if (characterObj.Name == "Dummy")
+                {
+                    displayName = $"Bot{botCounter}";
+                    botCounter++;
+                }
+                else
+                {
+                    // Real player
+                    var conn = characterObj.Network?.Owner;
+                    displayName = conn?.DisplayName ?? "Unknown";
+                }
+
+                <div class="stats_row">
+                    <span class="col player">@displayName</span>
+                    <span class="col score">@character.CharacterStats.Score</span>
+                    <span class="col kills">@character.CharacterStats.Kills</span>
+                    <span class="col deaths">@character.CharacterStats.Deaths</span>
+                </div>
+            }
+
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public override bool IsOverlay => true;
+    
+    protected override int BuildHash()
+    {
+        if (MatchStatsManager.Instance == null) return 0;
+
+        int hash = 0;
+
+        foreach (var characterObj in MatchStatsManager.Instance.Tracked)
+        {
+            if (!characterObj.Components.TryGet<ICharacterBase>(out var character))
+                continue;
+
+            hash = System.HashCode.Combine(
+                hash,
+                character.CharacterStats.Score,
+                character.CharacterStats.Kills,
+                character.CharacterStats.Deaths
+            );
+        }
+
+        return hash;
+    }
+
+    public override void Show()
+    {
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        GameObject.Enabled = false; 
+    }
+}
