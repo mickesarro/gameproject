@@ -11,5 +11,5 @@ public interface IMatchEvents : ISceneEvent<IMatchEvents>
 	void OnPlayerJoined() { }
 	void OnPlayerLeft() { }
 
-	void OnKill( ICharacterBase killed, DamageInfo damageInfo ) { }
+	void OnKill( PlayerController killed, DamageInfo damageInfo ) { }
 }
