@@ -55,8 +55,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 		animationHelper = GetComponent<CitizenAnimationHelper>();
 
-		MatchStatsManager.Instance.RegisterCharacter( GameObject );
 		playerStats = GetOrAddComponent<PlayerStats>();
+        MatchStatsManager.Instance.RegisterCharacter( GameObject );
 
 		gun = GetComponentInChildren<Gun>();
 		
@@ -72,9 +72,6 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 		if (defaultState != StateEnum.None) {
             StateMachine.Initialize(StateFactory(defaultState));
         }
-        
-        // hacky
-        Scene.Get<MatchStatsManager>().RegisterCharacter( GameObject );
     }
 
 	/// <summary>

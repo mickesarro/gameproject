@@ -60,13 +60,4 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         if (toRemove is not null)
             tracked.Remove(toRemove);
     }
-    
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        foreach ( var stats in Tracked )
-        {
-            Log.Info( stats.Id + ": " + stats.Kills );            
-        }
-    }
 }
