@@ -9,7 +9,7 @@ namespace Shooter;
 /// </summary>
 public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents
 {
-	private PlayerController ownerCharacter;
+	private PlayerStats ownerCharacter;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public float Health { get; set; } = 100f;
@@ -17,11 +17,11 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 	public bool IsAlive => Health > 0;
 
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 
-		ownerCharacter = GetComponent<PlayerController>();
+		ownerCharacter = GetComponent<PlayerStats>();
 	}
 
 	[Rpc.Owner]
@@ -57,10 +57,9 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	/// <summary>
 	/// Called on the event of characters death.
 	/// </summary>
-	//[Rpc.Owner]
+	[Rpc.Owner]
 	private void Death( DamageInfo damageInfo )
 	{
-        Log.Info( "DEATH" );
 		// Animations
 
 		++Deaths;

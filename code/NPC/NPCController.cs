@@ -39,7 +39,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 	private CitizenAnimationHelper animationHelper;
 
 	private PlayerStats playerStats; // Not a player, but in-game stats
-	public PlayerStats CharacterStats => playerStats;
+    [Sync]
+    public PlayerStats CharacterStats
+    {
+        get => playerStats;
+    }
     public bool IsPlayer => false;
 
     protected override void OnAwake()
@@ -68,6 +72,9 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 		if (defaultState != StateEnum.None) {
             StateMachine.Initialize(StateFactory(defaultState));
         }
+        
+        // hacky
+        Scene.Get<MatchStatsManager>().RegisterCharacter( GameObject );
     }
 
 	/// <summary>

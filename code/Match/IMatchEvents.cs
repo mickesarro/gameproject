@@ -1,4 +1,6 @@
-﻿namespace Shooter;
+﻿using System;
+
+namespace Shooter;
 
 /// <summary>
 /// Defines events for use during matches.
@@ -9,7 +11,7 @@ public interface IMatchEvents : ISceneEvent<IMatchEvents>
 	void OnGameStart() { }
 
 	void OnPlayerJoined() { }
-	void OnPlayerLeft() { }
+	void OnPlayerLeft(Guid connectionId) { }
 
-	void OnKill( PlayerController killed, DamageInfo damageInfo ) { }
+	void OnKill( PlayerStats killed, DamageInfo damageInfo ) { }
 }

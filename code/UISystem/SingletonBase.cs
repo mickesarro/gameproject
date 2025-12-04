@@ -19,7 +19,6 @@ public abstract class SingletonBase<T> : Component where T : Component
         else
         {
             Instance = this as T;
-            GameObject.NetworkMode = NetworkMode.Object;
         }
     }
 }
