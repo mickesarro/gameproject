@@ -9,19 +9,19 @@ namespace Shooter;
 /// </summary>
 public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents
 {
-	private ICharacterBase ownerCharacter;
+	private PlayerStats ownedStats;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
-	[Sync] public float Health { get; set; } = 100000f;
+	[Sync] public float Health { get; set; } = 100f;
 	[Hide, Sync] public int Deaths { get; private set; }
 
 	public bool IsAlive => Health > 0;
 
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 
-		ownerCharacter = GetComponent<ICharacterBase>();
+		ownedStats = GetComponent<PlayerStats>();
 	}
 
 	[Rpc.Owner]
@@ -64,7 +64,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		++Deaths;
 
-		IMatchEvents.Post( e => e.OnKill( ownerCharacter, damageInfo ) );
+		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
 		Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
 
