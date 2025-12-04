@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Utility;
+using System;
 
 namespace Shooter;
 
@@ -17,6 +18,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 	public bool IsAlive => Health > 0;
 
+    public Action<DamageInfo> OnDamage { get; set; }
+
 	protected override void OnStart()
 	{
 		base.OnStart();
@@ -32,7 +35,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		Health -= damageInfo.Damage;
 		Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
 
-		// Flinch animations, screen red etc.
+        // Flinch animations, screen red etc.
+        OnDamage?.Invoke( damageInfo );
 
 		if ( Health <= 0 )
 		{
