@@ -46,6 +46,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     }
     public bool IsPlayer => false;
 
+    public CharacterHealth characterHealth { get; private set; }
+
     protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -55,6 +57,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 		animationHelper = GetComponent<CitizenAnimationHelper>();
 
+        characterHealth = GetComponent<CharacterHealth>();
+        
 		playerStats = GetOrAddComponent<PlayerStats>();
         MatchStatsManager.Instance.RegisterCharacter( GameObject );
 
@@ -72,12 +76,28 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 		if (defaultState != StateEnum.None) {
             StateMachine.Initialize(StateFactory(defaultState));
         }
+
+        IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
     }
 
-	/// <summary>
-	/// Initialize the NPC with a new state type
-	/// </summary>
-	public void Initialize(StateEnum defaultState)
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+
+        characterHealth.OnDamage += AlertOnDamage;
+    }
+
+    protected override void OnDisabled()
+    {
+        base.OnDisabled();
+
+        characterHealth.OnDamage -= AlertOnDamage;
+    }
+
+    /// <summary>
+    /// Initialize the NPC with a new state type
+    /// </summary>
+    public void Initialize(StateEnum defaultState)
 	{
 		states.Add(defaultState);
 		PopulateFSM();
@@ -143,18 +163,18 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
             return false;
         }
 
-		var hitInfo = Game.ActiveScene.Trace
-			.Ray( WorldPosition, dirVec )
-			.Size( detectionDistance )
-			.WithAnyTags( "player" )
-			.Run();
+        var hitInfo = Game.ActiveScene.Trace
+            .Ray( WorldPosition, dirVec )
+            .Size( detectionDistance )
+            .WithAnyTags( "shootable" )
+            .Run();
 
-		if ( hitInfo.Hit && hitInfo.GameObject.Tags.Has( "player" ) )
-		{
-			return true; // All checks pass
-		}
+        if ( hitInfo.Hit )
+        {
+            return true; // All checks pass
+        }
 
-		return false;
+        return false;
     }
 
 	private void UpdateCitizenAnims()
@@ -177,8 +197,19 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 	void IPlayerEvent.OnSpawn( GameObject player )
 	{
+        if ( player == GameObject ) return;
 		// So that in search state the NPC can search all players for the closest one
 		huntedList.Add( player );
 	}
+
+    public void AlertOnDamage( DamageInfo damageInfo )
+    {
+        if ( damageInfo?.Attacker == null ) return;
+
+        hunted = damageInfo.Attacker;
+        Log.Info( "changed state" );
+        StateMachine.ChangeState<AttackState>();
+
+    }
 
 }

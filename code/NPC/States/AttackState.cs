@@ -16,9 +16,14 @@ public class AttackState : NPCBaseState
 		{
 			stateMachine.ChangeState( stateMachine.PreviousState );
 		}
-	}
 
-	public override void OnExit( IState nextState ) {}
+        controller.characterHealth.OnDamage -= controller.AlertOnDamage;
+    }
+
+	public override void OnExit( IState nextState ) 
+    {
+        controller.characterHealth.OnDamage += controller.AlertOnDamage;
+    }
 
 	// Could be made to TimeSince
 	private float checkTimer = 0f;

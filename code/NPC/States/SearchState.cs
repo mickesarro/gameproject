@@ -108,10 +108,10 @@ public class SearchState : NPCBaseState
 		var hitInfo = Game.ActiveScene.Trace
 			.Ray( controller.WorldPosition, dirVec )
 			.Size( controller.detectionDistance )
-			.WithAnyTags("player")
+			.WithAnyTags("shootable")
 			.Run();
 
-		if ( hitInfo.Hit && hitInfo.GameObject.Tags.Has( "player" ) )
+		if ( hitInfo.Hit )
 		{
 			return true; // All checks pass
 		}
