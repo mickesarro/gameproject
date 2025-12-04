@@ -9,7 +9,7 @@ namespace Shooter;
 /// </summary>
 public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents
 {
-	private PlayerStats ownerCharacter;
+	private PlayerStats ownedStats;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
 	[Sync] public float Health { get; set; } = 100f;
@@ -21,7 +21,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	{
 		base.OnStart();
 
-		ownerCharacter = GetComponent<PlayerStats>();
+		ownedStats = GetComponent<PlayerStats>();
 	}
 
 	[Rpc.Owner]
@@ -64,7 +64,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		++Deaths;
 
-		IMatchEvents.Post( e => e.OnKill( ownerCharacter, damageInfo ) );
+		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
 		Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
 
