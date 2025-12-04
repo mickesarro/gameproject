@@ -30,7 +30,12 @@ public sealed class PlayerController : Component, ICharacterBase
 	// omat custom jutut ehkä hyvä merkata
 
 	private PlayerStats playerStats;
-	public PlayerStats CharacterStats => playerStats;
+
+    [Sync]
+    public PlayerStats CharacterStats
+    {
+        get => playerStats;
+    }
 
 	[Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);

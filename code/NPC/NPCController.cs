@@ -39,7 +39,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 	private CitizenAnimationHelper animationHelper;
 
 	private PlayerStats playerStats; // Not a player, but in-game stats
-	public PlayerStats CharacterStats => playerStats;
+    [Sync]
+    public PlayerStats CharacterStats
+    {
+        get => playerStats;
+    }
     public bool IsPlayer => false;
 
     public CharacterHealth characterHealth { get; private set; }
@@ -53,9 +57,10 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 		animationHelper = GetComponent<CitizenAnimationHelper>();
 
-		MatchStatsManager.Instance.RegisterCharacter( GameObject );
-		playerStats = GetOrAddComponent<PlayerStats>();
         characterHealth = GetComponent<CharacterHealth>();
+        
+		playerStats = GetOrAddComponent<PlayerStats>();
+        MatchStatsManager.Instance.RegisterCharacter( GameObject );
 
 		gun = GetComponentInChildren<Gun>();
 		

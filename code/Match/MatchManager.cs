@@ -34,7 +34,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
 	void INetworkListener.OnDisconnected( Connection channel )
 	{
-		IMatchEvents.Post( e => e.OnPlayerLeft() );
+		IMatchEvents.Post( e => e.OnPlayerLeft(channel.Id) );
 
 		Players.Remove( channel );
 	}
