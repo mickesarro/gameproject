@@ -139,6 +139,12 @@ public sealed class PlayerController : Component, ICharacterBase
 		Velocity += amount;
 	}
 
+    private ScreenShaker screenShaker;
+    void ICharacterBase.ShakeScreen( ScreenShake screenShake )
+    {
+        screenShaker.QueueScreenShake( screenShake );
+    }
+
     private void ClearGround() {
         IsOnGround = false;
     }
@@ -407,6 +413,8 @@ public sealed class PlayerController : Component, ICharacterBase
         
         Height = StandingHeight;
         HeightGoal = StandingHeight;
+
+        screenShaker = GameObject.GetComponent<ScreenShaker>();
     }
 
     protected override void OnFixedUpdate() {
@@ -545,6 +553,8 @@ public sealed class PlayerController : Component, ICharacterBase
 
 			Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
 			Camera.WorldRotation = angles.ToRotation();
+
+            screenShaker.UpdateShake();
 			
 		}
 		SmoothLookAngle = SmoothLookAngle.LerpTo( LookAngle, Time.Delta / 0.035f );

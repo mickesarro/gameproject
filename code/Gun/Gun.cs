@@ -15,10 +15,15 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		set
 		{
 			_user = value;
-			HandleProxyAnimations();
+            character = _user?.GetComponent<ICharacterBase>();
+            HandleProxyAnimations();
 		}
 	}
 	private GameObject _user;
+
+    private ICharacterBase character;
+    private ScreenShake screenShake;
+
 	public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
 
 	[Property, RequireComponent] private GunData gunData { get; set; }
@@ -67,6 +72,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         // Could be implemented with tags for example
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
+
+        screenShake = GameObject.GetComponent<ScreenShake>();
     }
 
 	protected override void OnStart()
@@ -143,6 +150,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
         timeSinceLastShot = 0.0f;
+
+        character.ShakeScreen( screenShake );
         
 	}
 
