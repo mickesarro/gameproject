@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Utility;
+using System;
 
 namespace Shooter;
 
@@ -9,7 +10,7 @@ namespace Shooter;
 /// </summary>
 public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents
 {
-	private ICharacterBase ownerCharacter;
+	private PlayerStats ownedStats;
 
 	[Property] public float MaxHealth { get; private set; } = 100f;
 
@@ -19,16 +20,13 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 	public bool IsAlive => Health > 0;
 
-	protected override void OnAwake()
+    public Action<DamageInfo> OnDamage { get; set; }
+
+	protected override void OnStart()
 	{
-		base.OnAwake();
+		base.OnStart();
 
-        if ( Health > MaxHealth )
-        {
-            Log.Warning( "[CharacterHealth] Health property set too high manually." );
-        }
-
-		ownerCharacter = GetComponent<ICharacterBase>();
+		ownedStats = GetComponent<PlayerStats>();
 	}
 
 	[Rpc.Owner]
@@ -39,7 +37,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		Health -= damageInfo.Damage;
 		Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
 
-		// Flinch animations, screen red etc.
+        // Flinch animations, screen red etc.
+        OnDamage?.Invoke( damageInfo );
 
 		if ( Health <= 0 )
 		{
@@ -73,7 +72,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		++Deaths;
 
-		IMatchEvents.Post( e => e.OnKill( ownerCharacter, damageInfo ) );
+		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
 		Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
 

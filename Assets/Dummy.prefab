@@ -7,7 +7,7 @@
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
-    "Tags": "npc",
+    "Tags": "shootable,npc",
     "Enabled": true,
     "NetworkMode": 1,
     "NetworkInterpolation": true,
@@ -2756,6 +2756,14 @@
                 "_type": "gameobject",
                 "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
               }
+            },
+            {
+              "Target": {
+                "Type": "Component",
+                "IdValue": "62981691-f68e-4421-83db-af3a9d76d810"
+              },
+              "Property": "AutomaticReload",
+              "Value": true
             },
             {
               "Target": {

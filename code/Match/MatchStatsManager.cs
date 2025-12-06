@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using System;
+using Sandbox;
 
 namespace Shooter;
 
@@ -7,13 +8,13 @@ namespace Shooter;
 /// </summary>
 public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatchEvents, IPlayerEvent
 {
+	[Sync] private NetList<PlayerStats> tracked { get; set; } = new();
     // Custom leaderboard data class for team based stats might be needed
-	[Sync] private NetList<GameObject> tracked { get; set; } = new();
-    public ICharacterBase Top { get; private set; } = null;
+    public PlayerStats Top { get; private set; } = null;
 
-	public IEnumerable<GameObject> Tracked => [.. tracked];
+	public IEnumerable<PlayerStats> Tracked => [.. tracked];
 
-	void IMatchEvents.OnKill( ICharacterBase killed, DamageInfo damageInfo )
+	void IMatchEvents.OnKill( PlayerStats killed, DamageInfo damageInfo )
 	{
 		if ( killed == null )
 		{
@@ -21,22 +22,23 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 			return;
 		}
 
-		if ( !damageInfo.Attacker.Components.TryGet<ICharacterBase>( out var attacker ) )
+        if ( !damageInfo.Attacker.Components.TryGet<PlayerStats>( out var attacker ) )
 		{
 			Log.Error( $"DamageInfo for death of {killed} did not contain attacker, ignoring." );
 			return;
 		}
 
-		killed.CharacterStats.AddDeath();
+        if ( killed == attacker )
+        {
+            Log.Info( "kyssed :D" );
+            return; // Killing yourself should not count as a kill
+        }
 
-		if ( killed == attacker ) return; // Killing yourself should not count as a kill
+		attacker.AddKill();
+		attacker.AddDamage( damageInfo.Damage );
+        attacker.AddScore( 100 ); // Define score amounts somewhere
 
-		attacker.CharacterStats.AddKill();
-		attacker.CharacterStats.AddDamage( damageInfo.Damage );
-
-        attacker.CharacterStats.AddScore( 100 ); // Define score amounts somewhere
-        UpdateTop( attacker );
-	}
+    }
 
 	/// <summary>
 	/// Allows registering both players and bots/NPCs
@@ -44,25 +46,31 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	/// <param name="character"></param>
 	public void RegisterCharacter( GameObject character )
 	{
-		if (character.Components.TryGet<ICharacterBase>( out var characterBase ))
+		if (character.Components.TryGet<PlayerStats>( out var stats ))
 		{
 			tracked.Add( character );
 
-            Top ??= characterBase;
+            Top ??= stats;
         }
 	}
 
-    private void UpdateTop( ICharacterBase updated )
+    private void UpdateTop( PlayerStats updated )
     {
-        if (updated.CharacterStats.Score > (Top?.CharacterStats.Score ?? -1))
+        if (updated.Score > (Top?.Score ?? -1))
         {
             Top = updated;
         }
     }
 
 	void IPlayerEvent.OnSpawn( GameObject character )
-	{
+    {
 		RegisterCharacter( character );
 	}
 
+    void IMatchEvents.OnPlayerLeft(Guid connectionId)
+    {
+        var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == connectionId);
+        if (toRemove is not null)
+            tracked.Remove(toRemove);
+    }
 }
