@@ -15,8 +15,8 @@ public sealed class CharacterSpawner : Component
 
     public void Spawn( SpawnPoint spawnPoint )
     {
-
-        Spawner.SpawnCharacter( CharacterPrefab, spawnPoint, GameObject.GetComponent<PlayerStats>() );
+        PlayerStats prevStats = GameObject.GetComponent<PlayerStats>(includeDisabled: true);
+        Spawner.SpawnCharacter( CharacterPrefab, spawnPoint, prevStats );
 
         DestroyGameObject();
     }

@@ -31,7 +31,7 @@ public sealed class PlayerStats : Component, ISerializable
     public void Accumulate( ISerializable data )
     {
         if ( data == null || data is not PlayerStats stats ) return;
-
+        
         this.Score += stats.Score;
         this.Kills += stats.Kills;
         this.Damage += stats.Damage;

@@ -29,7 +29,7 @@ public sealed class Deathmatch : GameMode
     {
         base.OnUpdate();
 
-        if (statsManager?.Top.CharacterStats.Score >= scoreLimit)
+        if (statsManager?.Top.Score >= scoreLimit)
         {
             // Match end handler / ending screen etc. needs to be made
             IMatchEvents.Post( e => e.OnGameEnd() );

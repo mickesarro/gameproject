@@ -14,8 +14,9 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
 	public IEnumerable<PlayerStats> Tracked => [.. tracked];
 
-	void IMatchEvents.OnKill( PlayerStats killed, DamageInfo damageInfo )
+    void IMatchEvents.OnKill( PlayerStats killed, DamageInfo damageInfo )
 	{
+        Log.Info( "onkill start" );
 		if ( killed == null )
 		{
 			Log.Error( "No killed character given, ignoring." );
@@ -37,7 +38,8 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 		attacker.AddKill();
 		attacker.AddDamage( damageInfo.Damage );
         attacker.AddScore( 100 ); // Define score amounts somewhere
-
+        UpdateTop( attacker );
+        Log.Info( "onkill end" );
     }
 
 	/// <summary>
@@ -48,7 +50,12 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	{
 		if (character.Components.TryGet<PlayerStats>( out var stats ))
 		{
-			tracked.Add( character );
+            // bad but removes previous stats, since new ones are always created
+            var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == stats.Network.OwnerId);
+            if (toRemove is not null)
+                tracked.Remove(toRemove);
+            
+			tracked.Add( stats );
 
             Top ??= stats;
         }
@@ -72,5 +79,15 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == connectionId);
         if (toRemove is not null)
             tracked.Remove(toRemove);
+    }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        foreach ( var stats in tracked )
+        {
+            //Log.Info( Game.ActiveScene.Get<MatchManager>().MatchGameMode );
+            //Log.Info( stats.Id + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
+        }
     }
 }

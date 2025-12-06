@@ -10,6 +10,12 @@ public abstract class SingletonBase<T> : Component where T : Component
 {
     [SkipHotload] public static T Instance { get; private set; } = null;
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        //Log.Info( typeof(T).FullName );
+    }
+
     protected override void OnAwake()
     {
         if ( Instance != null && Instance != this && Application.IsEditor == false )

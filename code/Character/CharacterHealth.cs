@@ -16,7 +16,6 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
     [Description("Should not be manually altered in editor outside testing!")]
 	[Property, Sync] public float Health { get; set; } = 100f;
-	[Hide, Sync] public int Deaths { get; private set; }
 
 	public bool IsAlive => Health > 0;
 
@@ -57,6 +56,10 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 	public void ReSpawn(float health)
 	{
+        Log.Info("ReSpawn");
+        Log.Info( MatchManager.Instance );
+        Log.Info( MatchManager.Instance.MatchGameMode );
+        Log.Info( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
         // Should probably go through gamemode to determine whether spawning is allowed
         GameObject.GetComponent<CharacterSpawner>( includeDisabled: true )
             .Respawn( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
@@ -65,12 +68,12 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	/// <summary>
 	/// Called on the event of characters death.
 	/// </summary>
-	[Rpc.Owner]
+	//[Rpc.Owner]
 	private void Death( DamageInfo damageInfo )
 	{
 		// Animations
 
-		++Deaths;
+        ownedStats.AddDeath();
 
 		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
@@ -78,6 +81,6 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		// Need to implement respawning etc. while maintaining the same gameobject
 		GameObject.Enabled = false;
-        ReSpawn( 0 );
+        //ReSpawn( 0 );
 	}
 }

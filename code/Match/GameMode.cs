@@ -11,7 +11,7 @@ public abstract class GameMode : Component
     // Needs to be discussed how to implement these.
     // Should each one be a class inheriting this or e.g. a prefab of components.
 
-    public static string Current { get; private set; }
+    [Sync] public static string Current { get; private set; }
 
     public static void SetGameMode( GameMode gameMode )
     {

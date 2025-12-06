@@ -9,14 +9,22 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
 
-	public GameMode MatchGameMode { get; private set; }
+    [Sync] public GameMode MatchGameMode { get; private set; }
+    
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        //Log.Info( Instance );
+    }
 
     protected override void OnStart()
     {
         base.OnStart();
+        GameObject.NetworkMode = NetworkMode.Object;
 
         // This might not be the correct place depending on the flow we want
         // e.g. start game only when all players are loaded, or something. 
+        
         StartGame();
     }
 
@@ -28,7 +36,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
             StartEnabled = true,
             Transform = WorldTransform
         };
-
+        
         var mode = GameObject.Clone( GameMode.Current, clcfg );
 
         if ( mode == null || !mode.Components.TryGet<GameMode>( out var gameMode ) )
