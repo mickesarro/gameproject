@@ -11,7 +11,6 @@ public interface IPlayerEvent : ISceneEvent<IPlayerEvent>
 	
 	void OnDied() { }
 	void OnSpawn( GameObject self ) { }
-
 	void OnWeaponAdded( IWeapon weapon ) { }
 	void OnItemAdded( ICollectable item ) { }
 	void OnSwitchItem( ICollectable collectable ) { }

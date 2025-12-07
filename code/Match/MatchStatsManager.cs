@@ -37,12 +37,16 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 		attacker.AddKill();
 		attacker.AddDamage( damageInfo.Damage );
         MatchManager.Instance.MatchGameMode.WinCondition( attacker );
-        
-        // race condition
-        foreach ( var stats in tracked )
-        {
-            Log.Info( stats.Id + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
-        }
+    }
+
+    
+    // bad but works
+    // parempi ratkaisu olisi varmaan muokata pelaaja prefabia niin, että sen parentissa olisi objekteja mitä ei ikinä
+    // poisteta (mm. statsit)
+    [Rpc.Broadcast]
+    public void RemovePreviousStats( PlayerStats prevStats )
+    {
+        tracked.Remove( prevStats );
     }
 
 	/// <summary>
@@ -52,12 +56,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	public void RegisterCharacter( GameObject character )
 	{
 		if (character.Components.TryGet<PlayerStats>( out var stats ))
-		{
-            // bad but removes previous stats, since new ones are always created
-            var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == stats.Network.OwnerId);
-            if (toRemove is not null)
-                tracked.Remove(toRemove);
-            
+        {
 			tracked.Add( stats );
         }
 	}
@@ -79,7 +78,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         base.OnUpdate();
         foreach ( var stats in tracked )
         {
-            //Log.Info( stats.Id + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
+            Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
         }
     }
 }

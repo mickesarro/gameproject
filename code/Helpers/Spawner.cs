@@ -23,7 +23,5 @@ internal static class Spawner
         }
 
         character.NetworkSpawn();
-
     }
-	
 }

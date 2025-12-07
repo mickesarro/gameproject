@@ -17,7 +17,7 @@ public sealed class CharacterSpawner : Component
     {
         PlayerStats prevStats = GameObject.GetComponent<PlayerStats>(includeDisabled: true);
         Spawner.SpawnCharacter( CharacterPrefab, spawnPoint, prevStats );
-
+        MatchStatsManager.Instance.RemovePreviousStats( prevStats );
         DestroyGameObject();
     }
 
