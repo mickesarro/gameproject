@@ -283,7 +283,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void Collect( GameObject interactor )
 	{
 		User = interactor;
-		IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
+		IPlayerEvent.Post( e => e.OnItemAdded( this ) );
 	}
 
 	[Rpc.Broadcast]
