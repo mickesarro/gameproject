@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "Editor": {
-      "commandName": "Executable",
-      "executablePath": "A:\\steamlibrary\\steamapps\\common\\sbox\\sbox-dev.exe",
-      "commandLineArgs": "-project \u0022C:\\Users\\kille\\Documents\\s\u0026box projects\\intro-project\\Libraries\\trend.diagnostics\\diagnostics.sbproj\u0022"
-    }
-  }
-}
