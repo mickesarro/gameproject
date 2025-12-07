@@ -8,7 +8,7 @@ namespace Shooter;
 /// <typeparam name="T">Type of inheriting class.</typeparam>
 public abstract class SingletonBase<T> : Component where T : Component
 {
-    [SkipHotload] public static T Instance { get; private set; } = null;
+    [SkipHotload] public static T Instance { get; set; } = null;
 
     protected override void OnUpdate()
     {

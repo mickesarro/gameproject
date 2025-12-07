@@ -57,9 +57,6 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	public void ReSpawn(float health)
 	{
         Log.Info("ReSpawn");
-        Log.Info( MatchManager.Instance );
-        Log.Info( MatchManager.Instance.MatchGameMode );
-        Log.Info( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
         // Should probably go through gamemode to determine whether spawning is allowed
         GameObject.GetComponent<CharacterSpawner>( includeDisabled: true )
             .Respawn( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
@@ -81,6 +78,6 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		// Need to implement respawning etc. while maintaining the same gameobject
 		GameObject.Enabled = false;
-        //ReSpawn( 0 );
+        ReSpawn( 0 );
 	}
 }

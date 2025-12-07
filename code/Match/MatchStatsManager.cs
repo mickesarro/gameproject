@@ -10,13 +10,12 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 {
 	[Sync] private NetList<PlayerStats> tracked { get; set; } = new();
     // Custom leaderboard data class for team based stats might be needed
-    public PlayerStats Top { get; private set; } = null;
 
 	public IEnumerable<PlayerStats> Tracked => [.. tracked];
 
+    [Rpc.Owner]
     void IMatchEvents.OnKill( PlayerStats killed, DamageInfo damageInfo )
 	{
-        Log.Info( "onkill start" );
 		if ( killed == null )
 		{
 			Log.Error( "No killed character given, ignoring." );
@@ -37,9 +36,13 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
 		attacker.AddKill();
 		attacker.AddDamage( damageInfo.Damage );
-        attacker.AddScore( 100 ); // Define score amounts somewhere
-        UpdateTop( attacker );
-        Log.Info( "onkill end" );
+        MatchManager.Instance.MatchGameMode.WinCondition( attacker );
+        
+        // race condition
+        foreach ( var stats in tracked )
+        {
+            Log.Info( stats.Id + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
+        }
     }
 
 	/// <summary>
@@ -56,18 +59,8 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
                 tracked.Remove(toRemove);
             
 			tracked.Add( stats );
-
-            Top ??= stats;
         }
 	}
-
-    private void UpdateTop( PlayerStats updated )
-    {
-        if (updated.Score > (Top?.Score ?? -1))
-        {
-            Top = updated;
-        }
-    }
 
 	void IPlayerEvent.OnSpawn( GameObject character )
     {
@@ -86,7 +79,6 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         base.OnUpdate();
         foreach ( var stats in tracked )
         {
-            //Log.Info( Game.ActiveScene.Get<MatchManager>().MatchGameMode );
             //Log.Info( stats.Id + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
         }
     }

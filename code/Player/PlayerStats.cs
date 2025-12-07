@@ -17,21 +17,24 @@ public sealed class PlayerStats : Component, ISerializable
     {
         Log.Info("AddKill");
         Kills++;
+        Log.Info( Kills );
     }
+    //[Rpc.Owner]
     public void AddDeath()
     {
         Log.Info("AddDeath");
         Deaths++;
+        Log.Info( Deaths );
     }
     [Rpc.Owner]
     public void AddDamage(float damage) => Damage += damage;
     [Rpc.Owner]
     public void AddScore(int amount)   => Score += amount;
-    
+
     public void Accumulate( ISerializable data )
     {
         if ( data == null || data is not PlayerStats stats ) return;
-        
+        Log.Info( "accumulatin'" );   
         this.Score += stats.Score;
         this.Kills += stats.Kills;
         this.Damage += stats.Damage;
