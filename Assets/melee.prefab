@@ -38,20 +38,21 @@
         "__type": "Shooter.MeleeData",
         "__guid": "c3426db4-21dc-4802-9c60-128c84292d53",
         "__enabled": true,
-        "Cooldown": 1,
+        "Cooldown": 0.5,
         "Damage": 25,
-        "HitRadius": 10,
+        "HitRadius": 30,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Range": 100,
+        "Range": 60,
         "ViewModel": {
           "_type": "gameobject",
           "go": "40f2203b-e245-42b8-be10-03d1de529377"
-        }
+        },
+        "Worldmodel": null
       },
       {
         "__type": "Shooter.GunViewModelHandler",
@@ -115,7 +116,9 @@
             "OnComponentStart": null,
             "OnComponentUpdate": null,
             "Parameters": {
-              "bools": {},
+              "bools": {
+                "b_attack": false
+              },
               "ints": {},
               "floats": {
                 "aim_yaw": 0,

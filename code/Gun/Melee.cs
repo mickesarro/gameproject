@@ -33,7 +33,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 
     public WeaponType WeaponType => WeaponType.Melee;
 
-    [Property] public string Name { get; set; } = "Gun";
+    [Property] public string Name { get; set; } = "Melee";
 
     private TimeSince timeSinceLastAttack;
 
@@ -42,12 +42,12 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     /// </summary>
     public void Attack()
     {
+        if ( User == null ) return;
+
         if ( timeSinceLastAttack < (meleeData?.Cooldown) )
             return;
 
         timeSinceLastAttack = 0;
-
-        if ( User == null ) return;
 
         // Trace start and direction
         var startPos = IsPlayer ? Game.ActiveScene.Camera.WorldPosition : User.WorldTransform.Position + Vector3.Up * 50f;
@@ -69,24 +69,19 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
                 Attacker = User,
                 Position = trace.HitPosition
             };
-            target.OnDamage(damageInfo);
+            if ( !IsPlayer )
+            {
+                damageInfo.Tags.Add( "npc" );
+            }
+            // For future reference: This line makes hitmarker show for melee
+            IDamageEvent.Post( e => e.OnDamage( trace.GameObject, damageInfo ) );
+            target.OnDamage( damageInfo );
         }
 
-        PlaySwingAnimation();
+        SetAnimation( modelType.ViewModel, "b_attack", true );
     }
 
-    /// <summary>
-    /// Plays swing animation on both viewmodel and world model.
-    /// </summary>
-    private void PlaySwingAnimation()
-    {
-        // Viewmodel (arms)
-        if (viewModelRenderer != null)
-            SetAnimation(modelType.ViewModel, "b_attack", true);
-
-    }
-
-    enum modelType
+    private enum modelType
     {
         ViewModel,
         WorldModel
@@ -96,6 +91,8 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     [Rpc.Broadcast]
     private void SetAnimation( modelType type, string name, bool state )
     {
+        // Could make animation player own component
+        // or make a base abstract class for weapons
         switch ( type )
         {
             case modelType.ViewModel:
@@ -118,20 +115,22 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         }
     }
 
+
     protected override void OnAwake()
     {
         base.OnAwake();
 
+        User ??= GameObject.Parent.Components.TryGet<ICharacterBase>(out _) ? GameObject.Parent : null;
         if ( IsProxy || User == null ) return;
-        if ( meleeData == null )
+
+        if ( meleeData == null || meleeData.ViewModel == null )
         {
             Log.Error( "[Melee] Melee data incomplete!" );
             DestroyGameObject();
             return;
         }
 
-        var viewmodelObj = User.Children.Find( x => x.Name == "viewmodel" );
-        viewModelRenderer = viewmodelObj?.Components.Get<SkinnedModelRenderer>();
+        viewModelRenderer = meleeData.ViewModel.GetComponent<SkinnedModelRenderer>();
 
         // Set IsPlayer
         IsPlayer = User.Components.TryGet<PlayerController>( out var _ );
