@@ -1,0 +1,32 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace Shooter.UI
+
+<root>
+    <div class="weapon-hud">
+        @if (PlayerInventory != null)
+        {
+            foreach (var weapon in PlayerInventory.Items)
+            {
+                if (weapon == null) continue;
+
+                <div class="weapon-slot @(weapon == PlayerInventory.CurrentItem ? "active" : "")">
+                    <div class="icon">
+                        @weapon.Name
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</root>
+
+@code
+{
+    [Property] public PlayerInventory PlayerInventory;
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( PlayerInventory?.CurrentItem );
+}
