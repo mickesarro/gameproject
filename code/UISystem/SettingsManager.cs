@@ -1,4 +1,5 @@
 using Sandbox;
+using Sandbox.Audio;
 using System;
 
 namespace Shooter;
@@ -13,12 +14,18 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
 	public event Action<CrosshairType> OnCrosshairStyleChanged;
     public event Action<string> OnCrosshairColorChanged;
+	public event Action<float> OnFovChanged;
+	public event Action<float> OnVolumeChanged;
+
+	private readonly Dictionary<CameraComponent, Action<float>> cameraFovHandlers = new();
 
 	protected override void OnAwake()
 	{
 		base.OnAwake();
 
 		Load();
+
+		ApplyVolume(playerPreferences.Volume);
 	}
 
     public void SetCrosshairStyle(CrosshairType type)
@@ -39,6 +46,52 @@ public class SettingsManager : SingletonBase<SettingsManager>
         OnCrosshairColorChanged?.Invoke(hex);
 
 		stateChanged = true;
+	}
+
+	public void SetFOV(float fov)
+	{
+		playerPreferences.Fov = fov; 
+		OnFovChanged?.Invoke(fov);
+		stateChanged = true;
+	}
+
+
+	public void SubscribeCameraFOV(CameraComponent camera, bool useCustomFOV)
+	{
+		if (camera == null) return;
+
+		if (cameraFovHandlers.ContainsKey(camera))
+		{
+			OnFovChanged -= cameraFovHandlers[camera];
+			cameraFovHandlers.Remove(camera);
+		}
+		
+		void cameraFovHandler(float fov)
+		{
+			if (useCustomFOV)
+				camera.FieldOfView = fov;
+		}
+
+		cameraFovHandlers[camera] = cameraFovHandler;
+		OnFovChanged += cameraFovHandler;
+
+		if (useCustomFOV)
+			camera.FieldOfView = PlayerPreferences.Fov;
+	}
+
+	public void SetVolume(float volume)
+	{
+		playerPreferences.Volume = volume;
+
+		ApplyVolume(playerPreferences.Volume);
+
+		OnVolumeChanged?.Invoke(volume);
+		stateChanged = true;
+	}
+
+	private void ApplyVolume(float volume)
+	{
+		Mixer.Master.Volume = volume / 100f;
 	}
 
     public void Save() // Called in SettingsMenu hide

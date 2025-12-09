@@ -28,12 +28,41 @@
 
             <DropDown @ref="ColorDropdown" class="color_dropdown" style="display:none;" />
         </div>
+
+        <!-- FOV Slider -->
+        <div class="slider_section">
+            <SliderControl Min="@MinFov" Max="@MaxFov" Step="@Step"
+                           Value="@currentFov" 
+                           OnValueChanged="@OnFovChanged"
+                           ShowRange="@true" 
+                           ShowValueTooltip="@true" />
+            <label>FOV: @currentFov</label>
+        </div>
+
+        <!-- Volume Slider -->
+        <div class="slider_section">
+            <SliderControl Min="@MinVolume" Max="@MaxVolume" Step="@Step"
+                        Value="@currentVolume"
+                        OnValueChanged="@OnVolumeChange"
+                        ShowRange="@true"
+                        ShowValueTooltip="@true" />
+            <label>Volume: @currentVolume</label>
+        </div>
     </div>
 </root>
 
 @code {
     private DropDown CrosshairDropdown;
     private DropDown ColorDropdown;
+
+    private float currentFov;
+    private float MinFov => playerPreferences.minFov;
+    private float MaxFov => playerPreferences.maxFov;
+    private float Step => 1f;
+
+    private float currentVolume;
+    private float MinVolume =>playerPreferences.minVolume;
+    private float MaxVolume => playerPreferences.maxVolume;
 
     private PlayerPreferences playerPreferences;
 
@@ -46,13 +75,36 @@
     private string SelectedColorLabel => Crosshair.AvailableColors
                                             .FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
 
-    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex);
+    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, currentFov);
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
-        // Set this here to cache for the duration of showing the menu
+        // Cache preferences for the menu
         playerPreferences = SettingsManager.Instance.PlayerPreferences;
+        currentFov = playerPreferences.Fov;
+        currentVolume = playerPreferences.Volume;
+        
+    }
+
+    private void OnFovChanged(float fov)
+    {
+        currentFov = fov;
+
+        // Update SettingsManager and notify listeners
+        SettingsManager.Instance.SetFOV(currentFov);
+
+        StateHasChanged(); // update label
+    }
+
+    private void OnVolumeChange(float volume)
+    {
+        currentVolume = volume;
+
+        // Update SettingsManager and notify listeners
+        SettingsManager.Instance.SetVolume(currentVolume);
+
+        StateHasChanged(); // update label
     }
 
     public override void Show()
@@ -60,10 +112,8 @@
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
 
-        if ( !SettingsManager.Instance.IsLoaded )
-        {
+        if (!SettingsManager.Instance.IsLoaded)
             SettingsManager.Instance.Load();
-        }
     }
 
     public override void Hide()
@@ -90,7 +140,6 @@
             foreach (CrosshairType type in Enum.GetValues<CrosshairType>())
             {
                 string label = type.ToDisplayName();
-
                 var panel = popup.AddOption(label, "", () =>
                 {
                     SettingsManager.Instance.SetCrosshairStyle(type);
@@ -99,12 +148,11 @@
 
                 if (type == SelectedCrosshair)
                     panel.AddClass("active");
-                
+
                 panel.Style.Width = 280;
                 panel.Style.BackgroundColor = Color.Parse("#444");
                 panel.Style.FontColor = Color.Parse("#ffffffff");
             }
-
         }
         else if (settingType == "Color")
         {
