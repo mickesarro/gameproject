@@ -1,11 +1,11 @@
 {
   "UI": false,
-  "Volume": "0.15",
+  "Volume": "0.3",
   "Pitch": "0.9 1.1",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/weapons/m4a1 shot.vsnd"
+    "sounds/weapons/rocketlauncherlaunchbit.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
