@@ -1,11 +1,11 @@
 {
   "UI": false,
-  "Volume": "0.3",
+  "Volume": "0.5",
   "Pitch": "0.9 1.1",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/weapons/rifle-clip-empty.mp3"
+    "sounds/weapons/rifle-clip-empty.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
@@ -44,8 +44,8 @@
     }
   ],
   "DefaultMixer": {
-    "Name": "unknown",
-    "Id": "00000000-0000-0000-0000-000000000000"
+    "Name": "game",
+    "Id": "fb94162e-178e-4afa-84f1-947e94761a6e"
   },
   "__references": [],
   "__version": 1
