@@ -25,6 +25,9 @@ public static class SoundManager
         {SoundType.GunshotAR, "sounds/weapons/m4a1 shot.sound" },
         {SoundType.Explosion, "sounds/weapons/explosion_urban.sound"},
         {SoundType.Hitmarker, "sounds/weapons/hitmarker.sound"},
+        {SoundType.GunshotRocket, "sounds/weapons/rocketlauncherlaunchbit.sound"},
+        {SoundType.Reload, "sounds/weapons/m4 reload sequence.sound"},
+        {SoundType.OutOfAmmo, "sounds/weapons/rifle-clip-empty.sound"},
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };
@@ -93,7 +96,7 @@ public static class SoundManager
         var sound = Sound.Play( path );
         if ( sound != null )
         {
-            sound.Distance = 0f;
+            sound.Distance = 10f;
             sound.Falloff = 0f;
             sound.Volume = volume;
         }

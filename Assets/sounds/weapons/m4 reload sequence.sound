@@ -1,18 +1,18 @@
 {
-  "UI": false,
-  "Volume": "0.15",
-  "Pitch": "0.9 1.1",
+  "UI": true,
+  "Volume": "1",
+  "Pitch": "1",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/weapons/m4a1 shot.vsnd"
+    "sounds/m4 reload sequence.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
   "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
-  "Distance": 30000,
+  "Distance": 15000,
   "Falloff": [
     {
       "x": 0,
@@ -47,6 +47,8 @@
     "Name": "unknown",
     "Id": "00000000-0000-0000-0000-000000000000"
   },
-  "__references": [],
+  "__references": [
+    "drakefruit.rifle_reload#91283"
+  ],
   "__version": 1
 }

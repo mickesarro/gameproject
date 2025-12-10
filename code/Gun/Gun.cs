@@ -171,8 +171,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireBullet()
 	{
-        TryReload();
 
+		//Check ammo before firing
+		if (FireData.AmmoLeft <= 0) {
+			TryReload();
+			return;
+
+		}
+        
         --FireData.AmmoLeft;
 
 		// Shoot from the viewport
@@ -231,7 +237,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
-		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		if(FireData.AmmoLeft > 0) {
+			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		}
+		
 	}
 
     /// <summary>
