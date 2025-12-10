@@ -1,3 +1,5 @@
+using Shooter.Sounds;
+
 namespace Shooter;
 
 public sealed class AmmoPickup : Component, Component.ITriggerListener
@@ -12,6 +14,9 @@ public sealed class AmmoPickup : Component, Component.ITriggerListener
 			if ( !other.IsProxy )
 			{
 				ammoInv.AddAmmo(AmmoType, Amount);
+
+				//Play reload sound
+				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
 			}
 
 			DestroyGameObject();
