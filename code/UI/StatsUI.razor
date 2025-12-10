@@ -1,0 +1,84 @@
+@using Sandbox
+@using Sandbox.UI
+@using UISystem
+@inherits UILayer
+@implements IMatchEvents
+@namespace Shooter.UI
+
+<root>
+    <div class="stats_menu">
+        <h1>Match Stats</h1>
+
+        <div class="stats_table">
+            <div class="stats_header">
+                <span class="col player">Player</span>
+                <span class="col score">Score</span>
+                <span class="col kills">Kills</span>
+                <span class="col deaths">Deaths</span>
+            </div>
+
+            @{
+                int botCounter = 1;
+                BuildCharacterList();
+            }
+
+            @foreach (var character in characters)
+            {
+
+                string displayName = "";
+
+                if ( character.GameObject.Tags.Has( "npc" ) )
+                {
+                    displayName = $"Bot{ botCounter }";
+                    botCounter++;
+                }
+                else
+                {
+                    // Real player
+                    displayName = character.Network?.Owner
+                        ?.DisplayName ?? "Unknown";
+                }
+
+                <div class="stats_row">
+                    <span class="col player">@displayName</span>
+                    <span class="col score">@character.Score</span>
+                    <span class="col kills">@character.Kills</span>
+                    <span class="col deaths">@character.Deaths</span>
+                </div>
+            }
+
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public override bool IsOverlay => true;
+
+    IEnumerable<PlayerStats> characters;
+
+    //int totalScore = MatchStatsManager.Instance.TotalScore;
+    int totalScore = 0;
+
+    void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
+    void IMatchEvents.OnPlayerJoined() => StateHasChanged();
+
+    protected override int BuildHash() => System.HashCode.Combine( totalScore );
+
+    private void BuildCharacterList()
+    {
+        characters = MatchStatsManager.Instance.Tracked
+            .OrderByDescending(chr => chr.Score);
+    }
+
+    public override void Show()
+    {
+        GameObject.Enabled = true;
+        BuildCharacterList();
+    }
+
+    public override void Hide()
+    {
+        GameObject.Enabled = false; 
+    }
+}

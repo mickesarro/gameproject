@@ -36,9 +36,16 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
 		attacker.AddKill();
 		attacker.AddDamage( damageInfo.Damage );
+        attacker.AddScore( 1 );
+        UpdateScore( 1, "kill" );
         MatchManager.Instance.MatchGameMode.WinCondition( attacker );
     }
 
+    [Rpc.Broadcast]
+    private void UpdateScore(int amount, string reason)
+    {
+        IMatchEvents.Post( e => e.OnScoreAdded( amount, reason ) );
+    }
     
     // bad but works
     // parempi ratkaisu olisi varmaan muokata pelaaja prefabia niin, että sen parentissa olisi objekteja mitä ei ikinä
@@ -78,7 +85,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         base.OnUpdate();
         foreach ( var stats in tracked )
         {
-            Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
+            //Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
         }
     }
 }

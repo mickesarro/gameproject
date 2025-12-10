@@ -41,7 +41,9 @@ public class UIManager : SingletonBase<UIManager>
     /// <param name="addToHistory"></param>
     private void SwitchToLayer( UILayer layer, bool addToHistory )
     {
-        if ( currentLayer != null )
+        if ( layer == null ) return;
+
+        if ( currentLayer != null && !layer.IsOverlay )
         {
             if ( addToHistory )
             {
@@ -146,10 +148,6 @@ public class UIManager : SingletonBase<UIManager>
         if ( layerHistory.Count > 0 )
         {
             ShowLayer( layerHistory.Pop(), false );
-        }
-        else
-        {
-            ShowLayer( null, false );
         }
     }
 

@@ -9,16 +9,25 @@ namespace Shooter;
 /// </summary>
 public sealed class PlayerInput : Component
 {
-	// !!TODO: Merge either this class to main branches InputManager
-	// or that to this one.
+    // !!TODO: Merge either this class to main branches InputManager
+    // or that to this one.
 
-	// We could either define actions here to subscribe,
-	// or maybe preferably add more events to the player event interface.
+    // We could either define actions here to subscribe,
+    // or maybe preferably add more events to the player event interface.
 
-	// Some things such as player movement or mouse input should be
-	// handled where they are needed. But for event based input like
-	// jumping, crouching and especially toggling UI elements,
-	// a centralized input handler can be a cleaner alternative.
+    // Some things such as player movement or mouse input should be
+    // handled where they are needed. But for event based input like
+    // jumping, crouching and especially toggling UI elements,
+    // a centralized input handler can be a cleaner alternative.
+
+    private HUD HUD;
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        HUD = Game.ActiveScene.Get<HUD>();
+    }
 
 	protected override void OnUpdate()
 	{
@@ -30,9 +39,12 @@ public sealed class PlayerInput : Component
 
 	private void PollUIToggle()
 	{
-		if ( Input.Pressed( "OpenInventory" ) )
+		if ( Input.Pressed( "OpenStats" ) )
 		{
-			UIManager.Instance.ToggleLayer<InventoryUI>();
+			if ( HUD.GameObject.Enabled )
+            {
+                UIManager.Instance.ToggleLayer<StatsUI>();
+            }
 		}
 
 		if ( Input.Pressed( "Menu" ) )

@@ -12,6 +12,7 @@
     "NetworkMode": 0,
     "NetworkInterpolation": true,
     "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
     "OwnerTransfer": 1,
     "Components": [
       {
@@ -68,9 +69,9 @@
           },
           {
             "_type": "component",
-            "component_id": "0dcfd391-02ef-4e46-9182-dfaf380905d8",
+            "component_id": "c136b065-d8fa-4670-a083-065636caaaa1",
             "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
-            "component_type": "InventoryUI"
+            "component_type": "StatsUI"
           }
         ]
       }
@@ -89,11 +90,34 @@
         "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "Shooter.UI.HUD",
             "__guid": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Shooter.UI.Crosshair",
+            "__guid": "cc7d1b43-9040-407c-a67b-33d9f580c663",
+            "__enabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Shooter.UI.Hitmarker",
+            "__guid": "71b109a1-c8b0-489d-a182-f1b7967ed38c",
             "__enabled": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -118,6 +142,7 @@
         "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
@@ -148,6 +173,7 @@
         "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
@@ -179,7 +205,7 @@
         "__guid": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
         "__version": 1,
         "Flags": 0,
-        "Name": "Inventory",
+        "Name": "Stats",
         "Position": "0,0,0",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
@@ -188,21 +214,19 @@
         "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
-            "__type": "Shooter.UI.InventoryUI",
-            "__guid": "0dcfd391-02ef-4e46-9182-dfaf380905d8",
+            "__type": "Shooter.UI.StatsUI",
+            "__guid": "c136b065-d8fa-4670-a083-065636caaaa1",
             "__enabled": true,
-            "InventoryItems": [],
-            "MyStringValue": "Hello Worldsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!",
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Rows": 3
+            "OnComponentUpdate": null
           }
         ],
         "Children": []

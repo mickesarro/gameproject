@@ -38,7 +38,6 @@ public sealed class Deathmatch : GameMode
         const int scoreToAdd = 1; // Define score amounts somewhere
         if ( latestScoreEvent.Score + scoreToAdd >= scoreLimit )
         {
-            latestScoreEvent.AddScore( scoreToAdd );
             // Match end handler / ending screen etc. needs to be made
             IMatchEvents.Post( e => e.OnGameEnd() );
             GameObject.Enabled = false; // Might not work, but for dev time
