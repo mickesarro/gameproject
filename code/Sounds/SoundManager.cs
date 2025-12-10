@@ -27,6 +27,7 @@ public static class SoundManager
         {SoundType.Hitmarker, "sounds/weapons/hitmarker.sound"},
         {SoundType.GunshotRocket, "sounds/weapons/rocketlauncherlaunchbit.sound"},
         {SoundType.Reload, "sounds/weapons/m4 reload sequence.sound"},
+        {SoundType.OutOfAmmo, "sounds/weapons/rifle-clip-empty.sound"},
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };

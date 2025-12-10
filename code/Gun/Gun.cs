@@ -230,7 +230,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
-		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		if(FireData.AmmoLeft > 0) {
+			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		}
+		
 	}
 
     /// <summary>
@@ -239,7 +242,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
     /// <returns></returns>
     private bool TryReload()
     {
-        if ( FireData.AmmoLeft > 0 ) return false;
+        if ( FireData.AmmoLeft >= 0 ) return false;
 
         SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
         Reload();
