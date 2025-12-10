@@ -37,7 +37,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 		
 		if ( other.Tags.Contains( "player" ) )
 		{
-			Log.Info( other );
+			//Log.Info( other );
 			if ( !other.IsProxy )
 			{
 				Parent ??= other.GameObject;

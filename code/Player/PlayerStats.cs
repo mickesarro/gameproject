@@ -15,16 +15,16 @@ public sealed class PlayerStats : Component, ISerializable
     [Rpc.Owner]
     public void AddKill()
     {
-        Log.Info("AddKill");
+        // Log.Info("AddKill");
         Kills++;
-        Log.Info( Kills );
+        // Log.Info( Kills );
     }
     //[Rpc.Owner]
     public void AddDeath()
     {
-        Log.Info("AddDeath");
+        // Log.Info("AddDeath");
         Deaths++;
-        Log.Info( Deaths );
+        // Log.Info( Deaths );
     }
     [Rpc.Owner]
     public void AddDamage(float damage) => Damage += damage;
@@ -34,7 +34,7 @@ public sealed class PlayerStats : Component, ISerializable
     public void Accumulate( ISerializable data )
     {
         if ( data == null || data is not PlayerStats stats ) return;
-        Log.Info( "accumulatin'" );   
+        //Log.Info( "accumulatin'" );   
         this.Score += stats.Score;
         this.Kills += stats.Kills;
         this.Damage += stats.Damage;
