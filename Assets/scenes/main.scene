@@ -169,6 +169,66 @@
       "Children": []
     },
     {
+      "__guid": "128d2596-e747-4182-865c-824cb5cb0f77",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (2)",
+      "Position": "872.197,-7833.718,1",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "1721dd64-410b-41c9-b4d2-7c3f4b3494ef",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "928588b4-dbf0-4843-8d26-b8c1cf94e496",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (3)",
+      "Position": "-110.4346,-8800.977,1",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "b3821c0d-901a-4582-b96d-d4bbe1673705",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "c1c5d242-a6be-4c60-bf53-1d677b433c63",
       "__version": 1,
       "Flags": 0,
@@ -220,6 +280,18 @@
             {
               "_type": "gameobject",
               "go": "2fc26cb8-9044-4674-ae75-013769e5f599"
+            },
+            {
+              "_type": "gameobject",
+              "go": "d0c51ba4-122f-42d9-a8a6-a4331ff307ed"
+            },
+            {
+              "_type": "gameobject",
+              "go": "128d2596-e747-4182-865c-824cb5cb0f77"
+            },
+            {
+              "_type": "gameobject",
+              "go": "928588b4-dbf0-4843-8d26-b8c1cf94e496"
             }
           ],
           "StartServer": true
@@ -248,6 +320,7 @@
           "__guid": "008bd5eb-e5c8-4996-b3ac-a7338295ab43",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -820,6 +893,7 @@
           "__guid": "1b643592-77f6-4690-b075-c13b2637ce68",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -899,6 +973,7 @@
       "NetworkMode": 2,
       "NetworkInterpolation": true,
       "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
       "OwnerTransfer": 1,
       "Components": [
         {
@@ -923,6 +998,7 @@
           "__guid": "4496f840-d7a1-4cac-84ec-ce0bb4440ac2",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -1036,6 +1112,7 @@
           "__guid": "d994b960-4199-40c0-b67c-f3ce7a5faf83",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": false,
@@ -1170,6 +1247,7 @@
           "__guid": "39517a91-69e7-4a23-b6cc-8f8ef064f4d4",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -1308,6 +1386,7 @@
           "__guid": "c7dfac9b-dbdd-4b9e-bb49-f8572debab85",
           "__enabled": true,
           "Center": "0,0,25",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": true,
@@ -1333,6 +1412,7 @@
           "__guid": "fb302f39-8b70-4506-848d-fd9e3506ac61",
           "__enabled": true,
           "Center": "0,0,0",
+          "ColliderFlags": 0,
           "Elasticity": null,
           "Friction": null,
           "IsTrigger": false,
