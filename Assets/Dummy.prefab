@@ -83,7 +83,7 @@
         "__type": "Shooter.NPC.NPCController",
         "__guid": "d41283fc-b61a-4c46-9146-a8b89624275b",
         "__enabled": true,
-        "defaultState": "None",
+        "defaultState": "Hunt",
         "detectionDistance": 1000,
         "FOV": 60,
         "hunted": null,
@@ -93,7 +93,11 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "states": [],
+        "states": [
+          "Hunt",
+          "Attack",
+          "Search"
+        ],
         "Waypoints": []
       },
       {
@@ -171,7 +175,7 @@
         "__type": "Shooter.CharacterSpawner",
         "__guid": "f658cad7-f55a-476e-9a08-0f528fb10a08",
         "__enabled": true,
-        "CharacterPrefab": "Dummy.prefab",
+        "CharacterPrefab": "dummy.prefab",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -2756,14 +2760,6 @@
                 "_type": "gameobject",
                 "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
               }
-            },
-            {
-              "Target": {
-                "Type": "Component",
-                "IdValue": "62981691-f68e-4421-83db-af3a9d76d810"
-              },
-              "Property": "AutomaticReload",
-              "Value": true
             },
             {
               "Target": {
