@@ -37,11 +37,11 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// Needs to be also implement IWeapon so that it can have a WeaponType.
 	/// </summary>
 	/// <param name="item"></param>
-	public void AddItem( ICollectable item )
+	public bool AddItem( ICollectable item )
 	{
-		if ( item == null ) return;
+		if ( item == null ) return false;
 
-		if ( item is not IWeapon weapon || weapon.WeaponType == WeaponType.Total ) return;
+		if ( item is not IWeapon weapon || weapon.WeaponType == WeaponType.Total ) return false;
 
 		int ind = (int)weapon.WeaponType;
 
@@ -57,6 +57,8 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		{
 			ChangeCurrentItem( item );
 		}
+
+        return true;
 	}
 
 	void IPlayerEvent.OnItemAdded( ICollectable item ) => AddItem( item );
@@ -140,7 +142,15 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 
 	private void DropWeapon( ICollectable weapon )
 	{
-		// Handle dropping the weapon if deemed necessary
+        // This is work in progress, need to add a drop/transfer method
+        // to the collectables to handle this well.
+
+        // Handle dropping the weapon if deemed necessary
+        var go = weapon.GetGameObject();
+        // go.GetComponent<IWeapon>().User = null;
+        go.Parent = null;
+        go.Network.DropOwnership();
+
 	}
 
 }

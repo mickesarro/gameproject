@@ -322,4 +322,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
             SetAnimation(modelType.ViewModel, "fire", false );
         }
 	}
+
+    public GameObject GetGameObject() => GameObject;
 }

@@ -144,6 +144,8 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         GameObject.Enabled = enable;
     }
 
+    public GameObject GetGameObject() => GameObject;
+
     public void Collect( GameObject interactor )
     {
         User = interactor;
