@@ -10,9 +10,10 @@ namespace Shooter;
 /// </summary>
 public class BlastEffect : GameObject
 {
-	[Property] public float Radius { get; set; } = 200.0f; // Tweak the blast radius
+	[Property] public float Radius { get; set; } = 300.0f; // Tweak the blast radius
 	[Property] public float BlastForce { get; set; } = 500.0f; // Tweak blast force
-	[Property] public float Damage { get; set; } = 50.0f; // Ehkä joskus joku damage mikä riippuu etäisyydestä?
+	[Property] public float Damage { get; set; } = 35.0f; // Tweak damage
+	[Property, Range(0f, 1f)] public float SelfDamageMultiplier {get; set;} = 0.4f;
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
@@ -43,9 +44,16 @@ public class BlastEffect : GameObject
 				{
 					character.ApplyForce(direction * BlastForce * damageFalloff);
 
+					float finalDamage = Damage * damageFalloff;
+
+                    if ( hittable == attacker )
+                    {
+                        finalDamage *= SelfDamageMultiplier;
+                    }
+
 					var damageInfo = new DamageInfo()
 					{
-						Damage = Damage * damageFalloff,
+						Damage = finalDamage,
 						Attacker = attacker,
 						Position = trace.HitPosition,
 					};
