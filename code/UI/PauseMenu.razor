@@ -44,6 +44,8 @@
         // Implement scene manager
         Log.Info("Main menu");
 
+        Networking.Disconnect();
+
         // Once again, make a scene manager
         // Save stats etc. cleanup
         var slo = new SceneLoadOptions {};

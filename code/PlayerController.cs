@@ -514,7 +514,8 @@ public sealed class PlayerController : Component, ICharacterBase
 
 		    if ( UseCustomFOV )
 		    {
-			    Camera.FieldOfView = CustomFOV;
+			    Camera.FieldOfView = SettingsManager.Instance.PlayerPreferences.Fov;
+                SettingsManager.Instance.SubscribeCameraFOV( Camera, true );
 		    }
 		    else
 		    {

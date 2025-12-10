@@ -12,6 +12,8 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 	[Property] private GameObject ItemPrefab { get; set; }
 	[Property] private float Spin { get; set; } = 0f;
 
+    [Property] private HideForTime hideForTime;
+
 	protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -20,6 +22,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 			Log.Error( "No item prefab provided, destroying." );
 			DestroyGameObject();
 		}
+        hideForTime ??= GetOrAddComponent<HideForTime>();
 	}
 
 	protected override void OnUpdate()
@@ -35,9 +38,9 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 	public void OnTriggerEnter( Collider other )
 	{
 		
-		if ( other.Tags.Contains( "player" ) )
+		if ( other.Tags.Contains( "player" ) && !hideForTime.IsHiding() )
 		{
-			Log.Info( other );
+			//Log.Info( other );
 			if ( !other.IsProxy )
 			{
 				Parent ??= other.GameObject;
@@ -57,7 +60,8 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 
 				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
 			}
-			DestroyGameObject();
+            //DestroyGameObject();
+            hideForTime.HideFor();
 		}
 	}
 	

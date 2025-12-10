@@ -92,7 +92,7 @@
         "StandingHeight": 72,
         "StopSpeed": 80,
         "ToggleCrouch": false,
-        "UseCustomFOV": false,
+        "UseCustomFOV": true,
         "UseCustomGravity": true,
         "Weight": 1
       },

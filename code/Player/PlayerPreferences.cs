@@ -14,8 +14,8 @@ public sealed class PlayerPreferences : ISerializable
 
 	// Settings constant ranges could be defined elsewhere or just omitted here
 	// if we trust the srouces
-	private const float MaxVolume = 100f;
-	private const float MinVolume = 0f;
+	public readonly float maxVolume = 100f;
+	public readonly float minVolume = 0f;
 
 	private float volume = 50f;
 	public float Volume 
@@ -23,12 +23,12 @@ public sealed class PlayerPreferences : ISerializable
 		get => volume;
 		set
 		{
-			volume = Math.Clamp(value, MinVolume, MaxVolume);
+			volume = Math.Clamp(value, minVolume, maxVolume);
 		}
 	}
 
-	private const float minFov = 60f;
-	private const float maxFov = 140f;
+	public readonly float minFov = 60f;
+	public readonly float maxFov = 120f;
 
 	private float fov = 90f;
 	public float Fov

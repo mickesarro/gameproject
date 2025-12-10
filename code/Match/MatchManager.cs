@@ -8,13 +8,13 @@ namespace Shooter;
 public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetworkListener, IMatchEvents
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
-    private int initializedCount = 1;
+    // private int initializedCount = 1;
 
     [Sync] public GameMode MatchGameMode { get; private set; }
 
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
+    //protected override void OnUpdate()
+    //{
+        //base.OnUpdate();
         //var characterHealths1 = Scene.GetAllComponents<CharacterHealth>();
         //Log.Info( characterHealths1.Count() );
         // if (initializedCount -1 == Players.Count()) return;
@@ -25,7 +25,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         //     characterHealth.SetMatchInstance( this );
         //     initializedCount++;
         // }
-    }
+    //}
 
 
     protected override void OnStart()
@@ -37,6 +37,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         // e.g. start game only when all players are loaded, or something. 
 
         //StartGame();
+        
     }
 
     private void StartGame()
