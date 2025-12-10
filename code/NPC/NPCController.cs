@@ -77,7 +77,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
             StateMachine.Initialize(StateFactory(defaultState));
         }
 
-        IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
+        //IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
     }
 
     protected override void OnEnabled()
