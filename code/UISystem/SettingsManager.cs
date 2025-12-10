@@ -58,27 +58,29 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
 	public void SubscribeCameraFOV(CameraComponent camera, bool useCustomFOV)
 	{
-		if (camera == null) return;
+		if (camera == null) 
+			return;
 
+		// Remove the old handler if this camera was already subscribed.
+		// For example, if the player respawns, there would otherwise be two handlers.
 		if (cameraFovHandlers.ContainsKey(camera))
 		{
 			OnFovChanged -= cameraFovHandlers[camera];
 			cameraFovHandlers.Remove(camera);
 		}
-		
-		void cameraFovHandler(float fov)
+
+		// Create a new handler
+		cameraFovHandlers[camera] = fov =>
 		{
-			if (useCustomFOV)
-				camera.FieldOfView = fov;
-		}
+			Log.Info("Changing Fov");
+			camera.FieldOfView = fov;
+		};
 
-		cameraFovHandlers[camera] = cameraFovHandler;
-		OnFovChanged += cameraFovHandler;
+		OnFovChanged += cameraFovHandlers[camera];
 
-		if (useCustomFOV)
-			camera.FieldOfView = PlayerPreferences.Fov;
+		camera.FieldOfView = PlayerPreferences.Fov;
+
 	}
-
 	public void SetVolume(float volume)
 	{
 		playerPreferences.Volume = volume;
