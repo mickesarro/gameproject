@@ -83,7 +83,7 @@
         "__type": "Shooter.NPC.NPCController",
         "__guid": "d41283fc-b61a-4c46-9146-a8b89624275b",
         "__enabled": true,
-        "defaultState": "Hunt",
+        "defaultState": "Search",
         "detectionDistance": 1000,
         "FOV": 60,
         "hunted": null,
