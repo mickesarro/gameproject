@@ -5,7 +5,7 @@
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/weapons/rocketlauncherlaunchbit.vsnd"
+    "sounds/weapons/rocket_launcher.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
