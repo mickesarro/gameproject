@@ -28,7 +28,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	public GunData GunData => gunData;
 
-	private FireData FireData; // Just for convenience
+    public MeleeData MeleeData => null;
+
+    private FireData FireData; // Just for convenience
 
 	private SkinnedModelRenderer viewModelRenderer;
 	private SkinnedModelRenderer playerModelRenderer;
@@ -65,7 +67,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			return;
 		}
 
-        // Could be implemented with tags for example
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
     }
 
@@ -110,7 +111,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Should be implemented with some form of events perhaps
 		if ( input && CanShoot() )
 		{
-			Shoot();
+			Attack();
 		}
 	}
 
@@ -124,7 +125,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		return timeSinceLastShot > shootInterval;
 	}
 
-	public void Shoot()
+	public void Attack()
 	{
 		// For future reference:
 		// Both could be components that implement e.g. a IFireable interface.
@@ -170,8 +171,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private void FireBullet()
 	{
-        TryReload();
 
+		//Check ammo before firing
+		if (FireData.AmmoLeft <= 0) {
+			TryReload();
+			return;
+
+		}
+        
         --FireData.AmmoLeft;
 
 		// Shoot from the viewport
@@ -230,7 +237,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
-		SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		if(FireData.AmmoLeft > 0) {
+			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		}
+		
 	}
 
     /// <summary>
@@ -282,7 +292,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public void Collect( GameObject interactor )
 	{
 		User = interactor;
-		IPlayerEvent.PostToGameObject( interactor, e => e.OnItemAdded( this ) );
+		IPlayerEvent.Post( e => e.OnItemAdded( this ) );
 	}
 
 	[Rpc.Broadcast]

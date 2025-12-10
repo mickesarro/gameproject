@@ -1,3 +1,4 @@
+using Shooter.Sounds;
 namespace Shooter;
 
 /// <summary>
@@ -53,8 +54,9 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 				item.NetworkSpawn( spawnOptions );
 
 				item.GetComponent<ICollectable>( includeDisabled: true )?.Collect( Parent );
-			}
 
+				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
+			}
 			DestroyGameObject();
 		}
 	}

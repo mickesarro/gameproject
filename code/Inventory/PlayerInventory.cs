@@ -45,7 +45,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		int ind = (int)weapon.WeaponType;
 
 		var current = weapons[ind];
-		if ( current != null || current != item )
+		if ( current != null && current != item )
 		{
 			DropWeapon( current );
 		}
@@ -99,26 +99,20 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// <param name="ind"></param>
 	public void ChangeCurrentItem( int ind )
 	{
-		if (ind < 0  || ind >= weapons.Length ) return;
+        if ( ind < 0 || ind >= weapons.Length ) return;
 
-		// todo
-		if ( ind == 2 ) Log.Info( "no melee yet" );
-		// estää ottamasta tyhjän slotin käteen
-		if ( weapons[ind] == null ) return;
-		
-		// estää valitsemasta jo kädessä olevan aseen
-		if ( CurrentWeapon?.WeaponType != null )
-		{ 
-			if ((int) CurrentWeapon.WeaponType == ind) return;
-		}
+        // Disable previous weapon safely
+        CurrentItem?.EnableGo( false );
 
-		CurrentItem?.EnableGo( false );
-
+		// Set new weapon
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
-		CurrentItem?.EnableGo( true );
+        // Uses null propagation to safelu set it
+        // Also all ICollectable implementing interfaces have EnableGo method
+        CurrentItem?.EnableGo( true );
 	}
+
 
 	public void ChangeCurrentItem( ICollectable collectable ) {
 		if ( collectable is not IWeapon weapon ) return;
