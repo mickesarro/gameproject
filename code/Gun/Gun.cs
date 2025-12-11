@@ -97,6 +97,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if ( IsProxy || !IsPlayer ) return;
 
+        if ( Input.Down( "reload" ) ) {
+            TryReload( loadAdditive: true );
+            return;
+        }
+
 		bool input = false;
 		switch (FireData.FireType)
 		{
@@ -230,14 +235,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private void Reload()
 	{
 		int reloaded = AmmoInventory
-			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo ); // Intentionally MaxAmmo as it is the magazine size
+			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo - FireData.AmmoLeft); // Intentionally MaxAmmo as it is the magazine size
 
-		FireData.AmmoLeft = reloaded;
+		FireData.AmmoLeft += reloaded;
 
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
-		if(FireData.AmmoLeft > 0) {
+		if ( reloaded > 0 ) {
 			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 		}
 		
@@ -247,11 +252,18 @@ public sealed class Gun : Component, IWeapon, ICollectable
     /// Reloads if no ammo left
     /// </summary>
     /// <returns></returns>
-    private bool TryReload()
+    private bool TryReload( bool loadAdditive = false )
     {
-        if ( FireData.AmmoLeft > 0 ) return false;
+        // Using the same one as shooting for now
+        if ( !CanShoot() ) return false;
 
-        SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+        if ( !loadAdditive && FireData.AmmoLeft > 0 ) return false;
+
+        if ( FireData.AmmoLeft == 0 )
+        {
+            SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+        }
+        
         Reload();
 
         return true;

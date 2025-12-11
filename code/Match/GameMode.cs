@@ -41,7 +41,7 @@ public abstract class GameMode : Component
         // This could, and in the future probably should, live in utils
         return Random.Shared.FromArray<GameObject>(
             [.. Scene.GetComponentInChildren<NetworkHelper>().SpawnPoints]
-        ).GetComponent<Shooter.SpawnPoint>(  );
+        )?.GetComponent<Shooter.SpawnPoint>(  );
 
     }
 
