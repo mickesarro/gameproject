@@ -1,3 +1,4 @@
+using Shooter.Sounds;
 using Sandbox;
 
 namespace Shooter;
@@ -77,6 +78,8 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
             IDamageEvent.Post( e => e.OnDamage( trace.GameObject, damageInfo ) );
             target.OnDamage( damageInfo );
         }
+
+        SoundManager.PlayLocal(SoundManager.SoundType.Punch);
 
         SetAnimation( modelType.ViewModel, "b_attack", true );
     }
