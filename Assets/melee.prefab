@@ -41,6 +41,7 @@
         "Cooldown": 0.5,
         "Damage": 25,
         "HitRadius": 30,
+        "HoldType": "Punch",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -88,7 +89,7 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 2,
+        "NetworkMode": 0,
         "NetworkInterpolation": true,
         "NetworkOrphaned": 0,
         "NetworkTransmit": true,
@@ -132,8 +133,8 @@
             },
             "PlaybackRate": 1,
             "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
+              "GameLayer": false,
+              "OverlayLayer": true,
               "BloomLayer": false,
               "AfterUILayer": false
             },
