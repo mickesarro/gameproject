@@ -34,7 +34,7 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
         {
             meleeWeapon.User = GameObject;
             meleePrefab.Components.TryGet<ICollectable>( out var collectable );
-            collectable.Collect( GameObject.Parent );
+            collectable.Collect( GameObject );
             //PlayerInventory.AddItem( (ICollectable) meleeWeapon );
         }
     }

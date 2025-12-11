@@ -34,7 +34,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		if ( IsProxy ) return;
 
 		Health -= damageInfo.Damage;
-		Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
+		// Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
 
         // Flinch animations, screen red etc.
         OnDamage?.Invoke( damageInfo );
