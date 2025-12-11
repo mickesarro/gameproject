@@ -103,7 +103,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 		Players.Add( channel );
         CurrentPlayers++;
         
-        if (CurrentPlayers >= MatchGameMode.MaxPlayers) populator?.RemoveDummy();
+        if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
     }
 
 	void INetworkListener.OnDisconnected( Connection channel )
@@ -120,7 +120,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 	{
 		IMatchEvents.Post( e => e.OnPlayerJoined() );
         // pitää miettiä, sama ei ehkä toimi dedikoidulla servulla
-        if ( Networking.IsHost )
+        if ( channel.IsHost )
         {
             StartGame();
             TryPopulate();

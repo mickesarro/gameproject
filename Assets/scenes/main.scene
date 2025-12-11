@@ -26,7 +26,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "populate": true
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -229,6 +230,96 @@
       "Children": []
     },
     {
+      "__guid": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (4)",
+      "Position": "1582.916,-8800.977,1",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "07205979-7e6b-4ff5-bc60-27d827499eed",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "81a0859b-468d-426d-8daa-38f24d749ec1",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (5)",
+      "Position": "350.0035,-6873.611,242.4128",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "d747ad0f-a6f6-4721-85fb-9febcdec8d3b",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (6)",
+      "Position": "350.0035,-6873.611,258.2894",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "8864e4c6-5f75-41b2-89ee-fa982efd71ea",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "c1c5d242-a6be-4c60-bf53-1d677b433c63",
       "__version": 1,
       "Flags": 0,
@@ -292,6 +383,18 @@
             {
               "_type": "gameobject",
               "go": "928588b4-dbf0-4843-8d26-b8c1cf94e496"
+            },
+            {
+              "_type": "gameobject",
+              "go": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c"
+            },
+            {
+              "_type": "gameobject",
+              "go": "81a0859b-468d-426d-8daa-38f24d749ec1"
+            },
+            {
+              "_type": "gameobject",
+              "go": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8"
             }
           ],
           "StartServer": true
