@@ -1,22 +1,29 @@
 @using Sandbox;
 @using Sandbox.UI;
 @using System
+@using Shooter.Sounds;
 @inherits Panel
 @namespace Shooter.UI
 
 @typeparam T
 
 <root>
-    <button onclick="@ButtonCallback">@DisplayValue</button>
+    <button onclick="@OnClick">@DisplayValue</button>
 </root>
 
 @code
 {
 
     [Property, TextArea] public T DisplayValue { get; set; }
-    [Property] public Action ButtonCallback { get; set; }	
+    [Property] public Action ButtonCallback { get; set; }
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( DisplayValue );
+    protected override int BuildHash() => System.HashCode.Combine(DisplayValue);
+
+    private void OnClick()
+    {
+        SoundManager.PlayLocal( SoundManager.SoundType.UIAccept );
+        ButtonCallback?.Invoke();
+    }
 }
