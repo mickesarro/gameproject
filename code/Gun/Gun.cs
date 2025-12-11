@@ -244,7 +244,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
 		if ( reloaded > 0 ) {
-			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+            BroadcastSound( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 		}
 		
 	}
@@ -297,7 +297,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         --FireData.AmmoLeft;
 
-		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 3000f, 0.3f );
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
