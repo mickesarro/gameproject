@@ -257,6 +257,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         return true;
     }
 
+    [Rpc.Broadcast]
 	private void SpawnTracer( Vector3 target )
 	{
 		// For future reference:

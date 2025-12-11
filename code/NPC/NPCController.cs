@@ -132,6 +132,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     };
 
     protected override void OnFixedUpdate() {
+        if ( IsProxy ) return;
+
         StateMachine.Update();
 		UpdateCitizenAnims();
 	}
