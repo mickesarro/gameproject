@@ -48,6 +48,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		var current = weapons[ind];
 		if ( current != null && current != item )
 		{
+            // DropWeapon( item );
 			DropWeapon( current );
 		}
 
@@ -147,6 +148,11 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 
         // Handle dropping the weapon if deemed necessary
         var go = weapon.GetGameObject();
+
+        // For now just destroy so we don't pick weapons of same type
+        go.Destroy();
+        return;
+
         // go.GetComponent<IWeapon>().User = null;
         go.Parent = null;
         go.Network.DropOwnership();

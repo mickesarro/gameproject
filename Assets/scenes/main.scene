@@ -1650,6 +1650,238 @@
       }
     },
     {
+      "__guid": "3d99439b-7fae-4f05-9255-a17ccae50212",
+      "__version": 1,
+      "__Prefab": "ammopickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Shooter.HideForTime",
+              "__guid": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb",
+              "__enabled": true,
+              "displayRenderer": {
+                "_type": "component",
+                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
+                "go": "adf8e434-7225-470c-ac21-606f8d756021",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "HideTime": 10,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "randomize": false,
+              "randomRange": "0"
+            }
+          }
+        ],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "eba09db0-334c-4562-87d7-d2fa4cf3b822"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Name",
+            "Value": "ammopickup (2)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Position",
+            "Value": "30.14111,-7118.305,17.68148"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "AmmoType",
+            "Value": "Medium"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "Amount",
+            "Value": 100
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "hideForTime",
+            "Value": {
+              "_type": "component",
+              "component_id": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb",
+              "go": "adf8e434-7225-470c-ac21-606f8d756021",
+              "component_type": "HideForTime"
+            }
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "adf8e434-7225-470c-ac21-606f8d756021": "3d99439b-7fae-4f05-9255-a17ccae50212",
+        "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "35708918-f2ce-445a-9947-a2aa69c47da3",
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "062128e3-2b2d-4964-b17f-13835a0b9d9d",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "73e084a9-7f49-4e4f-8895-ec15a019d5fb",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "4d7dae6b-c5dc-4fc5-9f1e-83aa7cf3534c"
+      }
+    },
+    {
+      "__guid": "24fe2d7f-0c22-40f9-91d5-55f24d5857bc",
+      "__version": 1,
+      "__Prefab": "ammopickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "7e979f6c-6dac-4561-baea-4395699f873c"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Shooter.HideForTime",
+              "__guid": "7e979f6c-6dac-4561-baea-4395699f873c",
+              "__enabled": true,
+              "displayRenderer": {
+                "_type": "component",
+                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
+                "go": "adf8e434-7225-470c-ac21-606f8d756021",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "HideTime": 10,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "randomize": true,
+              "randomRange": "2 25"
+            }
+          }
+        ],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "eba09db0-334c-4562-87d7-d2fa4cf3b822"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Name",
+            "Value": "ammopickup (3)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Position",
+            "Value": "308.8643,-8094.655,142.904"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "AmmoType",
+            "Value": "Medium"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "Amount",
+            "Value": 20
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            },
+            "Property": "hideForTime",
+            "Value": {
+              "_type": "component",
+              "component_id": "7e979f6c-6dac-4561-baea-4395699f873c",
+              "go": "adf8e434-7225-470c-ac21-606f8d756021",
+              "component_type": "HideForTime"
+            }
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "adf8e434-7225-470c-ac21-606f8d756021": "24fe2d7f-0c22-40f9-91d5-55f24d5857bc",
+        "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "3f5a8f9b-aaeb-47d8-a00d-6f1e562fa23e",
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "cf2e90cd-f8d9-40b4-8443-448cce4a6258",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "1a9010ad-0a43-4c1d-a80d-0732625ce022",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "8e928b1f-e64c-4e54-a7ec-b785384fbf54"
+      }
+    },
+    {
       "__guid": "7e404c37-6a7a-436d-a698-b565283bce21",
       "__version": 1,
       "Flags": 0,
