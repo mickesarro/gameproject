@@ -147,7 +147,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         if ( GunData.AutomaticReload && TryReload() ) return;
 
-        SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
         timeSinceLastShot = 0.0f;
         
 	}
@@ -185,6 +184,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
         
         --FireData.AmmoLeft;
+
+		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 
 		// Shoot from the viewport
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
@@ -289,6 +290,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
         TryReload();
 
         --FireData.AmmoLeft;
+
+		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
