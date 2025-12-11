@@ -38,7 +38,9 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// </summary>
 	/// <param name="item"></param>
 	public bool AddItem( ICollectable item )
-	{
+    {
+        if ( IsProxy ) return false;
+        
 		if ( item == null ) return false;
 
 		if ( item is not IWeapon weapon || weapon.WeaponType == WeaponType.Total ) return false;
@@ -103,6 +105,8 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	/// <param name="ind"></param>
 	public void ChangeCurrentItem( int ind )
 	{
+        if ( IsProxy ) return;
+        
         if ( ind < 0 || ind >= weapons.Length ) return;
 
         // Disable previous weapon safely
@@ -111,6 +115,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
         if ( weapons[ind] == null ) ind = 3;
 
 		// Set new weapon
+        Log.Info( "set weapon" );
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
@@ -118,15 +123,16 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
         // Also all ICollectable implementing interfaces have EnableGo method
         CurrentItem?.EnableGo( true );
 	}
-
-
+    
 	public void ChangeCurrentItem( ICollectable collectable ) {
+        if ( IsProxy ) return;
 		if ( collectable is not IWeapon weapon ) return;
 		ChangeCurrentItem( (int)weapon.WeaponType );
 	}
 
 	public void ChangeCurrentItem( InventorySlot slot )
 	{
+        if ( IsProxy ) return;
 		switch ( slot )
 		{
 			case InventorySlot.Next:
