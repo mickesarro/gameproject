@@ -34,7 +34,7 @@
         "OnObjectTriggerExit": null,
         "OnTriggerEnter": null,
         "OnTriggerExit": null,
-        "Radius": 13.199987,
+        "Radius": 30,
         "RollingResistance": null,
         "Static": false,
         "Surface": null,
@@ -104,7 +104,6 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Parent": null,
         "Spin": 90
       },
       {
