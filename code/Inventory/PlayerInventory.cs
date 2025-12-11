@@ -21,14 +21,15 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	public ICollectable PrimaryWeapon => weapons[0];
 	public ICollectable SecondaryWeapon => weapons[1];
 	public ICollectable MeleeWeapon => weapons[2];
+    public ICollectable Empty => weapons[3];
 
-	public ICollectable CurrentItem { get; private set; } = null;
+    public ICollectable CurrentItem { get; private set; } = null;
 	public IWeapon CurrentWeapon => (IWeapon)CurrentItem;
 	private int currentSlot = -1;
 
 	// The actual collection of the weapons
 	// Dictionary would add overhead for such small array, but also would be more type safe.
-	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total];
+	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total + 1]; // Plus 1 for empty
 	public IEnumerable<ICollectable> Items => weapons;
 
 	/// <summary>
@@ -103,6 +104,8 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 
         // Disable previous weapon safely
         CurrentItem?.EnableGo( false );
+
+        if ( weapons[ind] == null ) ind = 3;
 
 		// Set new weapon
 		CurrentItem = weapons[ind];
