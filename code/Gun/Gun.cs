@@ -185,7 +185,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         
         --FireData.AmmoLeft;
 
-		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+        BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 
 		// Shoot from the viewport
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
@@ -285,13 +285,19 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			.GetComponent<BeamEffect>().TargetPosition = target;
 	}
 
+    [Rpc.Broadcast]
+    private void BroadcastSound( SoundManager.SoundType soundType, Vector3 position, float range, float volume )
+    {
+        SoundManager.PlayGlobal( soundType, position, range, volume );
+    }
+
 	private void FireProjectile()
 	{
         TryReload();
 
         --FireData.AmmoLeft;
 
-		SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
+		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );

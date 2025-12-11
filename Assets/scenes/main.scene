@@ -667,8 +667,7 @@
             {
               "_type": "gameobject",
               "go": "5cd24929-9e8b-47ac-a77c-dbedf987390e"
-            },
-            null
+            }
           ],
           "StartServer": true
         }
