@@ -207,7 +207,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
         if ( damageInfo?.Attacker == null ) return;
 
         hunted = damageInfo.Attacker;
-        Log.Info( "changed state" );
+        //Log.Info( "changed state" );
         StateMachine.ChangeState<AttackState>();
 
     }

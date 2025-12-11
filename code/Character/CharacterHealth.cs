@@ -34,7 +34,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		if ( IsProxy ) return;
 
 		Health -= damageInfo.Damage;
-		Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
+		// Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
 
         // Flinch animations, screen red etc.
         OnDamage?.Invoke( damageInfo );
@@ -74,7 +74,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
 		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
-		Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
+		// Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
 
 		// Need to implement respawning etc. while maintaining the same gameobject
 		GameObject.Enabled = false;

@@ -26,7 +26,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "populate": true
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -460,6 +461,42 @@
             {
               "_type": "gameobject",
               "go": "2fc26cb8-9044-4674-ae75-013769e5f599"
+            },
+            {
+              "_type": "gameobject",
+              "go": "d0c51ba4-122f-42d9-a8a6-a4331ff307ed"
+            },
+            {
+              "_type": "gameobject",
+              "go": "c5ba0d94-eeaf-4395-942c-aa27bd74560e"
+            },
+            {
+              "_type": "gameobject",
+              "go": "48e275b4-aae5-49d8-998f-68758e667895"
+            },
+            {
+              "_type": "gameobject",
+              "go": "6f646f6b-b4bb-4310-b978-b4e99bf71620"
+            },
+            {
+              "_type": "gameobject",
+              "go": "c2447d59-89cd-4210-ae22-33d437395a36"
+            },
+            {
+              "_type": "gameobject",
+              "go": "b04e2cb5-eb3b-4a5d-b82c-a3a250e5ff5d"
+            },
+            {
+              "_type": "gameobject",
+              "go": "b8f84f9c-8fe3-4f7b-b248-ca463eba0bfb"
+            },
+            {
+              "_type": "gameobject",
+              "go": "7ab1c657-e6d0-4159-9e8d-02ac8d2941e5"
+            },
+            {
+              "_type": "gameobject",
+              "go": "14a36449-1bc9-42ad-8688-63d7c83ae4b9"
             }
           ],
           "StartServer": true
@@ -468,943 +505,395 @@
       "Children": []
     },
     {
-      "__guid": "1c8c4115-f56c-4ac6-8d6d-7aea7411f331",
+      "__guid": "4b026c71-352e-4312-bdaa-b799455162fc",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup",
-      "Position": "815.1554,-7825.606,21.94578",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "008bd5eb-e5c8-4996-b3ac-a7338295ab43",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "3efec7a5-938e-4a65-afdc-bc638c3bcd58",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "815.1554,-7825.606,21.94578"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "afc4e059-5792-4bba-bd97-1902b1d5bfe4",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "ed7ce93a-868f-43ca-aebc-1f8bfa3aad21",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "772f7c6a-f3a1-4dd0-81e4-9bf670c45961",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
-            }
-          ],
-          "Children": []
-        }
-      ]
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "HideTime",
+            "Value": 20
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "4b026c71-352e-4312-bdaa-b799455162fc",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "347c1353-3b7c-4f71-822e-0dc328790d2c",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "81829212-a1db-44ce-93eb-8b565904c4cf",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "ca7033e0-b44b-471d-9686-1df9648ae651",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "0a34ac4d-f861-4a09-ab2a-c7148fc3f824",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "4bcc444b-5f3d-4e00-abf5-dfd9f98aa687",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "4db6b4a1-23e4-4dc0-9d87-345f40f54047"
+      }
     },
     {
-      "__guid": "b154138b-326a-441a-8ddc-ebea220aecf6",
+      "__guid": "ad25dfd3-1866-40e6-8a3f-3b76d30d9bd3",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup (2)",
-      "Position": "312.0726,-7331.616,8.726761",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "1865c9e8-74a8-4b27-91c1-b68b86f93f3b",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "0440afb3-9322-4a0a-a4cd-d1e9cc06c1f5",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (1)"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "312.0726,-7331.616,8.726761"
           },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "f59d3725-f6b4-4e97-8c14-6224944f1f1a",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "b13b1f8d-ef64-4272-b97c-1ad4fd5457b9",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "db25e315-a54c-4324-94f1-36bbdc280cdd",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
-            }
-          ],
-          "Children": []
-        }
-      ]
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "HideTime",
+            "Value": 5
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "ad25dfd3-1866-40e6-8a3f-3b76d30d9bd3",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "ed3747ab-bb25-4b15-a8d1-88c9120b603f",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "18e52d31-7eb1-40da-b5e5-26ba2b6aa8ab",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "daa77d17-bb0b-4ca5-82da-78ee6ec2ce15",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "ac1f306c-e151-47ca-8169-2a325eeb1b20",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "9e45b9c1-e6bf-4605-a862-a5e55483b100",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "29bfee5e-3fc3-446e-9db0-25ae0b937c7c"
+      }
     },
     {
-      "__guid": "93ffe5f1-1dbc-4145-b540-dde7e5696a3c",
+      "__guid": "c4195dcf-771c-4a87-8614-4766c8535873",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup (3)",
-      "Position": "324.9902,-7954.646,15.57597",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "dd280aac-a64b-4302-b630-039a24122730",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "0769ebdd-d639-4245-a9b6-a667636cbe3b",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (2)"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "324.9902,-7954.646,15.57597"
           },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomize",
+            "Value": true
           },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "c1bca7ee-afa5-4918-afe6-f244b0e944a3",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "cfd64d42-bffa-4457-9361-16b65ee964b5",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "8f02b0e6-9a8b-4d35-bcb9-8b7f86735f0a",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
-            }
-          ],
-          "Children": []
-        }
-      ]
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomRange",
+            "Value": "5 25"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "c4195dcf-771c-4a87-8614-4766c8535873",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "c007b6a1-820e-4c27-b094-fe6e183822f5",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "6f6a775a-42f1-446c-a208-cd649353b758",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "11c92218-2471-4ca3-88df-36f54fbe050c",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "412b12ad-220d-4920-83e3-4963c39b562c",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "50fb6dcf-826d-492b-adb3-8cbf56856362",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "30335f3a-419b-4aec-8f6f-4111d887ff11"
+      }
     },
     {
-      "__guid": "7a51db21-a6b3-44db-a065-27a78c47d6de",
+      "__guid": "0cda52c8-2fbb-4eea-93ba-41e4a1aea437",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup (4)",
-      "Position": "904.3787,-7405.967,24.736",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "4066d97f-9c13-463e-97bc-dddac80b9512",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "bfbbbb1f-63aa-4de4-8d05-4a39fc6e9b90",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (3)"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "6433b1c9-a708-4f44-930a-f4fe6336f764",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "0a910c6d-c51b-45c8-b2c9-fdcc5c0a2234",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "f562c504-46bd-4c17-a381-74edb5d1203c",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
-            }
-          ],
-          "Children": []
-        }
-      ]
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "904.3787,-7405.967,24.736"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "0cda52c8-2fbb-4eea-93ba-41e4a1aea437",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "f8425f54-d4da-4728-baa9-4c2e09bacd87",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "75a7eeac-6ec9-46ef-82a3-c0e930fbe11d",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "9b8025ac-c17b-4fbb-9104-23665d409114",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "e7b0e5de-5f55-4167-b310-e70d7eda5a9b",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "8bd57f03-88be-446f-93d1-4e2cc1f33292",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "de1278d2-333a-4adf-8404-103d2268aad4"
+      }
     },
     {
-      "__guid": "77ac39fc-30a3-48d5-b528-0679ccf57c54",
+      "__guid": "2dc60fbc-0e9c-4f59-8427-9549668c0132",
       "__version": 1,
-      "Flags": 0,
-      "Name": "AR pickup",
-      "Position": "578.9556,-7292.414,273.5167",
-      "Rotation": "0,0,0.7071068,0.7071068",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "bdb25dea-30bf-4961-a73a-1a92997cfd6a",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test - 2.prefab"
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (4)"
           },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        },
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "1b643592-77f6-4690-b075-c13b2637ce68",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "95de5204-9422-4bee-aabc-71b4b3778b95",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 42259,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "578.9556,-7292.414,273.5167"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Rotation",
+            "Value": "0,0,0.7071068,0.7071068"
           },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "rockets_test - 2.prefab"
+            }
           },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        }
-      ],
-      "Children": []
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomize",
+            "Value": true
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomRange",
+            "Value": "10 30"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "2dc60fbc-0e9c-4f59-8427-9549668c0132",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "a5f4ae8f-f3c8-420b-b414-47818bcd90aa",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "3a30d93a-0f0c-47a7-9ae7-da93116cd78d",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "1efb576a-d541-487a-ae72-239e29c47363",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8fdfcce2-c9aa-43c7-8aef-8fedcd57a1e8",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "099eebdf-62f0-455b-91ce-28026d565584",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "161d6928-df96-4eab-b5a3-fd36ffc89a13"
+      }
     },
     {
-      "__guid": "d7a4b206-4043-48ce-817f-b77cea6f3a35",
+      "__guid": "1330e010-f470-42c4-8e37-57bbc0ebcaae",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup (5)",
-      "Position": "723.2932,-6899.84,28.42191",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "c7ad473b-7c82-4587-a1a5-b2c0326fd186",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "9a8b8dd1-6b38-4663-a636-b68aff86e77e",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (5)"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "723.2932,-6899.84,28.42191"
           },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "de23925f-97fb-4676-8ca1-8d2d8c3d942b",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "f2a9555c-09ae-47e8-915c-9fec34fd12d7",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "e46e590c-69cb-4450-8f4a-fac102bb1e0e",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "rockets_test - 2.prefab"
             }
-          ],
-          "Children": []
-        }
-      ]
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomize",
+            "Value": true
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomRange",
+            "Value": "10 30"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "1330e010-f470-42c4-8e37-57bbc0ebcaae",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "1b934f99-3157-4e88-89b0-cc5c7062b012",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "0ca9d240-a888-4705-84ba-fb83dce55ea5",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "04aca5bc-3dfa-4624-8709-bca2cd171388",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8afd9275-47a3-48c6-ae2b-11efedafdf48",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "13f32d70-7e52-4454-ad80-e734ec7d231d",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "b51de5d0-2b86-451e-bdc4-eaa065765513"
+      }
     },
     {
-      "__guid": "b171b636-1afa-4fb6-8cd5-7b211aa699f7",
+      "__guid": "9c5d2772-ecbe-4e4b-b252-493ac7127123",
       "__version": 1,
-      "Flags": 0,
-      "Name": "Rockets pickup (6)",
-      "Position": "279.0697,-6702.217,33.77792",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "c9b1276f-1be6-433c-9a40-e83edc5742d0",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13.199987,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "c5733d88-615c-4168-8ff6-0e28e3dd088f",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/weapons/sbox_rpg_recoillessrifle/v_recoillessrifle.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (6)"
           },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "279.0697,-6702.217,33.77792"
           },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        },
-        {
-          "__type": "Shooter.ItemPickup",
-          "__guid": "803b1e77-260c-4b04-9156-ffb3e893f711",
-          "__enabled": true,
-          "ItemPrefab": {
-            "_type": "gameobject",
-            "prefab": "rockets_test.prefab"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parent": null,
-          "Spin": 90
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "58f2b5f3-bbc7-4eb4-88d4-9bc2c479b167",
-          "__version": 1,
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "0,0,48.48",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkInterpolation": true,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Shooter.UI.ItemFloaty",
-              "__guid": "946d1d80-a695-4c5d-9486-c091149af39b",
-              "__enabled": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Size": 100,
-              "SpriteColor": "1,0,0,1",
-              "Texture": "textures/shapes/spark3.vtex"
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "rockets_test - 2.prefab"
             }
-          ],
-          "Children": []
-        }
-      ]
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            },
+            "Property": "randomRange",
+            "Value": "10 30"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "9c5d2772-ecbe-4e4b-b252-493ac7127123",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "7c736bac-5d93-4e42-ac89-6bacd2ca4918",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "bd2a38c0-54fe-4974-b94c-95f5895f5639",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "e4f991da-3523-4515-8532-bfcddfcb6206",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "80acef15-2eaa-49d4-98c2-7bdd70a724d6",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "abca7445-93ea-4fb1-83d4-c8d75fee4e38",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "e13e2323-6a09-4919-b84a-8135949181fd"
+      }
+    },
+    {
+      "__guid": "4ba2eabb-74c2-4a49-a939-355e16368ab1",
+      "__version": 1,
+      "__Prefab": "ammopickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "Property": "Position",
+            "Value": "408.2897,-7605.803,401.3091"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "adf8e434-7225-470c-ac21-606f8d756021": "4ba2eabb-74c2-4a49-a939-355e16368ab1",
+        "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "33784488-a07a-4a58-b898-f8d0e70a51dd",
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "0b229d45-ff7d-46c5-8953-d405b818424a",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "5b1912d5-6551-46c8-b622-5bee6f611cb3",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "3fd4ea19-5fcb-4ae1-9b7a-86d5cea535ae"
+      }
     },
     {
       "__guid": "7e404c37-6a7a-436d-a698-b565283bce21",
@@ -1498,107 +987,6 @@
       ]
     },
     {
-      "__guid": "0c0bf182-8231-4c82-b722-ff298c28546d",
-      "__version": 1,
-      "Flags": 0,
-      "Name": "AmmoPickup",
-      "Position": "408.2897,-7605.803,401.3091",
-      "Rotation": "0,0,0,1",
-      "Scale": "2,2,2",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkInterpolation": true,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.SphereCollider",
-          "__guid": "39517a91-69e7-4a23-b6cc-8f8ef064f4d4",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": true,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "Radius": 13,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        },
-        {
-          "__type": "Shooter.AmmoPickup",
-          "__guid": "332b865c-e7d4-4e2c-8029-62acd656e626",
-          "__enabled": true,
-          "AmmoType": "Rocket",
-          "Amount": 1,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
-        },
-        {
-          "__type": "Sandbox.SkinnedModelRenderer",
-          "__guid": "db2d4be6-54fa-447c-a52d-7634ba86197c",
-          "__enabled": true,
-          "AnimationGraph": null,
-          "BodyGroups": 18446744073709551615,
-          "BoneMergeTarget": null,
-          "CreateAttachments": false,
-          "CreateBoneObjects": false,
-          "LodOverride": null,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/items/rocket/projectile_rocket.vmdl",
-          "Morphs": {},
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "bools": {},
-            "ints": {},
-            "floats": {},
-            "vectors": {},
-            "rotations": {}
-          },
-          "PlaybackRate": 1,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Sequence": {
-            "Name": null,
-            "Looping": true,
-            "Blending": false
-          },
-          "Tint": "1,1,1,1",
-          "UseAnimGraph": false
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "38ba1a17-51e5-423e-9f65-851272b9aed1",
       "__version": 1,
       "Flags": 0,
@@ -1634,7 +1022,7 @@
           "CreateAttachments": false,
           "LodOverride": null,
           "MaterialGroup": null,
-          "MaterialOverride": "materials/trimsheets/tape/tape_construction.vmat",
+          "MaterialOverride": "materials/trimsheets/tape/tape_construction_dirty.vmat",
           "Materials": null,
           "Model": "models/dev/box.vmdl",
           "OnComponentDestroy": null,
@@ -1742,7 +1130,7 @@
           "CreateAttachments": false,
           "LodOverride": null,
           "MaterialGroup": null,
-          "MaterialOverride": "materials/trimsheets/tape/tape_construction.vmat",
+          "MaterialOverride": "materials/trimsheets/tape/tape_construction_dirty.vmat",
           "Materials": null,
           "Model": "models/dev/box.vmdl",
           "OnComponentDestroy": null,
@@ -1850,7 +1238,7 @@
           "CreateAttachments": false,
           "LodOverride": null,
           "MaterialGroup": null,
-          "MaterialOverride": "materials/trimsheets/tape/tape_construction.vmat",
+          "MaterialOverride": "materials/trimsheets/tape/tape_construction_dirty.vmat",
           "Materials": null,
           "Model": "models/dev/box.vmdl",
           "OnComponentDestroy": null,
@@ -1945,10 +1333,7 @@
   "Title": null,
   "Description": null,
   "__references": [
-    "baik.projectile_rocket#43884",
-    "facepunch.barriertapea#117500",
-    "facepunch.v_m4a1#125828",
-    "facepunch.v_recoillessrifle#116232"
+    "facepunch.tapeconstructiondirty#117501"
   ],
   "__version": 3
 }
