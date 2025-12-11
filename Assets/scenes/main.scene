@@ -26,7 +26,8 @@
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null
+          "OnComponentUpdate": null,
+          "populate": true
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -229,6 +230,96 @@
       "Children": []
     },
     {
+      "__guid": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (4)",
+      "Position": "1582.916,-8800.977,1",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "07205979-7e6b-4ff5-bc60-27d827499eed",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "81a0859b-468d-426d-8daa-38f24d749ec1",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (5)",
+      "Position": "350.0035,-6873.611,242.4128",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "d747ad0f-a6f6-4721-85fb-9febcdec8d3b",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8",
+      "__version": 1,
+      "Flags": 0,
+      "Name": "SpawnPoint (6)",
+      "Position": "350.0035,-6873.611,258.2894",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "8864e4c6-5f75-41b2-89ee-fa982efd71ea",
+          "__enabled": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
       "__guid": "c1c5d242-a6be-4c60-bf53-1d677b433c63",
       "__version": 1,
       "Flags": 0,
@@ -292,6 +383,18 @@
             {
               "_type": "gameobject",
               "go": "928588b4-dbf0-4843-8d26-b8c1cf94e496"
+            },
+            {
+              "_type": "gameobject",
+              "go": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c"
+            },
+            {
+              "_type": "gameobject",
+              "go": "81a0859b-468d-426d-8daa-38f24d749ec1"
+            },
+            {
+              "_type": "gameobject",
+              "go": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8"
             }
           ],
           "StartServer": true
@@ -305,7 +408,14 @@
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
         "AddedObjects": [],
-        "RemovedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
         "PropertyOverrides": [
           {
             "Target": {
@@ -326,18 +436,10 @@
           {
             "Target": {
               "Type": "Component",
-              "IdValue": "ae1bbe99-2f06-47f5-9ded-faa008f695f1"
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "randomize",
-            "Value": true
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "ae1bbe99-2f06-47f5-9ded-faa008f695f1"
-            },
-            "Property": "randomRange",
-            "Value": "5 15"
+            "Property": "hideForTime",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -349,7 +451,7 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "b2c929df-ec43-4423-b561-43eebab158a6",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "84811b4a-fbe4-4819-9259-8fbbab3b1ba6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "ce01df84-d634-4a82-a26d-8581c395d9e9",
-        "ae1bbe99-2f06-47f5-9ded-faa008f695f1": "7774dfe9-6ea4-4e25-99c9-74e7d50e62c2"
+        "33518910-05f3-4b9d-8a1c-da67375cea83": "b7369aa5-6b9a-49e2-a377-e83b40821e73"
       }
     },
     {
@@ -358,7 +460,14 @@
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
         "AddedObjects": [],
-        "RemovedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
         "PropertyOverrides": [
           {
             "Target": {
@@ -389,6 +498,14 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
             "Property": "ItemPrefab",
             "Value": {
               "_type": "gameobject",
@@ -405,7 +522,7 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "aa90ac0c-98f6-4db5-a8e3-665002c32c36",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e7871b22-dd93-4099-9f33-820096054504",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "c502df2b-a863-4f51-a9bc-3cee7d0fba63",
-        "ae1bbe99-2f06-47f5-9ded-faa008f695f1": "dc00a17a-6fba-43c2-8d3a-74fbc146141b"
+        "33518910-05f3-4b9d-8a1c-da67375cea83": "8d05da94-69d6-45ab-a87f-9a11d0aac27f"
       }
     },
     {
@@ -414,7 +531,14 @@
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
         "AddedObjects": [],
-        "RemovedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
         "PropertyOverrides": [
           {
             "Target": {
@@ -439,6 +563,14 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -450,7 +582,7 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f18da195-b454-4a87-9772-18d49fa23427",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "5fde3b17-7163-431c-b57a-add1465b9034",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "67b174b4-63c3-4180-bb18-caa47abc4957",
-        "ae1bbe99-2f06-47f5-9ded-faa008f695f1": "cdaef87f-cd5e-47f5-bc59-cf54af1c62b1"
+        "33518910-05f3-4b9d-8a1c-da67375cea83": "57d70698-3444-4764-9e87-d6f3de6f8a7c"
       }
     },
     {
@@ -459,7 +591,14 @@
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
         "AddedObjects": [],
-        "RemovedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
         "PropertyOverrides": [
           {
             "Target": {
@@ -490,19 +629,19 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
             "Property": "ItemPrefab",
             "Value": {
               "_type": "gameobject",
               "prefab": "rockets_test - 2.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "ae1bbe99-2f06-47f5-9ded-faa008f695f1"
-            },
-            "Property": "HideTime",
-            "Value": 8
           }
         ],
         "MovedObjects": []
@@ -514,7 +653,7 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f8b7464c-ff11-4fe8-9b02-b6e37f14560e",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "aa69d0a1-1dc7-4005-a704-caf91b6a5f1c",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "07a2bf16-42a2-4bb8-bdfb-64efe38d31bc",
-        "ae1bbe99-2f06-47f5-9ded-faa008f695f1": "a6b8bd16-8d57-461d-b5b6-577edb601410"
+        "33518910-05f3-4b9d-8a1c-da67375cea83": "655fe984-3b37-48bd-b7bb-b3f9aa28e0e1"
       }
     },
     {
@@ -522,49 +661,12 @@
       "__version": 1,
       "__Prefab": "ammopickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "18262eae-ba5e-4f49-98a5-faef66f97f80"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Shooter.HideForTime",
-              "__guid": "18262eae-ba5e-4f49-98a5-faef66f97f80",
-              "__enabled": true,
-              "displayRenderer": {
-                "_type": "component",
-                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
-                "go": "adf8e434-7225-470c-ac21-606f8d756021",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "HideTime": 5,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "randomize": false,
-              "randomRange": "1 10"
-            }
-          }
-        ],
+        "AddedObjects": [],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "19483da4-bb3b-43c3-9172-7648b6014ea8"
+              "IdValue": "eba09db0-334c-4562-87d7-d2fa4cf3b822"
             }
           }
         ],
@@ -601,7 +703,7 @@
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "87de6155-cbe0-4bf5-ae0a-4e55b08b4386",
         "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "340da824-7d13-4bba-a918-fc63d54134b4",
         "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "faaa0e5f-0eb8-49e7-93ce-71008660232b",
-        "19483da4-bb3b-43c3-9172-7648b6014ea8": "58ead1f0-b5c1-44e1-840a-663d4e6362d6"
+        "80d53a4f-4213-4fc5-b36f-b749cefaf966": "dd854578-536b-46a6-a0b6-fe58b6a57e80"
       }
     },
     {
@@ -609,49 +711,12 @@
       "__version": 1,
       "__Prefab": "ammopickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "ff7de992-e84b-4c7c-b1b7-e75e9ae04e59"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Shooter.HideForTime",
-              "__guid": "ff7de992-e84b-4c7c-b1b7-e75e9ae04e59",
-              "__enabled": true,
-              "displayRenderer": {
-                "_type": "component",
-                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
-                "go": "adf8e434-7225-470c-ac21-606f8d756021",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "HideTime": 10,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "randomize": true,
-              "randomRange": "1 10"
-            }
-          }
-        ],
+        "AddedObjects": [],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "19483da4-bb3b-43c3-9172-7648b6014ea8"
+              "IdValue": "eba09db0-334c-4562-87d7-d2fa4cf3b822"
             }
           }
         ],
@@ -696,7 +761,7 @@
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "f124f30d-42e5-4b11-bee6-25b6ebe3bade",
         "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "c3960832-7340-42a3-8476-e467741d3d2a",
         "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "99a8f332-d4f2-4fd3-a0d2-06efe396b2dd",
-        "19483da4-bb3b-43c3-9172-7648b6014ea8": "9596a2d5-c923-4380-9161-3eda0de24107"
+        "80d53a4f-4213-4fc5-b36f-b749cefaf966": "ab79fe47-9acb-40b0-ab79-1cc5f5a11efc"
       }
     },
     {

@@ -9,8 +9,12 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 {
 	[Sync] public NetList<Connection> Players { get; private set; } = new();
     // private int initializedCount = 1;
+    [Sync] public int CurrentPlayers { get; private set; } = 0;
 
     [Sync] public GameMode MatchGameMode { get; private set; }
+
+    private PopulateWithNpcs populator = null;
+    [Property] private bool populate = true;
 
     //protected override void OnUpdate()
     //{
@@ -36,8 +40,12 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         // This might not be the correct place depending on the flow we want
         // e.g. start game only when all players are loaded, or something. 
 
-        //StartGame();
-        
+        //StartGame();  
+
+        if ( Networking.IsHost && populate )
+        {
+            populator ??= GameObject.GetOrAddComponent<PopulateWithNpcs>( startEnabled: true );
+        }
     }
 
     private void StartGame()
@@ -70,16 +78,32 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 	{
 		// MatchGameMode = gameMode;
 		StartGame();
-	}
+    }
 
-	public void EndGame()
+    public void EndGame()
 	{
 		IMatchEvents.Post( e => e.OnGameEnd() );
 	}
 
-	void INetworkListener.OnConnected( Connection channel )
+    /// <summary>
+    /// Populates the lobby with NPCs
+    /// </summary>
+    [Rpc.Host]
+    private void TryPopulate()
+    {
+        if ( CurrentPlayers < MatchGameMode.MaxPlayers ) {
+            int npcsToAdd = MatchGameMode.MaxPlayers - CurrentPlayers;
+            populator?.SpawnDummys( npcsToAdd );
+            CurrentPlayers += npcsToAdd;
+        }
+    }
+
+    void INetworkListener.OnConnected( Connection channel )
 	{
 		Players.Add( channel );
+        CurrentPlayers++;
+        
+        if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
     }
 
 	void INetworkListener.OnDisconnected( Connection channel )
@@ -87,15 +111,19 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 		IMatchEvents.Post( e => e.OnPlayerLeft(channel.Id) );
 
 		Players.Remove( channel );
-	}
+        CurrentPlayers--;
 
-	void INetworkListener.OnActive( Connection channel )
+        TryPopulate();
+    }
+
+    void INetworkListener.OnActive( Connection channel )
 	{
 		IMatchEvents.Post( e => e.OnPlayerJoined() );
         // pitää miettiä, sama ei ehkä toimi dedikoidulla servulla
         if ( channel.IsHost )
         {
             StartGame();
+            TryPopulate();
         }
         else
         {
