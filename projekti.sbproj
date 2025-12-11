@@ -28,7 +28,7 @@
     "ControlModes": {
       "Keyboard": true,
       "VR": false,
-      "Gamepad": false
+      "Gamepad": true
     },
     "MapStartupScene": "scenes/main.scene",
     "LaunchMode": "QuickPlay",
