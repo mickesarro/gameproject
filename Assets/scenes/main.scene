@@ -1368,7 +1368,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Position",
-            "Value": "-67.99342,-7119.808,55.26801"
+            "Value": "136.4874,-6954.518,18.48793"
           },
           {
             "Target": {
@@ -1377,6 +1377,22 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "BodyGroups",
+            "Value": 42259
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl"
           },
           {
             "Target": {
@@ -1411,6 +1427,180 @@
       }
     },
     {
+      "__guid": "56617b01-52fc-4ed0-8fb2-c2a42523026e",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (3)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1087.783,-8679.699,141.1091"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "BodyGroups",
+            "Value": 42259
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "rockets_test - 2.prefab"
+            }
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "56617b01-52fc-4ed0-8fb2-c2a42523026e",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "e3d3db5d-a03e-4581-8231-d996801f6309",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "8b973d02-5e38-4ad3-9760-d536384f08cb",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "fba27637-fcf7-4df9-9f01-e9729e62eb1f",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "949078ca-0884-4a53-8349-c7f56bbb6e6a",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "f919cda6-928c-4108-9446-e40c6603c4ee",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "75343221-5cc3-452a-8f5f-f07638ec7c9d"
+      }
+    },
+    {
+      "__guid": "67180624-d265-43a5-a06f-20cc813ddef7",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (4)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "716.6661,-8534.555,147.907"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "BodyGroups",
+            "Value": 42259
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "rockets_test - 2.prefab"
+            }
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "67180624-d265-43a5-a06f-20cc813ddef7",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "afa0df85-a525-449b-8b6d-dbc1747ffb18",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "6dbfd9d1-88e8-44a8-8e17-e318f36f442e",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "e440bb88-b342-4db7-a419-aa7302ef3181",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "3149b389-27f4-48a6-8f0a-cf4f2733a84b",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "50526865-46db-49c6-a41c-853d00426e1a"
+      }
+    },
+    {
       "__guid": "25894d21-8de4-4185-a56f-253cd96fe316",
       "__version": 1,
       "__Prefab": "gunpickup.prefab",
@@ -1439,7 +1629,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Position",
-            "Value": "-1596.533,-7165.295,340.5335"
+            "Value": "-263.3377,-9063.443,157.7007"
           },
           {
             "Target": {
@@ -1471,7 +1661,7 @@
       }
     },
     {
-      "__guid": "d9c3a37d-a577-4eac-9cfa-7079150f6de6",
+      "__guid": "efe3ce9d-78e3-46cf-86a8-421cb7b5e5f6",
       "__version": 1,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
@@ -1491,7 +1681,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (3)"
+            "Value": "gunpickup (6)"
           },
           {
             "Target": {
@@ -1499,7 +1689,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Position",
-            "Value": "-1179.983,-7641.527,291.2719"
+            "Value": "-1651.575,-8744.865,148.1055"
           },
           {
             "Target": {
@@ -1516,29 +1706,318 @@
             },
             "Property": "hideForTime",
             "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "efe3ce9d-78e3-46cf-86a8-421cb7b5e5f6",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "9d90eab1-e63f-48e1-96b4-d99b191c7653",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "11d8dab3-67d5-4ba3-8da9-e1cbc1db4a9a",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "98726222-a9d0-4781-9621-ccef3482fe04",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "42051e22-603f-4bf2-a076-b49d5f63e8d3",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "6786fee4-95d8-4c92-962f-3d913a71ea73",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "186ee661-9334-40d5-8ddd-fb9ad3cc1fdc"
+      }
+    },
+    {
+      "__guid": "58a88c5e-5b89-4ea4-8197-3302e9ecd786",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (7)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-2030.415,-9332.001,278.6955"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
           },
           {
             "Target": {
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "rockets_test - 2.prefab"
-            }
+            "Property": "hideForTime",
+            "Value": null
           }
         ],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
-        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "d9c3a37d-a577-4eac-9cfa-7079150f6de6",
-        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "5bc681e3-d9db-4b71-b5ed-f293de64946f",
-        "db491a2f-51f3-447a-a0da-b6a931c07baa": "fa4c4e41-898f-45ed-ad65-a534781818bc",
-        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f8b7464c-ff11-4fe8-9b02-b6e37f14560e",
-        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "aa69d0a1-1dc7-4005-a704-caf91b6a5f1c",
-        "5dd09498-807f-4dc9-8671-53e08250fac2": "07a2bf16-42a2-4bb8-bdfb-64efe38d31bc",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "cb719403-e2ee-4310-a4f7-ecf14df4f8c8"
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "58a88c5e-5b89-4ea4-8197-3302e9ecd786",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "f10487f9-0092-4014-be31-1f99c47e27ce",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "ebee8adb-9401-4665-ac19-d4eb9492852b",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "bca12010-aada-4212-8159-83f18610ad24",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c04c4a7d-9eb1-4abf-9afc-9e6f195945ac",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "b24b885f-50bf-4917-81b2-f69f719cc9f1",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "31d72ae3-e729-4cfb-a690-9253eed45d01"
+      }
+    },
+    {
+      "__guid": "391f287a-ff1b-42fc-a985-34307bda0085",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (5)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "1119.158,-6662.895,29.04281"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "391f287a-ff1b-42fc-a985-34307bda0085",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "eaa34cba-69da-4e2b-84b1-4dc0a335e3af",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "d19de14f-ffb4-41d9-a5e9-b73136fb320b",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "150d6f8f-626a-4851-9df0-98b6e2eb2e84",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bcf8069a-cce0-4971-a738-9ca11072f2c6",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "dcf62061-1631-432e-b604-f7091a7b5346",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2e99ddbf-d4e9-4d15-966b-1f471b6296c1"
+      }
+    },
+    {
+      "__guid": "f671c84d-e105-4b40-bfbf-815811cc5d2c",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (8)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "822.8337,-7569.707,273.0033"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "f671c84d-e105-4b40-bfbf-815811cc5d2c",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "ef7c5880-6a3f-4384-b958-15517deda2f3",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "c7062d5a-00ed-4d4d-ba71-ff08e87de1a6",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "6477982c-76b4-4d6d-aa90-5c3996e93b76",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "a6c9af32-a51a-42b8-92ad-c5425394c490",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "8c1d0889-c158-42d3-8f54-a45ba79b3602",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2235db72-ff2d-41aa-8a99-0c1ae3eeb2a4"
+      }
+    },
+    {
+      "__guid": "5e1ff3cd-a13f-4b9b-af7b-b57fc46c4551",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (9)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1619.896,-7327.891,273.0033"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "5e1ff3cd-a13f-4b9b-af7b-b57fc46c4551",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "cad1c745-0008-4f96-b3bc-610cfe31d034",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "af947efa-67d9-464e-807d-740857d8c9f6",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "a070caa8-dad3-4ed0-93e0-05dcaf5fcbc7",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "b3f2394a-c2f2-49ba-96f6-75e08850a35f",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "556d86d7-81f1-4f5e-8942-a516fdd28b48",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "64ee0b89-d7f0-48bc-a8f1-a490cf52f7c8"
+      }
+    },
+    {
+      "__guid": "73b97ed4-b991-47f8-bbe5-3bb70d485b99",
+      "__version": 1,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "gunpickup (10)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-2318.323,-8249.464,273.0033"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1,1,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "73b97ed4-b991-47f8-bbe5-3bb70d485b99",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "abf4b938-00c3-4e64-aa7b-74fbd4fcaea7",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "f5287ab2-0c4c-428a-b95e-4f115fc977e4",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "3dba581b-f9b3-4eab-ab71-99e85ba32616",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "ad1f1183-b76f-4607-abdd-eb8a5c96459e",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "dda43f94-891c-4113-a8ea-f1a43e9875fb",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6a7b4716-f60e-4f90-bb0d-6ee0b832c9b1"
       }
     },
     {
@@ -1978,7 +2457,7 @@
       "Flags": 0,
       "Name": "Jump Pad",
       "Position": "-871.387,-7609.306,258.7783",
-      "Rotation": "0,0,0,0.9999999",
+      "Rotation": "0,0,0,1",
       "Scale": "2,2,0.1",
       "Tags": "",
       "Enabled": true,
@@ -2967,6 +3446,7 @@
   "Title": null,
   "Description": null,
   "__references": [
+    "facepunch.v_m4a1#125828",
     "sausages.diamondplate#57428"
   ],
   "__version": 3
