@@ -21,6 +21,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         set
         {
             _user = value;
+            HandleProxyAnimations();
         }
     }
     private GameObject _user;
@@ -37,6 +38,14 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     [Property] public string Name { get; set; } = "Melee";
 
     private TimeSince timeSinceLastAttack;
+    
+    private void HandleProxyAnimations()
+    {
+        if (User == null || meleeData == null) return;
+        var playerBody = User.Children.Find(obj => obj.Name == "Body");
+        playerBody?.Components.TryGet<SkinnedModelRenderer>(out playerModelRenderer);
+        playerModelRenderer?.Parameters.Set("holdtype", meleeData.HoldType.AsInt());
+    }
 
     /// <summary>
     /// Performs melee attack and returns true if it hit a target.
@@ -82,12 +91,13 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         SoundManager.PlayLocal(SoundManager.SoundType.Punch);
 
         SetAnimation( modelType.ViewModel, "b_attack", true );
+        SetAnimation( modelType.PlayerModel, "b_attack", true );
     }
 
     private enum modelType
     {
         ViewModel,
-        WorldModel
+        PlayerModel
     }
 
     // Small utility for now
@@ -102,7 +112,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
                 viewModelRenderer?.Parameters.Set( name, state );
                 break;
 
-            case modelType.WorldModel:
+            case modelType.PlayerModel:
                 playerModelRenderer?.Parameters.Set( name, state );
                 break;
         }
@@ -139,10 +149,23 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
         IsPlayer = User.Components.TryGet<PlayerController>( out var _ );
     }
 
+    [Rpc.Broadcast]
     public void EnableGo(bool enable)
     {
+        Log.Info( GameObject.Id );
         GameObject.Enabled = enable;
+        if ( IsProxy )
+        {
+            HandleProxyAnimations();
+        }
+        else
+        {
+            playerModelRenderer?.Parameters?.Set( "holdtype", meleeData.HoldType.AsInt() );
+            SetAnimation( modelType.ViewModel, "b_attack", false );
+        }
     }
+
+    public GameObject GetGameObject() => GameObject;
 
     public void Collect( GameObject interactor )
     {

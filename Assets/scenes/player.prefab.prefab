@@ -3,7 +3,7 @@
     "__guid": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
     "__version": 1,
     "Flags": 0,
-    "Name": "player",
+    "Name": "player.prefab",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -287,7 +287,7 @@
             },
             "RenderType": "On",
             "Sequence": {
-              "Name": null,
+              "Name": "Melee_Punch_Attack_Left",
               "Looping": true,
               "Blending": false
             },

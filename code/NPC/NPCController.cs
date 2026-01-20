@@ -132,6 +132,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     };
 
     protected override void OnFixedUpdate() {
+        if ( IsProxy ) return;
+
         StateMachine.Update();
 		UpdateCitizenAnims();
 	}
@@ -207,7 +209,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
         if ( damageInfo?.Attacker == null ) return;
 
         hunted = damageInfo.Attacker;
-        Log.Info( "changed state" );
+        //Log.Info( "changed state" );
         StateMachine.ChangeState<AttackState>();
 
     }

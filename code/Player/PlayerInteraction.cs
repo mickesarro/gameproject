@@ -9,8 +9,8 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 {
 	[Property, RequireComponent] private PlayerController Player { get; set; }
 	[Property, RequireComponent] private PlayerInventory PlayerInventory { get; set; }
-
-	protected override void OnAwake()
+    
+    protected override void OnAwake()
 	{
 		base.OnAwake();
 		PlayerInventory = GetComponent<PlayerInventory>();
@@ -24,16 +24,20 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 
         if ( PlayerInventory == null ) return;
-
-        var meleePrefab = GameObject.Clone( "melee.prefab", new CloneConfig { Name = "Melee", Parent = GameObject, StartEnabled = true} );
-        Log.Info( meleePrefab );
+        if (IsProxy) return;
+        
+        
+        var meleePrefab = GameObject.Clone( "melee.prefab", new CloneConfig { Name = "Melee", Parent = GameObject, StartEnabled = false} );
+        Log.Info( GameObject.Network.Owner.DisplayName );
+        meleePrefab?.NetworkSpawn(owner: GameObject.Network.Owner);
         if ( meleePrefab != null && meleePrefab.Components.TryGet<IWeapon>( out var meleeWeapon ) )
         {
             meleeWeapon.User = GameObject;
-            PlayerInventory.AddItem( (ICollectable) meleeWeapon );
+            meleePrefab.Components.TryGet<ICollectable>( out var collectable );
+            collectable.Collect( GameObject );
+            //PlayerInventory.AddItem( (ICollectable) meleeWeapon );
         }
-
-	}
+    }
 
 	void IPlayerEvent.OnSwitchItem( ICollectable collectable )
 	{

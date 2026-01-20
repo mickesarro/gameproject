@@ -7,7 +7,7 @@ namespace Shooter;
 /// </summary>
 public sealed class Projectile : Component
 {
-	[Property] private float velocity = 1100f;
+	[Property] private float velocity = 1500.0f;
 	[Property] public GameObject Attacker { get; set; }
 
 	private Collider collider; // Can be used with different types of colliders
@@ -41,7 +41,7 @@ public sealed class Projectile : Component
 
 		var blastEffect = new BlastEffect
 		{
-			BlastForce = 500.0f,
+			BlastForce = 700.0f,
 		};
 		blastEffect.NetworkSpawn();
 		blastEffect.TriggerBlast( WorldPosition, Attacker );

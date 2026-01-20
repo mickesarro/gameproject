@@ -1,7 +1,7 @@
 {
   "Title": "Movement shooter",
   "Type": "game",
-  "Org": "local",
+  "Org": "peliryhma",
   "Ident": "movementshooter",
   "Schema": 1,
   "IncludeSourceFiles": true,
@@ -28,7 +28,7 @@
     "ControlModes": {
       "Keyboard": true,
       "VR": false,
-      "Gamepad": false
+      "Gamepad": true
     },
     "MapStartupScene": "scenes/main.scene",
     "LaunchMode": "QuickPlay",

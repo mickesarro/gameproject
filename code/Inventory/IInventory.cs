@@ -10,7 +10,7 @@ public interface IInventory
 	ICollectable CurrentItem { get; }
 	IEnumerable<ICollectable> Items { get; }
 
-	void AddItem( ICollectable item );
+	bool AddItem( ICollectable item );
 	void RemoveItem( ICollectable item );
 	void ChangeCurrentItem( ICollectable collectable );
 	void ChangeCurrentItem( int index );

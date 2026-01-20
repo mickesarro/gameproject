@@ -38,3 +38,5 @@ Libraries/tux.linuxfix/
 *.slnx
 *.slnx.DotSettings.user
 /.sbox
+
+Exports/
