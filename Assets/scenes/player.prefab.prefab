@@ -245,11 +245,11 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Shooter.PlayerClother",
-        "__guid": "2a95acf4-a54f-4ab3-a4a9-54b5f210f845",
+        "__type": "Shooter.PlayerDresser",
+        "__guid": "e7e32e32-e1f2-42c5-ba5c-4dcc4bb99cf3",
         "__enabled": true,
         "Flags": 0,
-        "BodyRenderer": {
+        "bodyRenderer": {
           "_type": "component",
           "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
           "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
