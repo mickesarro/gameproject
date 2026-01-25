@@ -35,9 +35,10 @@ public sealed class PlayerController : Component, ICharacterBase
     public PlayerStats CharacterStats
     {
         get => playerStats;
+        set => playerStats = value;
     }
 
-	[Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
+    [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
     public Vector3 Gravity = new Vector3(0, 0, -800f);
     

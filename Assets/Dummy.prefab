@@ -202,12 +202,6 @@
           "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
           "component_type": "SkinnedModelRenderer"
         },
-        "dresser": {
-          "_type": "component",
-          "component_id": "96114285-535f-4534-bdec-38013325a22b",
-          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
-          "component_type": "Dresser"
-        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -215,31 +209,6 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "ShouldDress": true
-      },
-      {
-        "__type": "Sandbox.Dresser",
-        "__guid": "96114285-535f-4534-bdec-38013325a22b",
-        "__enabled": true,
-        "Flags": 0,
-        "ApplyHeightScale": true,
-        "BodyTarget": {
-          "_type": "component",
-          "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
-          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
-          "component_type": "SkinnedModelRenderer"
-        },
-        "Clothing": [],
-        "ManualAge": 0.5,
-        "ManualHeight": 0.5,
-        "ManualTint": 0.5,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Source": "Manual",
-        "WorkshopItems": []
       }
     ],
     "Children": [
@@ -270,7 +239,7 @@
             "CreateAttachments": true,
             "CreateBoneObjects": false,
             "LodOverride": null,
-            "MaterialGroup": null,
+            "MaterialGroup": "default",
             "MaterialOverride": null,
             "Materials": null,
             "Model": "models/citizen/citizen.vmdl",
