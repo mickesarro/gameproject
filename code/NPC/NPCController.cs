@@ -43,6 +43,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     public PlayerStats CharacterStats
     {
         get => playerStats;
+        set => playerStats = value;
     }
     public bool IsPlayer => false;
 

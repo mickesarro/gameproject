@@ -1,4 +1,4 @@
-using Sandbox;
+using Shooter.Helpers;
 
 namespace Shooter;
 
@@ -13,16 +13,13 @@ public sealed class RandomDresser : Component, ICharacterDresser
     [Property] private SkinnedModelRenderer bodyRenderer;
     public SkinnedModelRenderer BodyRenderer => bodyRenderer;
 
-    [Property] private Dresser dresser;
     [Property] private bool ShouldDress = false;
 
     public async void ApplyClothing()
     {
-        dresser.Randomize();
-
-        //await dresser.Apply();
+        var task = AsyncDresser.Instance.Add( bodyRenderer );
     }
-
+    
     protected override void OnAwake()
     {
         if ( !ShouldDress )
@@ -30,17 +27,7 @@ public sealed class RandomDresser : Component, ICharacterDresser
             DestroyGameObject();
             return;
         }
-
         base.OnAwake();
-
-        dresser ??= Components.Create<Dresser>();
-        dresser.BodyTarget = bodyRenderer;
-    }
-
-    protected override void OnStart()
-    {
-        base.OnStart();
-
         ApplyClothing();
     }
 }

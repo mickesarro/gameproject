@@ -152,7 +152,6 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     [Rpc.Broadcast]
     public void EnableGo(bool enable)
     {
-        Log.Info( GameObject.Id );
         GameObject.Enabled = enable;
         if ( IsProxy )
         {
