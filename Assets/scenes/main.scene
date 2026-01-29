@@ -28,7 +28,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "populate": true
+          "populate": false
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -53,6 +53,26 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Dresser",
+          "__guid": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
+          "__enabled": true,
+          "Flags": 0,
+          "ApplyHeightScale": true,
+          "BodyTarget": null,
+          "Clothing": [],
+          "ManualAge": 0.5,
+          "ManualHeight": 0.5,
+          "ManualTint": 0.5,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Source": "Manual",
+          "WorkshopItems": []
         }
       ],
       "Children": []
@@ -3509,8 +3529,7 @@
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
       "IncludedBodies": ""
-    },
-    "GameObjectSystems": []
+    }
   },
   "ResourceVersion": 3,
   "Title": null,

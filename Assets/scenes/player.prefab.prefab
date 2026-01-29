@@ -2800,7 +2800,7 @@
         "__version": 2,
         "Flags": 0,
         "Name": "NameTag",
-        "Position": "140.3451,199.0578,57.64841",
+        "Position": "0,0,75",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
         "Tags": "",
@@ -2818,14 +2818,14 @@
             "Flags": 0,
             "HorizontalAlign": "Center",
             "InteractionRange": 1000,
-            "LookAtCamera": false,
+            "LookAtCamera": true,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PanelSize": "512,512",
+            "PanelSize": "2000,200",
             "RenderOptions": {
               "GameLayer": true,
               "OverlayLayer": false,
@@ -2867,8 +2867,7 @@
         "AgentMaxSlope": 40,
         "ExcludedBodies": "",
         "IncludedBodies": ""
-      },
-      "GameObjectSystems": []
+      }
     },
     "__variables": []
   },
