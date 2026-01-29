@@ -15,6 +15,9 @@ internal static class Spawner
             return;
         }
 
+        // Sometimes fails to fetch earlier
+        spawnPoint ??= MatchManager.Instance.MatchGameMode.GetSpawnPoint();
+
         var character = GameObject.Clone( prefab, transform: spawnPoint.WorldTransform, startEnabled: true );
 
         if ( character.Components.TryGet<PlayerStats>( out var stats ) )

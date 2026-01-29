@@ -3,10 +3,41 @@
   "GameObjects": [
     {
       "__guid": "a15cda76-43ad-4963-8c41-ae6488dfe861",
-      "__version": 1,
+      "__version": 2,
       "__Prefab": "ui.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "702f8103-47db-4552-bae5-7c51d91ed149"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "71b109a1-c8b0-489d-a182-f1b7967ed38c"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Shooter.UI.DmgFlash",
+              "__guid": "702f8103-47db-4552-bae5-7c51d91ed149",
+              "__enabled": true,
+              "Flags": 0,
+              "FadeSpeed": 4,
+              "FlashColor": "1,0,0,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [],
         "MovedObjects": []

@@ -1,12 +1,12 @@
 {
   "RootObject": {
-    "__guid": "adf8e434-7225-470c-ac21-606f8d756021",
+    "__guid": "78a02cdf-1d32-46ea-bae9-990630af0230",
     "__version": 1,
     "Flags": 0,
-    "Name": "ammopickup",
+    "Name": "healthpickup",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
-    "Scale": "2,2,2",
+    "Scale": "1,1,1",
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
@@ -16,8 +16,21 @@
     "OwnerTransfer": 1,
     "Components": [
       {
+        "__type": "Shooter.HealthPickup",
+        "__guid": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b",
+        "__enabled": true,
+        "HealthAmount": 50,
+        "hideForTime": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
         "__type": "Sandbox.SphereCollider",
-        "__guid": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3",
+        "__guid": "b1adc96d-df67-4239-a521-21c6d575a619",
         "__enabled": true,
         "Center": "0,0,0",
         "ColliderFlags": 0,
@@ -34,34 +47,15 @@
         "OnObjectTriggerExit": null,
         "OnTriggerEnter": null,
         "OnTriggerExit": null,
-        "Radius": 30,
+        "Radius": 32,
         "RollingResistance": null,
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
       },
       {
-        "__type": "Shooter.AmmoPickup",
-        "__guid": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50",
-        "__enabled": true,
-        "AmmoType": "Rocket",
-        "Amount": 1,
-        "hideForTime": {
-          "_type": "component",
-          "component_id": "eba09db0-334c-4562-87d7-d2fa4cf3b822",
-          "go": "adf8e434-7225-470c-ac21-606f8d756021",
-          "component_type": "HideForTime"
-        },
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
-      },
-      {
         "__type": "Sandbox.SkinnedModelRenderer",
-        "__guid": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
+        "__guid": "971cc31e-431e-4be6-a3f7-42189edafdde",
         "__enabled": true,
         "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
@@ -72,7 +66,7 @@
         "MaterialGroup": null,
         "MaterialOverride": null,
         "Materials": null,
-        "Model": "models/items/rocket/projectile_rocket.vmdl",
+        "Model": "models/items/healthkit/healthkit_m.vmdl",
         "Morphs": {},
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -101,27 +95,7 @@
           "Blending": false
         },
         "Tint": "1,1,1,1",
-        "UseAnimGraph": false
-      },
-      {
-        "__type": "Shooter.HideForTime",
-        "__guid": "eba09db0-334c-4562-87d7-d2fa4cf3b822",
-        "__enabled": true,
-        "displayRenderer": {
-          "_type": "component",
-          "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
-          "go": "adf8e434-7225-470c-ac21-606f8d756021",
-          "component_type": "SkinnedModelRenderer"
-        },
-        "HideTime": 10,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "randomize": true,
-        "randomRange": "1 10"
+        "UseAnimGraph": true
       }
     ],
     "Children": [],
@@ -148,10 +122,10 @@
   "ResourceVersion": 2,
   "ShowInMenu": false,
   "MenuPath": null,
-  "MenuIcon": null,
+  "MenuIcon": "3g_mobiledata",
   "DontBreakAsTemplate": false,
   "__references": [
-    "baik.projectile_rocket#43884"
+    "baik.healthkit_m#43907"
   ],
   "__version": 2
 }

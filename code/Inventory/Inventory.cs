@@ -36,7 +36,7 @@ public class Inventory : Component, IInventory
 	/// If this is the first item, sets it as CurrentItem.
 	/// </summary>
 	/// <param name="item"></param>
-	public void AddItem( ICollectable item )
+	public bool AddItem( ICollectable item )
 	{
 		inventoryItems.Add( item );
 
@@ -44,6 +44,7 @@ public class Inventory : Component, IInventory
 		{
 			ChangeCurrentItem( item );
 		}
+        return true;
 	}
 
 	/// <summary>

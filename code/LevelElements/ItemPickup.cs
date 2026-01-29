@@ -8,7 +8,6 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 {
 	// Imitates the one that was done using the visual script
 
-	[Property] private GameObject Parent { get; set; }
 	[Property] private GameObject ItemPrefab { get; set; }
 	[Property] private float Spin { get; set; } = 0f;
 
@@ -43,7 +42,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 			//Log.Info( other );
 			if ( !other.IsProxy )
 			{
-				Parent ??= other.GameObject;
+				GameObject Parent = other.GameObject;
 
 				// Not enabling at first is important as picking up new weapons would then result in multiple enabled
 				var item = ItemPrefab.Clone( Parent.WorldTransform, parent: Parent, startEnabled: false, name: ItemPrefab.Name );
@@ -62,7 +61,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 			}
             //DestroyGameObject();
             hideForTime.HideFor();
-		}
-	}
-	
+        }
+    }
+
 }

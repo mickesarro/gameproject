@@ -15,5 +15,6 @@ public interface ICollectable
 
 	// This allows enabling and disabling selected items in inventory
 	public void EnableGo( bool enabled );
+    public GameObject GetGameObject();
 
 }

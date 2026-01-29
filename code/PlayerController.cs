@@ -35,9 +35,10 @@ public sealed class PlayerController : Component, ICharacterBase
     public PlayerStats CharacterStats
     {
         get => playerStats;
+        set => playerStats = value;
     }
 
-	[Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
+    [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
     public Vector3 Gravity = new Vector3(0, 0, -800f);
     
@@ -529,11 +530,13 @@ public sealed class PlayerController : Component, ICharacterBase
 
     protected override void OnUpdate() {
 		if ( !IsProxy ) {
-			// var ControllerInput = Input.GetAnalog(InputAnalog.Look);
-	        // if (ControllerInput.Length > 1) ControllerInput = ControllerInput.Normal;
-	        // ControllerInput *= 25;
 	        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
-	        LookAngle += new Vector2((Input.MouseDelta.y), -(Input.MouseDelta.x)) * Preferences.Sensitivity * 0.022f;
+            if ( Input.UsingController )
+            {
+                LookAngle += new Vector2( (Input.GetAnalog( InputAnalog.RightStickY ) * 0.5f), -(Input.GetAnalog( InputAnalog.RightStickX )) * 1.5f ) * Preferences.Sensitivity;
+            } else {
+                LookAngle += new Vector2( (Input.MouseDelta.y), -(Input.MouseDelta.x) ) * Preferences.Sensitivity * 0.022f;
+            }
 	        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
 			
 	        var angles = LookAngleAngles;

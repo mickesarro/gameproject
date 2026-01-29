@@ -97,6 +97,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
 		if ( IsProxy || !IsPlayer ) return;
 
+        if ( Input.Down( "reload" ) ) {
+            TryReload( loadAdditive: true );
+            return;
+        }
+
 		bool input = false;
 		switch (FireData.FireType)
 		{
@@ -142,7 +147,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         if ( GunData.AutomaticReload && TryReload() ) return;
 
-        SoundManager.PlayGlobal( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
         timeSinceLastShot = 0.0f;
         
 	}
@@ -180,6 +184,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
         
         --FireData.AmmoLeft;
+
+        BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 
 		// Shoot from the viewport
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
@@ -230,15 +236,15 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private void Reload()
 	{
 		int reloaded = AmmoInventory
-			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo ); // Intentionally MaxAmmo as it is the magazine size
+			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo - FireData.AmmoLeft); // Intentionally MaxAmmo as it is the magazine size
 
-		FireData.AmmoLeft = reloaded;
+		FireData.AmmoLeft += reloaded;
 
 		// Should do some animation etc. as well
 		timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
-		if(FireData.AmmoLeft > 0) {
-			SoundManager.PlayGlobal( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
+		if ( reloaded > 0 ) {
+            BroadcastSound( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
 		}
 		
 	}
@@ -247,16 +253,24 @@ public sealed class Gun : Component, IWeapon, ICollectable
     /// Reloads if no ammo left
     /// </summary>
     /// <returns></returns>
-    private bool TryReload()
+    private bool TryReload( bool loadAdditive = false )
     {
-        if ( FireData.AmmoLeft > 0 ) return false;
+        // Using the same one as shooting for now
+        if ( !CanShoot() ) return false;
 
-        SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+        if ( !loadAdditive && FireData.AmmoLeft > 0 ) return false;
+
+        if ( FireData.AmmoLeft == 0 )
+        {
+            SoundManager.PlayGlobal( SoundManager.SoundType.OutOfAmmo, GameObject.WorldPosition, 500f, 0.5f );
+        }
+        
         Reload();
 
         return true;
     }
 
+    // [Rpc.Broadcast]
 	private void SpawnTracer( Vector3 target )
 	{
 		// For future reference:
@@ -271,11 +285,19 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			.GetComponent<BeamEffect>().TargetPosition = target;
 	}
 
+    [Rpc.Broadcast]
+    private void BroadcastSound( SoundManager.SoundType soundType, Vector3 position, float range, float volume )
+    {
+        SoundManager.PlayGlobal( soundType, position, range, volume );
+    }
+
 	private void FireProjectile()
 	{
         TryReload();
 
         --FireData.AmmoLeft;
+
+		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 3000f, 0.3f );
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
@@ -309,4 +331,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
             SetAnimation(modelType.ViewModel, "fire", false );
         }
 	}
+
+    public GameObject GetGameObject() => GameObject;
 }

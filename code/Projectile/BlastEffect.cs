@@ -12,8 +12,8 @@ public class BlastEffect : GameObject
 {
 	[Property] public float Radius { get; set; } = 300.0f; // Tweak the blast radius
 	[Property] public float BlastForce { get; set; } = 500.0f; // Tweak blast force
-	[Property] public float Damage { get; set; } = 35.0f; // Tweak damage
-	[Property, Range(0f, 1f)] public float SelfDamageMultiplier {get; set;} = 0.4f;
+	[Property] public float Damage { get; set; } = 100.0f; // Tweak damage
+	[Property, Range(0f, 1f)] public float SelfDamageMultiplier {get; set;} = 0.1f;
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
