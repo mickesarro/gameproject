@@ -6,13 +6,12 @@ namespace Shooter.Helpers;
 
 public class AsyncDresser: SingletonBase<AsyncDresser>, ISceneLoadingEvents
 {
-    private static Dresser dresser = null;
+    [Property, RequireComponent] public static Dresser dresser {get; set;}
     private readonly SemaphoreSlim _semaphore = new(1, 1);
 
     Task ISceneLoadingEvents.OnLoad( Scene scene, SceneLoadOptions options )
     {
         randomizer = new();
-        dresser = Components.Create<Dresser>();
         return Task.CompletedTask;
     }
 
