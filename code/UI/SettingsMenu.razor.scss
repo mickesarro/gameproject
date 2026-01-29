@@ -71,6 +71,7 @@ SettingsMenu {
         }
 
         .slider_section {
+            pointer-events: all;
             margin-top: 40px;
             display: flex;
             flex-direction: column;

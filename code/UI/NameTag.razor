@@ -1,0 +1,63 @@
+@using Sandbox
+@using Sandbox.UI
+@using UISystem
+@inherits UILayer
+@implements IMatchEvents
+@implements IPlayerEvent
+@namespace Shooter.UI
+
+<root>
+	@if ( Network.Owner is Connection owner && owner != Connection.Local )
+	{
+		var hp = GetHealth();
+
+		if ( hp <= 0 )
+		{
+			<div class="title4">@Network.Owner?.DisplayName</div>
+		}
+		else if ( hp <= 25 )
+		{
+			<div class="title3">@Network.Owner?.DisplayName</div>
+		}
+		else if ( hp <= 50)
+		{
+			<div class="title2">@Network.Owner?.DisplayName</div>
+		}
+		else if ( hp <= 75 )
+		{
+			<div class="title1">@Network.Owner?.DisplayName</div>
+		}
+		else
+		{
+			<div class="title">@Network.Owner?.DisplayName</div>
+		}
+	}
+
+
+</root>
+
+@code
+{
+	private CharacterHealth CharacterHealth = null;
+
+	protected override void OnUpdate()
+		{
+			if ( CharacterHealth == null )
+			{
+				CharacterHealth = GameObject.Root.GetComponent<CharacterHealth>();
+			}
+		}
+
+	private float GetHealth()
+	{
+		return CharacterHealth != null
+			? CharacterHealth.Health
+			: 0f;
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( GetHealth() );
+
+}
