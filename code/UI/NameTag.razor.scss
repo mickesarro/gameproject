@@ -1,0 +1,45 @@
+NameTag
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+
+	.title
+	{
+		font-size: 50px;
+		font-family: Poppins;
+		color: #ffffff;
+		text-stroke: 2px black;
+	}
+	.title1
+	{
+		font-size: 50px;
+		font-family: Poppins;
+		color: #ffff00;
+		text-stroke: 2px black;
+	}
+	.title2
+	{
+		font-size: 50px;
+		font-family: Poppins;
+		color: #f09800;
+		text-stroke: 2px black;
+	}
+	.title3
+	{
+		font-size: 50px;
+		font-family: Poppins;
+		color: #ff0000;
+		text-stroke: 2px black;
+	}
+	.title4
+	{
+		display: none;
+	}
+}
