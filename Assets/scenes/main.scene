@@ -28,7 +28,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "populate": false
+          "populate": true
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -47,6 +47,7 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
+          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
