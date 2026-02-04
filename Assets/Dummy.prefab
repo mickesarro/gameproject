@@ -2920,6 +2920,62 @@
           "a41aad0c-67f7-4660-8126-0950773e89f3": "15ca47cb-5688-4c67-b9ce-7b840b86ced4",
           "bad25921-c071-498d-99f2-6f778055270a": "65bc7217-4d2f-478e-a5dd-a2a8ae7cc7d7"
         }
+      },
+      {
+        "__guid": "d4dec5c3-7bd2-44b7-b9e4-dcf96c90411f",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "NameTag",
+        "Position": "0,0,75",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "d7a013d8-eb58-4db5-8ba4-465ad9f9007a",
+            "__enabled": true,
+            "Flags": 0,
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "PanelSize": "2000,200",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Shooter.UI.NameTag",
+            "__guid": "f4fcec7f-898b-4a7e-b0f4-fc61cbb4ad56",
+            "__enabled": true,
+            "Flags": 0,
+            "Name": null,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ],
+        "Children": []
       }
     ],
     "__properties": {
@@ -2931,15 +2987,14 @@
         "Enabled": false,
         "IncludeStaticBodies": true,
         "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
+        "EditorAutoUpdate": false,
         "AgentHeight": 64,
         "AgentRadius": 16,
         "AgentStepSize": 18,
         "AgentMaxSlope": 40,
         "ExcludedBodies": "",
         "IncludedBodies": ""
-      },
-      "GameObjectSystems": []
+      }
     },
     "__variables": []
   },
