@@ -8,12 +8,12 @@ namespace Shooter;
 /// </summary>
 public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatchEvents, IPlayerEvent
 {
-	[Sync] private NetList<PlayerStats> tracked { get; set; } = new();
+    [Sync( SyncFlags.FromHost )] private NetList<PlayerStats> tracked { get; set; } = new();
     // Custom leaderboard data class for team based stats might be needed
 
 	public IEnumerable<PlayerStats> Tracked => [.. tracked];
 
-    [Rpc.Owner]
+    [Rpc.Host]
     void IMatchEvents.OnKill( PlayerStats killed, DamageInfo damageInfo )
 	{
 		if ( killed == null )
@@ -41,30 +41,33 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         MatchManager.Instance.MatchGameMode.WinCondition( attacker );
     }
 
-    [Rpc.Broadcast]
-    private void UpdateScore(int amount, string reason)
+    [Rpc.Broadcast( NetFlags.SendImmediate )]
+    private void UpdateScore(int amount = 0, string reason = "refresh")
     {
         IMatchEvents.Post( e => e.OnScoreAdded( amount, reason ) );
     }
-    
+
     // bad but works
     // parempi ratkaisu olisi varmaan muokata pelaaja prefabia niin, että sen parentissa olisi objekteja mitä ei ikinä
     // poisteta (mm. statsit)
-    [Rpc.Broadcast]
+    [Rpc.Host]
     public void RemovePreviousStats( PlayerStats prevStats )
     {
         tracked.Remove( prevStats );
+        UpdateScore();
     }
 
-	/// <summary>
-	/// Allows registering both players and bots/NPCs
-	/// </summary>
-	/// <param name="character"></param>
+    /// <summary>
+    /// Allows registering both players and bots/NPCs
+    /// </summary>
+    /// <param name="character"></param>
+    [Rpc.Host]
 	public void RegisterCharacter( GameObject character )
 	{
 		if (character.Components.TryGet<PlayerStats>( out var stats ))
         {
 			tracked.Add( stats );
+            UpdateScore();
         }
 	}
 
@@ -73,6 +76,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 		RegisterCharacter( character );
 	}
 
+    [Rpc.Host]
     void IMatchEvents.OnPlayerLeft(Guid connectionId)
     {
         var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == connectionId);
@@ -80,12 +84,12 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
             tracked.Remove(toRemove);
     }
 
-    protected override void OnUpdate()
-    {
-        base.OnUpdate();
-        foreach ( var stats in tracked )
-        {
-            //Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
-        }
-    }
+    //protected override void OnUpdate()
+    //{
+    //    base.OnUpdate();
+    //    foreach ( var stats in tracked )
+    //    {
+    //        //Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
+    //    }
+    //}
 }

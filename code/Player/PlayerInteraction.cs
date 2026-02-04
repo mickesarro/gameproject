@@ -21,12 +21,13 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 		base.OnStart();
 		// Perhaps should move this to some other place
 		// Needs to be called on start instead of awake
-		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 
         if ( PlayerInventory == null ) return;
         if (IsProxy) return;
-        
-        
+
+        IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
+
+
         var meleePrefab = GameObject.Clone( "melee.prefab", new CloneConfig { Name = "Melee", Parent = GameObject, StartEnabled = false} );
         Log.Info( GameObject.Network.Owner.DisplayName );
         meleePrefab?.NetworkSpawn(owner: GameObject.Network.Owner);

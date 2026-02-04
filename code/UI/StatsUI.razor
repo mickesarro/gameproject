@@ -27,6 +27,8 @@
 
                 string displayName = "";
 
+                if (character.GameObject == null) continue;
+
                 if ( character.GameObject.Tags.Has( "npc" ) )
                 {
                     displayName = $"Bot{ botCounter }";
@@ -62,8 +64,9 @@
 
     void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
     void IMatchEvents.OnPlayerJoined() => StateHasChanged();
+    void IMatchEvents.OnPlayerLeft(System.Guid connectionId) => StateHasChanged();
 
-    protected override int BuildHash() => System.HashCode.Combine( totalScore );
+    protected override int BuildHash() => System.HashCode.Combine( characters );
 
     private void BuildCharacterList()
     {

@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 namespace Shooter;
 
@@ -18,17 +19,17 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     //protected override void OnUpdate()
     //{
-        //base.OnUpdate();
-        //var characterHealths1 = Scene.GetAllComponents<CharacterHealth>();
-        //Log.Info( characterHealths1.Count() );
-        // if (initializedCount -1 == Players.Count()) return;
-        // var characterHealths = Scene.GetAllComponents<CharacterHealth>();
-        // if ( characterHealths.Count() == initializedCount + 1 )
-        // {
-        //     var characterHealth = characterHealths.FirstOrDefault( ch => ch.GameObject.Network.OwnerId == Players.First().Id );
-        //     characterHealth.SetMatchInstance( this );
-        //     initializedCount++;
-        // }
+    //base.OnUpdate();
+    //var characterHealths1 = Scene.GetAllComponents<CharacterHealth>();
+    //Log.Info( characterHealths1.Count() );
+    // if (initializedCount -1 == Players.Count()) return;
+    // var characterHealths = Scene.GetAllComponents<CharacterHealth>();
+    // if ( characterHealths.Count() == initializedCount + 1 )
+    // {
+    //     var characterHealth = characterHealths.FirstOrDefault( ch => ch.GameObject.Network.OwnerId == Players.First().Id );
+    //     characterHealth.SetMatchInstance( this );
+    //     initializedCount++;
+    // }
     //}
 
 
@@ -108,9 +109,10 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
 	void INetworkListener.OnDisconnected( Connection channel )
 	{
-		IMatchEvents.Post( e => e.OnPlayerLeft(channel.Id) );
+        PlayerCountChanged( false, channel.Id );
 
-		Players.Remove( channel );
+
+        Players.Remove( channel );
         CurrentPlayers--;
 
         TryPopulate();
@@ -118,7 +120,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     void INetworkListener.OnActive( Connection channel )
 	{
-		IMatchEvents.Post( e => e.OnPlayerJoined() );
+        PlayerCountChanged( true, Guid.Empty );
         // pitää miettiä, sama ei ehkä toimi dedikoidulla servulla
         if ( channel.IsHost )
         {
@@ -129,6 +131,18 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         {
             Log.Info( "setting gamemode: " + GameMode.Current + " on client (t host)" );
             SetCurrentGameMode(GameMode.Current);
+        }
+    }
+
+    [Rpc.Broadcast( NetFlags.SendImmediate )]
+    private void PlayerCountChanged( bool joined, Guid id )
+    {
+        if ( joined ) {
+            IMatchEvents.Post( e => e.OnPlayerJoined() );
+        }
+        else
+        {
+            IMatchEvents.Post( e => e.OnPlayerLeft( id ) );
         }
     }
 
