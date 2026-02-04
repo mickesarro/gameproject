@@ -2,62 +2,53 @@
 @using Sandbox.UI
 @using UISystem
 @inherits UILayer
-@implements IMatchEvents
 @implements IPlayerEvent
 @namespace Shooter.UI
 
+@if ( IsProxy || !isPlayer )
+{
 <root>
-	@if ( Network.Owner is Connection owner && owner != Connection.Local )
-	{
-		var hp = GetHealth();
-
-		if ( hp <= 0 )
-		{
-			<div class="title4">@Network.Owner?.DisplayName</div>
-		}
-		else if ( hp <= 25 )
-		{
-			<div class="title3">@Network.Owner?.DisplayName</div>
-		}
-		else if ( hp <= 50)
-		{
-			<div class="title2">@Network.Owner?.DisplayName</div>
-		}
-		else if ( hp <= 75 )
-		{
-			<div class="title1">@Network.Owner?.DisplayName</div>
-		}
-		else
-		{
-			<div class="title">@Network.Owner?.DisplayName</div>
-		}
-	}
-
-
+    <div class="title">@Name</div>
 </root>
+}
 
 @code
 {
-	private CharacterHealth CharacterHealth = null;
+    [Property] private string Name { get; set; }
+    private bool isPlayer = false;
 
-	protected override void OnUpdate()
-		{
-			if ( CharacterHealth == null )
-			{
-				CharacterHealth = GameObject.Root.GetComponent<CharacterHealth>();
-			}
-		}
+    //private CharacterHealth CharacterHealth = null;
 
-	private float GetHealth()
-	{
-		return CharacterHealth != null
-			? CharacterHealth.Health
-			: 0f;
-	}
+    //void IPlayerEvent.OnTakeDamage( float damage ) => StateHasChanged();
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        isPlayer = GameObject.Parent.Tags.Contains("player");
+
+        Name ??= isPlayer ? Network.Owner?.DisplayName : "Bot";
+        StateHasChanged();
+    }
+    
+	//private float GetHealth()
+	//{
+	//	return CharacterHealth?.Health ?? 0.0f;
+	//}
 
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( GetHealth() );
+	//protected override int BuildHash() => System.HashCode.Combine( GetHealth() );
+
+
+	//private static string GetTitleClass(float hp) => hp switch
+	//	{
+	//		<= 0  => "title4",
+	//		<= 25 => "title3",
+	//		<= 50 => "title2",
+	//		<= 75 => "title1",
+	//		_     => "title"
+	//	};
 
 }
