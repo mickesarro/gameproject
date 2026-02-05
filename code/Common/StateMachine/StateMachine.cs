@@ -50,6 +50,11 @@ public class StateMachine {
         return states.GetValueOrDefault(typeof(T));
     }
 
+    public T GetState<T>(bool asRealType)
+    {
+        return (T)states.GetValueOrDefault( typeof( T ) );
+    }
+
     /// <summary>
     /// Calls the current states OnUpdate method.
     /// </summary>
