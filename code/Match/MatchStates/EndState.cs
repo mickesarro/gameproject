@@ -10,7 +10,7 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     {
         matchManager.MatchIsRunning = false;
 
-        UIManager.Instance.ToggleLayer<StatsUI>();
+        UIManager.Instance.ShowLayer<StatsUI>();
 
         IMatchEvents.Post( e => e.OnGameEnd() );
         EndTimer = 0;
@@ -27,7 +27,7 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
         // Save stats etc. cleanup
         var slo = new SceneLoadOptions { };
         slo.SetScene( "/scenes/mainMenu.scene" );
-        matchManager.Scene.Clear();
+        //matchManager.Scene.Clear();
         matchManager.Scene.Load( slo );
         
     }
