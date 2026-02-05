@@ -27,7 +27,9 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
         // Save stats etc. cleanup
         var slo = new SceneLoadOptions { };
         slo.SetScene( "/scenes/mainMenu.scene" );
+        matchManager.Scene.Clear();
         matchManager.Scene.Load( slo );
+        
     }
 
     private TimeSince EndTimer;

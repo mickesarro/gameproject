@@ -21,7 +21,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
     private StateMachine stateMachine = null;
 
     // Blocks player movement until everyone is loaded
-    public bool MatchIsRunning = false;
+    [Sync] public bool MatchIsRunning { get; set; } = false;
 
     protected override void OnStart()
     {
@@ -81,6 +81,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         
     }
 
+    [Rpc.Broadcast]
     public void EndGame()
 	{
         stateMachine.ChangeState<EndState>();

@@ -26,7 +26,9 @@ public sealed class PlayerInput : Component
     {
         base.OnStart();
 
-        HUD = Game.ActiveScene.Get<HUD>();
+        if ( IsProxy ) return;
+
+        HUD = Scene.Get<HUD>();
     }
 
 	protected override void OnUpdate()

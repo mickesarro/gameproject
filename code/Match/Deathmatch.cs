@@ -33,6 +33,7 @@ public sealed class Deathmatch : GameMode
 
     //[Rpc.Host]
     // scoren lisäyksessä kestää aina hetki, parempi vertailla ensin
+    [Rpc.Host]
     public override void WinCondition( PlayerStats latestScoreEvent )
     {
         const int scoreToAdd = 1; // Define score amounts somewhere
