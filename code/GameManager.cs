@@ -17,7 +17,7 @@ public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetw
 			return;
 		}
 
-		LoadUI();
+		//LoadUI();
 	}
 
 	public void LoadUI()
