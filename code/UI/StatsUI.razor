@@ -26,6 +26,7 @@
             {
 
                 string displayName = "";
+                if (character.GameObject == null) continue;
 
                 if ( character.GameObject.Tags.Has( "npc" ) )
                 {
@@ -62,19 +63,21 @@
 
     void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
     void IMatchEvents.OnPlayerJoined() => StateHasChanged();
+    void IMatchEvents.OnPlayerLeft(System.Guid connectionId) => StateHasChanged();
 
-    protected override int BuildHash() => System.HashCode.Combine( totalScore );
+    protected override int BuildHash() => System.HashCode.Combine( characters );
 
     private void BuildCharacterList()
     {
+
         characters = MatchStatsManager.Instance.Tracked
-            .OrderByDescending(chr => chr.Score);
+            .OrderByDescending(chr => chr?.Score);
     }
 
     public override void Show()
     {
+        StateHasChanged();
         GameObject.Enabled = true;
-        BuildCharacterList();
     }
 
     public override void Hide()

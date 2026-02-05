@@ -10,7 +10,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 {
 	[Title( "Hunting and detecting" )]
 	[Property] public GameObject hunted { get; set; }
-	public NetList<GameObject> huntedList { get; private set; } = new();
+	[Sync( SyncFlags.FromHost )] public NetList<GameObject> huntedList { get; private set; } = new();
 
 	[Property] public float detectionDistance { get; private set; } = 500f;
     [Property] public float FOV { get; private set; } = 90f;
@@ -51,6 +51,12 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
     protected override void OnAwake()
 	{
+        if ( IsProxy )
+        {
+            playerStats = GetComponent<PlayerStats>();
+            return;
+        }
+
 		base.OnAwake();
 
 		StateMachine = new StateMachine();
@@ -71,7 +77,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
     protected override void OnStart()
 	{
-        Agent = GetComponent<NavMeshAgent>();
+        if ( IsProxy ) return;
+        Agent = GetOrAddComponent<NavMeshAgent>();
 		lastKnownPos = GameObject.WorldPosition; // To avoid default problems
 
 		if (defaultState != StateEnum.None) {
@@ -83,6 +90,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
     protected override void OnEnabled()
     {
+        if ( IsProxy ) return;
         base.OnEnabled();
 
         characterHealth.OnDamage += AlertOnDamage;
@@ -90,6 +98,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
     protected override void OnDisabled()
     {
+        if ( IsProxy ) return;
         base.OnDisabled();
 
         characterHealth.OnDamage -= AlertOnDamage;
@@ -133,7 +142,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     };
 
     protected override void OnFixedUpdate() {
-        if ( IsProxy ) return;
+        if ( IsProxy || !MatchManager.Instance.MatchIsRunning ) return;
 
         StateMachine.Update();
 		UpdateCitizenAnims();
@@ -200,13 +209,21 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
 	void IPlayerEvent.OnSpawn( GameObject player )
 	{
+        AddToHuntedList( player );
+	}
+
+    [Rpc.Host]
+    private void AddToHuntedList( GameObject player )
+    {
         if ( player == GameObject ) return;
 		// So that in search state the NPC can search all players for the closest one
 		huntedList.Add( player );
-	}
+    }
 
+    
     public void AlertOnDamage( DamageInfo damageInfo )
     {
+        if ( IsProxy ) return;
         if ( damageInfo?.Attacker == null ) return;
 
         hunted = damageInfo.Attacker;

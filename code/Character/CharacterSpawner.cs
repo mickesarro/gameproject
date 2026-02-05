@@ -23,6 +23,8 @@ public sealed class CharacterSpawner : Component
 
 	public void Respawn( SpawnPoint spawnPoint )
     {
+        if ( IsProxy ) return;
+
         Spawn( spawnPoint );
     }
 }

@@ -5,7 +5,7 @@ namespace Shooter;
 /// <summary>
 /// Acts as a proxy for different player interactions.
 /// </summary>
-public sealed class PlayerInteraction : Component, IPlayerEvent
+public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents
 {
 	[Property, RequireComponent] private PlayerController Player { get; set; }
 	[Property, RequireComponent] private PlayerInventory PlayerInventory { get; set; }
@@ -21,12 +21,13 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 		base.OnStart();
 		// Perhaps should move this to some other place
 		// Needs to be called on start instead of awake
-		IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
 
         if ( PlayerInventory == null ) return;
         if (IsProxy) return;
-        
-        
+
+        IPlayerEvent.Post( e => e.OnSpawn( GameObject ) );
+
+
         var meleePrefab = GameObject.Clone( "melee.prefab", new CloneConfig { Name = "Melee", Parent = GameObject, StartEnabled = false} );
         Log.Info( GameObject.Network.Owner.DisplayName );
         meleePrefab?.NetworkSpawn(owner: GameObject.Network.Owner);
@@ -53,5 +54,10 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 	{
 		// Might not be needed
 	}
+
+    void IMatchEvents.OnGameEnd()
+    {
+        GameObject.Enabled = false;
+    }
 
 }

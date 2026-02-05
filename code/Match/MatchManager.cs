@@ -1,4 +1,6 @@
 using Sandbox;
+using Shooter.Match;
+using System;
 
 namespace Shooter;
 
@@ -16,21 +18,10 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
     private PopulateWithNpcs populator = null;
     [Property] private bool populate = true;
 
-    //protected override void OnUpdate()
-    //{
-        //base.OnUpdate();
-        //var characterHealths1 = Scene.GetAllComponents<CharacterHealth>();
-        //Log.Info( characterHealths1.Count() );
-        // if (initializedCount -1 == Players.Count()) return;
-        // var characterHealths = Scene.GetAllComponents<CharacterHealth>();
-        // if ( characterHealths.Count() == initializedCount + 1 )
-        // {
-        //     var characterHealth = characterHealths.FirstOrDefault( ch => ch.GameObject.Network.OwnerId == Players.First().Id );
-        //     characterHealth.SetMatchInstance( this );
-        //     initializedCount++;
-        // }
-    //}
+    private StateMachine stateMachine = null;
 
+    // Blocks player movement until everyone is loaded
+    [Sync] public bool MatchIsRunning { get; set; } = false;
 
     protected override void OnStart()
     {
@@ -40,7 +31,10 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         // This might not be the correct place depending on the flow we want
         // e.g. start game only when all players are loaded, or something. 
 
-        //StartGame();  
+        //StartGame();
+        
+
+        InitialiseFSM();
 
         if ( Networking.IsHost && populate )
         {
@@ -48,28 +42,16 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         }
     }
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        stateMachine.Update();
+    }
+
     private void StartGame()
     {
-        var clcfg = new CloneConfig
-        {
-            Parent = GameObject,
-            StartEnabled = true,
-            Transform = WorldTransform
-        };
-        
-        var mode = GameObject.Clone( GameMode.Current, clcfg );
-
-        if ( mode == null || !mode.Components.TryGet<GameMode>( out var gameMode ) )
-        {
-            Log.Error( "[MatchManager] Passed gameobject prefab does not contain GameMode!" );
-            return;
-        }
-        Log.Info( mode.Name );
-
-        // Instantiate the actual gamemode to the scene
-        // Should this be network spawned or not?
-        //MatchGameMode.Clone( WorldTransform, parent: GameObject );
-        MatchGameMode = gameMode;
+        MatchGameMode = stateMachine.GetState<StartState>(asRealType: true).GameMode;
 
         IMatchEvents.Post( e => e.OnGameStart() );
 	}
@@ -80,9 +62,29 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 		StartGame();
     }
 
+    private void InitialiseFSM()
+    {
+        stateMachine ??= new StateMachine();
+
+        IState[] statelist = {
+            new StartState(this, stateMachine),
+            new MatchState(this, stateMachine),
+            new EndState(this, stateMachine)
+        };
+
+        foreach (var state in statelist )
+        {
+            stateMachine.AddState( state );
+        }
+
+        stateMachine.Initialize<StartState>();
+        
+    }
+
+    [Rpc.Broadcast]
     public void EndGame()
 	{
-		IMatchEvents.Post( e => e.OnGameEnd() );
+        stateMachine.ChangeState<EndState>();
 	}
 
     /// <summary>
@@ -100,35 +102,54 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     void INetworkListener.OnConnected( Connection channel )
 	{
-		Players.Add( channel );
-        CurrentPlayers++;
-        
-        if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
+        AddPlayer( channel );
     }
 
 	void INetworkListener.OnDisconnected( Connection channel )
 	{
-		IMatchEvents.Post( e => e.OnPlayerLeft(channel.Id) );
+        PlayerCountChanged( false, channel.Id );
 
-		Players.Remove( channel );
+
+        Players.Remove( channel );
         CurrentPlayers--;
 
         TryPopulate();
     }
 
+    private void AddPlayer( Connection channel )
+    {
+        Players.Add( channel );
+        CurrentPlayers++;
+        
+        if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
+    }
+
     void INetworkListener.OnActive( Connection channel )
 	{
-		IMatchEvents.Post( e => e.OnPlayerJoined() );
+        PlayerCountChanged( true, Guid.Empty );
         // pitää miettiä, sama ei ehkä toimi dedikoidulla servulla
         if ( channel.IsHost )
         {
             StartGame();
             TryPopulate();
+            AddPlayer( channel );
         }
         else
         {
             Log.Info( "setting gamemode: " + GameMode.Current + " on client (t host)" );
             SetCurrentGameMode(GameMode.Current);
+        }
+    }
+
+    [Rpc.Broadcast( NetFlags.SendImmediate )]
+    private void PlayerCountChanged( bool joined, Guid id )
+    {
+        if ( joined ) {
+            IMatchEvents.Post( e => e.OnPlayerJoined() );
+        }
+        else
+        {
+            IMatchEvents.Post( e => e.OnPlayerLeft( id ) );
         }
     }
 

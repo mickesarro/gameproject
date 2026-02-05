@@ -17,16 +17,17 @@ public sealed class GameManager : GameObjectSystem<GameManager>, Component.INetw
 			return;
 		}
 
-		LoadUI();
+		//LoadUI();
 	}
 
-	public void LoadUI()
+    // Do not use as of now
+    public void LoadUI()
 	{
 		var slo = new SceneLoadOptions
 		{
 			IsAdditive = true
 		};
-		slo.SetScene( "/scenes/playerScene.scene" );
+		slo.SetScene( "/scenes/playerScene.scene_c" );
 		Scene.Load( slo );
 	}
 

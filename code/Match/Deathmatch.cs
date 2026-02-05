@@ -33,13 +33,13 @@ public sealed class Deathmatch : GameMode
 
     //[Rpc.Host]
     // scoren lisäyksessä kestää aina hetki, parempi vertailla ensin
+    [Rpc.Host]
     public override void WinCondition( PlayerStats latestScoreEvent )
     {
         const int scoreToAdd = 1; // Define score amounts somewhere
         if ( latestScoreEvent.Score + scoreToAdd >= scoreLimit )
         {
-            // Match end handler / ending screen etc. needs to be made
-            IMatchEvents.Post( e => e.OnGameEnd() );
+            MatchManager.Instance.EndGame();
             GameObject.Enabled = false; // Might not work, but for dev time
             Log.Info( "Game ended by score!" );
         }

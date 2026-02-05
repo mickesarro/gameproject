@@ -261,6 +261,8 @@ public sealed class PlayerController : Component, ICharacterBase
         WishDir = (rot.Forward * Input.AnalogMove.x) + (rot.Left * Input.AnalogMove.y);
         if (!WishDir.IsNearZeroLength) WishDir = WishDir.Normal;
 
+        if ( !MatchManager.Instance.MatchIsRunning ) return;
+
         IsWalking = Input.Down("Slow");
         if (ToggleCrouch) {
             if (Input.Pressed("Duck")) IsCrouching = !IsCrouching;
@@ -408,6 +410,8 @@ public sealed class PlayerController : Component, ICharacterBase
         
         Height = StandingHeight;
         HeightGoal = StandingHeight;
+
+        Gravity = UseCustomGravity ? CustomGravity : Scene.PhysicsWorld.Gravity;
     }
 
     protected override void OnFixedUpdate() {
@@ -420,14 +424,9 @@ public sealed class PlayerController : Component, ICharacterBase
         
 		if ( IsProxy )
 			return;
-        
-        if (UseCustomGravity) {
-            Gravity = CustomGravity;
-        } else {
-            Gravity = Scene.PhysicsWorld.Gravity;
-        }
 
         GatherInput();
+        if ( !MatchManager.Instance.MatchIsRunning ) return;
 
         // Crouching
         var InitHeight = HeightGoal;
