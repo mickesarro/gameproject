@@ -26,12 +26,16 @@ public sealed class PlayerInput : Component
     {
         base.OnStart();
 
-        HUD = Game.ActiveScene.Get<HUD>();
+        if ( IsProxy ) return;
+
+        HUD = Scene.Get<HUD>();
     }
 
 	protected override void OnUpdate()
 	{
 		if ( IsProxy ) return;
+
+        if ( Input.Suppressed ) return;
 
 		PollItemChange();
 		PollUIToggle();

@@ -5,7 +5,7 @@ namespace Shooter;
 /// <summary>
 /// Acts as a proxy for different player interactions.
 /// </summary>
-public sealed class PlayerInteraction : Component, IPlayerEvent
+public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents
 {
 	[Property, RequireComponent] private PlayerController Player { get; set; }
 	[Property, RequireComponent] private PlayerInventory PlayerInventory { get; set; }
@@ -54,5 +54,10 @@ public sealed class PlayerInteraction : Component, IPlayerEvent
 	{
 		// Might not be needed
 	}
+
+    void IMatchEvents.OnGameEnd()
+    {
+        GameObject.Enabled = false;
+    }
 
 }

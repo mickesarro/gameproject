@@ -51,7 +51,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
 
     protected override void OnAwake()
 	{
-        if ( IsProxy ) return;
+        if ( IsProxy )
+        {
+            playerStats = GetComponent<PlayerStats>();
+            return;
+        }
 
 		base.OnAwake();
 
@@ -74,7 +78,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     protected override void OnStart()
 	{
         if ( IsProxy ) return;
-        Agent = GetComponent<NavMeshAgent>();
+        Agent = GetOrAddComponent<NavMeshAgent>();
 		lastKnownPos = GameObject.WorldPosition; // To avoid default problems
 
 		if (defaultState != StateEnum.None) {
@@ -138,7 +142,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
     };
 
     protected override void OnFixedUpdate() {
-        if ( IsProxy ) return;
+        if ( IsProxy || !MatchManager.Instance.MatchIsRunning ) return;
 
         StateMachine.Update();
 		UpdateCitizenAnims();

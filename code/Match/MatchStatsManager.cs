@@ -1,5 +1,6 @@
 ﻿using System;
 using Sandbox;
+using Sandbox.VR;
 
 namespace Shooter;
 
