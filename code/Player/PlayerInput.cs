@@ -33,6 +33,8 @@ public sealed class PlayerInput : Component
 	{
 		if ( IsProxy ) return;
 
+        if ( Input.Suppressed ) return;
+
 		PollItemChange();
 		PollUIToggle();
 	}
