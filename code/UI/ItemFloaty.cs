@@ -25,6 +25,8 @@ public sealed class ItemFloaty : Component
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
+
+		if ( IsAlreadyOwned() ) return;
 		
 		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);
 		
@@ -48,6 +50,27 @@ public sealed class ItemFloaty : Component
 			Camera.Hud.DrawTexture(Texture, new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), SpriteColor);
 		}
 	}
+
+private bool IsAlreadyOwned()
+{
+    var pickup = Components.GetInParent<ItemPickup>();
+    var prefabGun = pickup?.ItemPrefab?.Components.Get<Gun>( true );
+    var inventory = PlayerController.Local?.Components.Get<PlayerInventory>();
+
+    if ( prefabGun == null || inventory == null ) return false;
+
+    int slotIndex = (int)prefabGun.GunData.WeaponType;
+    var ownedWeapon = inventory.Items.ElementAtOrDefault( slotIndex );
+
+	// Return true if you have the weapon and you have ammo left
+    if ( ownedWeapon is Gun ownedGun && ownedGun.GunData.PrimaryFireData.AmmoLeft > 0 )
+    {
+        return true;
+    }
+
+    return false;
+}
+
 
 	float Scale()
 	{

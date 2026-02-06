@@ -1359,6 +1359,14 @@
               "Type": "GameObject",
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
+            "Property": "Name",
+            "Value": "RPG pickup (1)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
             "Property": "Position",
             "Value": "21.12942,-7945.972,146.4305"
           },
@@ -1412,7 +1420,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (1)"
+            "Value": "AR pickup (1)"
           },
           {
             "Target": {
@@ -1499,7 +1507,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (3)"
+            "Value": "AR pickup (2)"
           },
           {
             "Target": {
@@ -1586,7 +1594,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (4)"
+            "Value": "AR pickup (3)"
           },
           {
             "Target": {
@@ -1673,7 +1681,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (2)"
+            "Value": "RPG pickup (2)"
           },
           {
             "Target": {
@@ -1733,7 +1741,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (6)"
+            "Value": "RPG pickup (3)"
           },
           {
             "Target": {
@@ -1793,7 +1801,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (7)"
+            "Value": "RPG pickup (4)"
           },
           {
             "Target": {
@@ -1853,7 +1861,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (5)"
+            "Value": "RPG pickup (5)"
           },
           {
             "Target": {
@@ -1913,7 +1921,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (8)"
+            "Value": "RPG pickup (6)"
           },
           {
             "Target": {
@@ -1973,7 +1981,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (9)"
+            "Value": "RPG pickup (7)"
           },
           {
             "Target": {
@@ -1989,7 +1997,15 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Scale",
-            "Value": "1,1,1"
+            "Value": "1.5,1.5,1.5"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl"
           },
           {
             "Target": {
@@ -2013,6 +2029,671 @@
       }
     },
     {
+      "__guid": "b701049a-895b-4c76-ab5a-02b3a3e64feb",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (1)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1314.777,-6233.95,391.4834"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "b701049a-895b-4c76-ab5a-02b3a3e64feb",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "dd0f97d2-c8eb-47f4-966b-895d90f8f31e",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "df5be465-c9b5-4eb0-b447-f92ae3abddfc",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "06b69c65-88ae-43dd-88a7-ccb29cb965b3",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "cc347c45-9373-4687-b34b-05cc6c19ff92",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "40e5597f-71fb-4c9e-b267-ee2fcd95a6a1",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a4777e3d-f25a-45e2-9bab-3ea8fcce8323"
+      }
+    },
+    {
+      "__guid": "ef1e0592-8cd2-4b7f-962c-046287930d91",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (2)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "779.5539,-7281.998,270.898"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "ef1e0592-8cd2-4b7f-962c-046287930d91",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "4308236a-e658-47c1-8ff8-2ceea1fb918b",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "f4f24382-ce29-484d-bb05-8ab47ee9da01",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "93f2891d-0907-4b63-bba5-d9233d459960",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "75d850bc-fac9-4467-9a0c-916567ac2807",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "3f4a574d-8310-455b-867e-588f60991575",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8a55de2c-92d9-4173-a5fb-bb38b37268d2"
+      }
+    },
+    {
+      "__guid": "a63fadb1-bee4-44f1-b6a4-e98afd3b4eae",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (3)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-48.85673,-7430.009,516.0501"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "a63fadb1-bee4-44f1-b6a4-e98afd3b4eae",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "21e3dfd9-6446-44a4-b8b6-e289d60e59b2",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "f828171c-2ce9-48b3-8418-bb11b6ac5a23",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d2d94995-1ebf-4efc-9842-44f7c4c7a656",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "34b3272e-8093-46e7-b0af-52b120e1254f",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "8486983c-6f54-4ed6-897f-622bfda0e1a2",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "d267949f-4763-472f-97bf-680e5ec79582"
+      }
+    },
+    {
+      "__guid": "a3068f99-67a2-4eb8-8826-682d333dbb5e",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (4)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-559.5607,-8293.382,392.5523"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "a3068f99-67a2-4eb8-8826-682d333dbb5e",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "e6fb83d8-df3f-4fdd-a808-3209d5843952",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "5be81f42-e75f-429f-9cb7-7f7d682f50da",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d8463c0e-33f2-48b6-bee5-bf34221fa786",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bf704375-d6d6-48a0-b966-a4051ee0eb3f",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "9d4ffa1a-70da-4965-bb13-325b4afa1563",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "07d4a601-c6a6-49cc-8d05-67dda84b9522"
+      }
+    },
+    {
+      "__guid": "000fe661-b545-471d-b704-d67877dc8f79",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (5)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "274.2593,-9216.61,392.5523"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "000fe661-b545-471d-b704-d67877dc8f79",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "0bdd4500-c279-4148-980b-f03449f2ddc8",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "166e31d0-074b-4739-9363-34f361c9d59a",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f9c6c752-232d-4b4a-b770-74851469f104",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "357287df-347f-4050-a2cf-2b8b882c2352",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "63dc9fa7-94af-4ed9-b9cc-081ac8d4944b",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "124cb85b-cda8-44c6-ae18-858455064951"
+      }
+    },
+    {
+      "__guid": "774250b3-5909-41d6-a142-ea4adb8a49cd",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (6)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1336.232,-9396.637,656.7875"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "774250b3-5909-41d6-a142-ea4adb8a49cd",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "d0ff5ae9-f4a8-4806-b055-c7dfa11080e3",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "a007ceeb-ce32-447e-9607-f495ad012cb1",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "5aad4f29-ebc2-4ab7-8346-61e869f30aa3",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c9441846-8b77-4cad-813c-b71bd6e28b92",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "1cbd522c-0b7b-4595-beb1-3cf62bd719d6",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "5f5d1b7c-645a-4ae7-a368-3fc177ed9cd6"
+      }
+    },
+    {
+      "__guid": "c8f1d65e-5ee8-4f16-b9a0-1832ad386922",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "Railgun pickup (7)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1803.171,-8116.782,657.215"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "Model",
+            "Value": "guns/railgun3.vmdl"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "hideForTime",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "railgun.prefab"
+            }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Size",
+            "Value": 50
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "SpriteColor",
+            "Value": "0.49302,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            },
+            "Property": "Texture",
+            "Value": "textures/shapes/money3.vtex"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "c8f1d65e-5ee8-4f16-b9a0-1832ad386922",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "93ddceac-7796-48b1-89f4-dd4ebc216b2d",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "586a6b76-94dc-40d2-a1b7-5c0c6bcb3fa1",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "479977fc-f537-42da-a009-73e0a972bdf7",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "fe8cb251-77ce-4bcf-aca7-89ea003d6769",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "ee4dae56-400f-4620-a799-0b559c16a0f4",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2afc8ae3-429f-4497-8744-75c3f5d89e98"
+      }
+    },
+    {
       "__guid": "73b97ed4-b991-47f8-bbe5-3bb70d485b99",
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
@@ -2033,7 +2714,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Name",
-            "Value": "gunpickup (10)"
+            "Value": "RPG pickup (8)"
           },
           {
             "Target": {

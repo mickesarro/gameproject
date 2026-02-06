@@ -3,7 +3,7 @@
     "__guid": "301d39c9-6e96-490b-9aba-537bb96735bd",
     "__version": 2,
     "Flags": 0,
-    "Name": "ar-rifle",
+    "Name": "railgun",
     "Position": "0,-398.0629,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -26,7 +26,7 @@
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "GunData"
         },
-        "Name": "2. AR",
+        "Name": "3. Railgun",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -62,7 +62,7 @@
           "_type": "gameobject",
           "go": "e3d1259e-2595-4483-be1a-91d336a207e4"
         },
-        "WeaponType": "Secondary",
+        "WeaponType": "Railgun",
         "Worldmodel": {
           "_type": "gameobject",
           "go": "4090ac0a-4623-4939-ad64-9ed2d37bc2e8"
@@ -73,7 +73,7 @@
         "__guid": "e41f1f6e-8381-4ae9-b3d9-47b710ab39a8",
         "__enabled": true,
         "Flags": 0,
-        "AmmoLeft": 100,
+        "AmmoLeft": 5,
         "AmmoType": "Medium",
         "BulletData": {
           "_type": "component",
@@ -82,27 +82,27 @@
           "component_type": "BulletData"
         },
         "BulletType": "Bullet",
-        "FireType": "FullAuto",
-        "FiringSound": "GunshotAR",
+        "FireType": "SemiAuto",
+        "FiringSound": "GunshotRailgun",
         "HasInfiniteAmmo": false,
-        "LoadTime": 1,
-        "MaxAmmo": 100,
+        "LoadTime": 2,
+        "MaxAmmo": 5,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Recoil": 5,
-        "RPM": 800,
-        "Spread": 15
+        "Recoil": 10,
+        "RPM": 40,
+        "Spread": 0
       },
       {
         "__type": "Shooter.BulletData",
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
         "Flags": 0,
-        "Damage": 5,
+        "Damage": 100,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -180,7 +180,7 @@
             "PlaybackRate": 1,
             "RenderOptions": {
               "GameLayer": false,
-              "OverlayLayer": true,
+              "OverlayLayer": false,
               "BloomLayer": false,
               "AfterUILayer": false
             },
@@ -503,6 +503,70 @@
                     "Children": []
                   }
                 ]
+              },
+              {
+                "__guid": "2874ef81-e234-422f-bc39-a630540c7ef6",
+                "__version": 2,
+                "Flags": 0,
+                "Name": "railgun2",
+                "Position": "5.403502,0.198396,-8.803435",
+                "Rotation": "0,0,0,1",
+                "Scale": "1,1,1",
+                "Tags": "",
+                "Enabled": true,
+                "NetworkMode": 2,
+                "NetworkFlags": 0,
+                "NetworkOrphaned": 0,
+                "NetworkTransmit": true,
+                "OwnerTransfer": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.SkinnedModelRenderer",
+                    "__guid": "ae132766-9cb7-4823-ac2b-d83fa5c9e8e4",
+                    "__enabled": true,
+                    "Flags": 0,
+                    "AnimationGraph": null,
+                    "BodyGroups": 18446744073709551615,
+                    "BoneMergeTarget": null,
+                    "CreateAttachments": false,
+                    "CreateBoneObjects": false,
+                    "LodOverride": null,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Materials": null,
+                    "Model": "guns/railgun3.vmdl",
+                    "Morphs": {},
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "Parameters": {
+                      "bools": {},
+                      "ints": {},
+                      "floats": {},
+                      "vectors": {},
+                      "rotations": {}
+                    },
+                    "PlaybackRate": 1,
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Sequence": {
+                      "Name": null,
+                      "Looping": true,
+                      "Blending": false
+                    },
+                    "Tint": "1,1,1,1",
+                    "UseAnimGraph": true
+                  }
+                ],
+                "Children": []
               }
             ]
           },
@@ -1714,7 +1778,7 @@
             },
             "PlaybackRate": 1,
             "RenderOptions": {
-              "GameLayer": true,
+              "GameLayer": false,
               "OverlayLayer": false,
               "BloomLayer": false,
               "AfterUILayer": false
@@ -1749,7 +1813,7 @@
         "__version": 2,
         "Flags": 0,
         "Name": "arms",
-        "Position": "0,0,0",
+        "Position": "1.684928,0.8556824,-0.0000002980232",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
         "Tags": "",

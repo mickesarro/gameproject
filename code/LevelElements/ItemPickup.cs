@@ -8,7 +8,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 {
 	// Imitates the one that was done using the visual script
 
-	[Property] private GameObject ItemPrefab { get; set; }
+	[Property] public GameObject ItemPrefab { get; private set; }
 	[Property] private float Spin { get; set; } = 0f;
 
     [Property] private HideForTime hideForTime;

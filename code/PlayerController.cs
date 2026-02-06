@@ -29,6 +29,10 @@ public sealed class PlayerController : Component, ICharacterBase
 {
 	// omat custom jutut ehkä hyvä merkata
 
+
+    // Check if local playercontroller 
+    public static PlayerController Local { get; private set; }
+    
 	private PlayerStats playerStats;
 
     [Sync]
@@ -507,6 +511,9 @@ public sealed class PlayerController : Component, ICharacterBase
     {
 	    if ( !IsProxy )
         {
+
+            Local = this;
+
 		    playerStats = GetComponent<PlayerStats>();
 
 		    Height = StandingHeight;
