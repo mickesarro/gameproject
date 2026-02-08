@@ -39,6 +39,9 @@ Libraries/tux.linuxfix/
 *.slnx.DotSettings.user
 /.sbox
 
+# Materials
+*.vtex_c
+
 Exports/
 
 testscene*
