@@ -41,6 +41,7 @@ Libraries/tux.linuxfix/
 
 # Materials
 *.vtex_c
+*.vmat_c
 
 Exports/
 
