@@ -42,6 +42,8 @@ Libraries/tux.linuxfix/
 # Materials
 *.vtex_c
 *.vmat_c
+*preview.png
+*preview.jpg
 
 Exports/
 
