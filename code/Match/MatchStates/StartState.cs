@@ -39,19 +39,24 @@ public sealed class StartState( MatchManager matchManager, StateMachine stateMac
     {
         // Clear it as it is not needed here anymore
         GameMode = null;
-        matchManager.MatchIsRunning = true;
     }
 
     public override void OnUpdate()
     {
         if ( !Networking.IsHost ) return;
-        foreach (var con in matchManager.Players )
+        else if ( matchManager.GoToNextState )
+        {
+            stateMachine.ChangeState<MatchState>();
+        }
+
+        foreach ( var con in matchManager.Players )
         {
             if ( !con.IsActive ) return;
         }
 
         // Add some player spawn timer thing here, seperate state or match
 
+        matchManager.GoToNextState = true;
         stateMachine.ChangeState<MatchState>();
 
     }
