@@ -5,8 +5,9 @@ namespace Shooter;
 public enum WeaponType { 
     Primary = 0,
     Secondary = 1,
-    Melee = 2,
-    Total = 3
+    Railgun = 2,
+    Melee = 3,
+    Total = 4
 }
 
 public interface IWeapon

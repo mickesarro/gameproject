@@ -58,7 +58,7 @@ public sealed class PlayerInput : Component
 	}
 
 	private void PollItemChange() {
-		for ( int i = 0; i < 3; i++ )
+		for ( int i = 0; i < 4; i++ )
 		{
 			if ( Input.Pressed($"Slot{i + 1}" ) )
 			{
