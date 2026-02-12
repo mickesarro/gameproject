@@ -1,5 +1,6 @@
 
 using Sandbox;
+using System;
 
 namespace Shooter;
 
@@ -16,7 +17,7 @@ internal static class Spawner
         }
 
         // Sometimes fails to fetch earlier
-        spawnPoint ??= MatchManager.Instance.MatchGameMode.GetSpawnPoint();
+        spawnPoint ??= GetSpawnPoint();
 
         var character = GameObject.Clone( prefab, transform: spawnPoint.WorldTransform, startEnabled: true );
 
@@ -27,4 +28,14 @@ internal static class Spawner
 
         character.NetworkSpawn();
     }
+
+    public static SpawnPoint GetSpawnPoint()
+    {
+        // This could, and in the future probably should, live in utils
+        return Random.Shared.FromArray<GameObject>(
+            [.. Game.ActiveScene.GetComponentInChildren<NetworkHelper>().SpawnPoints]
+        )?.GetComponent<Shooter.SpawnPoint>();
+
+    }
+
 }
