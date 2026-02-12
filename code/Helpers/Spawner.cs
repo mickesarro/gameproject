@@ -29,12 +29,54 @@ internal static class Spawner
         character.NetworkSpawn();
     }
 
-    public static SpawnPoint GetSpawnPoint()
+    /// <summary>
+    /// Get a spawn point from the map.
+    /// </summary>
+    /// <param name="checkForOthers">Determines whether to check nearby characters.</param>
+    /// <returns></returns>
+    public static SpawnPoint GetSpawnPoint( bool checkForOthers = true )
     {
-        // This could, and in the future probably should, live in utils
-        return Random.Shared.FromArray<GameObject>(
-            [.. Game.ActiveScene.GetComponentInChildren<NetworkHelper>().SpawnPoints]
-        )?.GetComponent<Shooter.SpawnPoint>();
+        // Shuffle the spawnpoints so we can just pick them linearly later
+        var spawnPoints = Game.ActiveScene.GetComponentInChildren<NetworkHelper>().SpawnPoints.Shuffle();
+        
+        var spawnPoint = spawnPoints.First().GetComponent<Shooter.SpawnPoint>();
+
+        if ( checkForOthers )
+        {
+            var characters = Game.ActiveScene.GetComponentsInChildren<CharacterSpawner>();
+
+            int ind = 1;
+            while ( ind < spawnPoints.Count() )
+            {
+                if ( !CheckForNearCharacters( spawnPoint, characters ) ) break;
+
+                // Will return the final one if no previous was valid
+                // Should probably check for the best one in those as well or wait etc.
+                spawnPoint = spawnPoints.ElementAt( ind ).GetComponent<Shooter.SpawnPoint>();
+                ind++;
+
+            }
+            
+        }
+
+        return spawnPoint;
+
+    }
+
+    private static float MinCharacterDistance = 500.0f;
+
+    private static bool CheckForNearCharacters( SpawnPoint spawnPoint, IEnumerable<Component> characters )
+    {
+
+        foreach ( var character in characters )
+        {
+            if ( spawnPoint.WorldPosition.DistanceSquared( character.WorldPosition ) < (MinCharacterDistance * MinCharacterDistance) )
+            {
+                return true;
+            }
+        }
+
+        return false;
 
     }
 
