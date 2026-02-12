@@ -18,6 +18,12 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
         matchManager.Scene.GetComponentInChildren<Podium>( includeDisabled: true )
             .GameObject.Enabled = true;
 
+        // Show the win/lose screen
+        var HUD = matchManager.Scene.Get<HUD>();
+        var transitionWindow = HUD.AddComponent<TransitionWindow>( startEnabled: true );
+
+        UIManager.Instance.ShowLayer( transitionWindow, addToHistory: false );
+
     }
 
     public override void OnExit( IState nextState )
@@ -44,6 +50,7 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     {
         if ( EndTimer > statsUITime )
         {
+            UIManager.Instance.ResetToStartLayer();
             UIManager.Instance.ShowLayer<StatsUI>();
             statsUITime = EndTimeLimit * 2; // Makes this if block run only once
         }
