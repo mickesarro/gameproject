@@ -59,7 +59,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         // Log.Info("ReSpawn");
         // Should probably go through gamemode to determine whether spawning is allowed
         GameObject.GetComponent<CharacterSpawner>( includeDisabled: true )
-            .Respawn( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
+            .Respawn( Spawner.GetSpawnPoint() );
 	}
 
 	/// <summary>
