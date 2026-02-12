@@ -16,6 +16,7 @@
 {
     [Property] private string Name { get; set; }
     private bool isPlayer = false;
+    private bool wasOverriden = false;
 
     //private CharacterHealth CharacterHealth = null;
 
@@ -24,13 +25,23 @@
     protected override void OnStart()
     {
         base.OnStart();
+        if ( wasOverriden ) return;
 
         isPlayer = GameObject.Parent.Tags.Contains("player");
 
         Name ??= isPlayer ? Network.Owner?.DisplayName : "Bot";
         StateHasChanged();
     }
-    
+
+    // Can be used for custom behaviour in specific scenarios.
+    // Usage not recommended.
+    public void OverrideValues(string Name, bool isPlayer)
+    {
+        this.Name = Name;
+        this.isPlayer = isPlayer;
+        wasOverriden = true;
+    }
+
 	//private float GetHealth()
 	//{
 	//	return CharacterHealth?.Health ?? 0.0f;

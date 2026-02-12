@@ -6,7 +6,7 @@ namespace Shooter.NPC;
 /// Largely represents the NPC itself.
 /// Works as a common class for shared NPC state data and functionality.
 /// </summary>
-public class NPCController : Component, ICharacterBase, IPlayerEvent
+public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEvents
 {
 	[Title( "Hunting and detecting" )]
 	[Property] public GameObject hunted { get; set; }
@@ -230,6 +230,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent
         //Log.Info( "changed state" );
         StateMachine.ChangeState<AttackState>();
 
+    }
+
+    void IMatchEvents.OnGameEnd()
+    {
+        GameObject.Enabled = false;
     }
 
 }

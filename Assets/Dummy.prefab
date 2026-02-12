@@ -2924,58 +2924,35 @@
       {
         "__guid": "d4dec5c3-7bd2-44b7-b9e4-dcf96c90411f",
         "__version": 2,
-        "Flags": 0,
-        "Name": "NameTag",
-        "Position": "0,0,75",
-        "Rotation": "0,0,0,1",
-        "Scale": "1,1,1",
-        "Tags": "",
-        "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkFlags": 0,
-        "NetworkOrphaned": 0,
-        "NetworkTransmit": true,
-        "OwnerTransfer": 1,
-        "Components": [
-          {
-            "__type": "Sandbox.WorldPanel",
-            "__guid": "d7a013d8-eb58-4db5-8ba4-465ad9f9007a",
-            "__enabled": true,
-            "Flags": 0,
-            "HorizontalAlign": "Center",
-            "InteractionRange": 1000,
-            "LookAtCamera": true,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "PanelSize": "2000,200",
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
+        "__Prefab": "prefabs/nametag.prefab",
+        "__PrefabInstancePatch": {
+          "AddedObjects": [],
+          "RemovedObjects": [],
+          "PropertyOverrides": [
+            {
+              "Target": {
+                "Type": "GameObject",
+                "IdValue": "267a5504-fd84-41a5-8d44-316aa802f840"
+              },
+              "Property": "Name",
+              "Value": "NameTag"
             },
-            "RenderScale": 1,
-            "VerticalAlign": "Center"
-          },
-          {
-            "__type": "Shooter.UI.NameTag",
-            "__guid": "f4fcec7f-898b-4a7e-b0f4-fc61cbb4ad56",
-            "__enabled": true,
-            "Flags": 0,
-            "Name": null,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null
-          }
-        ],
-        "Children": []
+            {
+              "Target": {
+                "Type": "GameObject",
+                "IdValue": "267a5504-fd84-41a5-8d44-316aa802f840"
+              },
+              "Property": "Position",
+              "Value": "0,0,75"
+            }
+          ],
+          "MovedObjects": []
+        },
+        "__PrefabIdToInstanceId": {
+          "267a5504-fd84-41a5-8d44-316aa802f840": "d4dec5c3-7bd2-44b7-b9e4-dcf96c90411f",
+          "f32d8fb5-170c-40f1-97e8-e752177020b8": "ed05d302-194a-4ef5-a1bd-e4d7d854a7f2",
+          "75221d1b-cd4c-4d18-ade1-83252b6ab52a": "68453766-d1d5-449d-ab95-b3ffe6969285"
+        }
       }
     ],
     "__properties": {

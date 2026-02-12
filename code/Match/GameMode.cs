@@ -1,4 +1,4 @@
-﻿using Sandbox;
+using Sandbox;
 using System;
 
 namespace Shooter;
@@ -31,5 +31,7 @@ public abstract class GameMode : Component
     public abstract int MinPlayers { get; }
 
     public virtual string Objective { get; } = "Score points"; // Simple for now
+
+    public virtual int StartCountdown { get; } = 5;
 
 }

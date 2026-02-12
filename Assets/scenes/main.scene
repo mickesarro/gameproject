@@ -4224,6 +4224,48 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "8352cde7-e62e-4c08-a737-975fa8f1a59d",
+      "__version": 2,
+      "__Prefab": "prefabs/podium.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "8bec53ab-d12b-42f9-9997-df63aaf6a081"
+            },
+            "Property": "Position",
+            "Value": "-62.34474,-8396.845,128"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "8bec53ab-d12b-42f9-9997-df63aaf6a081"
+            },
+            "Property": "Enabled",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "8bec53ab-d12b-42f9-9997-df63aaf6a081": "8352cde7-e62e-4c08-a737-975fa8f1a59d",
+        "2b644cb8-7078-45bd-9ccd-1d4d7eecd1a7": "83d396a3-f9c1-40f7-bc9f-f0c26640ed22",
+        "33f289d6-5a03-48e7-be24-1c426b2b4eab": "587dfe92-91b5-4fbb-8c86-71e68e98bf0c",
+        "5a26f02f-2202-429a-8701-9d0d5b969537": "7137ca28-cfc7-4d06-8ee8-23cf7b4ac8b5",
+        "cb8e2283-87d0-4605-93fe-d2276e1f3a66": "8db16cf0-ddb0-4763-ba71-04ec81aed7da",
+        "dc30f07b-6af5-4911-9e07-e9185b19f194": "7cfbf0dc-7c2d-4579-a616-3fb83420c0c9",
+        "e3e543b8-6d2f-48f6-ac0b-fdd7b871c543": "c94c1d1a-8eb2-429d-849e-e1502db1da72",
+        "f27b3013-8bee-44fe-9c76-23908141a2a8": "382a468a-3ee6-4d1a-8325-3f4ccfdb2028",
+        "7e74674d-a17f-430e-b675-d30b4e6801c4": "f875d49a-17b2-4c2e-81b1-ebcc10c1d327",
+        "7c8edb08-6f44-491b-86ab-e79fe8b5e65e": "919ece38-9cf3-41f7-a73e-faa2805c8eb1",
+        "efffddec-78d4-405c-9490-7c6ee24ee86a": "e6ca4678-a7fe-4892-a03e-96905eef2f41",
+        "415a6871-f410-4e0a-9e39-bbd3242684f4": "7da5e71d-e0d5-4e75-a5c7-169051e89674"
+      }
     }
   ],
   "SceneProperties": {
@@ -4249,6 +4291,7 @@
   "Description": null,
   "__references": [
     "facepunch.v_m4a1#125828",
+    "facepunch.wrecoillessrifle#113432",
     "sausages.diamondplate#57428"
   ],
   "__version": 3

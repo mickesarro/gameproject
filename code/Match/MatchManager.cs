@@ -9,11 +9,11 @@ namespace Shooter;
 /// </summary>
 public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetworkListener, IMatchEvents
 {
-	[Sync] public NetList<Connection> Players { get; private set; } = new();
+    [Sync( SyncFlags.FromHost )] public NetList<Connection> Players { get; private set; } = new();
     // private int initializedCount = 1;
     [Sync] public int CurrentPlayers { get; private set; } = 0;
 
-    [Sync] public GameMode MatchGameMode { get; private set; }
+    [Sync( SyncFlags.FromHost )] public GameMode MatchGameMode { get; private set; }
 
     private PopulateWithNpcs populator = null;
     [Property] private bool populate = true;
@@ -21,7 +21,10 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
     private StateMachine stateMachine = null;
 
     // Blocks player movement until everyone is loaded
-    [Sync] public bool MatchIsRunning { get; set; } = false;
+    [Sync( SyncFlags.FromHost )] public bool MatchIsRunning { get; set; } = false;
+
+    // This is because at this moment it is not sure, whether we can use rpc or sync in state machine
+    [Sync( SyncFlags.FromHost )] public bool GoToNextState { get; set; } = false;
 
     protected override void OnStart()
     {

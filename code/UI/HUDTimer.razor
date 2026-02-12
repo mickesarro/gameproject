@@ -1,0 +1,36 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Shooter.Match;
+@using Shooter.UISystem;
+@inherits UILayer;
+@namespace Shooter.UI
+
+<root>
+    <div class="hud-timer">
+        @time
+    </div>
+</root>
+
+@code
+{
+    public override bool IsOverlay => true;
+
+    private int time => matchState != null ? matchState.StartTimer : 0;
+    private MatchState matchState = null;
+
+    public override void Show(object data)
+    {
+        base.Show(data);
+
+        if (data is MatchState)
+        {
+            matchState = data as MatchState;
+        }
+
+        GameObject.Enabled = true;
+        StateHasChanged();
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(time);
+
+}
