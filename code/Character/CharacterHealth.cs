@@ -21,11 +21,15 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
     public Action<DamageInfo> OnDamage { get; set; }
 
+    private CharacterRagdoll CharacterRagdoll { get; set; }
+
 	protected override void OnStart()
 	{
 		base.OnStart();
 
 		ownedStats = GetComponent<PlayerStats>();
+
+        CharacterRagdoll = GetComponent<CharacterRagdoll>();
 	}
 
 	[Rpc.Owner]
@@ -71,6 +75,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		// Animations
 
         ownedStats.AddDeath();
+
+        CharacterRagdoll.CreateRagdoll();
 
 		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
