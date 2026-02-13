@@ -87,6 +87,7 @@
         "__guid": "d41283fc-b61a-4c46-9146-a8b89624275b",
         "__enabled": true,
         "Flags": 0,
+        "animationHelper": null,
         "defaultState": "Search",
         "detectionDistance": 1000,
         "FOV": 60,
@@ -117,50 +118,6 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
-      },
-      {
-        "__type": "Sandbox.Citizen.CitizenAnimationHelper",
-        "__guid": "dc549d27-877d-4015-9ff7-aab97ee280a4",
-        "__enabled": true,
-        "Flags": 0,
-        "BodyWeight": 1,
-        "EyeSource": {
-          "_type": "gameobject",
-          "go": "e8187d63-38ba-4baa-b435-61e5f7536f2f"
-        },
-        "EyesWeight": 1,
-        "HeadWeight": 1,
-        "Height": null,
-        "IkLeftFoot": {
-          "_type": "gameobject",
-          "go": "bd337b2c-4494-49da-a0ba-348e8461d560"
-        },
-        "IkLeftHand": {
-          "_type": "gameobject",
-          "go": "c902cbed-d889-42c0-a00c-e278f99f2b58"
-        },
-        "IkRightFoot": {
-          "_type": "gameobject",
-          "go": "7d3b669d-04c5-458b-aaed-e9b48ff42ffa"
-        },
-        "IkRightHand": {
-          "_type": "gameobject",
-          "go": "dc5d45df-5860-4ad9-86aa-6110c40ae591"
-        },
-        "LookAt": null,
-        "LookAtEnabled": false,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Target": {
-          "_type": "component",
-          "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
-          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
-          "component_type": "SkinnedModelRenderer"
-        }
       },
       {
         "__type": "Sandbox.Helpers.Anchor",

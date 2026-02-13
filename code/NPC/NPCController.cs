@@ -36,7 +36,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
 	public Gun gun { get; private set; }
 
-	private CitizenAnimationHelper animationHelper;
+	[Property] private CitizenAnimationHelper animationHelper;
 
 	private PlayerStats playerStats; // Not a player, but in-game stats
     [Sync]
@@ -62,7 +62,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 		StateMachine = new StateMachine();
 		PopulateFSM();
 
-		animationHelper = GetComponent<CitizenAnimationHelper>();
+		animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
 
         characterHealth = GetComponent<CharacterHealth>();
         
