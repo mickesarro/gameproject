@@ -34,7 +34,7 @@ namespace Shooter.UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            SettingsManager.Instance.OnCrosshairColorChanged -= UpdateCrosshairColor;
+            SettingsManager.Instance?.OnCrosshairColorChanged -= UpdateCrosshairColor;
         }
 
         private void UpdateCrosshairColor( string hex )

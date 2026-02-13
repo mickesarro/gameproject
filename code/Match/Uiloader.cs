@@ -12,11 +12,9 @@ public sealed class Uiloader : Component
             return;
         }  
         Log.Info( Scene.Name );
-        var slo = new SceneLoadOptions
-        {
-            IsAdditive = true
-        };
-        slo.SetScene( "/scenes/playerScene.scene_c" );
+        var slo = new SceneLoadOptions();
+        slo.IsAdditive = true;
+        slo.SetScene( "/scenes/playerScene.scene" );
         Scene.Load( slo );
         Log.Info( Scene.Name );
         
