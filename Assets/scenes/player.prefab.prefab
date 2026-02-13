@@ -245,24 +245,6 @@
         "OnComponentUpdate": null
       },
       {
-        "__type": "Shooter.PlayerDresser",
-        "__guid": "e7e32e32-e1f2-42c5-ba5c-4dcc4bb99cf3",
-        "__enabled": true,
-        "Flags": 0,
-        "bodyRenderer": {
-          "_type": "component",
-          "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
-          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
-          "component_type": "SkinnedModelRenderer"
-        },
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null
-      },
-      {
         "__type": "Shooter.CharacterRagdoll",
         "__guid": "33051d76-cfb9-44a4-83bc-987de2f61ad8",
         "__enabled": true,
@@ -398,6 +380,130 @@
             "Object": {
               "_type": "gameobject",
               "go": "b1ee2f9e-52d0-431f-9ac0-a6f4ab91adc1"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          },
+          {
+            "__type": "Shooter.Helpers.SpawnEffect",
+            "__guid": "64901780-42fa-4ff3-a1b8-759b58210f0b",
+            "__enabled": true,
+            "Flags": 0,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "originalHelper": {
+              "_type": "component",
+              "component_id": "d026c370-3961-4eb2-b9c1-c7450a21c5e8",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "CitizenAnimationHelper"
+            },
+            "originalRenderer": {
+              "_type": "component",
+              "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "tempHelper": {
+              "_type": "component",
+              "component_id": "03667dec-19a2-417a-b271-79e7bdccccc9",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "CitizenAnimationHelper"
+            },
+            "tempRenderer": {
+              "_type": "component",
+              "component_id": "e2cd91a2-833a-45c3-9072-4bed0bdedb47",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "tick": 0
+          },
+          {
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "e2cd91a2-833a-45c3-9072-4bed0bdedb47",
+            "__enabled": false,
+            "Flags": 0,
+            "AnimationGraph": null,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
+            "CreateBoneObjects": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Materials": null,
+            "Model": null,
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Sequence": {
+              "Name": null,
+              "Looping": true,
+              "Blending": false
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
+          },
+          {
+            "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+            "__guid": "03667dec-19a2-417a-b271-79e7bdccccc9",
+            "__enabled": false,
+            "Flags": 0,
+            "BodyWeight": 1,
+            "EyeSource": null,
+            "EyesWeight": 1,
+            "HeadWeight": 1,
+            "Height": null,
+            "IkLeftFoot": null,
+            "IkLeftHand": null,
+            "IkRightFoot": null,
+            "IkRightHand": null,
+            "LookAt": null,
+            "LookAtEnabled": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Target": null
+          },
+          {
+            "__type": "Shooter.PlayerDresser",
+            "__guid": "0b476135-aff3-437f-a350-a1e46ccd8635",
+            "__enabled": true,
+            "Flags": 0,
+            "bodyRenderer": {
+              "_type": "component",
+              "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "SkinnedModelRenderer"
             },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
