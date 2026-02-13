@@ -261,6 +261,24 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
+      },
+      {
+        "__type": "Shooter.CharacterRagdoll",
+        "__guid": "33051d76-cfb9-44a4-83bc-987de2f61ad8",
+        "__enabled": true,
+        "Flags": 0,
+        "CharacterRenderer": {
+          "_type": "component",
+          "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+          "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       }
     ],
     "Children": [
