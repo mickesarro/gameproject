@@ -18,14 +18,14 @@
                 <div class="info">Automatic</div>
                 <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
             </div>
-            @for (int i = 0; i < lobbies.Count; ++i)
+            @foreach ( var lobby in lobbies )
             {
                 <div>
                     <div> @*Just a quick working versio*@
-                        <p class="info">@lobbies[i].Name</p> 
-                        <p class="info">Players: @lobbies[i].Members</p>
+                        <p class="info">@lobby.Name</p>
+                        <p class="info">Players: @lobby.Members</p>
                     </div>
-                    <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
+                    <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => JoinLobby(lobby))"></UIButton>
                 </div>
             }
         </div>
@@ -94,6 +94,18 @@
         // Just for reference, I have no clue how they work
         LoadingScreen.Media = "splash.png";
         LoadingScreen.Title = "Loading the game";
+    }
+
+    private void JoinLobby( LobbyInformation lobbyInformation )
+    {
+        if ( lobbyInformation.Name == "Grand lobby" )
+        {
+            StartGame();
+            return;
+        }
+
+        Log.Info( $"Joining lobby {lobbyInformation.LobbyId}" );
+        Networking.Connect( lobbyInformation.LobbyId );
     }
 
     /// <summary>
