@@ -1,6 +1,7 @@
 using Sandbox;
 using Sandbox.Utility;
 using System;
+using System.Runtime.Versioning;
 
 namespace Shooter;
 
@@ -76,7 +77,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         ownedStats.AddDeath();
 
-        CharacterRagdoll.CreateRagdoll();
+        CreateRagdoll();
 
 		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
@@ -86,4 +87,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		GameObject.Enabled = false;
         ReSpawn( 0 );
 	}
+
+    [Rpc.Broadcast( NetFlags.OwnerOnly )]
+    private void CreateRagdoll() => CharacterRagdoll.CreateRagdoll();
+
 }
