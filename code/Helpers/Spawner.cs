@@ -6,11 +6,11 @@ namespace Shooter;
 
 internal static class Spawner
 {
-    public static void SpawnCharacter( PrefabFile prefab, SpawnPoint spawnPoint, PlayerStats prevStats = null )
-    {
-        // !! This needs to be revamped, we should not need to rely on such ad hoc solution
-        //Log.Info( prevStats );
-        if ( prefab == null )
+    public static void SpawnCharacter(
+        PrefabFile prefab, SpawnPoint spawnPoint = null, PlayerStats prevStats = null, string name = null
+    ) {
+
+        if ( !prefab.IsValid() )
         {
             Log.Warning( "[CharacterSpawner] No character prefab set" );
             return;
@@ -19,9 +19,38 @@ internal static class Spawner
         // Sometimes fails to fetch earlier
         spawnPoint ??= GetSpawnPoint();
 
-        var character = GameObject.Clone( prefab, transform: spawnPoint.WorldTransform, startEnabled: true );
+        var character = GameObject.Clone( prefab, name: name, transform: spawnPoint.WorldTransform, startEnabled: true );
+        
+        if ( prevStats != null && character.Components.TryGet<PlayerStats>( out var stats ) )
+        {
+            stats.Accumulate( prevStats );
+        }
 
-        if ( character.Components.TryGet<PlayerStats>( out var stats ) )
+        character.NetworkSpawn();
+    }
+
+    /// <summary>
+    /// Spawn a character from a gameobject
+    /// </summary>
+    /// <param name="prefab"></param>
+    /// <param name="spawnPoint"></param>
+    /// <param name="prevStats"></param>
+    /// <param name="name"></param>
+    public static void SpawnCharacter(
+        GameObject prefab, SpawnPoint spawnPoint = null, PlayerStats prevStats = null, string name = null
+    ) {
+
+        if ( !prefab.IsValid() )
+        {
+            Log.Warning( "[CharacterSpawner] No character prefab set" );
+            return;
+        }
+
+        spawnPoint ??= GetSpawnPoint();
+
+        var character = prefab.Clone( name: name, transform: spawnPoint.WorldTransform, startEnabled: true );
+
+        if ( prevStats != null && character.Components.TryGet<PlayerStats>( out var stats ) )
         {
             stats.Accumulate( prevStats );
         }
@@ -38,8 +67,8 @@ internal static class Spawner
     {
         // Shuffle the spawnpoints so we can just pick them linearly later
         var spawnPoints = Game.ActiveScene.GetComponentInChildren<NetworkHelper>().SpawnPoints.Shuffle();
-        
-        var spawnPoint = spawnPoints.First().GetComponent<Shooter.SpawnPoint>();
+
+        var spawnPoint = spawnPoints.First();
 
         if ( checkForOthers )
         {
@@ -52,7 +81,7 @@ internal static class Spawner
 
                 // Will return the final one if no previous was valid
                 // Should probably check for the best one in those as well or wait etc.
-                spawnPoint = spawnPoints.ElementAt( ind ).GetComponent<Shooter.SpawnPoint>();
+                spawnPoint = spawnPoints.ElementAt( ind );
                 ind++;
 
             }
