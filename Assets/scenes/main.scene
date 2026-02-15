@@ -646,8 +646,8 @@
           "UseMapFromLaunch": false
         },
         {
-          "__type": "Sandbox.NetworkHelper",
-          "__guid": "428d888e-da1c-4775-ac26-c4156a5603c3",
+          "__type": "Shooter.NetworkHelper",
+          "__guid": "442622cd-5cdd-4f4f-98bf-7eab2f25f6b9",
           "__enabled": true,
           "Flags": 0,
           "OnComponentDestroy": null,
@@ -662,64 +662,94 @@
           },
           "SpawnPoints": [
             {
-              "_type": "gameobject",
-              "go": "2fc26cb8-9044-4674-ae75-013769e5f599"
+              "_type": "component",
+              "component_id": "e0a2280a-1738-4a0b-ac3c-d7dd47391571",
+              "go": "2fc26cb8-9044-4674-ae75-013769e5f599",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "d0c51ba4-122f-42d9-a8a6-a4331ff307ed"
+              "_type": "component",
+              "component_id": "01f10005-3248-450b-b017-bef98b9bd97b",
+              "go": "d0c51ba4-122f-42d9-a8a6-a4331ff307ed",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "128d2596-e747-4182-865c-824cb5cb0f77"
+              "_type": "component",
+              "component_id": "1721dd64-410b-41c9-b4d2-7c3f4b3494ef",
+              "go": "128d2596-e747-4182-865c-824cb5cb0f77",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "928588b4-dbf0-4843-8d26-b8c1cf94e496"
+              "_type": "component",
+              "component_id": "b3821c0d-901a-4582-b96d-d4bbe1673705",
+              "go": "928588b4-dbf0-4843-8d26-b8c1cf94e496",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c"
+              "_type": "component",
+              "component_id": "07205979-7e6b-4ff5-bc60-27d827499eed",
+              "go": "f86927b2-dd2a-4ae7-b3ad-df2b6c8f519c",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "81a0859b-468d-426d-8daa-38f24d749ec1"
+              "_type": "component",
+              "component_id": "d747ad0f-a6f6-4721-85fb-9febcdec8d3b",
+              "go": "81a0859b-468d-426d-8daa-38f24d749ec1",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8"
+              "_type": "component",
+              "component_id": "8864e4c6-5f75-41b2-89ee-fa982efd71ea",
+              "go": "7a6790e3-d7bb-4268-9ee5-03d3b703e4f8",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "f108fa3a-a8fe-488a-9b4a-9d55bdbd2abb"
+              "_type": "component",
+              "component_id": "7e3d7cba-14f1-449b-9c6a-115ff79b969c",
+              "go": "f108fa3a-a8fe-488a-9b4a-9d55bdbd2abb",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "a7f0410b-0ca9-4dc2-98ca-8620f85cd938"
+              "_type": "component",
+              "component_id": "308696c5-c881-485b-bc1b-d5411bf400f6",
+              "go": "a7f0410b-0ca9-4dc2-98ca-8620f85cd938",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "78044204-7083-44a3-af02-e5f1226d03f9"
+              "_type": "component",
+              "component_id": "2846710a-d7e6-41ea-812b-1e17f45f84a7",
+              "go": "78044204-7083-44a3-af02-e5f1226d03f9",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "e484d486-aef8-43d3-ad1e-6604114d0c15"
+              "_type": "component",
+              "component_id": "287c3e11-18ba-4783-902d-8338d56ef7b3",
+              "go": "e484d486-aef8-43d3-ad1e-6604114d0c15",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "b0d355d0-1dfa-427d-9c3a-aa9d241b67dd"
+              "_type": "component",
+              "component_id": "cd2c907b-bc9d-4231-96bf-978450b6fe2c",
+              "go": "b0d355d0-1dfa-427d-9c3a-aa9d241b67dd",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "ea7946a2-96d8-40cc-ad61-fd210a9f33ce"
+              "_type": "component",
+              "component_id": "10a15760-b979-4d12-814b-228ff9217a70",
+              "go": "ea7946a2-96d8-40cc-ad61-fd210a9f33ce",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "3dbcad36-3769-4182-8036-bf0aa27122fe"
+              "_type": "component",
+              "component_id": "f8b2cd8e-7774-499f-8ffe-c74490f996cb",
+              "go": "3dbcad36-3769-4182-8036-bf0aa27122fe",
+              "component_type": "SpawnPoint"
             },
             {
-              "_type": "gameobject",
-              "go": "5cd24929-9e8b-47ac-a77c-dbedf987390e"
+              "_type": "component",
+              "component_id": "9415f460-1d30-402f-abde-33f0b4423346",
+              "go": "5cd24929-9e8b-47ac-a77c-dbedf987390e",
+              "component_type": "SpawnPoint"
             }
           ],
           "StartServer": true

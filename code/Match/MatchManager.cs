@@ -140,7 +140,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         else
         {
             Log.Info( "setting gamemode: " + GameMode.Current + " on client (t host)" );
-            SetCurrentGameMode(GameMode.Current);
+            //SetCurrentGameMode(GameMode.Current);
         }
     }
 
@@ -154,40 +154,5 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         {
             IMatchEvents.Post( e => e.OnPlayerLeft( id ) );
         }
-    }
-
-    [Rpc.Broadcast]
-    void SetCurrentGameMode(string gamemode)
-    {
-        if ( GameMode.Current == gamemode )
-        {
-            Log.Info( "Game mode already set, returning" );
-            return;
-        }
-
-        GameMode.Current = gamemode;
-        
-        Log.Info( GameMode.Current );
-        
-        var clcfg = new CloneConfig
-        {
-            Parent = GameObject,
-            StartEnabled = true,
-            Transform = WorldTransform
-        };
-        
-        var mode = GameObject.Clone( GameMode.Current, clcfg );
-        
-        if ( mode == null || !mode.Components.TryGet<GameMode>( out var gameMode ) )
-        {
-            Log.Error( "[MatchManager] Passed gameobject prefab does not contain GameMode!" );
-            return;
-        }
-        Log.Info( mode.Name );
-        
-        // Instantiate the actual gamemode to the scene
-        // Should this be network spawned or not?
-        //MatchGameMode.Clone( WorldTransform, parent: GameObject );
-        MatchGameMode = gameMode;
     }
 }
