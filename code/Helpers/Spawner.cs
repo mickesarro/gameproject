@@ -35,9 +35,14 @@ internal static class Spawner
     /// <param name="prefab"></param>
     /// <param name="spawnPoint"></param>
     /// <param name="prevStats"></param>
+    /// <param name="connection"
     /// <param name="name"></param>
     public static void SpawnCharacter(
-        GameObject prefab, SpawnPoint spawnPoint = null, PlayerStats prevStats = null, string name = null
+        GameObject prefab,
+        SpawnPoint spawnPoint = null,
+        PlayerStats prevStats = null,
+        Connection connection = null,
+        string name = null
     ) {
 
         if ( !prefab.IsValid() )
@@ -55,7 +60,7 @@ internal static class Spawner
             stats.Accumulate( prevStats );
         }
 
-        character.NetworkSpawn();
+        character.NetworkSpawn( connection ?? Connection.Local );
     }
 
     /// <summary>

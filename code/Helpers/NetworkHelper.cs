@@ -70,7 +70,7 @@ public sealed class NetworkHelper : Component, Component.INetworkListener
             SpawnPoints.Add( new SpawnPoint { WorldTransform = WorldTransform} );
         }
 
-        Spawner.SpawnCharacter( PlayerPrefab, name: $"Player - {channel.DisplayName}" );
+        Spawner.SpawnCharacter( PlayerPrefab, connection: channel, name: $"Player - {channel.DisplayName}" );
 
     }
 
