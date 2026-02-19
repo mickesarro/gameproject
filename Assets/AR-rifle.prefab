@@ -142,7 +142,7 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 0,
+        "NetworkMode": 2,
         "NetworkFlags": 0,
         "NetworkOrphaned": 0,
         "NetworkTransmit": true,
@@ -1674,7 +1674,7 @@
         "Name": "worldmodel",
         "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "1.2,1.2,1.2",
+        "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -1726,7 +1726,7 @@
               "Blending": false
             },
             "Tint": "1,1,1,1",
-            "UseAnimGraph": false
+            "UseAnimGraph": true
           },
           {
             "__type": "Shooter.GunWorldModelHandler",
@@ -1739,7 +1739,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "4,0,-6"
+            "PositionOffset": "-15.4,0,-6"
           }
         ],
         "Children": []

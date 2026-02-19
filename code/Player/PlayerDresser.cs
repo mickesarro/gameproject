@@ -1,4 +1,7 @@
 
+using System.Threading.Tasks;
+using Shooter.Helpers;
+
 namespace Shooter;
 
 /// <summary>
@@ -9,23 +12,38 @@ public sealed class PlayerDresser : Component, ICharacterDresser
     [Property] private SkinnedModelRenderer bodyRenderer;
     public SkinnedModelRenderer BodyRenderer => bodyRenderer;
 
-    public void ApplyClothing()
-	{
-		var clothing = new ClothingContainer();
-		clothing.Deserialize( GameObject.Network.Owner.GetUserData( "avatar" ) );
-        clothing.Height = bodyRenderer.GetComponentInParent<PlayerController>().Height;
-        
-		clothing.Apply( bodyRenderer );
+    private ClothingContainer clothing;
 
-        // If there is a better way, please update
-        if ( !Network.IsProxy )
+    public void SaveClothing()
+    {
+        clothing = ClothingContainer.CreateFromLocalUser();
+    }
+
+    public float tint { get; }
+
+    // korjaa casen kun pelaaja liittyy kesken toisen spawnin ja vaatteet ei mee päälle
+    [Rpc.Broadcast]
+    public void ApplyClothing()
+    {
+        _ = ApplyClothingInternal();
+    }
+
+    private async Task ApplyClothingInternal()
+    {
+        await AsyncDresser.Instance.Add(bodyRenderer, false, clothing);
+
+        if (!Network.IsProxy)
         {
-            // Loop over added clothing items to make them invisible for the owner
-            foreach ( var c in bodyRenderer.GetComponentsInChildren<SkinnedModelRenderer>() )
+            foreach (var c in bodyRenderer.GetComponentsInChildren<SkinnedModelRenderer>())
             {
                 c.RenderType = ModelRenderer.ShadowRenderType.ShadowsOnly;
             }
         }
+    }
+    
+    public void ClearClothing()
+    {
+        clothing.Clothing.Clear();
     }
 
     protected override void OnStart()
@@ -33,8 +51,7 @@ public sealed class PlayerDresser : Component, ICharacterDresser
         // This is currently here, which means it run on respawn as well
         // That is probably not desirable, so search for alternative ways
         base.OnStart();
-
-        ApplyClothing();
+        SaveClothing();
+        // ApplyClothing();
     }
-
 }

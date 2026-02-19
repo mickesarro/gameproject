@@ -68,9 +68,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
-
-        // See renderers for comment
-        renderers = [.. gunData.Viewmodel.GetComponentsInChildren<SkinnedModelRenderer>( includeDisabled: true, includeSelf: true )];
     }
 
 	protected override void OnStart()
@@ -160,27 +157,19 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		WorldModel
 	}
 
-    // !! This is not optimal and needs to be solved in some other way
-    List<SkinnedModelRenderer> renderers = new();
-
-    // Small utility for now
-    [Rpc.Broadcast]
+	// Small utility for now
+	[Rpc.Broadcast]
 	private void SetAnimation(modelType type, string name, bool state)
 	{
-
 		switch ( type )
 		{
 			case modelType.ViewModel:
-                if ( IsProxy ) return;
-				foreach ( var renderer in renderers )
-				{
-					renderer?.Set( name, state );
-				}
-				break;
-
+			viewModelRenderer?.Parameters.Set( name, state );
+			break;
+			
 			case modelType.WorldModel:
-				playerModelRenderer?.Set( name, state );
-				break;
+			playerModelRenderer?.Parameters.Set( name, state );
+			break;
 		}
 	}
 
@@ -196,7 +185,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         
         --FireData.AmmoLeft;
 
-        BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 2000f, 0.3f );
+        BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 1000f, 0.3f );
 
 		// Shoot from the viewport
 		// var screenCenter = Game.ActiveScene.Camera.WorldPosition; // Might actually be the bottom of camera
@@ -226,8 +215,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			damageable.OnDamage( damageInfo );
 		}
 
-        SetAnimation( modelType.ViewModel, "fire", true );
-        SetAnimation( modelType.WorldModel, "b_attack", true );
+		SetAnimation(modelType.ViewModel, "fire", true );
+		SetAnimation(modelType.WorldModel, "b_attack", true );
 
 		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
 	}
@@ -308,7 +297,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
         --FireData.AmmoLeft;
 
-		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 6900f, 0.3f );
+		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 3000f, 0.3f );
 		
 		var projectile = FireData.BulletData.ProjectilePrefab
 			.Clone( gunData.BarrelEnd.WorldTransform );
@@ -317,7 +306,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		projectile.GetComponent<Projectile>().Attacker = User;
 
 		projectile.NetworkSpawn();
-
+		
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );
 	}

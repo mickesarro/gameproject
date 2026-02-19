@@ -1,6 +1,5 @@
 using Shooter.NPC;
 using System;
-using System.Collections.Generic;
 
 namespace Shooter;
 
@@ -12,24 +11,30 @@ public sealed class PopulateWithNpcs : Component
     // This is merely an ad-hoc solution for demo before we develop a better populating
     // logic based on lobby size and real player count etc.
 
-    // private HashSet<GameObject> npcs = new();
-
-    public void SpawnDummys(int amount = 4) // Non-static as we don't want anyone to do this
+    public void SpawnDummys( int amount = 4 ) // Non-static as we don't want anyone to do this
     {
-        var spawnPoints = Game.ActiveScene.FindAllWithTag( "spawnpoint" ).ToArray();
+
+        var NPCGo = GameObject.Clone( "/Dummy.prefab", new CloneConfig { Name = "Dummy", StartEnabled = true } );
+
+        var NPC = NPCGo.GetComponent<NPCController>();
+
+        NPC.AddStates( [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        NPC.Initialize( StateEnum.Search );
 
         for ( int i = 0; i < amount; ++i )
         {
-            var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
-
-            SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+            Spawner.SpawnCharacter( NPCGo, name: "Dummy" );
         }
+
+        NPCGo.DestroyImmediate();
 
         Log.Info( $"[PopulateWithNpcs.SpawnDummys] Spawned {amount} dummy players." );
     }
 
+    [Obsolete("Use Spawner class")]
     public GameObject SpawnDummy( Transform startLocation, StateEnum startState, StateEnum[] states )
     {
+
         var NPCGo = GameObject.Clone( "/Dummy.prefab", new CloneConfig { Name = "Dummy", StartEnabled = true, Transform = startLocation } );
 
         var NPC = NPCGo.GetComponent<NPCController>();

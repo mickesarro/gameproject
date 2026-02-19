@@ -17,7 +17,7 @@ public class BlastEffect : GameObject
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
-		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 6700f );
+		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 5000f );
 
 		var sphere = new Sphere( position, Radius );
 

@@ -1,6 +1,7 @@
 using Sandbox;
 using Sandbox.Utility;
 using System;
+using System.Runtime.Versioning;
 
 namespace Shooter;
 
@@ -21,11 +22,15 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
     public Action<DamageInfo> OnDamage { get; set; }
 
+    private CharacterRagdoll CharacterRagdoll { get; set; }
+
 	protected override void OnStart()
 	{
 		base.OnStart();
 
 		ownedStats = GetComponent<PlayerStats>();
+
+        CharacterRagdoll = GetComponent<CharacterRagdoll>();
 	}
 
 	[Rpc.Owner]
@@ -59,7 +64,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         // Log.Info("ReSpawn");
         // Should probably go through gamemode to determine whether spawning is allowed
         GameObject.GetComponent<CharacterSpawner>( includeDisabled: true )
-            .Respawn( MatchManager.Instance.MatchGameMode.GetSpawnPoint() );
+            .Respawn( Spawner.GetSpawnPoint() );
 	}
 
 	/// <summary>
@@ -72,6 +77,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         ownedStats.AddDeath();
 
+        CreateRagdoll();
+
 		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
 
 		// Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
@@ -80,4 +87,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		GameObject.Enabled = false;
         ReSpawn( 0 );
 	}
+
+    [Rpc.Broadcast( NetFlags.OwnerOnly )]
+    private void CreateRagdoll() => CharacterRagdoll.CreateRagdoll();
+
 }

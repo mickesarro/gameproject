@@ -25,12 +25,16 @@ code/Editor/.vscode/*
 # Auto-generated asset related files
 *.generated.*
 *.*_c
+!**/*shader_c
 *.los
 *.vpk
 *.tmp
 
 # Linux-fix
 Libraries/tux.linuxfix/
+
+# Shader Graph Plus (suosittelen)
+Libraries/quack.shadergraphplus
 
 # Visual studio and S&box config files
 *.sln

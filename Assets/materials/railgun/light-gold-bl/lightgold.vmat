@@ -15,7 +15,7 @@ Layer0
 
 	//---- Color ----
 	g_flModelTintAmount "1.000"
-	g_vColorTint "[0.941177 0.901961 0.549020 1.000000]"
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	TextureColor "materials/railgun/light-gold-bl/lightgold_color.png"
 
 	//---- Fade ----
@@ -25,14 +25,14 @@ Layer0
 	g_bFogEnabled "1"
 
 	//---- Metalness ----
-	TextureMetalness "[1.000000 1.000000 1.000000 0.000000]"
+	TextureMetalness "materials/railgun/light-gold-bl/lightgold_metal.png"
 
 	//---- Normal ----
-	TextureNormal "materials/railgun/rough_shiny_metal_03_normal.jpg"
+	TextureNormal "materials/railgun/light-gold-bl/lightgold_normal.png"
 
 	//---- Roughness ----
 	g_flRoughnessScaleFactor "1.000"
-	TextureRoughness "materials/railgun/scuffed-plastic-1-bl/scuffed-plastic_rough.png"
+	TextureRoughness "materials/railgun/light-gold-bl/lightgold_rough.png"
 
 	//---- Texture Coordinates ----
 	g_vTexCoordOffset "[0.000 0.000]"

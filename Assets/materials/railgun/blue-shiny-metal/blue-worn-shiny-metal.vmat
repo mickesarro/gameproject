@@ -35,7 +35,7 @@ Layer0
 
 	//---- Roughness ----
 	g_flRoughnessScaleFactor "1.000"
-	TextureRoughness "materials/railgun/brushed-metal-bl/brushed-metal_rough.png"
+	TextureRoughness "materials/railgun/blue-shiny-metal/blue-worn-shiny-metal_rough.png"
 
 	//---- Texture Coordinates ----
 	g_vTexCoordOffset "[0.000 0.000]"

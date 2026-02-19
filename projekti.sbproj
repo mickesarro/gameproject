@@ -43,7 +43,6 @@
         "unittest"
       ],
       "DistinctAssemblyReferences": []
-    },
-    "SystemScene": "scenes/playerscene.scene"
+    }
   }
 }

@@ -25,14 +25,14 @@ Layer0
 	g_bFogEnabled "1"
 
 	//---- Metalness ----
-	TextureMetalness "[1.000000 1.000000 1.000000 0.000000]"
+	TextureMetalness "materials/railgun/brushed-metal-bl/brushed-metal_metal.png"
 
 	//---- Normal ----
-	TextureNormal "materials/railgun/rough_shiny_metal_03_normal.jpg"
+	TextureNormal "materials/railgun/brushed-metal-bl/brushed-metal_normal.png"
 
 	//---- Roughness ----
-	g_flRoughnessScaleFactor "1.437"
-	TextureRoughness "materials/railgun/scuffed-plastic-1-bl/scuffed-plastic_rough.png"
+	g_flRoughnessScaleFactor "1.000"
+	TextureRoughness "materials/railgun/brushed-metal-bl/brushed-metal_rough.png"
 
 	//---- Texture Coordinates ----
 	g_vTexCoordOffset "[0.000 0.000]"

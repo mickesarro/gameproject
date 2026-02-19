@@ -44,8 +44,8 @@
     }
   ],
   "DefaultMixer": {
-    "Name": "ui",
-    "Id": "c82e4357-2719-4dc4-83ae-82e61c8beec8"
+    "Name": "unknown",
+    "Id": "00000000-0000-0000-0000-000000000000"
   },
   "__references": [],
   "__version": 1
