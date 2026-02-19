@@ -440,7 +440,7 @@ public sealed class PlayerController : Component, ICharacterBase
             var startPos = GameObject.WorldPosition;
             var endPos = GameObject.WorldPosition + new Vector3(0, 0, StandingHeight * GameObject.WorldScale.z);
             var crouchTrace = Scene.Trace.Ray(startPos, endPos)
-                                        .IgnoreGameObject(GameObject)
+                                        .IgnoreGameObjectHierarchy(GameObject)
                                         .Size(new BBox(new Vector3(-Radius, -Radius, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, 0)))
                                         .Run();
             if (crouchTrace.Hit) {

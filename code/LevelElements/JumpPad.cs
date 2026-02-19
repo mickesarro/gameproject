@@ -13,7 +13,7 @@ public sealed class JumpPad : Component, Component.ITriggerListener
 	{
 		if ( other.IsProxy ) return;
 
-		other.GetComponent<ICharacterBase>()
+		other.GameObject.Root.GetComponent<ICharacterBase>()
 			?.ApplyForce( WorldTransform.Up * Force );
 	}
 

@@ -18,7 +18,7 @@ public sealed class AmmoPickup : Component, Component.ITriggerListener
 
     public void OnTriggerEnter( Collider other )
 	{
-		if ( other.Components.TryGet<AmmoInventory>( out var ammoInv ) && !hideForTime.IsHiding() )
+		if ( other.GameObject.Root.Components.TryGet<AmmoInventory>( out var ammoInv ) && !hideForTime.IsHiding() )
 		{
 			if ( !other.IsProxy )
 			{
