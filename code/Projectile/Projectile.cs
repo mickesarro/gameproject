@@ -34,7 +34,7 @@ public sealed class Projectile : Component
 	private void OnCollision( GameObject objectHit )
 	{
 
-		if ( objectHit == Attacker )
+        if ( objectHit.Root == Attacker )
 		{
 			return;
 		}

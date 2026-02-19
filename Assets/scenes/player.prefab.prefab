@@ -16,32 +16,6 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Sandbox.BoxCollider",
-        "__guid": "056ce4fb-e997-4238-a5f6-4900aa9349b0",
-        "__enabled": true,
-        "Flags": 0,
-        "Center": "0,0,36",
-        "ColliderFlags": 0,
-        "Elasticity": null,
-        "Friction": null,
-        "IsTrigger": false,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "OnObjectTriggerEnter": null,
-        "OnObjectTriggerExit": null,
-        "OnTriggerEnter": null,
-        "OnTriggerExit": null,
-        "RollingResistance": null,
-        "Scale": "32,32,72",
-        "Static": false,
-        "Surface": null,
-        "SurfaceVelocity": "0,0,0"
-      },
-      {
         "__type": "Shooter.PlayerController",
         "__guid": "bef0961b-48de-4215-a5ec-22d284c7b717",
         "__enabled": true,
@@ -59,8 +33,8 @@
         "CameraRollSmoothing": 0.2,
         "CollisionBox": {
           "_type": "component",
-          "component_id": "056ce4fb-e997-4238-a5f6-4900aa9349b0",
-          "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7",
+          "component_id": "e548293a-e17c-43eb-bb7e-ac984d24d3c2",
+          "go": "1013ffc4-5ac2-4fb1-9654-92d7b1423f96",
           "component_type": "BoxCollider"
         },
         "CrouchCost": 0.1,
@@ -109,24 +83,6 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null
-      },
-      {
-        "__type": "Sandbox.ManualHitbox",
-        "__guid": "85cef2cd-4b41-41f1-ae09-8cea0a424bc2",
-        "__enabled": true,
-        "Flags": 0,
-        "CenterA": "0,0,36",
-        "CenterB": "32,32,72",
-        "HitboxTags": "",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Radius": 10,
-        "Shape": "Box",
-        "Target": null
       },
       {
         "__type": "Shooter.CharacterHealth",
@@ -511,6 +467,28 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null
+          },
+          {
+            "__type": "Sandbox.ModelHitboxes",
+            "__guid": "03fd6464-c88b-4b93-bf7a-2bdde7457d21",
+            "__enabled": true,
+            "Flags": 0,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Renderer": {
+              "_type": "component",
+              "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Target": {
+              "_type": "gameobject",
+              "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
+            }
           }
         ],
         "Children": [
@@ -2951,6 +2929,51 @@
           "f32d8fb5-170c-40f1-97e8-e752177020b8": "2864361f-8f7a-445f-a4eb-42c890c38a3f",
           "75221d1b-cd4c-4d18-ade1-83252b6ab52a": "a6db580c-0472-4b34-9ede-f92f25c3844e"
         }
+      },
+      {
+        "__guid": "1013ffc4-5ac2-4fb1-9654-92d7b1423f96",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Collider",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "movement",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "e548293a-e17c-43eb-bb7e-ac984d24d3c2",
+            "__enabled": true,
+            "Flags": 0,
+            "Center": "0,0,36",
+            "ColliderFlags": 0,
+            "Elasticity": null,
+            "Friction": null,
+            "IsTrigger": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "RollingResistance": null,
+            "Scale": "32,32,72",
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
+          }
+        ],
+        "Children": []
       }
     ],
     "__properties": {

@@ -69,6 +69,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
             .UseHitboxes( true )
             .Size( meleeData?.HitRadius ?? 30f )
             .IgnoreGameObjectHierarchy( User )
+            .WithoutTags( "movement" )
             .Run();
 
         if (trace.Hit && trace.GameObject.GetComponent<IDamageable>() is IDamageable target)

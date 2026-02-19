@@ -219,21 +219,43 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		SetAnimation(modelType.WorldModel, "b_attack", true );
 
 		SpawnTracer( traceRay.Hit ? traceRay.HitPosition : endPoint );
-	}
+        SpawnBulletHitEffects( traceRay );
+
+    }
 
 	private SceneTraceResult TraceBullet(Vector3 start, Vector3 end, float radius = 10.0f, GameObject toIgnore = null)
 	{
-		var traceRay = Game.ActiveScene.Trace
-			.Ray( start, end )
-			.Size( radius )
-			.UseHitboxes( true )
-			.IgnoreGameObjectHierarchy( toIgnore )
-			.Run();
-
-		return traceRay;
+        return Game.ActiveScene.Trace
+            .Ray( start, end )
+            .Size( radius )
+            .UseHitboxes( true )
+            .IgnoreGameObjectHierarchy( toIgnore )
+            .WithoutTags( "movement" )
+            .Run();
 	}
 
-	private void Reload()
+    private void SpawnBulletHitEffects( SceneTraceResult tr )
+    {
+        if ( !tr.Hit ) return;
+
+        var bulletImpact = 
+            tr.Surface.PrefabCollection.BulletImpact
+            ?? tr.Surface.GetBaseSurface()?.PrefabCollection.BulletImpact;
+
+        // Clone the impact prefab at the surface and set the appropriate rotations
+        bulletImpact?.Clone
+            (
+                tr.EndPosition + tr.Normal,
+                Rotation.LookAt( tr.Normal )
+            ).SetParent( tr.GameObject, keepWorldPosition: true );
+
+        if ( tr.Surface.SoundCollection.Bullet != null )
+        {
+            BroadcastSound( tr.Surface.SoundCollection.Bullet, tr.EndPosition );
+        }
+    }
+
+    private void Reload()
 	{
 		int reloaded = AmmoInventory
 			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo - FireData.AmmoLeft); // Intentionally MaxAmmo as it is the magazine size
@@ -291,7 +313,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
         SoundManager.PlayGlobal( soundType, position, range, volume );
     }
 
-	private void FireProjectile()
+    [Rpc.Broadcast]
+    private void BroadcastSound( SoundEvent sound, Vector3 position )
+    {
+        SoundManager.PlayGlobal( sound, position, sound.Distance, sound.Volume.FixedValue );
+    }
+
+    [Rpc.Broadcast]
+    private void FireProjectile()
 	{
         TryReload();
 

@@ -19,34 +19,35 @@ public class BlastEffect : GameObject
 	{
 		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 5000f );
 
-		var sphere = new Sphere( position, Radius );
-
         bool IsPlayer = attacker.GetComponent<ICharacterBase>().IsPlayer; // !! Quick solution for now
 		
-		foreach ( var hittable in Game.ActiveScene.FindInPhysics( sphere ) )
+		foreach ( var hittable in Game.ActiveScene.FindInPhysics( new Sphere( position, Radius ) ) )
 		{
+            // Needed now as the hierarchy changed
+            var hittableChar = hittable.Root;
 			// If PlayerController, apply force
 			// Something more generic such as hittable or the IDamageable interface would be better
-			if ( hittable.Components.TryGet<ICharacterBase>( out var character ) )
+			if ( hittableChar.Components.TryGet<ICharacterBase>( out var character ) )
 			{
-				// var hittable = hittable.GetComponent<PlayerController>() as PlayerController;
+                var charWorldCenter = hittableChar.WorldPosition + Vector3.Up * 36f;
 
-				var charWorldCenter = hittable.WorldPosition.WithZ( hittable.WorldPosition.z + 36 );
-				var direction = (charWorldCenter - position).Normal; // Normalized direction vector
-				var distance = charWorldCenter.Distance(position);
-				var damageFalloff = 1.0f - (distance / Radius).Clamp(0.0f, 1.0f);
-				
-				var trace = Game.ActiveScene.Trace
-					.Ray( position, charWorldCenter )
-					.Run();
+                var trace = Game.ActiveScene.Trace
+                    .Ray( position, charWorldCenter )
+                    .UseHitboxes( true )
+                    .WithoutTags( "movement" )
+                    .Run();
 
-				if (trace.Hit && trace.GameObject == hittable)
+                if ( trace.Hit && trace.GameObject == hittableChar )
 				{
-					character.ApplyForce(direction * BlastForce * damageFalloff);
+                    var distance = charWorldCenter.Distance( position );
+                    var damageFalloff = 1.0f - (distance / Radius).Clamp( 0.0f, 1.0f );
+                    var direction = (charWorldCenter - position).Normal; // Normalized direction vector
+
+                    character.ApplyForce(direction * BlastForce * damageFalloff);
 
 					float finalDamage = Damage * damageFalloff;
 
-                    if ( hittable == attacker )
+                    if ( hittableChar == attacker )
                     {
                         finalDamage *= SelfDamageMultiplier;
                     }
@@ -58,14 +59,14 @@ public class BlastEffect : GameObject
 						Position = trace.HitPosition,
 					};
 
-                    if ( !IsPlayer )
+                    if ( !attacker.GetComponent<ICharacterBase>().IsPlayer )
                     {
                         damageInfo.Tags.Add( "npc" );
                     }
 
-                    IDamageEvent.Post( e => e.OnDamage( hittable, damageInfo ) );
+                    IDamageEvent.Post( e => e.OnDamage( hittableChar, damageInfo ) );
 
-					hittable.GetComponent<IDamageable>()
+                    hittableChar.GetComponent<IDamageable>()
 						?.OnDamage( damageInfo );
 				}
 			}

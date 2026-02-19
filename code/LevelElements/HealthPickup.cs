@@ -19,7 +19,7 @@ public sealed class HealthPickup : Component, Component.ITriggerListener
 
     public void OnTriggerEnter( Collider other )
 	{
-		if ( other.Components.TryGet<CharacterHealth>( out var healthComp ) && !hideForTime.IsHiding())
+		if ( other.GameObject.Root.Components.TryGet<CharacterHealth>( out var healthComp ) && !hideForTime.IsHiding())
 		{
             if (healthComp.Health >= healthComp.MaxHealth) {
                 return;

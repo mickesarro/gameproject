@@ -16,50 +16,6 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Sandbox.BoxCollider",
-        "__guid": "056ce4fb-e997-4238-a5f6-4900aa9349b0",
-        "__enabled": true,
-        "Flags": 0,
-        "Center": "0,0,36",
-        "ColliderFlags": 0,
-        "Elasticity": null,
-        "Friction": null,
-        "IsTrigger": false,
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "OnObjectTriggerEnter": null,
-        "OnObjectTriggerExit": null,
-        "OnTriggerEnter": null,
-        "OnTriggerExit": null,
-        "RollingResistance": null,
-        "Scale": "32,32,72",
-        "Static": false,
-        "Surface": null,
-        "SurfaceVelocity": "0,0,0"
-      },
-      {
-        "__type": "Sandbox.ManualHitbox",
-        "__guid": "85cef2cd-4b41-41f1-ae09-8cea0a424bc2",
-        "__enabled": true,
-        "Flags": 0,
-        "CenterA": "0,0,36",
-        "CenterB": "32,32,72",
-        "HitboxTags": "",
-        "OnComponentDestroy": null,
-        "OnComponentDisabled": null,
-        "OnComponentEnabled": null,
-        "OnComponentFixedUpdate": null,
-        "OnComponentStart": null,
-        "OnComponentUpdate": null,
-        "Radius": 10,
-        "Shape": "Box",
-        "Target": null
-      },
-      {
         "__type": "Sandbox.NavMeshAgent",
         "__guid": "321c05b4-87fe-471f-ba5d-2b267fb9fb9c",
         "__enabled": true,
@@ -402,6 +358,28 @@
             "OnComponentStart": null,
             "OnComponentUpdate": null,
             "ShouldDress": true
+          },
+          {
+            "__type": "Sandbox.ModelHitboxes",
+            "__guid": "fc00934c-65ba-4228-a795-a139baac5a17",
+            "__enabled": true,
+            "Flags": 0,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Renderer": {
+              "_type": "component",
+              "component_id": "307895c2-0bcb-4287-984f-bdfe854103e1",
+              "go": "0d26dd25-84d3-41f2-ada2-3b9920d67f09",
+              "component_type": "SkinnedModelRenderer"
+            },
+            "Target": {
+              "_type": "gameobject",
+              "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
+            }
           }
         ],
         "Children": [
@@ -420,7 +398,29 @@
             "NetworkOrphaned": 0,
             "NetworkTransmit": true,
             "OwnerTransfer": 1,
-            "Components": [],
+            "Components": [
+              {
+                "__type": "Sandbox.ManualHitbox",
+                "__guid": "69c970c6-b0c5-41d2-a080-dca6ecf5cc46",
+                "__enabled": true,
+                "Flags": 0,
+                "CenterA": "0,0,10",
+                "CenterB": "0,0,55",
+                "HitboxTags": "",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Radius": 16,
+                "Shape": "Capsule",
+                "Target": {
+                  "_type": "gameobject",
+                  "go": "d519fb22-2be0-4672-96c2-d44e9599b1c7"
+                }
+              }
+            ],
             "Children": [
               {
                 "__guid": "9e1f62d4-4140-43bd-86d1-e9160d53003f",
@@ -3034,6 +3034,51 @@
           "f32d8fb5-170c-40f1-97e8-e752177020b8": "ed05d302-194a-4ef5-a1bd-e4d7d854a7f2",
           "75221d1b-cd4c-4d18-ade1-83252b6ab52a": "68453766-d1d5-449d-ab95-b3ffe6969285"
         }
+      },
+      {
+        "__guid": "27fdf307-ae2c-4fc4-b7cd-5efe71ea532f",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "Collider",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "movement",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "98d124bf-573c-456b-8288-fbb398129a0d",
+            "__enabled": true,
+            "Flags": 0,
+            "Center": "0,0,36",
+            "ColliderFlags": 0,
+            "Elasticity": null,
+            "Friction": null,
+            "IsTrigger": false,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnObjectTriggerEnter": null,
+            "OnObjectTriggerExit": null,
+            "OnTriggerEnter": null,
+            "OnTriggerExit": null,
+            "RollingResistance": null,
+            "Scale": "32,32,72",
+            "Static": false,
+            "Surface": null,
+            "SurfaceVelocity": "0,0,0"
+          }
+        ],
+        "Children": []
       }
     ],
     "__properties": {
