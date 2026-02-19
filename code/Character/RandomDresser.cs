@@ -1,4 +1,3 @@
-using System;
 using Shooter.Helpers;
 
 namespace Shooter;
@@ -15,38 +14,20 @@ public sealed class RandomDresser : Component, ICharacterDresser
     public SkinnedModelRenderer BodyRenderer => bodyRenderer;
 
     [Property] private bool ShouldDress = false;
-    
-    private ClothingContainer clothing = new ClothingContainer();
-    
-    private Random randomizer = new Random();
-    public float tint { get; private set; }
-    public float age;
 
     public async void ApplyClothing()
     {
-        AsyncDresser.Instance.ApplyRandom( bodyRenderer, clothing, tint, age );
+        var task = AsyncDresser.Instance.Add( bodyRenderer );
     }
-
-    public void SaveClothing()
-    {
-        tint = randomizer.Float().Clamp( 0f, 1f );
-        age = randomizer.Float().Clamp( 0f, 1f );
-        clothing.Clothing = AsyncDresser.Instance.Randomize();
-    }
-
-    public void ClearClothing()
-    {
-        clothing.Clothing.Clear();
-    }
-
+    
     protected override void OnAwake()
     {
         if ( !ShouldDress )
         {
-            Destroy();
+            DestroyGameObject();
             return;
         }
         base.OnAwake();
-        SaveClothing();
+        ApplyClothing();
     }
 }

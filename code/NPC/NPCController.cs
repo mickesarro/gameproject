@@ -6,7 +6,7 @@ namespace Shooter.NPC;
 /// Largely represents the NPC itself.
 /// Works as a common class for shared NPC state data and functionality.
 /// </summary>
-public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEvents
+public class NPCController : Component, ICharacterBase, IPlayerEvent
 {
 	[Title( "Hunting and detecting" )]
 	[Property] public GameObject hunted { get; set; }
@@ -36,7 +36,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
 	public Gun gun { get; private set; }
 
-	[Property] private CitizenAnimationHelper animationHelper;
+	private CitizenAnimationHelper animationHelper;
 
 	private PlayerStats playerStats; // Not a player, but in-game stats
     [Sync]
@@ -62,7 +62,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 		StateMachine = new StateMachine();
 		PopulateFSM();
 
-		animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
+		animationHelper = GetComponent<CitizenAnimationHelper>();
 
         characterHealth = GetComponent<CharacterHealth>();
         
@@ -230,11 +230,6 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
         //Log.Info( "changed state" );
         StateMachine.ChangeState<AttackState>();
 
-    }
-
-    void IMatchEvents.OnGameEnd()
-    {
-        GameObject.Enabled = false;
     }
 
 }

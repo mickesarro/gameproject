@@ -20,13 +20,11 @@ namespace Shooter.UI
         ("Red", "#FF0000"),
         ("Magenta", "#FF00FF")
     };
-        // tämä korjaa live reloadin, mutta live reloadin jälkeen menu ei enää toimi
-        public CrosshairType crosshairType;
 
         protected override void OnStart() // Start so all are created
         {
             base.OnStart();
-            crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
+
             UpdateCrosshairColor( SettingsManager.Instance.PlayerPreferences.CrosshairColor );
             SettingsManager.Instance.OnCrosshairColorChanged += UpdateCrosshairColor;
         }
@@ -34,7 +32,7 @@ namespace Shooter.UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            SettingsManager.Instance?.OnCrosshairColorChanged -= UpdateCrosshairColor;
+            SettingsManager.Instance.OnCrosshairColorChanged -= UpdateCrosshairColor;
         }
 
         private void UpdateCrosshairColor( string hex )
@@ -43,7 +41,6 @@ namespace Shooter.UI
             catch { CurrentCrosshairColor = Color.White; }
         }
 
-        // tää perkele rikkoo live reloadin aina
         protected override void OnUpdate()
         {
             if ( inventory?.CurrentWeapon == null || Scene.Camera == null ) return;
@@ -51,7 +48,7 @@ namespace Shooter.UI
             var hud = Scene.Camera.Hud;
             var center = Screen.Size * 0.5f;
 
-            // var crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
+            var crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
 
             switch ( crosshairType )
             {
