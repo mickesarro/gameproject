@@ -1,0 +1,147 @@
+{
+  "RootObject": {
+    "__guid": "6e0e2740-2488-4667-b263-03972376954a",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "railgun-tracer",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.BeamEffect",
+        "__guid": "9d36acb4-0f9e-4650-837e-67e2b131a8ae",
+        "__enabled": true,
+        "Flags": 0,
+        "Additive": true,
+        "Alpha": 1,
+        "BeamColor": {
+          "Type": "Gradient",
+          "Evaluation": "Life",
+          "GradientA": {
+            "blend": "Linear",
+            "color": [
+              {
+                "t": 0,
+                "c": "1,0.27059,0,1"
+              },
+              {
+                "t": 0.5,
+                "c": "1,0.84314,0,1"
+              },
+              {
+                "t": 1,
+                "c": "0,0,0.5451,1"
+              }
+            ],
+            "alpha": [
+              {
+                "t": 0,
+                "a": 1
+              },
+              {
+                "t": 1,
+                "a": 1
+              }
+            ]
+          },
+          "GradientB": {
+            "blend": "Linear",
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "ConstantA": "1,0,0,1",
+          "ConstantB": "1,1,1,1"
+        },
+        "BeamLifetime": 0.8,
+        "BeamsPerSecond": 0,
+        "Brightness": 3,
+        "DepthFeather": 0,
+        "FilterMode": "Anisotropic",
+        "FollowPoints": true,
+        "InitialBurst": 1,
+        "Lighting": false,
+        "Looped": false,
+        "Material": "materials/tracer-railgun.vmat",
+        "MaxBeams": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opaque": false,
+        "Scale": 5,
+        "Shadows": false,
+        "TargetGameObject": null,
+        "TargetPosition": "0,0,0",
+        "TargetRandom": "0,0,0",
+        "Texture": null,
+        "TextureOffset": 1,
+        "TextureScale": 60,
+        "TextureScroll": 0,
+        "TextureScrollSpeed": 0,
+        "TravelBetweenPoints": true,
+        "TravelLerp": {
+          "Type": "Range",
+          "Evaluation": "Life",
+          "Constants": "0,1,0,0"
+        }
+      },
+      {
+        "__type": "TemporaryEffect",
+        "__guid": "948b52e3-064c-4d2b-bdf7-c573f5e1340b",
+        "__enabled": true,
+        "Flags": 0,
+        "BecomeOrphan": false,
+        "DestroyAfterSeconds": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "WaitForChildEffects": true
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

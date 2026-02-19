@@ -35,7 +35,7 @@ public static class SoundManager
         {SoundType.Punch, "sounds/weapons/punch-miss.sound"},
         {SoundType.UIAccept, "sounds/ui/ui_accept.sound" },
         {SoundType.UIReject, "sounds/ui/ui_accept.sound" },
-        {SoundType.GunshotRailgun, "sounds/weapons/railgun-zap.sound" } // No UI reject sound yet
+        {SoundType.GunshotRailgun, "sounds/weapons/railgun-zap-charge.sound" } // No UI reject sound yet
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };
@@ -43,7 +43,7 @@ public static class SoundManager
     /// <summary>
     /// Plays sounds globally using the predefined dictionary
     /// </summary>
-    public static void PlayGlobal( SoundType type, Vector3 position, float range = 2000f, float volume = 1f )
+    public static void PlayGlobal( SoundType type, Vector3 position, float range = 5000f, float volume = 1f )
     {
         if ( type == SoundType.None ) return;
 
@@ -87,6 +87,7 @@ public static class SoundManager
 
     /// <summary>
     /// Plays sounds locally using the predefined dictionary
+    /// DOESN'T WORK THO :(
     /// </summary>
     public static void PlayLocal( SoundType type, float volume = 1f )
     {
@@ -98,20 +99,15 @@ public static class SoundManager
             return;
         }
 
-        //var cam = Game.ActiveScene?.Camera;
-        //var pos = cam?.WorldPosition ?? Vector3.Zero;
-
         var sound = Sound.Play( path );
         if ( sound != null )
         {
-            sound.Distance = 10f;
-            sound.Falloff = 0f;
+            // Tää toimii osittai ja välil taas ei
+            // Update: This "SHOULD" set it to local position
+            sound.ListenLocal = true;
+            sound.SpacialBlend = 0f;
             sound.Volume = volume;
         }
-
-
-        //sound.UI = true;
-
     }
 
 }
