@@ -4,7 +4,7 @@
     "__version": 2,
     "Flags": 0,
     "Name": "railgun",
-    "Position": "0,-398.0629,0",
+    "Position": "0,-398.0629,0.08629595",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
     "Tags": "",
@@ -93,7 +93,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Recoil": 10,
+        "Recoil": 0,
         "RPM": 40,
         "Spread": 0
       },
@@ -115,14 +115,14 @@
         },
         "Tracer": {
           "_type": "gameobject",
-          "prefab": "tracer.prefab"
+          "prefab": "railgun-tracer.prefab"
         }
       },
       {
         "__type": "Shooter.GunViewModelHandler",
         "__guid": "5189792b-90b3-40a3-bd3f-7f4062c8fa25",
         "__enabled": true,
-        "Flags": 0,
+        "Flags": 512,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -142,7 +142,7 @@
         "Scale": "1,1,1",
         "Tags": "",
         "Enabled": true,
-        "NetworkMode": 2,
+        "NetworkMode": 0,
         "NetworkFlags": 0,
         "NetworkOrphaned": 0,
         "NetworkTransmit": true,
@@ -171,7 +171,10 @@
             "OnComponentStart": null,
             "OnComponentUpdate": null,
             "Parameters": {
-              "bools": {},
+              "bools": {
+                "fire": true,
+                "deploy": true
+              },
               "ints": {},
               "floats": {},
               "vectors": {},
@@ -508,13 +511,13 @@
                 "__guid": "2874ef81-e234-422f-bc39-a630540c7ef6",
                 "__version": 2,
                 "Flags": 0,
-                "Name": "railgun2",
-                "Position": "5.403502,0.198396,-8.803435",
+                "Name": "railgun",
+                "Position": "-1.594876,0.02113555,-4.970883",
                 "Rotation": "0,0,0,1",
                 "Scale": "1,1,1",
                 "Tags": "",
                 "Enabled": true,
-                "NetworkMode": 2,
+                "NetworkMode": 0,
                 "NetworkFlags": 0,
                 "NetworkOrphaned": 0,
                 "NetworkTransmit": true,
@@ -525,16 +528,16 @@
                     "__guid": "ae132766-9cb7-4823-ac2b-d83fa5c9e8e4",
                     "__enabled": true,
                     "Flags": 0,
-                    "AnimationGraph": null,
+                    "AnimationGraph": "railgun.vanmgrph",
                     "BodyGroups": 18446744073709551615,
                     "BoneMergeTarget": null,
                     "CreateAttachments": false,
-                    "CreateBoneObjects": false,
+                    "CreateBoneObjects": true,
                     "LodOverride": null,
                     "MaterialGroup": null,
                     "MaterialOverride": null,
                     "Materials": null,
-                    "Model": "guns/railgun3.vmdl",
+                    "Model": "guns/railgun.vmdl",
                     "Morphs": {},
                     "OnComponentDestroy": null,
                     "OnComponentDisabled": null,
@@ -543,7 +546,10 @@
                     "OnComponentStart": null,
                     "OnComponentUpdate": null,
                     "Parameters": {
-                      "bools": {},
+                      "bools": {
+                        "deploy": false,
+                        "fire": true
+                      },
                       "ints": {},
                       "floats": {},
                       "vectors": {},
@@ -566,7 +572,62 @@
                     "UseAnimGraph": true
                   }
                 ],
-                "Children": []
+                "Children": [
+                  {
+                    "__guid": "bf607942-48f1-41c0-900b-bd9c6ab32b9c",
+                    "__version": 2,
+                    "Flags": 4,
+                    "Name": "Bone_gun",
+                    "Position": "0,0,0",
+                    "Rotation": "0,0,0,1",
+                    "Scale": "1,1,1",
+                    "Tags": "",
+                    "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkFlags": 0,
+                    "NetworkOrphaned": 0,
+                    "NetworkTransmit": true,
+                    "OwnerTransfer": 1,
+                    "Components": [],
+                    "Children": []
+                  },
+                  {
+                    "__guid": "9b455020-4d56-415b-8cbd-d3ece2d3764e",
+                    "__version": 2,
+                    "Flags": 4,
+                    "Name": "Bone_handle",
+                    "Position": "0,0,0",
+                    "Rotation": "0,0,0,1",
+                    "Scale": "1,1,1",
+                    "Tags": "",
+                    "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkFlags": 0,
+                    "NetworkOrphaned": 0,
+                    "NetworkTransmit": true,
+                    "OwnerTransfer": 1,
+                    "Components": [],
+                    "Children": []
+                  },
+                  {
+                    "__guid": "d2e24d36-5223-4798-a9f1-ced89db06a13",
+                    "__version": 2,
+                    "Flags": 4,
+                    "Name": "Bone_trigger",
+                    "Position": "0,0,0",
+                    "Rotation": "0,0,0,1",
+                    "Scale": "1,1,1",
+                    "Tags": "",
+                    "Enabled": true,
+                    "NetworkMode": 2,
+                    "NetworkFlags": 0,
+                    "NetworkOrphaned": 0,
+                    "NetworkTransmit": true,
+                    "OwnerTransfer": 1,
+                    "Components": [],
+                    "Children": []
+                  }
+                ]
               }
             ]
           },
@@ -1168,10 +1229,10 @@
                   {
                     "__guid": "5e773090-b231-4de9-b910-12309421fc35",
                     "__version": 2,
-                    "Flags": 4,
+                    "Flags": 1028,
                     "Name": "arm_upper_L",
-                    "Position": "0,0,0",
-                    "Rotation": "0,0,0,1",
+                    "Position": "5.20494,-0.9334967,1.336078",
+                    "Rotation": "0.2604023,0.3780214,-0.628265,-0.6281509",
                     "Scale": "1,1,1",
                     "Tags": "",
                     "Enabled": true,
@@ -1185,10 +1246,10 @@
                       {
                         "__guid": "c73216b7-9694-400f-b799-392259904971",
                         "__version": 2,
-                        "Flags": 4,
+                        "Flags": 1028,
                         "Name": "arm_lower_L",
-                        "Position": "0,0,0",
-                        "Rotation": "0,0,0,1",
+                        "Position": "10.78669,-0.4875469,0.13991",
+                        "Rotation": "-0.02848756,-0.05296097,-0.4602469,-0.8857519",
                         "Scale": "1,1,1",
                         "Tags": "",
                         "Enabled": true,
@@ -1202,10 +1263,10 @@
                           {
                             "__guid": "592b3b24-bb9f-4fa5-a39b-8548d776f590",
                             "__version": 2,
-                            "Flags": 4,
+                            "Flags": 1028,
                             "Name": "hand_L",
-                            "Position": "0,0,0",
-                            "Rotation": "0,0,0,1",
+                            "Position": "10.12539,-0.2457631,0.003873408",
+                            "Rotation": "-0.858704,0.07769341,-0.1534876,0.4827349",
                             "Scale": "1,1,1",
                             "Tags": "",
                             "Enabled": true,
@@ -1612,10 +1673,10 @@
                               {
                                 "__guid": "de8b16ed-4743-4a65-8f93-bda43c2a30bb",
                                 "__version": 2,
-                                "Flags": 4,
+                                "Flags": 1028,
                                 "Name": "arm_lower_L_twistctrl1",
-                                "Position": "0,0,0",
-                                "Rotation": "0,0,0,1",
+                                "Position": "3.483883,-0.02746662,-0.03622087",
+                                "Rotation": "-0.4585805,0.00000002421439,0.00000002793968,0.8886529",
                                 "Scale": "1,1,1",
                                 "Tags": "",
                                 "Enabled": true,
@@ -1629,10 +1690,10 @@
                                   {
                                     "__guid": "0cff9621-c93a-4b27-9cd1-777cf7ab53e8",
                                     "__version": 2,
-                                    "Flags": 4,
+                                    "Flags": 1028,
                                     "Name": "arm_lower_L_twistctrl2",
-                                    "Position": "0,0,0",
-                                    "Rotation": "0,0,0,1",
+                                    "Position": "3.600214,0.04883826,-0.02386989",
+                                    "Rotation": "-0.3621106,0.00000001757871,0,0.932135",
                                     "Scale": "1,1,1",
                                     "Tags": "",
                                     "Enabled": true,
@@ -1738,7 +1799,7 @@
         "Name": "worldmodel",
         "Position": "0,0,0",
         "Rotation": "0,0,0,1",
-        "Scale": "1,1,1",
+        "Scale": "1.2,1.2,1.2",
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
@@ -1753,7 +1814,7 @@
             "__enabled": true,
             "Flags": 0,
             "AnimationGraph": "smg.vanmgrph",
-            "BodyGroups": 42259,
+            "BodyGroups": 18446744073709551615,
             "BoneMergeTarget": null,
             "CreateAttachments": false,
             "CreateBoneObjects": false,
@@ -1761,7 +1822,7 @@
             "MaterialGroup": null,
             "MaterialOverride": null,
             "Materials": null,
-            "Model": "models/weapons/sbox_assault_m4a1/v_m4a1.vmdl",
+            "Model": "guns/railgun.vmdl",
             "Morphs": {},
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
@@ -1778,7 +1839,7 @@
             },
             "PlaybackRate": 1,
             "RenderOptions": {
-              "GameLayer": false,
+              "GameLayer": true,
               "OverlayLayer": false,
               "BloomLayer": false,
               "AfterUILayer": false
@@ -1790,7 +1851,7 @@
               "Blending": false
             },
             "Tint": "1,1,1,1",
-            "UseAnimGraph": true
+            "UseAnimGraph": false
           },
           {
             "__type": "Shooter.GunWorldModelHandler",
@@ -1803,7 +1864,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "PositionOffset": "-15.4,0,-6"
+            "PositionOffset": "1,0,-4.5"
           }
         ],
         "Children": []

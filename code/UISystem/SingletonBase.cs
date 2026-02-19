@@ -6,26 +6,25 @@ namespace Shooter;
 /// Is used to create Component singletons.
 /// </summary>
 /// <typeparam name="T">Type of inheriting class.</typeparam>
-public abstract class SingletonBase<T> : Component where T : SingletonBase<T>
+public abstract class SingletonBase<T> : Component where T : Component
 {
-    [SkipHotload] public static T Instance { get; private set; } = null;
+    [SkipHotload] public static T Instance { get; set; } = null;
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        //Log.Info( typeof(T).FullName );
+    }
 
     protected override void OnAwake()
     {
-        if ( Instance != null && Instance != this )
+        if ( Instance != null && Instance != this && Application.IsEditor == false )
         {
             DestroyGameObject();
-            return;
         }
-        
-        Instance = (T)this;
-    }
-
-    protected override void OnDestroy()
-    {
-        if ( Instance == this )
+        else
         {
-            Instance = null;
+            Instance = this as T;
         }
     }
 }

@@ -6,24 +6,14 @@ namespace Shooter.Match;
 public sealed class EndState( MatchManager matchManager, StateMachine stateMachine )
     : MatchBaseState( matchManager, stateMachine )
 {
-
     public override void OnEnter()
     {
         matchManager.MatchIsRunning = false;
 
+        UIManager.Instance.ShowLayer<StatsUI>();
+
         IMatchEvents.Post( e => e.OnGameEnd() );
         EndTimer = 0;
-        
-        // Switch to the podium
-        matchManager.Scene.GetComponentInChildren<Podium>( includeDisabled: true )
-            .GameObject.Enabled = true;
-
-        // Show the win/lose screen
-        var HUD = matchManager.Scene.Get<HUD>();
-        var transitionWindow = HUD.AddComponent<TransitionWindow>( startEnabled: true );
-
-        UIManager.Instance.ShowLayer( transitionWindow, addToHistory: false );
-
     }
 
     public override void OnExit( IState nextState )
@@ -43,20 +33,11 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     }
 
     private TimeSince EndTimer;
-    private readonly float EndTimeLimit = 15.0f;
-    private float statsUITime = 7.0f;
+    private float EndTimeLimit = 10.0f;
 
     public override void OnUpdate()
     {
-        if ( EndTimer > statsUITime )
-        {
-            UIManager.Instance.ResetToStartLayer();
-            UIManager.Instance.ShowLayer<StatsUI>();
-            statsUITime = EndTimeLimit * 2; // Makes this if block run only once
-        }
-
-        if ( EndTimer < EndTimeLimit ) return;
-
+        while ( EndTimer < EndTimeLimit ) return;
         OnExit( null );
     }
 }
