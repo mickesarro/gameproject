@@ -29,7 +29,7 @@ public class UIManager : SingletonBase<UIManager>
             UILayerLookup.TryAdd( layer.GetType(), layer );
             if ( layer != StartLayer )
             {
-                layer.Hide();
+                layer.Hide( data: "UIManager" );
             }
         }
     }

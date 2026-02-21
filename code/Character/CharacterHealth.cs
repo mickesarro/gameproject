@@ -79,16 +79,21 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         CreateRagdoll();
 
-		IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
+        // And this is used for registering the kill
+        IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
+        // This is used for notifying networked objects        
+        BroadcastOnKill( damageInfo );
 
-		// Log.Info( $"I, {Steam.SteamId.ToString()}, died" );
-
-		// Need to implement respawning etc. while maintaining the same gameobject
-		GameObject.Enabled = false;
+        // Need to implement respawning etc. while maintaining the same gameobject
+        GameObject.Enabled = false;
         ReSpawn( 0 );
 	}
 
     [Rpc.Broadcast( NetFlags.OwnerOnly )]
     private void CreateRagdoll() => CharacterRagdoll.CreateRagdoll();
+
+    [Rpc.Broadcast( NetFlags.OwnerOnly )]
+    private void BroadcastOnKill( DamageInfo damageInfo ) 
+        => IMatchEvents.Post( e => e.BroadcastOnKill( ownedStats, damageInfo ) );
 
 }

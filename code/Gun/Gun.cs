@@ -330,7 +330,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
         SoundManager.PlayGlobal( sound, position, sound.Distance, sound.Volume.FixedValue );
     }
 
-    [Rpc.Broadcast]
     private void FireProjectile()
 	{
         TryReload();

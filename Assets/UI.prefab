@@ -74,6 +74,12 @@
             "component_id": "c136b065-d8fa-4670-a083-065636caaaa1",
             "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
             "component_type": "StatsUI"
+          },
+          {
+            "_type": "component",
+            "component_id": "458ff27d-5884-42df-b3b1-261e32921f82",
+            "go": "864282d8-9e9c-416f-bdaa-f56046e121b3",
+            "component_type": "KillFeed"
           }
         ]
       }
@@ -230,6 +236,38 @@
             "__guid": "c136b065-d8fa-4670-a083-065636caaaa1",
             "__enabled": true,
             "Flags": 0,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
+          }
+        ],
+        "Children": []
+      },
+      {
+        "__guid": "864282d8-9e9c-416f-bdaa-f56046e121b3",
+        "__version": 2,
+        "Flags": 0,
+        "Name": "KillFeed",
+        "Position": "149.995,149.995,-212.125",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Enabled": true,
+        "NetworkMode": 0,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
+        "Components": [
+          {
+            "__type": "Shooter.UI.KillFeed",
+            "__guid": "458ff27d-5884-42df-b3b1-261e32921f82",
+            "__enabled": true,
+            "Flags": 0,
+            "EntryLifeTime": 5,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,

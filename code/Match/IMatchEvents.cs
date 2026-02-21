@@ -14,6 +14,7 @@ public interface IMatchEvents : ISceneEvent<IMatchEvents>
 	void OnPlayerLeft(Guid connectionId) { }
 
 	void OnKill( PlayerStats killed, DamageInfo damageInfo ) { }
-    
+    void BroadcastOnKill( PlayerStats killed, DamageInfo damageInfo ) { }
+
     void OnScoreAdded( int score, string reason ) { }
 }
