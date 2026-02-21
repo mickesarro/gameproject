@@ -1,0 +1,128 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Collections.Generic
+@inherits Shooter.UISystem.UILayer
+@implements IMatchEvents
+@namespace Shooter.UI
+
+<root>
+	<div class="feed">
+        @foreach ( var entry in Feed )
+        {
+            var firstClass = GetRelationClass( entry.AttackerRelation );
+            var secondClass = GetRelationClass( entry.VictimRelation );
+
+            if ( entry.IsSuicide )
+            {
+                <div class="feed_entry">
+                    <span class="col @firstClass">@entry.Attacker won a solo-match of Russian roulette</span>
+                </div>
+                continue;
+            }
+
+            <div class="feed_entry">
+                <span class="col @firstClass">@entry.Attacker</span>
+                <span>@GetKillMethod(entry)</span>
+                <span class="col @secondClass">@entry.Victim</span>
+            </div>
+        }
+    </div>
+</root>
+
+@code
+{
+    public override bool IsOverlay => true;
+
+    [Property] public float EntryLifeTime { get; set; } = 5.0f;
+    public enum KillFeedRelation { Self, Friendly, Enemy };
+
+    public record KillFeedEntry(
+        string Attacker, string Victim, KillFeedRelation AttackerRelation, KillFeedRelation VictimRelation,
+        bool IsSuicide, bool IsExplosion, RealTimeSince TimeSince
+    ) { };
+
+    private Queue<KillFeedEntry> Feed = new Queue<KillFeedEntry>( capacity: 20 );
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( Feed.Count );
+
+    void IMatchEvents.BroadcastOnKill( PlayerStats killed, DamageInfo damageInfo )
+    {
+
+        KillFeedRelation relation = !damageInfo.Tags.Has("npc") && !damageInfo.Attacker.IsProxy
+            ? KillFeedRelation.Self
+            : KillFeedRelation.Enemy; // !! Once teams are implemented, add the logic here
+
+        KillFeedRelation victimRelation = !killed.GameObject.Tags.Has("npc") && !killed.GameObject.IsProxy
+            ? KillFeedRelation.Self
+            : KillFeedRelation.Enemy; // !! Once teams are implemented, add the logic here
+
+        Feed.Enqueue(
+            new KillFeedEntry
+            (
+                Attacker: GetDisplayName( damageInfo.Attacker ),
+                Victim: GetDisplayName( killed.GameObject ),
+                AttackerRelation: relation,
+                VictimRelation: victimRelation,
+                IsSuicide: damageInfo.Attacker == killed.GameObject,
+                IsExplosion: damageInfo.Tags.Has( "explosion" ),
+                TimeSince: 0
+            )
+        );
+    }
+
+    void IMatchEvents.OnGameEnd() => Hide();
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Feed.Count == 0 ) return;
+
+        while ( Feed.TryPeek( out var entry ) && entry.TimeSince > EntryLifeTime )
+        {
+            Feed.Dequeue();
+        }
+
+    }
+
+    public override void Hide( object data )
+    {
+        if ( data is string reason && reason == "UIManager" ) return;
+
+        GameObject.Enabled = false;
+    }
+
+    private string GetDisplayName( GameObject gameObject )
+    {
+        if ( gameObject == null ) return null;
+
+        return gameObject.Tags.Has("npc")
+        ? "Bot"
+        : (gameObject.Network?.Owner?.DisplayName ?? "Unknown");
+
+    }
+
+    private string GetRelationClass( KillFeedRelation relation ) => relation switch
+    {
+        KillFeedRelation.Self => "self",
+        KillFeedRelation.Friendly => "friendly",
+        KillFeedRelation.Enemy => "enemy",
+        _ => "hide"
+    };
+
+    private string GetKillMethod( KillFeedEntry entry )
+    {
+        if ( entry.IsExplosion )
+        {
+            return "exploded";
+        }
+        else
+        {
+            return "killed";
+        }
+    }
+
+}

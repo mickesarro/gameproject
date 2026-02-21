@@ -58,6 +58,7 @@ public class BlastEffect : GameObject
 						Attacker = attacker,
 						Position = trace.HitPosition,
 					};
+                    damageInfo.Tags.Add( "explosion" );
 
                     if ( !attacker.GetComponent<ICharacterBase>().IsPlayer )
                     {

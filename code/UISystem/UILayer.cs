@@ -20,5 +20,6 @@ public abstract class UILayer : PanelComponent
     public virtual void Show( object data ) { }
 
     public virtual void Hide() => GameObject.Enabled = false;
+    public virtual void Hide( object data ) => GameObject.Enabled = false;
 
 }

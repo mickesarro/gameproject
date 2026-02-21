@@ -42,7 +42,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
         MatchManager.Instance.MatchGameMode.WinCondition( attacker );
     }
 
-    [Rpc.Broadcast( NetFlags.SendImmediate )]
+    [Rpc.Broadcast( NetFlags.SendImmediate | NetFlags.HostOnly )]
     private void UpdateScore(int amount = 0, string reason = "refresh")
     {
         IMatchEvents.Post( e => e.OnScoreAdded( amount, reason ) );
@@ -85,12 +85,4 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
             tracked.Remove(toRemove);
     }
 
-    //protected override void OnUpdate()
-    //{
-    //    base.OnUpdate();
-    //    foreach ( var stats in tracked )
-    //    {
-    //        //Log.Info( stats.GameObject.Name + ": Kills: " + stats.Kills + " Deaths: " + stats.Deaths );
-    //    }
-    //}
 }
