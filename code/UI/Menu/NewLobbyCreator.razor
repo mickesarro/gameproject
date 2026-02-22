@@ -1,0 +1,51 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System
+@using Shooter.UISystem
+@inherits Panel
+@namespace Shooter.UI
+
+<!--
+    This is mainly for reference now. Maybe develop it later.
+-->
+
+<root>
+    <div id="modes_menu">
+        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@Close" />
+        <h1>Match Stats</h1>
+
+        <div class="modes_table">
+            <div class="modes_header">
+                <span class="col player">Player</span>
+                <span class="col score">Score</span>
+                <span class="col kills">Kills</span>
+                <span class="col deaths">Deaths</span>
+            </div>
+
+            @foreach (var mode in ResourceLibrary.GetAll<PrefabFile>("gamemodes/"))
+            {
+                if (!mode.IsValid()) continue;
+
+                <div class="modes_row">
+                    <span class="col player">@mode.GetMetadata("Name", "")</span>
+                    <span class="col score">@mode.GetMetadata("ScoreLimit", "0")</span>
+                    <span class="col kills">@mode.GetMetadata("MaxPlayers", "")</span>
+                    <span class="col deaths">@mode.GetMetadata("MinPlayers", "")</span>
+                    <span class="col deaths">@mode.GetMetadata("Objective", "")</span>
+                </div>
+            }
+
+        </div>
+    </div>
+</root>
+
+
+@code
+{
+
+    private void Close()
+    {
+        
+    }
+
+}

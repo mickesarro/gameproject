@@ -31,18 +31,6 @@ SettingsMenu {
             position: absolute;
             top: 20px;
             left: 20px;
-            padding: 8px 16px;
-            font-size: 1.5rem; 
-            font-weight: bold;
-            background-color: #444;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #666;
-            }
         }
 
         .dropdown_section {
@@ -55,18 +43,6 @@ SettingsMenu {
 
             .dropdown_button {
                 width: 280px;
-                font-size: 1.5rem;
-                padding: 8px 30px;
-                text-align: center;
-                background-color: #444;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #666;
-                }
             }
         }
 

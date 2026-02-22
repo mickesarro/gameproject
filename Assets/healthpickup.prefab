@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "__guid": "78a02cdf-1d32-46ea-bae9-990630af0230",
-    "__version": 1,
+    "__version": 2,
     "Flags": 0,
     "Name": "healthpickup",
     "Position": "0,0,0",
@@ -10,7 +10,7 @@
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
-    "NetworkInterpolation": true,
+    "NetworkFlags": 0,
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
     "OwnerTransfer": 1,
@@ -19,6 +19,7 @@
         "__type": "Shooter.HealthPickup",
         "__guid": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b",
         "__enabled": true,
+        "Flags": 0,
         "HealthAmount": 50,
         "hideForTime": null,
         "OnComponentDestroy": null,
@@ -32,6 +33,7 @@
         "__type": "Sandbox.SphereCollider",
         "__guid": "b1adc96d-df67-4239-a521-21c6d575a619",
         "__enabled": true,
+        "Flags": 0,
         "Center": "0,0,0",
         "ColliderFlags": 0,
         "Elasticity": null,
@@ -57,6 +59,7 @@
         "__type": "Sandbox.SkinnedModelRenderer",
         "__guid": "971cc31e-431e-4be6-a3f7-42189edafdde",
         "__enabled": true,
+        "Flags": 0,
         "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
         "BoneMergeTarget": null,
@@ -66,7 +69,7 @@
         "MaterialGroup": null,
         "MaterialOverride": null,
         "Materials": null,
-        "Model": "models/items/healthkit/healthkit_m.vmdl",
+        "Model": "pickups/medkit.vmdl",
         "Morphs": {},
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -108,7 +111,7 @@
         "Enabled": false,
         "IncludeStaticBodies": true,
         "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
+        "EditorAutoUpdate": false,
         "AgentHeight": 64,
         "AgentRadius": 16,
         "AgentStepSize": 18,
@@ -124,8 +127,6 @@
   "MenuPath": null,
   "MenuIcon": "3g_mobiledata",
   "DontBreakAsTemplate": false,
-  "__references": [
-    "baik.healthkit_m#43907"
-  ],
+  "__references": [],
   "__version": 2
 }

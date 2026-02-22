@@ -8,7 +8,7 @@
 
 <root>
     <div class="browser">
-        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
+        <UIButton class="button back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
         <h1 class="title">Lobbies</h1>
 
         <div class="container">
@@ -17,11 +17,20 @@
             <div>
                 <div class="info">Automatic</div>
                 <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
+                <div class="dropdown_section">
+                    <UIButton class="button dropdown_button"
+                              T="string"
+                              DisplayValue="Selected Mode: @selectedGameModeDisplay ▼"
+                              ButtonCallback="@OpenGameModeDropdown" />
+
+                    <DropDown @ref="GameModeDropdown" style="display:none;" />
+                </div>
             </div>
+            
             @foreach ( var lobby in lobbies )
             {
                 <div>
-                    <div> @*Just a quick working versio*@
+                    <div> @*Just a quick working version*@
                         <p class="info">@lobby.Name</p>
                         <p class="info">Players: @lobby.Members</p>
                     </div>
@@ -36,10 +45,9 @@
 {
     private List<LobbyInformation> lobbies = new();
 
-    protected override void OnAwake()
-    {
-        base.OnAwake();
-    }
+    private DropDown GameModeDropdown;
+    private string selectedGameMode = "deathmatch";
+    private string selectedGameModeDisplay = "Deathmatch";
 
     public override void Show()
     {
@@ -86,7 +94,8 @@
         slo.SetScene( scene );
         Scene.Load( slo );
 
-        GameMode.SetGameMode( "gamemodes/deathmatch.prefab" );
+        // Default to deathmatch
+        GameMode.SetGameMode($"gamemodes/{selectedGameMode ?? "deathmatch" }.prefab" );
 
         Mouse.Visibility = MouseVisibility.Hidden;
         //GameManager.Current.LoadUI();
@@ -112,4 +121,33 @@
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
     protected override int BuildHash() => System.HashCode.Combine( lobbies );
+
+    private void OpenGameModeDropdown()
+    {
+        if ( GameModeDropdown == null ) return;
+
+        var popup = new Popup(GameModeDropdown, Popup.PositionMode.BelowLeft, 45);
+
+        foreach ( var mode in ResourceLibrary.GetAll<PrefabFile>("gamemodes/") )
+        {
+            string label = mode.GetMetadata("Name", "");
+            var panel = popup.AddOption(
+                $"{label} | Max players: {mode.GetMetadata("MaxPlayers", "NaN")} | Score limit: {mode.GetMetadata("ScoreLimit", "NaN")}"
+                , "", action: () =>
+            {
+                selectedGameMode = mode.ResourceName;
+                selectedGameModeDisplay = label;
+                StateHasChanged();
+            });
+
+            if (label == selectedGameMode)
+                panel.AddClass("active");
+
+            panel.Style.Width = Length.Auto;
+            panel.Style.BackgroundColor = Color.Parse("#444");
+            panel.Style.FontColor = Color.White;
+        }
+
+        popup.CloseWhenParentIsHidden = true;
+    }
 }
