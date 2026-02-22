@@ -20,13 +20,16 @@ public sealed class Podium : Component
 
         SpawnPoint[] spawnPoints = [ First, Second, Third ];
 
-        for ( int i = 0; i < System.Math.Min( 3, players.Count() ); i++)
+        // Could cause weird podium bugs where someone who isn't in top 3
+        // is being displayed. But, it is better than having empty podium.
+        // This basically fixes the situation where only one or two have kills
+        // and for some reason the ones with zero have no bodies.
+        int position = 0;
+        foreach ( var player in players )
         {
-            var player = players.ElementAt( i );
-
             if ( player?.GameObject == null ) continue;
 
-            InstantiateCharacter( player.GameObject, spawnPoints[i] );
+            InstantiateCharacter( player.GameObject, spawnPoints[position++] );
         }
 
     }
