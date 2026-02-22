@@ -6,7 +6,7 @@ namespace Shooter;
 /// <summary>
 /// Defines details common with all game modes.
 /// </summary>
-public abstract class GameMode : Component
+public abstract class GameMode : Component, ISceneMetadata
 {
     // Needs to be discussed how to implement these.
     // Should each one be a class inheriting this or e.g. a prefab of components.
@@ -33,5 +33,16 @@ public abstract class GameMode : Component
     public virtual string Objective { get; } = "Score points"; // Simple for now
 
     public virtual int StartCountdown { get; } = 5;
+
+    Dictionary<string, string> ISceneMetadata.GetMetadata()
+    {
+        return new() {
+            { "Name", ModeName },
+            { "ScoreLimit", ScoreLimit.ToString() },
+            { "MaxPlayers", MaxPlayers.ToString() },
+            { "MinPlayers", MinPlayers.ToString() },
+            { "Objective", Objective }
+        };
+    }
 
 }

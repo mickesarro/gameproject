@@ -3,7 +3,7 @@
     "__guid": "da206018-3b84-4cbc-8673-b9371357f465",
     "__version": 2,
     "Flags": 0,
-    "Name": "deathmatch",
+    "Name": "demodeathmatch",
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "1,1,1",
@@ -22,14 +22,14 @@
         "Flags": 0,
         "maxPlayers": 12,
         "minPlayers": 2,
-        "modeName": "Deathmatch",
+        "modeName": "Demo Deathmatch",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "scoreLimit": 10
+        "scoreLimit": 3
       }
     ],
     "Children": [],
@@ -38,8 +38,8 @@
       "TimeScale": 1,
       "WantsSystemScene": true,
       "Metadata": {
-        "Name": "Deathmatch",
-        "ScoreLimit": "10",
+        "Name": "Demo Deathmatch",
+        "ScoreLimit": "3",
         "MaxPlayers": "12",
         "MinPlayers": "2",
         "Objective": "Score points"

@@ -780,14 +780,6 @@
             },
             "Property": "Position",
             "Value": "414.7487,-8497.929,147.7812"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -822,14 +814,6 @@
             },
             "Property": "Position",
             "Value": "1004.544,-7533.157,269.8884"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -864,14 +848,6 @@
             },
             "Property": "Position",
             "Value": "-377.174,-7301.078,273.8556"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -906,14 +882,6 @@
             },
             "Property": "Position",
             "Value": "-531.1823,-8578.926,140.0346"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -948,14 +916,6 @@
             },
             "Property": "Position",
             "Value": "-635.1452,-9018.32,780.917"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -990,14 +950,6 @@
             },
             "Property": "Position",
             "Value": "-1398.092,-9129.011,782.056"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1032,14 +984,6 @@
             },
             "Property": "Position",
             "Value": "143.9383,-8484.017,780.6828"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1074,14 +1018,6 @@
             },
             "Property": "Position",
             "Value": "-858.1175,-8102.018,649.1295"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1116,14 +1052,6 @@
             },
             "Property": "Position",
             "Value": "1107.318,-8044.469,654.8099"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1158,14 +1086,6 @@
             },
             "Property": "Position",
             "Value": "1022.99,-8874.125,652.749"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1200,14 +1120,6 @@
             },
             "Property": "Position",
             "Value": "-582.7718,-9572.462,143.3733"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1242,14 +1154,6 @@
             },
             "Property": "Position",
             "Value": "-2226.801,-9255.646,266.5093"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1284,14 +1188,6 @@
             },
             "Property": "Position",
             "Value": "-1009.008,-7729.949,273.647"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1326,14 +1222,6 @@
             },
             "Property": "Position",
             "Value": "-1875.835,-7206.865,269.6912"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1368,14 +1256,6 @@
             },
             "Property": "Position",
             "Value": "-2548.172,-8230.08,269.2647"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1410,14 +1290,6 @@
             },
             "Property": "Position",
             "Value": "338.0446,-6726.163,18.27583"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
@@ -1452,14 +1324,6 @@
             },
             "Property": "Position",
             "Value": "-780.1507,-5783.877,17.83666"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "971cc31e-431e-4be6-a3f7-42189edafdde"
-            },
-            "Property": "Model",
-            "Value": "pickups/medkit.vmdl"
           }
         ],
         "MovedObjects": []
