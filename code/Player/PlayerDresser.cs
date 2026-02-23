@@ -12,7 +12,31 @@ public sealed class PlayerDresser : Component, ICharacterDresser
     [Property] private SkinnedModelRenderer bodyRenderer;
     public SkinnedModelRenderer BodyRenderer => bodyRenderer;
 
-    private ClothingContainer clothing;
+    private ClothingContainer clothing = null;
+
+    // Handles checking and retrying setting clothes if container not yet loaded
+    private enum ClothStatus { Unset, Tried, Loaded };
+    private ClothStatus clothStatus = ClothStatus.Unset;
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        var owner = Network.Owner;
+
+        if ( owner == null ) return;
+
+        clothing = new();
+        clothing.Deserialize( owner.GetUserData( "avatar" ) );
+
+        var oldstatus = clothStatus;
+        clothStatus = ClothStatus.Loaded;
+
+        if ( oldstatus == ClothStatus.Tried )
+        {
+            ApplyClothing();
+        }
+    }
 
     public void SaveClothing()
     {
@@ -22,15 +46,21 @@ public sealed class PlayerDresser : Component, ICharacterDresser
     public float tint { get; }
 
     // korjaa casen kun pelaaja liittyy kesken toisen spawnin ja vaatteet ei mee päälle
-    [Rpc.Broadcast]
+    //[Rpc.Broadcast]
     public void ApplyClothing()
     {
+        if ( clothStatus != ClothStatus.Loaded )
+        {
+            clothStatus = ClothStatus.Tried;
+            return;
+        }
+
         _ = ApplyClothingInternal();
     }
 
     private async Task ApplyClothingInternal()
     {
-        await AsyncDresser.Instance.Add(bodyRenderer, false, clothing);
+        await AsyncDresser.Instance.Add( bodyRenderer, false, clothing );
 
         if (!Network.IsProxy)
         {
@@ -44,14 +74,5 @@ public sealed class PlayerDresser : Component, ICharacterDresser
     public void ClearClothing()
     {
         clothing.Clothing.Clear();
-    }
-
-    protected override void OnStart()
-    {
-        // This is currently here, which means it run on respawn as well
-        // That is probably not desirable, so search for alternative ways
-        base.OnStart();
-        SaveClothing();
-        // ApplyClothing();
     }
 }

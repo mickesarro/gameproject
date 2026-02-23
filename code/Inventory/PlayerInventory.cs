@@ -30,7 +30,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 
 	// The actual collection of the weapons
 	// Dictionary would add overhead for such small array, but also would be more type safe.
-	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total + 1]; // Plus 1 for empty
+	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total]; // Plus 1 for empty
 	public IEnumerable<ICollectable> Items => weapons;
 
 	/// <summary>
@@ -116,7 +116,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
         if ( weapons[ind] == null ) ind = 3;
 
 		// Set new weapon
-        Log.Info( "set weapon" );
+        //Log.Info( "set weapon" );
 		CurrentItem = weapons[ind];
 		currentSlot = ind;
 
@@ -134,19 +134,39 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	public void ChangeCurrentItem( InventorySlot slot )
 	{
         if ( IsProxy ) return;
-		switch ( slot )
+
+        int ind;
+        switch ( slot )
 		{
 			case InventorySlot.Next:
-				ChangeCurrentItem( currentSlot + 1 < weapons.Length ? currentSlot + 1 : 0 );
-				break;
+				ind = currentSlot + 1 < weapons.Length ? currentSlot + 1 : 0;
+                if ( weapons[ind] == null ) ind = FindNextWeapon( ind, slot );
+                ChangeCurrentItem( ind );
+                break;
 			case InventorySlot.Previous:
-				ChangeCurrentItem( currentSlot - 1 >= 0 ? currentSlot - 1 : weapons.Length - 1 );
+                ind = currentSlot - 1 >= 0 ? currentSlot - 1 : weapons.Length - 1;
+                if ( weapons[ind] == null ) ind = FindNextWeapon( ind, slot );
+                ChangeCurrentItem( ind );
 				break;
 			default:
 				ChangeCurrentItem( (int)slot );
 				break;
 		}
 	}
+
+    private int FindNextWeapon( int ind, InventorySlot inventorySlot )
+    {
+        int dir = inventorySlot == InventorySlot.Next ? 1 : -1;
+
+        while ( ind > 0 && (ind < weapons.Length - 1) && weapons[ind] == null )
+        {
+            ind += dir;
+        }
+
+        if ( weapons[ind] == null ) ind = 3;
+
+        return ind;
+    }
 
 	private void DropWeapon( ICollectable weapon )
 	{
@@ -167,3 +187,4 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	}
 
 }
+

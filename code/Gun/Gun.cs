@@ -332,7 +332,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
     private void FireProjectile()
 	{
-        TryReload();
+        //Check ammo before firing
+        if ( FireData.AmmoLeft <= 0 )
+        {
+            TryReload();
+            return;
+        }
 
         --FireData.AmmoLeft;
 

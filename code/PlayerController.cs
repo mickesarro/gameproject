@@ -10,6 +10,8 @@
  * - Removed Fire method and related functionality
  * - Changed Speed update to go through HUD
  * - Implements the ICharacterBase now
+ * - A lof of refactorings
+ * - Many other minor changes
  *
  * License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
  */
@@ -29,7 +31,6 @@ public sealed class PlayerController : Component, ICharacterBase
 {
 	// omat custom jutut ehkä hyvä merkata
 
-
     // Check if local playercontroller 
     public static PlayerController Local { get; private set; }
     
@@ -45,9 +46,8 @@ public sealed class PlayerController : Component, ICharacterBase
     [Property, ToggleGroup("UseCustomGravity", Label = "Use Custom Gravity")] private bool UseCustomGravity {get;set;} = true;
     [Property, ToggleGroup("UseCustomGravity"), Description("Does not change scene gravity, this is only for the player."), Title("Gravity")] public Vector3 CustomGravity {get;set;} = new Vector3(0, 0, -800f);
     public Vector3 Gravity = new Vector3(0, 0, -800f);
-    
-    [Property, ToggleGroup("UseCustomFOV", Label = "Use Custom Field Of View")] private bool UseCustomFOV {get;set;} = true;
-    [Property, ToggleGroup("UseCustomFOV"), Title("Field Of View"), Range(60f, 120f)] public float CustomFOV {get;set;} = 90f;
+
+    [Property, Description( "Use Custom Field Of View" )] private bool UseCustomFOV { get; set; } = true;
 
     // Movement Properties
     [Property, Group("Movement Properties"), Description("CS2 Default: 285.98f")] public float MaxSpeed {get;set;} = 285.98f;
@@ -105,15 +105,11 @@ public sealed class PlayerController : Component, ICharacterBase
     // Size
     [Property, Group("Size"), Description("CS2 Default: 16f")] private float Radius {get;set;} = 16f;
     [Property, Group("Size"), Description("CS2 Default: 72f")] private float StandingHeight {get;set;} = 72f;
-    [Property, Group("Size"), Description("CS2 Default: 54f")] private float CroucingHeight {get;set;} = 54f;
+    [Property, Group("Size"), Description("CS2 Default: 54f")] private float CrouchingHeight {get;set;} = 54f;
     [Sync] public float Height {get;set;} = 72f;
     [Sync] private float HeightGoal {get;set;} = 72f;
     private BBox BoundingBox => new BBox(new Vector3(-Radius * GameObject.WorldScale.x, -Radius * GameObject.WorldScale.y, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, HeightGoal * GameObject.WorldScale.z));
     private int _stuckTries;
-
-    // HP
-    [Sync][Property, Group("Health Points"), Description("Maximum HP.")] public int MaxHealth {get;set;} = 100;
-    [Sync][Property, Group("Health Points"), Description("Current HP.")] public int CurrentHealth {get;set;} = 100;
 
     // Synced internal vars
     [Sync] private float InternalMoveSpeed {get;set;} = 250f;
@@ -265,8 +261,6 @@ public sealed class PlayerController : Component, ICharacterBase
         WishDir = (rot.Forward * Input.AnalogMove.x) + (rot.Left * Input.AnalogMove.y);
         if (!WishDir.IsNearZeroLength) WishDir = WishDir.Normal;
 
-        if ( !MatchManager.Instance.MatchIsRunning ) return;
-
         IsWalking = Input.Down("Slow");
         if (ToggleCrouch) {
             if (Input.Pressed("Duck")) IsCrouching = !IsCrouching;
@@ -276,17 +270,6 @@ public sealed class PlayerController : Component, ICharacterBase
 
         if (Input.Pressed("Duck") || Input.Released("Duck")) CrouchTime += CrouchCost;
     }
-
-    public void TakeDamage(int amount)
-{
-    CurrentHealth -= amount;
-    if (CurrentHealth <= 0)
-    {
-        CurrentHealth = 0;
-        // Toistaseks vaa logi, myöhemmin respawn tms.
-        Log.Info("Player has died.");
-    }
-}
 
     private void UpdateCitizenAnims() {
         if (animationHelper == null) return;
@@ -407,7 +390,7 @@ public sealed class PlayerController : Component, ICharacterBase
 	protected override void OnAwake()
     {
         Camera = Scene.Camera;
-		Sandbox.ProjectSettings.Physics.FixedUpdateFrequency = 64;
+		//Sandbox.ProjectSettings.Physics.FixedUpdateFrequency = 64;
 
         BodyRenderer = Components.GetInChildrenOrSelf<ModelRenderer>();
         animationHelper = Components.GetInChildrenOrSelf<CitizenAnimationHelper>();
@@ -434,50 +417,52 @@ public sealed class PlayerController : Component, ICharacterBase
 
         // Crouching
         var InitHeight = HeightGoal;
-        if (IsCrouching) {
-            HeightGoal = CroucingHeight;
-        } else {
+        HeightGoal = StandingHeight;
+
+        if ( IsCrouching ) {
+            HeightGoal = CrouchingHeight;
+        } else if ( Height < StandingHeight ) {
             var startPos = GameObject.WorldPosition;
-            var endPos = GameObject.WorldPosition + new Vector3(0, 0, StandingHeight * GameObject.WorldScale.z);
-            var crouchTrace = Scene.Trace.Ray(startPos, endPos)
-                                        .IgnoreGameObjectHierarchy(GameObject)
-                                        .Size(new BBox(new Vector3(-Radius, -Radius, 0f), new Vector3(Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, 0)))
+            var endPos = GameObject.WorldPosition + new Vector3( 0, 0, StandingHeight * GameObject.WorldScale.z );
+            var crouchTrace = Scene.Trace.Ray( startPos, endPos )
+                                        .IgnoreGameObjectHierarchy( GameObject )
+                                        .Size( new BBox( new Vector3( -Radius, -Radius, 0f ), new Vector3( Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, 0 ) ) )
                                         .Run();
-            if (crouchTrace.Hit) {
-                HeightGoal = CroucingHeight;
-                IsCrouching = true;
-            } else {
-                HeightGoal = StandingHeight;
+            if ( crouchTrace.Hit)  {
+                HeightGoal = CrouchingHeight;
             }
         }
-        var HeightDiff = (InitHeight - HeightGoal).Clamp(0, 10);
+        var HeightDiff = (InitHeight - HeightGoal).Clamp( 0, 10 );
         
         InternalMoveSpeed = MoveSpeed;
-        if (IsWalking) InternalMoveSpeed = ShiftSpeed;
-        if (IsCrouching) InternalMoveSpeed = CrouchSpeed;
+        if ( IsWalking ) InternalMoveSpeed = ShiftSpeed;
+        if ( IsCrouching ) InternalMoveSpeed = CrouchSpeed;
         InternalMoveSpeed *= StaminaMultiplier * Weight;
 
-        Height = Height.LerpTo(HeightGoal, Time.Delta / CrouchTime.Clamp(MinCrouchTime, MaxCrouchTime));
-        
-        LastSize = new Vector3(Radius * 2, Radius * 2, HeightGoal);
+        Height = Height.LerpTo( HeightGoal, Time.Delta / CrouchTime.Clamp( MinCrouchTime, MaxCrouchTime ) );
+
+        LastSize = new Vector3( Radius * 2, Radius * 2, HeightGoal );
         
         Velocity += Gravity * Time.Delta * 0.5f;
         
-        if (AlreadyGrounded != IsOnGround) {
-            if (IsOnGround) {
-                var heightMult = Math.Abs(jumpHighestHeight - GameObject.WorldPosition.z) / 46f;
-                Stamina -= Stamina * StaminaLandingCost * 2.9625f * heightMult.Clamp(0, 1f);
+        if ( AlreadyGrounded != IsOnGround ) {
+            if ( IsOnGround ) {
+                // Maybe we should reduce the magic numbers here
+                var heightMult = Math.Abs( jumpHighestHeight - GameObject.WorldPosition.z ) / 46f;
+                Stamina -= Stamina * StaminaLandingCost * 2.9625f * heightMult.Clamp( 0, 1f );
                 Stamina = (Stamina * 10).FloorToInt() * 0.1f;
-                if (Stamina < 0) Stamina = 0;
+                if ( Stamina < 0 ) Stamina = 0;
             } else {
                 jumpStartHeight = GameObject.WorldPosition.z;
                 jumpHighestHeight = GameObject.WorldPosition.z;
             }
-        } else {
-            if(IsOnGround) ApplyFriction();
+        }
+        else if ( IsOnGround )
+        {
+            ApplyFriction();
         }
         
-        if(IsOnGround) {
+        if( IsOnGround ) {
             GroundMove();
             // HUD.Speed = Velocity.Length.CeilToInt();
         } else {
@@ -488,12 +473,12 @@ public sealed class PlayerController : Component, ICharacterBase
         AlreadyGrounded = IsOnGround;
         
         CrouchTime -= Time.Delta * CrouchRecoveryRate;
-        CrouchTime = CrouchTime.Clamp(0f, MaxCrouchTime);
+        CrouchTime = CrouchTime.Clamp( 0f, MaxCrouchTime );
         
         Stamina += StaminaRecoveryRate * Time.Delta;
         if (Stamina > MaxStamina) Stamina = MaxStamina;
-        
-        if (HeightDiff > 0f) GameObject.WorldPosition += new Vector3(0, 0, HeightDiff * 0.5f);
+
+        if ( HeightDiff > 0f ) GameObject.WorldPosition += new Vector3( 0, 0, HeightDiff * 0.5f );
         Velocity *= GameObject.WorldScale;
         Move();
         CategorizePosition();
@@ -504,7 +489,7 @@ public sealed class PlayerController : Component, ICharacterBase
         // Terminal velocity
         if (Velocity.Length > 3500) Velocity = Velocity.Normal * 3500;
 
-        if (jumpHighestHeight < GameObject.WorldPosition.z) jumpHighestHeight = GameObject.WorldPosition.z;
+        if ( jumpHighestHeight < GameObject.WorldPosition.z ) jumpHighestHeight = GameObject.WorldPosition.z;
     }
 
     protected override void OnStart()
