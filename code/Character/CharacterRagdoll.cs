@@ -32,10 +32,10 @@ public sealed class CharacterRagdoll : Component
     /// <summary>
     /// Create a ragdoll gameobject version of our render body.
     /// </summary>
-    public GameObject CreateRagdoll( string name = "Ragdoll" )
+    public GameObject CreateRagdoll(Vector3? velocity , string name = "Ragdoll")
     {
         var go = new GameObject( true, name );
-        go.Tags.Add( "ragdoll" );
+        // go.Tags.Add( "ragdoll" );
         go.WorldTransform = WorldTransform;
 
         var originalBody = CharacterRenderer ?? GetComponentInChildren<SkinnedModelRenderer>();
@@ -66,11 +66,22 @@ public sealed class CharacterRagdoll : Component
         physics.Model = mainBody.Model;
         physics.Renderer = mainBody;
         physics.CopyBonesFrom( originalBody, true );
+        
+        foreach (var body in physics.Bodies)
+        {
+            if (velocity != null) body.Component.Velocity += velocity.Value;
+    
+            foreach (var shape in body.Component.PhysicsBody.Shapes)
+            {
+                if (shape.Collider.IsValid())
+                    shape.Collider.ColliderFlags = ColliderFlags.IgnoreTraces;
+            }
+        }
 
         var d = go.Components.Create<DestroyTimer>( false );
         d.Delay = 10.0f;
         d.Enabled = true;
-
+        
         return go;
     }
 }

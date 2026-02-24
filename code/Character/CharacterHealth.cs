@@ -22,6 +22,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
     public Action<DamageInfo> OnDamage { get; set; }
 
     private CharacterRagdoll CharacterRagdoll { get; set; }
+    
+    private ICharacterBase CharacterBase { get; set; }
 
 	protected override void OnStart()
 	{
@@ -30,7 +32,9 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		ownedStats = GetComponent<PlayerStats>();
 
         CharacterRagdoll = GetComponent<CharacterRagdoll>();
-	}
+
+        CharacterBase = GetComponent<ICharacterBase>();
+    }
 
 	[Rpc.Owner]
 	public void TakeDamage( DamageInfo damageInfo )
@@ -75,9 +79,12 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 		// Animations
 
         ownedStats.AddDeath();
-
-        CreateRagdoll();
-
+        
+        var velocity = CharacterBase.Velocity;
+        if (damageInfo.Tags.Contains( "explosion" )) 
+            velocity += ExplosionExtraVelocity( damageInfo );
+        
+        CreateRagdoll( velocity );
         // And this is used for registering the kill
         IMatchEvents.Post( e => e.OnKill( ownedStats, damageInfo ) );
         // This is used for notifying networked objects        
@@ -90,31 +97,36 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         else IPlayerEvent.Post( e => e.OnDied() );
     }
 
-    private void CreateRagdoll()
+    private void CreateRagdoll(Vector3 velocity)
     {
-        if ( IsProxy ) return;
+        if (IsProxy) return;
 
-        var ragdoll = CharacterRagdoll.CreateRagdoll();
-        ragdoll.NetworkSpawn( Network.Owner );
+        var ragdoll = CharacterRagdoll.CreateRagdoll(velocity);
+        ragdoll.NetworkSpawn(Network.Owner);
 
-        if ( GameObject.Tags.Has( "npc" ) ) return;
+        if (GameObject.Tags.Has("npc")) return;
 
         var camera = MatchManager.Instance.MatchGameMode
             .Camera.CreateCamera();
-        
-        if ( camera == null )
+
+        if (camera == null)
         {
-            ReSpawn( 0 );
+            ReSpawn(0);
             return;
         }
-        
-        camera.FollowObject = ragdoll;  
+
+        camera.FollowObject = ragdoll;
         camera.position = ragdoll.WorldPosition;
         camera.Enable();
         //gc.Radius = 50.0f;
-
     }
 
+    private Vector3 ExplosionExtraVelocity( DamageInfo damageInfo )
+    {
+        Log.Info( damageInfo.Origin );
+        return damageInfo.Position - damageInfo.Origin;
+    }
+    
     [Rpc.Broadcast( NetFlags.OwnerOnly )]
     private void BroadcastOnKill( DamageInfo damageInfo ) 
         => IMatchEvents.Post( e => e.BroadcastOnKill( ownedStats, damageInfo ) );

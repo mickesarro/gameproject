@@ -49,6 +49,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
     public CharacterHealth characterHealth { get; private set; }
 
+    public Vector3 Velocity => Agent.Velocity;
+    
     protected override void OnAwake()
     {
         if ( IsProxy )

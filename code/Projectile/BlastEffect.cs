@@ -57,6 +57,7 @@ public class BlastEffect : GameObject
 						Damage = finalDamage,
 						Attacker = attacker,
 						Position = trace.HitPosition,
+                        Origin = position,
 					};
                     damageInfo.Tags.Add( "explosion" );
 
