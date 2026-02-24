@@ -18,6 +18,6 @@ public sealed class GunData : Component
 	
 	[Property] public GameObject Worldmodel { get; private set; }
 	[Property] public CitizenAnimationHelper.HoldTypes holdType { get; private set; } = CitizenAnimationHelper.HoldTypes.None;
-
+    
     [Property] public bool AutomaticReload { get; private set; } = true;
 }

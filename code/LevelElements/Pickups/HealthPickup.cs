@@ -4,22 +4,14 @@ using Shooter.Sounds;
 
 namespace Shooter;
 
-public sealed class HealthPickup : Component, Component.ITriggerListener
+public sealed class HealthPickup : Pickup, Component.ITriggerListener
 {
 	[Property] private float HealthAmount { get; set; } = 50f;
 
-    [Property] private HideForTime hideForTime;
-
-    protected override void OnAwake()
-    {
-        base.OnAwake();
-
-        hideForTime ??= GetOrAddComponent<HideForTime>();
-    }
 
     public void OnTriggerEnter( Collider other )
 	{
-		if ( other.GameObject.Root.Components.TryGet<CharacterHealth>( out var healthComp ) && !hideForTime.IsHiding())
+		if ( other.GameObject.Root.Components.TryGet<CharacterHealth>( out var healthComp ) && !HideForTime.IsHiding())
 		{
             if (healthComp.Health >= healthComp.MaxHealth) {
                 return;
@@ -33,7 +25,7 @@ public sealed class HealthPickup : Component, Component.ITriggerListener
 			}
 
             // DestroyGameObject();
-            hideForTime.HideFor();
+            HideForTime.HideFor();
 		}
 	}
 }

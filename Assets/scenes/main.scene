@@ -1379,7 +1379,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -1455,7 +1455,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -1542,7 +1542,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -1629,7 +1629,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -1700,7 +1700,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -1760,7 +1760,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -1820,7 +1820,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -1880,7 +1880,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -1940,7 +1940,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -2008,7 +2008,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -2068,7 +2068,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2163,7 +2163,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2258,7 +2258,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2353,7 +2353,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2448,7 +2448,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2543,7 +2543,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2638,7 +2638,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           },
           {
@@ -2733,7 +2733,7 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "hideForTime",
+            "Property": "HideForTime",
             "Value": null
           }
         ],
@@ -2754,8 +2754,82 @@
       "__version": 2,
       "__Prefab": "ammopickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "faaa0e5f-0eb8-49e7-93ce-71008660232b"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "faaa0e5f-0eb8-49e7-93ce-71008660232b",
+              "__enabled": true,
+              "Flags": 0,
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": null,
+              "Model": "models/items/rocket/projectile_rocket.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "PlaybackRate": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null,
+                "Looping": true,
+                "Blending": false
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": false
+            }
+          }
+        ],
         "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            }
+          },
           {
             "Id": {
               "Type": "Component",
@@ -2779,14 +2853,6 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "hideForTime",
-            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2794,9 +2860,9 @@
       "__PrefabIdToInstanceId": {
         "adf8e434-7225-470c-ac21-606f8d756021": "7cde3980-3d3c-4c07-b5aa-e4d96fe10832",
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "87de6155-cbe0-4bf5-ae0a-4e55b08b4386",
-        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "340da824-7d13-4bba-a918-fc63d54134b4",
-        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "faaa0e5f-0eb8-49e7-93ce-71008660232b",
-        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "c5f85bab-7104-4078-9fe6-e8f3d6a5000e"
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "04f40bce-2208-4f8c-8bfa-2690afac76dc",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "55f7a6a8-7924-4278-b400-3892b8464a56",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "8cdc3678-47b6-49c2-82e0-858da60b1256"
       }
     },
     {
@@ -2804,8 +2870,82 @@
       "__version": 2,
       "__Prefab": "ammopickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "99a8f332-d4f2-4fd3-a0d2-06efe396b2dd"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "adf8e434-7225-470c-ac21-606f8d756021"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "99a8f332-d4f2-4fd3-a0d2-06efe396b2dd",
+              "__enabled": true,
+              "Flags": 0,
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": null,
+              "Model": "models/items/rocket/projectile_rocket.vmdl",
+              "Morphs": {},
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "PlaybackRate": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null,
+                "Looping": true,
+                "Blending": false
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": false
+            }
+          }
+        ],
         "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            }
+          },
           {
             "Id": {
               "Type": "Component",
@@ -2837,14 +2977,6 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "hideForTime",
-            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2852,9 +2984,9 @@
       "__PrefabIdToInstanceId": {
         "adf8e434-7225-470c-ac21-606f8d756021": "2911fb08-bec5-4a85-8d0c-c1ec7dc4b22a",
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "f124f30d-42e5-4b11-bee6-25b6ebe3bade",
-        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "c3960832-7340-42a3-8476-e467741d3d2a",
-        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "99a8f332-d4f2-4fd3-a0d2-06efe396b2dd",
-        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "10691b88-2baf-428e-a30a-512b6d34f770"
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "16489d44-b0f3-414d-986f-45f33df2d877",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "4e73b103-6e97-45cd-8821-2d8a96715056",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "15a94930-7306-45db-899e-681e56de078d"
       }
     },
     {
@@ -2866,7 +2998,7 @@
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb"
+              "IdValue": "73e084a9-7f49-4e4f-8895-ec15a019d5fb"
             },
             "Parent": {
               "Type": "GameObject",
@@ -2874,34 +3006,70 @@
             },
             "PreviousElement": {
               "Type": "Component",
-              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+              "IdValue": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3"
             },
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Shooter.HideForTime",
-              "__guid": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb",
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "73e084a9-7f49-4e4f-8895-ec15a019d5fb",
               "__enabled": true,
               "Flags": 0,
-              "displayRenderer": {
-                "_type": "component",
-                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
-                "go": "adf8e434-7225-470c-ac21-606f8d756021",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "HideTime": 10,
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": null,
+              "Model": "models/items/rocket/projectile_rocket.vmdl",
+              "Morphs": {},
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "randomize": false,
-              "randomRange": "0"
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "PlaybackRate": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null,
+                "Looping": true,
+                "Blending": false
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": false
             }
           }
         ],
         "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            }
+          },
           {
             "Id": {
               "Type": "Component",
@@ -2933,35 +3101,6 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "AmmoType",
-            "Value": "Medium"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "Amount",
-            "Value": 100
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "hideForTime",
-            "Value": {
-              "_type": "component",
-              "component_id": "3c5cb74d-bb03-4a33-9169-10e6bbbd19cb",
-              "go": "adf8e434-7225-470c-ac21-606f8d756021",
-              "component_type": "HideForTime"
-            }
           }
         ],
         "MovedObjects": []
@@ -2969,9 +3108,9 @@
       "__PrefabIdToInstanceId": {
         "adf8e434-7225-470c-ac21-606f8d756021": "3d99439b-7fae-4f05-9255-a17ccae50212",
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "35708918-f2ce-445a-9947-a2aa69c47da3",
-        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "062128e3-2b2d-4964-b17f-13835a0b9d9d",
-        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "73e084a9-7f49-4e4f-8895-ec15a019d5fb",
-        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "4d7dae6b-c5dc-4fc5-9f1e-83aa7cf3534c"
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "4e791ff1-cff0-4d4a-9ad7-ef2bc0323ef1",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "82de47b0-7d45-4c3e-bb9c-f336999e54a2",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "57cc7769-7580-49f9-8357-f5bb20d9a771"
       }
     },
     {
@@ -2983,7 +3122,7 @@
           {
             "Id": {
               "Type": "Component",
-              "IdValue": "7e979f6c-6dac-4561-baea-4395699f873c"
+              "IdValue": "1a9010ad-0a43-4c1d-a80d-0732625ce022"
             },
             "Parent": {
               "Type": "GameObject",
@@ -2991,34 +3130,70 @@
             },
             "PreviousElement": {
               "Type": "Component",
-              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+              "IdValue": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3"
             },
             "ContainerProperty": "Components",
             "IsContainerArray": true,
             "Data": {
-              "__type": "Shooter.HideForTime",
-              "__guid": "7e979f6c-6dac-4561-baea-4395699f873c",
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "1a9010ad-0a43-4c1d-a80d-0732625ce022",
               "__enabled": true,
               "Flags": 0,
-              "displayRenderer": {
-                "_type": "component",
-                "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
-                "go": "adf8e434-7225-470c-ac21-606f8d756021",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "HideTime": 10,
+              "AnimationGraph": null,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": null,
+              "CreateAttachments": false,
+              "CreateBoneObjects": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": null,
+              "Model": "models/items/rocket/projectile_rocket.vmdl",
+              "Morphs": {},
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "randomize": true,
-              "randomRange": "2 25"
+              "Parameters": {
+                "bools": {},
+                "ints": {},
+                "floats": {},
+                "vectors": {},
+                "rotations": {}
+              },
+              "PlaybackRate": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Sequence": {
+                "Name": null,
+                "Looping": true,
+                "Blending": false
+              },
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": false
             }
           }
         ],
         "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e"
+            }
+          },
           {
             "Id": {
               "Type": "Component",
@@ -3050,35 +3225,6 @@
             },
             "Property": "Scale",
             "Value": "1,1,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "AmmoType",
-            "Value": "Medium"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "Amount",
-            "Value": 20
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50"
-            },
-            "Property": "hideForTime",
-            "Value": {
-              "_type": "component",
-              "component_id": "7e979f6c-6dac-4561-baea-4395699f873c",
-              "go": "adf8e434-7225-470c-ac21-606f8d756021",
-              "component_type": "HideForTime"
-            }
           }
         ],
         "MovedObjects": []
@@ -3086,9 +3232,9 @@
       "__PrefabIdToInstanceId": {
         "adf8e434-7225-470c-ac21-606f8d756021": "24fe2d7f-0c22-40f9-91d5-55f24d5857bc",
         "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3": "3f5a8f9b-aaeb-47d8-a00d-6f1e562fa23e",
-        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "cf2e90cd-f8d9-40b4-8443-448cce4a6258",
-        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "1a9010ad-0a43-4c1d-a80d-0732625ce022",
-        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "8e928b1f-e64c-4e54-a7ec-b785384fbf54"
+        "a30bf94a-cfd7-4f29-a252-64e82dd8bb50": "9201a161-977a-43dd-84e4-7b1e7bee7396",
+        "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e": "45755aac-1273-469b-8f18-de5e05a00efb",
+        "eba09db0-334c-4562-87d7-d2fa4cf3b822": "623384a3-55ec-4377-9277-c5ad73d50c4a"
       }
     },
     {
@@ -6680,6 +6826,7 @@
   "Title": null,
   "Description": null,
   "__references": [
+    "baik.projectile_rocket#43884",
     "facepunch.v_m4a1#125828",
     "facepunch.wrecoillessrifle#113432"
   ],

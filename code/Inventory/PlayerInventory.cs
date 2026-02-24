@@ -33,6 +33,15 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total]; // Plus 1 for empty
 	public IEnumerable<ICollectable> Items => weapons;
 
+    [Property] private AmmoInventory ammoInventory { get; set; }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        ammoInventory ??= GetComponent<AmmoInventory>();
+    }
+
 	/// <summary>
 	/// Adds an item to the players inventory.
 	/// Needs to be also implement IWeapon so that it can have a WeaponType.
@@ -51,8 +60,15 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		var current = weapons[ind];
 		if ( current != null && current != item )
 		{
-            // DropWeapon( item );
-			DropWeapon( current );
+            if ( weapon.WeaponType != WeaponType.Melee )
+            {
+                var firedata = weapon.GunData.PrimaryFireData;
+                ammoInventory.AddAmmo( firedata.AmmoType, firedata.AmmoLeft );
+                firedata.AmmoLeft = 0;
+            }
+            DropWeapon( item );
+            return false;
+			//DropWeapon( current );
 		}
 
 		weapons[ind] = item;
@@ -66,7 +82,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	}
 
 	void IPlayerEvent.OnItemAdded( ICollectable item ) => AddItem( item );
-
+        
 	void IPlayerEvent.OnWeaponAdded( IWeapon item ) => AddItem( item as ICollectable );
 
 	/// <summary>

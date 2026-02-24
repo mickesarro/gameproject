@@ -24,7 +24,9 @@ public sealed class RandomDresser : Component, ICharacterDresser
 
     public async void ApplyClothing()
     {
-        AsyncDresser.Instance.ApplyRandom( bodyRenderer, clothing, tint, age );
+        bodyRenderer ??= GetComponentInChildren<SkinnedModelRenderer>();
+
+        _ = AsyncDresser.Instance.ApplyRandom( bodyRenderer, clothing, tint, age );
     }
 
     public void SaveClothing()

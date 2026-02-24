@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "__guid": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8",
-    "__version": 1,
+    "__version": 2,
     "Flags": 0,
     "Name": "gunpickup",
     "Position": "0,0,0",
@@ -10,7 +10,7 @@
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
-    "NetworkInterpolation": true,
+    "NetworkFlags": 0,
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
     "OwnerTransfer": 1,
@@ -19,6 +19,7 @@
         "__type": "Sandbox.SphereCollider",
         "__guid": "118343a8-2b32-4b3d-bb65-ed6230a2dfed",
         "__enabled": true,
+        "Flags": 0,
         "Center": "0,0,0",
         "ColliderFlags": 0,
         "Elasticity": null,
@@ -44,6 +45,7 @@
         "__type": "Sandbox.SkinnedModelRenderer",
         "__guid": "db491a2f-51f3-447a-a0da-b6a931c07baa",
         "__enabled": true,
+        "Flags": 0,
         "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
         "BoneMergeTarget": null,
@@ -88,7 +90,8 @@
         "__type": "Shooter.ItemPickup",
         "__guid": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e",
         "__enabled": true,
-        "hideForTime": {
+        "Flags": 0,
+        "HideForTime": {
           "_type": "component",
           "component_id": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0",
           "go": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8",
@@ -110,6 +113,7 @@
         "__type": "Shooter.HideForTime",
         "__guid": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0",
         "__enabled": true,
+        "Flags": 0,
         "displayRenderer": {
           "_type": "component",
           "component_id": "db491a2f-51f3-447a-a0da-b6a931c07baa",
@@ -130,7 +134,7 @@
     "Children": [
       {
         "__guid": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
-        "__version": 1,
+        "__version": 2,
         "Flags": 0,
         "Name": "Object",
         "Position": "0,0,48.48",
@@ -139,7 +143,7 @@
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
-        "NetworkInterpolation": true,
+        "NetworkFlags": 0,
         "NetworkOrphaned": 0,
         "NetworkTransmit": true,
         "OwnerTransfer": 1,
@@ -148,6 +152,7 @@
             "__type": "Shooter.UI.ItemFloaty",
             "__guid": "5dd09498-807f-4dc9-8671-53e08250fac2",
             "__enabled": true,
+            "Flags": 0,
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
@@ -171,7 +176,7 @@
         "Enabled": false,
         "IncludeStaticBodies": true,
         "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
+        "EditorAutoUpdate": false,
         "AgentHeight": 64,
         "AgentRadius": 16,
         "AgentStepSize": 18,

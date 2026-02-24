@@ -13,7 +13,6 @@ public class AsyncDresser: SingletonBase<AsyncDresser>, ISceneLoadingEvents
 
     Task ISceneLoadingEvents.OnLoad( Scene scene, SceneLoadOptions options )
     {
-        randomizer = new();
         return Task.CompletedTask;
     }
 
@@ -39,7 +38,7 @@ public class AsyncDresser: SingletonBase<AsyncDresser>, ISceneLoadingEvents
         }
     }
     
-    private Random randomizer;
+    private Random randomizer = new();
 
     public async ValueTask RandomizeAndApply(SkinnedModelRenderer bodyRenderer)
     {

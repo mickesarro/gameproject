@@ -10,7 +10,6 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 {
     [Title( "Hunting and detecting" )]
     [Property] public GameObject hunted { get; set; }
-    [Sync( SyncFlags.FromHost )] public NetList<GameObject> huntedList { get; private set; } = new();
 
     [Property] public float detectionDistance { get; private set; } = 500f;
     [Property] public float FOV { get; private set; } = 90f;
@@ -222,7 +221,6 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
         if ( player == GameObject ) return;
         // So that in search state the NPC can search all players for the closest one
         HostCharacterRegistry.Current.Characters.Add( player );
-        huntedList.Add( player );
     }
 
     

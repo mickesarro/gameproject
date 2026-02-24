@@ -4,24 +4,21 @@ namespace Shooter;
 /// <summary>
 /// Allows items in world to be pickable by running into them
 /// </summary>
-public sealed class ItemPickup : Component, Component.ITriggerListener
+public sealed class ItemPickup : Pickup, Component.ITriggerListener
 {
 	// Imitates the one that was done using the visual script
 
 	[Property] public GameObject ItemPrefab { get; private set; }
 	[Property] private float Spin { get; set; } = 0f;
-
-    [Property] private HideForTime hideForTime;
-
 	protected override void OnAwake()
 	{
-		base.OnAwake();
-		if (ItemPrefab == null)
-		{
-			Log.Error( "No item prefab provided, destroying." );
-			DestroyGameObject();
-		}
-        hideForTime ??= GetOrAddComponent<HideForTime>();
+        if ( ItemPrefab == null )
+        {
+            Log.Error( "No item prefab provided, destroying." );
+            DestroyGameObject();
+        }
+
+        base.OnAwake();
 	}
 
 	protected override void OnUpdate()
@@ -37,7 +34,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 	public void OnTriggerEnter( Collider other )
 	{
 		
-		if ( other.Tags.Contains( "player" ) && !hideForTime.IsHiding() )
+		if ( other.Tags.Contains( "player" ) && !HideForTime.IsHiding() )
 		{
 			//Log.Info( other );
 			if ( !other.IsProxy )
@@ -60,7 +57,7 @@ public sealed class ItemPickup : Component, Component.ITriggerListener
 				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
 			}
             //DestroyGameObject();
-            hideForTime.HideFor();
+            HideForTime.HideFor();
         }
     }
 

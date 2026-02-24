@@ -82,7 +82,7 @@
         "Flags": 0,
         "Object": {
           "_type": "gameobject",
-          "go": "dc5d45df-5860-4ad9-86aa-6110c40ae591"
+          "go": "6051a37d-b99e-458f-9f64-1c59ef47083d"
         },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
@@ -2904,6 +2904,14 @@
               },
               "Property": "RPM",
               "Value": 200
+            },
+            {
+              "Target": {
+                "Type": "Component",
+                "IdValue": "bad25921-c071-498d-99f2-6f778055270a"
+              },
+              "Property": "PositionOffset",
+              "Value": "0,0,-2"
             }
           ],
           "MovedObjects": []

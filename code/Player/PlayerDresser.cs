@@ -26,6 +26,8 @@ public sealed class PlayerDresser : Component, ICharacterDresser
 
         if ( owner == null ) return;
 
+        bodyRenderer ??= GetComponentInChildren<SkinnedModelRenderer>();
+
         clothing = new();
         clothing.Deserialize( owner.GetUserData( "avatar" ) );
 
