@@ -1,7 +1,6 @@
 using Sandbox;
-using Sandbox.Utility;
+using Shooter.Camera;
 using System;
-using System.Runtime.Versioning;
 
 namespace Shooter;
 
@@ -9,7 +8,7 @@ namespace Shooter;
 /// Component for adding health and related functionality to a character.
 /// Implements IDamageable.
 /// </summary>
-public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents
+public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEvents, IPlayerEvent
 {
 	private PlayerStats ownedStats;
 
@@ -86,11 +85,35 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         // Need to implement respawning etc. while maintaining the same gameobject
         GameObject.Enabled = false;
-        ReSpawn( 0 );
-	}
 
-    [Rpc.Broadcast( NetFlags.OwnerOnly )]
-    private void CreateRagdoll() => CharacterRagdoll.CreateRagdoll();
+        if ( GameObject.Tags.Has( "npc" ) ) ReSpawn( 0 );
+        else IPlayerEvent.Post( e => e.OnDied() );
+    }
+
+    private void CreateRagdoll()
+    {
+        if ( IsProxy ) return;
+
+        var ragdoll = CharacterRagdoll.CreateRagdoll();
+        ragdoll.NetworkSpawn( Network.Owner );
+
+        if ( GameObject.Tags.Has( "npc" ) ) return;
+
+        var camera = MatchManager.Instance.MatchGameMode
+            .Camera.CreateCamera();
+        
+        if ( camera == null )
+        {
+            ReSpawn( 0 );
+            return;
+        }
+        
+        camera.FollowObject = ragdoll;  
+        camera.position = ragdoll.WorldPosition;
+        camera.Enable();
+        //gc.Radius = 50.0f;
+
+    }
 
     [Rpc.Broadcast( NetFlags.OwnerOnly )]
     private void BroadcastOnKill( DamageInfo damageInfo ) 
