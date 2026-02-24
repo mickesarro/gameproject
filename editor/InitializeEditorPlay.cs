@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Sandbox;
 using Shooter.NPC;
 
@@ -12,22 +11,22 @@ namespace Shooter.Editor;
 public static class EditorScene
 {
 
-	[Event( "scene.play", Priority = 100 )]
-	public static void SpawnDummys()
-	{
-		if ( !Application.IsEditor || IsMainMenu() ) return;
+    [Event( "scene.play", Priority = 100 )]
+    public static void SpawnDummys()
+    {
+        if ( !Application.IsEditor || IsMainMenu() ) return;
 
-		Log.Info( "[EditorScene.SpawnDummy] Spawned a dummy player." );
+        Log.Info( "[EditorScene.SpawnDummy] Spawned a dummy player." );
 
-		var spawnPoints = Game.ActiveScene.FindAllWithTag("spawnpoint").ToArray();
-		var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
+        var spawnPoints = Game.ActiveScene.FindAllWithTag("spawnpoint").ToArray();
+        var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
 
-		SpawnDummy( startLocation, StateEnum.Patrol, [StateEnum.Patrol, StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        
+        // Second one
+        startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
   
-		// Second one
-		startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
-  
-		SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
   
         startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
         SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
@@ -36,25 +35,20 @@ public static class EditorScene
         SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
     }
 
-	private static void SpawnDummy( Transform startLocation, StateEnum startState, StateEnum[] states )
-	{
-		var NPCGo = GameObject.Clone( "/Dummy.prefab", new CloneConfig { Name = "Dummy", StartEnabled = true, Transform = startLocation } );
+    private static void SpawnDummy( Transform startLocation, StateEnum startState, StateEnum[] states )
+    {
+        var NPCGo = GameObject.Clone( "/Dummy.prefab", new CloneConfig { Name = "Dummy", StartEnabled = true, Transform = startLocation } );
 
-		var NPC = NPCGo.GetComponent<NPCController>();
+        var NPC = NPCGo.GetComponent<NPCController>( includeDisabled: true );
 
-		NPC.AddStates( states );
-
-		if ( states.Contains( StateEnum.Patrol ) )
-		{
-			var waypoints = Game.ActiveScene.FindAllWithTag( "waypoints" );
-			NPC.Waypoints = waypoints.First().Children;
-		}
-
-		//var player = Game.ActiveScene.FindAllWithTag( "player" ).First( e => !e.IsProxy );
-		NPC.Initialize( startState );
+        if ( NPC != null )
+        {
+            NPC.AddStates( states );
+            NPC.Initialize( startState );
+        }
 
         NPCGo.NetworkSpawn();
-	}
+    }
 
     [Event( "scene.play", Priority = 100 )]
     public static void StartGame()

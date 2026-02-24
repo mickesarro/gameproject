@@ -21,7 +21,7 @@
         "__enabled": true,
         "Flags": 0,
         "HealthAmount": 50,
-        "hideForTime": null,
+        "HideForTime": null,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

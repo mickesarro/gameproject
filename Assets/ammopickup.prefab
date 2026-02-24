@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "__guid": "adf8e434-7225-470c-ac21-606f8d756021",
-    "__version": 1,
+    "__version": 2,
     "Flags": 0,
     "Name": "ammopickup",
     "Position": "0,0,0",
@@ -10,7 +10,7 @@
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 2,
-    "NetworkInterpolation": true,
+    "NetworkFlags": 0,
     "NetworkOrphaned": 0,
     "NetworkTransmit": true,
     "OwnerTransfer": 1,
@@ -19,6 +19,7 @@
         "__type": "Sandbox.SphereCollider",
         "__guid": "c1ad1fb4-7dbf-406d-bd20-8db1d8e735c3",
         "__enabled": true,
+        "Flags": 0,
         "Center": "0,0,0",
         "ColliderFlags": 0,
         "Elasticity": null,
@@ -44,9 +45,10 @@
         "__type": "Shooter.AmmoPickup",
         "__guid": "a30bf94a-cfd7-4f29-a252-64e82dd8bb50",
         "__enabled": true,
+        "Flags": 0,
         "AmmoType": "Rocket",
         "Amount": 1,
-        "hideForTime": {
+        "HideForTime": {
           "_type": "component",
           "component_id": "eba09db0-334c-4562-87d7-d2fa4cf3b822",
           "go": "adf8e434-7225-470c-ac21-606f8d756021",
@@ -63,6 +65,7 @@
         "__type": "Sandbox.SkinnedModelRenderer",
         "__guid": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
         "__enabled": true,
+        "Flags": 0,
         "AnimationGraph": null,
         "BodyGroups": 18446744073709551615,
         "BoneMergeTarget": null,
@@ -107,6 +110,7 @@
         "__type": "Shooter.HideForTime",
         "__guid": "eba09db0-334c-4562-87d7-d2fa4cf3b822",
         "__enabled": true,
+        "Flags": 0,
         "displayRenderer": {
           "_type": "component",
           "component_id": "e496b656-8cc1-4c8d-b36f-17cddfc3fb0e",
@@ -134,7 +138,7 @@
         "Enabled": false,
         "IncludeStaticBodies": true,
         "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
+        "EditorAutoUpdate": false,
         "AgentHeight": 64,
         "AgentRadius": 16,
         "AgentStepSize": 18,

@@ -34,7 +34,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private SkinnedModelRenderer viewModelRenderer;
 	private SkinnedModelRenderer playerModelRenderer;
-	private BBox playerBBox;
 	private AmmoInventory AmmoInventory;
 	
 	private void HandleProxyAnimations()
@@ -49,15 +48,12 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	{
         base.OnAwake();
 
-		if ( IsProxy ) return;
 		if (gunData == null || gunData.PrimaryFireData == null)
 		{
 			Log.Error( "[Gun] Gun data incomplete!" );
 			DestroyGameObject();
 			return;
 		}
-
-		viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
 		
 		FireData = gunData.PrimaryFireData;
 		if ( FireData.BulletData.ProjectilePrefab == null )
@@ -66,6 +62,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			DestroyGameObject();
 			return;
 		}
+
+        if ( IsProxy ) return;
+
+        viewModelRenderer = gunData?.Viewmodel.Components.Get<SkinnedModelRenderer>( true );
 
         IsPlayer = User.Components.TryGet<PlayerController>( out _ );
 
@@ -87,8 +87,6 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		}
 
 		AmmoInventory = User.GetComponent<AmmoInventory>();
-
-		playerBBox = User?.GetComponent<BBox>() ?? default;
 
 		shootInterval = 60f / FireData.RPM;
 		timeSinceLastShot = 0; // Seems the sandbox time.now is messed up at object creation
@@ -303,7 +301,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         return true;
     }
 
-    // [Rpc.Broadcast]
+    [Rpc.Broadcast( NetFlags.OwnerOnly | NetFlags.Unreliable | NetFlags.DiscardOnDelay )]
 	private void SpawnTracer( Vector3 target )
 	{
 		// For future reference:
@@ -318,13 +316,13 @@ public sealed class Gun : Component, IWeapon, ICollectable
 			.GetComponent<BeamEffect>().TargetPosition = target;
 	}
 
-    [Rpc.Broadcast]
+    [Rpc.Broadcast( NetFlags.OwnerOnly | NetFlags.Unreliable | NetFlags.DiscardOnDelay )]
     private void BroadcastSound( SoundManager.SoundType soundType, Vector3 position, float range, float volume )
     {
         SoundManager.PlayGlobal( soundType, position, range, volume );
     }
 
-    [Rpc.Broadcast]
+    [Rpc.Broadcast( NetFlags.OwnerOnly | NetFlags.Unreliable | NetFlags.DiscardOnDelay )]
     private void BroadcastSound( SoundEvent sound, Vector3 position )
     {
         SoundManager.PlayGlobal( sound, position, sound.Distance, sound.Volume.FixedValue );

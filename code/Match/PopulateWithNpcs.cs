@@ -20,10 +20,15 @@ public sealed class PopulateWithNpcs : Component
 
         NPC.AddStates( [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
         NPC.Initialize( StateEnum.Search );
-
+        
+        var spawnPoints = Game.ActiveScene.GetComponentInChildren<NetworkHelper>().SpawnPoints.Shuffle();
         for ( int i = 0; i < amount; ++i )
         {
-            Spawner.SpawnCharacter( NPCGo, name: "Dummy" );
+            Spawner.SpawnCharacter(
+                NPCGo,
+                name: "Dummy",
+                spawnPoint: i < spawnPoints.Count() ? spawnPoints.ElementAt(i) : null
+            );
         }
 
         NPCGo.DestroyImmediate();

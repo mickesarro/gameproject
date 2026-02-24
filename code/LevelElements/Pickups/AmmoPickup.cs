@@ -2,23 +2,14 @@ using Shooter.Sounds;
 
 namespace Shooter;
 
-public sealed class AmmoPickup : Component, Component.ITriggerListener
+public sealed class AmmoPickup : Pickup, Component.ITriggerListener
 {
 	[Property] private AmmoType AmmoType { get; set; }
 	[Property] private int Amount { get; set; }
 
-    [Property] private HideForTime hideForTime;
-
-    protected override void OnAwake()
-    {
-        base.OnAwake();
-
-        hideForTime ??= GetOrAddComponent<HideForTime>();
-    }
-
     public void OnTriggerEnter( Collider other )
 	{
-		if ( other.GameObject.Root.Components.TryGet<AmmoInventory>( out var ammoInv ) && !hideForTime.IsHiding() )
+		if ( other.GameObject.Root.Components.TryGet<AmmoInventory>( out var ammoInv ) && !HideForTime.IsHiding() )
 		{
 			if ( !other.IsProxy )
 			{
@@ -29,7 +20,7 @@ public sealed class AmmoPickup : Component, Component.ITriggerListener
 			}
 
             // DestroyGameObject();
-            hideForTime.HideFor();
+            HideForTime.HideFor();
 		}
 	}
 
