@@ -426,6 +426,7 @@ public sealed class PlayerController : Component, ICharacterBase
             var endPos = GameObject.WorldPosition + new Vector3( 0, 0, StandingHeight * GameObject.WorldScale.z );
             var crouchTrace = Scene.Trace.Ray( startPos, endPos )
                                         .IgnoreGameObjectHierarchy( GameObject )
+                                        .WithoutTags( IgnoreLayers )
                                         .Size( new BBox( new Vector3( -Radius, -Radius, 0f ), new Vector3( Radius * GameObject.WorldScale.x, Radius * GameObject.WorldScale.y, 0 ) ) )
                                         .Run();
             if ( crouchTrace.Hit)  {
@@ -439,7 +440,15 @@ public sealed class PlayerController : Component, ICharacterBase
         if ( IsCrouching ) InternalMoveSpeed = CrouchSpeed;
         InternalMoveSpeed *= StaminaMultiplier * Weight;
 
-        Height = Height.LerpTo( HeightGoal, Time.Delta / CrouchTime.Clamp( MinCrouchTime, MaxCrouchTime ) );
+        const float epsilon = 0.01f;
+        if ( Height.AlmostEqual( HeightGoal, within: epsilon )  )
+        {
+            Height = HeightGoal;
+        }
+        else
+        {
+            Height = Height.LerpTo( HeightGoal, Time.Delta / CrouchTime.Clamp( MinCrouchTime, MaxCrouchTime ) );
+        }
 
         LastSize = new Vector3( Radius * 2, Radius * 2, HeightGoal );
         
@@ -534,7 +543,7 @@ public sealed class PlayerController : Component, ICharacterBase
 
 	        if (CameraRollEnabled) {
 	            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
-	            angles = angles + new Angles(0, 0, sidetiltLerp); 
+	            angles += new Angles(0, 0, sidetiltLerp); 
 	        }
 	        
 

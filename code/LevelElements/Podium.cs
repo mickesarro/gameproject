@@ -29,7 +29,9 @@ public sealed class Podium : Component
         {
             if ( player?.GameObject == null ) continue;
 
-            InstantiateCharacter( player.GameObject, spawnPoints[position++] );
+            InstantiateCharacter( player.GameObject, spawnPoints[position] );
+
+            if ( position < 2 ) position++;
         }
 
     }

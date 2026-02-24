@@ -8,12 +8,13 @@ namespace Shooter.NPC;
 /// </summary>
 public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEvents
 {
-	[Title( "Hunting and detecting" )]
-	[Property] public GameObject hunted { get; set; }
-	[Sync( SyncFlags.FromHost )] public NetList<GameObject> huntedList { get; private set; } = new();
+    [Title( "Hunting and detecting" )]
+    [Property] public GameObject hunted { get; set; }
+    [Sync( SyncFlags.FromHost )] public NetList<GameObject> huntedList { get; private set; } = new();
 
-	[Property] public float detectionDistance { get; private set; } = 500f;
+    [Property] public float detectionDistance { get; private set; } = 500f;
     [Property] public float FOV { get; private set; } = 90f;
+    public float CosHalfFOV { get; private set; }
 
     public GameObject Hunted => hunted;
 
@@ -24,21 +25,21 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     //public List<GameObject> Waypoints => waypoints;
 
     public float agentProxThreshold { get; set; } = 50f;
-	public Vector3 lastKnownPos;
+    public Vector3 lastKnownPos;
 
     [Title( "States")]
     public StateMachine StateMachine { get; private set; }
     [Property] private StateEnum defaultState { get; set; } = StateEnum.None;
     [Property] private List<StateEnum> states { get; set; } = new();
 
-	// Audio
-	// public AudioController NpcAudio { get; private set; }
+    // Audio
+    // public AudioController NpcAudio { get; private set; }
 
-	public Gun gun { get; private set; }
+    public Gun gun { get; private set; }
 
-	[Property] private CitizenAnimationHelper animationHelper;
+    [Property] private CitizenAnimationHelper animationHelper;
 
-	private PlayerStats playerStats; // Not a player, but in-game stats
+    private PlayerStats playerStats; // Not a player, but in-game stats
     [Sync]
     public PlayerStats CharacterStats
     {
@@ -50,38 +51,42 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     public CharacterHealth characterHealth { get; private set; }
 
     protected override void OnAwake()
-	{
+    {
         if ( IsProxy )
         {
             playerStats = GetComponent<PlayerStats>();
             return;
         }
 
-		base.OnAwake();
+        base.OnAwake();
 
-		StateMachine = new StateMachine();
-		PopulateFSM();
+        StateMachine = new StateMachine();
+        PopulateFSM();
 
-		animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
+        animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
 
         characterHealth = GetComponent<CharacterHealth>();
         
-		playerStats = GetOrAddComponent<PlayerStats>();
+        playerStats = GetOrAddComponent<PlayerStats>();
         MatchStatsManager.Instance.RegisterCharacter( GameObject );
 
-		gun = GetComponentInChildren<Gun>();
-		
-		// Needs to be handled in some other way once gun has proper handling of world/view models
-		//gun.GameObject.GetComponent<GunViewModelHandler>()?.Destroy();
-	}
+        gun = GetComponentInChildren<Gun>();
+
+        // Needs to be handled in some other way once gun has proper handling of world/view models
+        //gun.GameObject.GetComponent<GunViewModelHandler>()?.Destroy();
+
+        HostCharacterRegistry.Current.Characters.Add( GameObject );
+
+        CosHalfFOV = (float)System.Math.Cos( FOV * 0.5 * (System.Math.PI / 180) );
+    }
 
     protected override void OnStart()
-	{
+    {
         if ( IsProxy ) return;
         Agent = GetOrAddComponent<NavMeshAgent>();
-		lastKnownPos = GameObject.WorldPosition; // To avoid default problems
+        lastKnownPos = GameObject.WorldPosition; // To avoid default problems
 
-		if (defaultState != StateEnum.None) {
+        if (defaultState != StateEnum.None) {
             StateMachine.Initialize(StateFactory(defaultState));
         }
 
@@ -108,11 +113,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     /// Initialize the NPC with a new state type
     /// </summary>
     public void Initialize(StateEnum defaultState)
-	{
-		states.Add(defaultState);
-		PopulateFSM();
-		this.defaultState = defaultState;
-	}
+    {
+        states.Add(defaultState);
+        PopulateFSM();
+        this.defaultState = defaultState;
+    }
 
     /// <summary>
     /// Add a new states to the states list.
@@ -134,9 +139,9 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     {
         StateEnum.Guard => new GuardState(this, this.StateMachine),
         StateEnum.Patrol => new PatrolState(this, this.StateMachine),
-		StateEnum.Attack => new AttackState(this, this.StateMachine, hunted),
-		StateEnum.Search => new SearchState(this, this.StateMachine),
-		StateEnum.Hunt => new HuntState(this, this.StateMachine),
+        StateEnum.Attack => new AttackState(this, this.StateMachine, hunted),
+        StateEnum.Search => new SearchState(this, this.StateMachine),
+        StateEnum.Hunt => new HuntState(this, this.StateMachine),
         StateEnum.None => null,
         _ => null,
     };
@@ -145,8 +150,8 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
         if ( IsProxy || !MatchManager.Instance.MatchIsRunning ) return;
 
         StateMachine.Update();
-		UpdateCitizenAnims();
-	}
+        UpdateCitizenAnims();
+    }
 
     /// <summary>
     /// Alert a guard to a location.
@@ -166,58 +171,58 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     /// </summary>
     /// <returns>Return whether the hunted is in view or not.</returns>
     public bool HuntedInView() {
-        if (WorldPosition.Distance(hunted.WorldPosition) > detectionDistance) {
+        if ( WorldPosition.DistanceSquared( hunted.WorldPosition ) > (detectionDistance * detectionDistance) )
+        {
             return false;
         }
 
         var dirVec = (hunted.WorldPosition - WorldPosition).Normal;
-        if ( WorldTransform.Forward.Angle(dirVec) > FOV / 2) {
+        float dot = Vector3.Dot( WorldTransform.Forward, dirVec );
+        if ( dot < CosHalfFOV )
+        {
             return false;
         }
 
         var hitInfo = Game.ActiveScene.Trace
             .Ray( WorldPosition, dirVec )
             .Size( detectionDistance )
+            .UseHitboxes()
             .WithAnyTags( "shootable" )
             .Run();
-
-        if ( hitInfo.Hit )
-        {
-            return true; // All checks pass
-        }
-
-        return false;
+        
+        return hitInfo.Hit;
     }
 
-	private void UpdateCitizenAnims()
-	{
-		if ( animationHelper == null || Agent == null || !Agent.IsValid ) return;
+    private void UpdateCitizenAnims()
+    {
+        if ( animationHelper == null || Agent == null || !Agent.IsValid ) return;
 
-		// animationHelper.WithWishVelocity( Agent.WorldTransform.Forward * Agent.Velocity );
-		animationHelper.WithVelocity( Agent.Velocity );
-		animationHelper.AimAngle = Agent.WorldTransform.Rotation;
-		animationHelper.IsGrounded = true;
-		animationHelper.WithLook( Agent.WorldTransform.Forward, 1f, 0.75f, 0.5f );
-		animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
-	}
+        // animationHelper.WithWishVelocity( Agent.WorldTransform.Forward * Agent.Velocity );
+        animationHelper.WithVelocity( Agent.Velocity );
+        animationHelper.AimAngle = Agent.WorldTransform.Rotation;
+        animationHelper.IsGrounded = true;
+        animationHelper.WithLook( Agent.WorldTransform.Forward, 1f, 0.75f, 0.5f );
+        animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
+    }
 
-	[Rpc.Owner]
-	public void ApplyForce( Vector3 amount )
-	{
-		Agent.Velocity += amount;
-	}
+    [Rpc.Owner]
+    public void ApplyForce( Vector3 amount )
+    {
+        Agent.Velocity += amount;
+    }
 
-	void IPlayerEvent.OnSpawn( GameObject player )
-	{
+    void IPlayerEvent.OnSpawn( GameObject player )
+    {
         AddToHuntedList( player );
-	}
+    }
 
     [Rpc.Host]
     private void AddToHuntedList( GameObject player )
     {
         if ( player == GameObject ) return;
-		// So that in search state the NPC can search all players for the closest one
-		huntedList.Add( player );
+        // So that in search state the NPC can search all players for the closest one
+        HostCharacterRegistry.Current.Characters.Add( player );
+        huntedList.Add( player );
     }
 
     
