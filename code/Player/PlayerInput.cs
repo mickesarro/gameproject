@@ -55,7 +55,14 @@ public sealed class PlayerInput : Component
 		{
 			UIManager.Instance.ToggleLayer<PauseMenu>();
 		}
-	}
+
+        #if DEBUG
+        if ( Input.Pressed( "Suicide" ) )
+        {
+            GameObject.GetComponent<CharacterHealth>().TakeDamage( new DamageInfo { Damage = 10000000, Attacker = GameObject } );
+        }
+        #endif
+    }
 
 	private void PollItemChange() {
 		for ( int i = 0; i < 4; i++ )

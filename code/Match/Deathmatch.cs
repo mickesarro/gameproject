@@ -1,4 +1,5 @@
 using Sandbox;
+using Shooter.Camera;
 
 namespace Shooter;
 
@@ -16,14 +17,8 @@ public sealed class Deathmatch : GameMode
     [Property] private int minPlayers { get; set; } = 2;
     public override int MinPlayers => minPlayers;
 
-    //private MatchStatsManager statsManager;
-
-    // protected override void OnStart()
-    // {
-    //     base.OnStart();
-    // 
-    //     statsManager = MatchStatsManager.Instance;
-    // }
+    [Property] private CameraType CameraType { get; set; } = CameraType.Orbit;
+    public override CameraType Camera => CameraType;
 
     [Rpc.Host]
     public override void WinCondition( PlayerStats latestScoreEvent )

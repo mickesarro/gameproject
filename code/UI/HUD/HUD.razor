@@ -4,6 +4,7 @@
 @implements IPlayerEvent
 @namespace Shooter.UI
 
+@if (!ShouldDisplay) return;
 
 <root>
     <div class="HP-counter">@GetHealth() HP</div>
@@ -23,12 +24,20 @@
 
     private CharacterHealth CharacterHealth = null;
 
+    private bool ShouldDisplay = false;
+
     void IPlayerEvent.OnSpawn( GameObject player )
     {
         if ( player.IsProxy || player == null ) return;
+        ShouldDisplay = true;
 
         CharacterHealth = player.GetComponent<CharacterHealth>();
         PlayerInventory = player.GetComponent<PlayerInventory>();
+    }
+
+    void IPlayerEvent.OnDied()
+    {
+        ShouldDisplay = false;
     }
 
     void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();

@@ -1,5 +1,5 @@
 using Sandbox;
-using System;
+using Shooter.Camera;
 
 namespace Shooter;
 
@@ -33,6 +33,8 @@ public abstract class GameMode : Component, ISceneMetadata
     public virtual string Objective { get; } = "Score points"; // Simple for now
 
     public virtual int StartCountdown { get; } = 5;
+
+    public abstract CameraType Camera { get; }
 
     Dictionary<string, string> ISceneMetadata.GetMetadata()
     {
