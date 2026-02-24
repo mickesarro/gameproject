@@ -66,16 +66,9 @@ protected override void OnAwake()
         tempRenderer.Attributes.Set( "Opacity", 0f );
     }
 
-    [Rpc.Owner]
-    void SendOwnerTick( float ownerTick )
-    {
-        tick = ownerTick;
-    }
-
     protected override void OnStart()
     {
         base.OnStart();
-        SendOwnerTick( tick );
         shouldRender = Network.IsProxy || GameObject.Tags.Has( "npc");
         // if ( finished )
         // {
