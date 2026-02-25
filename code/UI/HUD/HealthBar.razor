@@ -1,0 +1,46 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System
+@inherits Panel
+@namespace Shooter.UI
+
+<root>
+    <div class="health-wrapper">
+        <div class="health-text" style="color: @HudColour;">
+            @((int)Health)/@((int)MaxHealth)
+        </div>
+
+        <div class="segments-container">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="segment-background">
+                    <div class="segment-fill" style="width: @(GetSegmentFill(i))%; background-color: @HudColour;"></div>
+                </div>
+            }
+        </div>
+    </div>
+</root>
+
+@code {
+    [Property] public CharacterHealth PlayerHealth { get; set; } = null;
+
+    public float Health => PlayerHealth?.Health ?? 0.0f;
+    public float MaxHealth => PlayerHealth?.MaxHealth ?? 0.0f;
+
+    [Property] public string HudColour { get; set; } = "#FFFFFF";
+
+    // Logic to calculate fill for each 25% chunk
+    private float GetSegmentFill(int index)
+    {
+        float healthPerSegment = MaxHealth / 4;
+        float startThreshold = index * healthPerSegment;
+        
+        // Calculate how much health falls into this specific segment
+        float fillAmount = Health - startThreshold;
+        float percentage = (fillAmount / healthPerSegment) * 100;
+
+        return Math.Clamp(percentage, 0, 100);
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(Health, MaxHealth);
+}

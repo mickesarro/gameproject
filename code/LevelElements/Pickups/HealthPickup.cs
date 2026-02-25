@@ -20,8 +20,12 @@ public sealed class HealthPickup : Pickup, Component.ITriggerListener
 			{
 				healthComp.Health = Math.Min( healthComp.Health + HealthAmount, healthComp.MaxHealth );
 
-				//Play reload sound
-				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
+                // Makes sure that bots hitting the JumpPad don't play the sound to you locally
+                if ( other.GameObject.Root.Components.TryGet<PlayerController>( out _ ) )
+                {
+                    SoundManager.PlayLocal( SoundManager.SoundType.HealthPack );
+                }
+
 			}
 
             // DestroyGameObject();

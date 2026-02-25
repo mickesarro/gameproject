@@ -1,0 +1,31 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace Shooter.UI
+
+@*
+    No display if using fists.
+    One other way would to display an empty box etc. of fixed size.
+*@
+@if (!HasWeapon) return;
+
+<root>
+    <div class="ammo-wrapper" style="color: @HudColour;">
+        <div class="current-ammo">@AmmoLeft</div>
+        <div class="separator">/</div>
+        <div class="max-ammo">@MaxAmmo</div>
+    </div>
+</root>
+
+@code {
+    [Property] public PlayerInventory PlayerInventory { get; set; } = null;
+    private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData?.PrimaryFireData;
+
+    public int AmmoLeft => FireData?.AmmoLeft ?? 0;
+    public int MaxAmmo => FireData?.MaxAmmo ?? 0;
+    public bool HasWeapon => FireData != null;
+
+    [Property] public string HudColour { get; set; } = "#FFFFFF";
+
+    protected override int BuildHash() => System.HashCode.Combine(AmmoLeft, MaxAmmo, HasWeapon);
+}

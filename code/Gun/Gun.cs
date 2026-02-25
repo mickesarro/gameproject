@@ -1,5 +1,6 @@
 using Sandbox;
 using Shooter.Sounds;
+using System;
 
 namespace Shooter;
 
@@ -29,6 +30,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	public GunData GunData => gunData;
 
     public MeleeData MeleeData => null;
+
+	public Texture Icon => GunData?.Icon;
 
     private FireData FireData; // Just for convenience
 
@@ -94,6 +97,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 	private float shootInterval = 0.0f; 
 	private TimeSince timeSinceLastShot = 0;
+
+	public float CooldownFraction => shootInterval > 0 ? Math.Clamp(timeSinceLastShot / shootInterval, 0, 1) : 1f;
+
 	protected override void OnUpdate()
 	{
 		if ( IsProxy || !IsPlayer ) return;

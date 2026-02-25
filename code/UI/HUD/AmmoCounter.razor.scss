@@ -1,0 +1,42 @@
+AmmoCounter {
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    
+    .ammo-wrapper {
+        display: flex;
+        align-items: flex-end;
+        font-family: 'Poppins';
+        font-weight: 800;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        // The unified background
+        background-color: rgba(0, 0, 0, 0.6); // Black translucent
+        padding: 15px 25px;
+        border-radius: 2px;
+        
+        // Apply the slant to the entire UI element
+        transform: skewX(-15deg); 
+        
+        // Optional: adds a thin line on the left for a tactical feel
+        border-left: 4px solid rgba(255, 255, 255, 0.1);
+
+        .current-ammo {
+            font-size: 60px;
+            line-height: 25;
+        }
+
+        .separator {
+            font-size: 24px;
+            margin: 0 4px;
+            margin-bottom: 6px;
+            opacity: 0.5;
+        }
+
+        .max-ammo {
+            font-size: 32px;
+            margin-bottom: 0px;
+            opacity: 0.5;
+        }
+    }
+}

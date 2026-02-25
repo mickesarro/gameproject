@@ -7,14 +7,36 @@
     <div class="weapon-hud">
         @if (PlayerInventory != null)
         {
-            foreach (var weapon in PlayerInventory.Items)
+            @for (int i = 0; i < 4; i++)
             {
-                if (weapon == null) continue;
+                var item = PlayerInventory.Items.ElementAtOrDefault(i);
+                var weapon = item as IWeapon;
+                
+                bool isActive = (item != null && item == PlayerInventory.CurrentItem);
+                int slotLabel = i + 1;
 
-                <div class="weapon-slot @(weapon == PlayerInventory.CurrentItem ? "active" : "")">
-                    <div class="icon">
-                        @weapon.Name
+                <div class="weapon-slot @(isActive ? "active" : "")" 
+                     style="border-color: @(isActive ? HudColour : "rgba(255, 255, 255, 0.1)");">
+                    
+                    <div class="slot-number">@slotLabel.</div>
+
+                    <div class="icon-container">
+                        @if (weapon?.Icon != null)
+                        {
+                            <img src="@weapon.Icon.ResourcePath" class="weapon-icon" />
+                        }
+                        else if (item != null)
+                        {
+                            <span>@item.Name</span>
+                        }
                     </div>
+
+                    @if (weapon != null && weapon.CooldownFraction < 1.0f)
+                    {
+                        <div class="cooldown-overlay">
+                            <div class="bar" style="width: @(weapon.CooldownFraction * 100)%; background-color: @HudColour;"></div>
+                        </div>
+                    }
                 </div>
             }
         }
@@ -25,8 +47,23 @@
 {
     [Property] public PlayerInventory PlayerInventory;
 
-	/// <summary>
-	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( PlayerInventory?.CurrentItem );
+    [Property] public string HudColour { get; set; } = "#FFFFFF";
+
+    protected override int BuildHash()
+    {
+        var hash = new System.HashCode();
+        hash.Add(PlayerInventory?.CurrentItem);
+
+        if (PlayerInventory?.Items != null)
+        {
+            foreach (var item in PlayerInventory.Items)
+            {
+                if (item is IWeapon weapon)
+                {
+                    hash.Add(weapon.CooldownFraction);
+                }
+            }
+        }
+        return hash.ToHashCode();
+    }
 }

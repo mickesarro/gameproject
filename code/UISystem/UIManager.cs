@@ -34,6 +34,12 @@ public class UIManager : SingletonBase<UIManager>
         }
     }
 
+    protected override void OnStart()
+    {
+        base.OnStart();
+        StartLayer.Show( data: "UIManager" );
+    }
+
     /// <summary>
     /// Handles all but calling the specific layer Show method.
     /// </summary>

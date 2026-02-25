@@ -44,6 +44,7 @@
         "Damage": 25,
         "HitRadius": 30,
         "HoldType": "Punch",
+        "Icon": "icons/melee.vtex",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

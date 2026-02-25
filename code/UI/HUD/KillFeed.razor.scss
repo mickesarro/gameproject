@@ -1,8 +1,8 @@
 KillFeed {
 	z-index: 100;
 	position: absolute;
-	top: 20px;
-	left: 20px;
+	top: 60px;
+	left: 60px;
 	border-radius: 20px;
 	width: 15%;
 	height: 50%;
@@ -19,11 +19,15 @@ KillFeed {
 			gap: 0.4em;
 			font-family: Roboto;
 			font-weight: 500;
-			text-stroke: 1px dimgray;
-			font-size: 20px;
+			font-size: 30px;
 			color: white;
 			margin: 5px 0px;
 			text-align: left;
+
+			background-color: rgba(0, 0, 0, 0.5);
+            padding: 4px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
 			
 		}
 
@@ -41,11 +45,6 @@ KillFeed {
 
 		.hide {
 			display: none;
-		}
-
-		.col {
-			//padding: 0px 6px 0px 6px;
-			//margin: auto;
 		}
 	}
 }

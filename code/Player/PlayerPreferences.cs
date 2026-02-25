@@ -42,5 +42,6 @@ public sealed class PlayerPreferences : ISerializable
 
 	public CrosshairType CrosshairStyle { get; set; } = CrosshairType.Standard;
 	public string CrosshairColor { get; set; } = "#FFFFFF";
+	public string HudColor { get; set; } = "#FFFFFF";
 
 }
