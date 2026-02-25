@@ -46,6 +46,7 @@
           "go": "8293b50c-81e1-4363-a6be-74f8b28f5a97"
         },
         "holdType": "Rifle",
+        "Icon": "icons/railgun.vtex",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

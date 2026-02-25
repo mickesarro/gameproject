@@ -23,10 +23,20 @@
         <div class="dropdown_section">
             <UIButton class="dropdown_button"
                       T="string"
-                      DisplayValue="Color: @SelectedColorLabel ▼"
+                      DisplayValue="Crosshair Color: @SelectedColorLabel ▼"
                       ButtonCallback="@(() => OpenSettingContextMenu("Color"))" /> 
 
             <DropDown @ref="ColorDropdown" class="color_dropdown" style="display:none;" />
+        </div>
+
+        <!-- Hud Color Dropdown -->
+        <div class="dropdown_section">
+            <UIButton class="dropdown_button"
+                      T="string"
+                      DisplayValue="HUD Color: @SelectedHudColorLabel ▼"
+                      ButtonCallback="@(() => OpenSettingContextMenu("HudColor"))" /> 
+
+            <DropDown @ref="HudColorDropdown" class="color_dropdown" style="display:none;" />
         </div>
 
         <!-- FOV Slider -->
@@ -54,6 +64,7 @@
 @code {
     private DropDown CrosshairDropdown;
     private DropDown ColorDropdown;
+    private DropDown HudColorDropdown;
 
     private float currentFov;
     private float MinFov => playerPreferences.minFov;
@@ -69,13 +80,17 @@
     // Selected internal values
     private CrosshairType SelectedCrosshair => playerPreferences.CrosshairStyle;
     private string SelectedColorHex => playerPreferences.CrosshairColor;
+    private string SelectedHudColorHex => playerPreferences.HudColor;
 
     // Display labels
     private string SelectedCrosshairLabel => SelectedCrosshair.ToDisplayName();
     private string SelectedColorLabel => Crosshair.AvailableColors
                                             .FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
+    
+    private string SelectedHudColorLabel => Crosshair.AvailableColors
+                                             .FirstOrDefault(c => c.Hex == SelectedHudColorHex).Name ?? "Unknown";
 
-    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, currentFov);
+    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov);
 
     protected override void OnEnabled()
     {
@@ -130,7 +145,8 @@
 
     private void OpenSettingContextMenu(string settingType)
     {
-        DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : ColorDropdown;
+        DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : 
+                                  settingType == "Color" ? ColorDropdown : HudColorDropdown;
         if (targetDropdown == null) return;
 
         var popup = new Popup(targetDropdown, Popup.PositionMode.BelowLeft, 45);
@@ -154,13 +170,17 @@
                 panel.Style.FontColor = Color.Parse("#ffffffff");
             }
         }
-        else if (settingType == "Color")
+        else if (settingType == "Color" || settingType == "HudColor")
         {
             foreach (var color in Crosshair.AvailableColors)
             {
                 var panel = popup.AddOption(color.Name, "", () =>
                 {
-                    SettingsManager.Instance.SetCrosshairColor(color.Hex);
+                    if (settingType == "Color")
+                        SettingsManager.Instance.SetCrosshairColor(color.Hex);
+                    else
+                        SettingsManager.Instance.SetHudColor(color.Hex);
+                    
                     StateHasChanged();
                 });
 

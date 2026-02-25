@@ -1,0 +1,59 @@
+HealthBar {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    width: 550px;
+
+    .health-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+
+        // The unified background
+        background-color: rgba(0, 0, 0, 0.6); // Black translucent
+        padding: 15px 25px;
+        border-radius: 2px;
+        
+        // Apply the slant to the entire UI element
+        transform: skewX(-15deg); 
+        
+        // Optional: adds a thin line on the left for a tactical feel
+        border-left: 4px solid rgba(255, 255, 255, 0.1);
+
+        .health-text {
+            font-family: 'Poppins';
+            font-size: 36px;
+            font-weight: 900;
+            text-align: left;
+            margin-left: 10px;
+            text-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+        }
+
+        .segments-container {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            width: 100%;
+            height: 25px;
+
+            .segment-background {
+                flex: 1;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                overflow: hidden;
+                position: relative;
+                
+                .segment-fill {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    transition: width 0.2s ease-out;
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) inset;
+                }
+            }
+        }
+    }
+}

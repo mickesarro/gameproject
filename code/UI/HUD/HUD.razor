@@ -7,18 +7,19 @@
 @if (!ShouldDisplay) return;
 
 <root>
-    <div class="HP-counter">@GetHealth() HP</div>
-    <div class="Ammo-counter">@GetAmmo()</div>
+    <HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" />
+
+    <AmmoCounter PlayerInventory="@PlayerInventory" HudColour="@HudColour" />
     
-    <WeaponBar PlayerInventory="@PlayerInventory" @ref="weaponBar" />
+    <WeaponBar PlayerInventory="@PlayerInventory" HudColour="@HudColour" @ref="weaponBar" />
 
 </root>
 
 @code
 {
+    public string HudColour = "#FFFFFF";
+
     private PlayerInventory PlayerInventory = null;
-    private IWeapon CurrentWeapon => PlayerInventory?.CurrentWeapon;
-    private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData?.PrimaryFireData;
 
     WeaponBar weaponBar { get; set; }
 
@@ -28,11 +29,7 @@
 
     void IPlayerEvent.OnSpawn( GameObject player )
     {
-        if ( player.IsProxy || player == null ) return;
-        ShouldDisplay = true;
-
-        CharacterHealth = player.GetComponent<CharacterHealth>();
-        PlayerInventory = player.GetComponent<PlayerInventory>();
+        SetPlayerProperties( player );
     }
 
     void IPlayerEvent.OnDied()
@@ -40,21 +37,47 @@
         ShouldDisplay = false;
     }
 
-    void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
-    void IPlayerEvent.OnWeaponAdded(IWeapon weapon) => weaponBar.StateHasChanged();
+    //void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
+    //void IPlayerEvent.OnWeaponAdded(IWeapon weapon) => weaponBar.StateHasChanged();
 
-    public string GetAmmo() => FireData != null
-            ? $"{FireData.AmmoLeft} / {FireData.MaxAmmo}"
-            : "";
+    protected override int BuildHash() => System.HashCode.Combine( ShouldDisplay );
 
-    public string GetHealth() => CharacterHealth != null
-            ? $"{(int)CharacterHealth.Health} / {(int)CharacterHealth.MaxHealth}"
-            : "";
+    public override void Show()
+    {
+        base.Show();
 
-    /// <summary>
-    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-    /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine(GetAmmo(), GetHealth());
+        if (SettingsManager.Instance != null)
+        {
+            UpdateHudColour(SettingsManager.Instance.PlayerPreferences?.HudColor);
+            SettingsManager.Instance.OnHudColorChanged += UpdateHudColour;
+        }
+        // If player dies while having e.g. settings open, this is needed
+        SetPlayerProperties(Shooter.PlayerController.Local?.GameObject);
+
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+
+        SettingsManager.Instance?.OnHudColorChanged -= UpdateHudColour;
+    }
+
+
+    private void UpdateHudColour(string colour)
+        => HudColour = colour ?? "#FFFFFF";
+
+
+    private void SetPlayerProperties( GameObject player )
+    {
+        if ( player == null || player.IsProxy ) return;
+        ShouldDisplay = true;
+
+        CharacterHealth = player.GetComponent<CharacterHealth>();
+        PlayerInventory = player.GetComponent<PlayerInventory>();
+
+        StateHasChanged();
+    }
 
 }
 

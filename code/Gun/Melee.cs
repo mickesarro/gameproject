@@ -1,5 +1,6 @@
 using Shooter.Sounds;
 using Sandbox;
+using System;
 
 namespace Shooter;
 
@@ -28,6 +29,8 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
 
     public MeleeData MeleeData => meleeData;
 
+    public Texture Icon => MeleeData?.Icon;
+
     public bool IsPlayer { get; private set; } // To not run OnUpdate on NPCs
 
     private SkinnedModelRenderer viewModelRenderer;
@@ -38,6 +41,8 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     [Property] public string Name { get; set; } = "Melee";
 
     private TimeSince timeSinceLastAttack;
+
+    public float CooldownFraction => timeSinceLastAttack > 0 ? Math.Clamp(timeSinceLastAttack / meleeData.Cooldown, 0, 1) : 1f;
     
     private void HandleProxyAnimations()
     {

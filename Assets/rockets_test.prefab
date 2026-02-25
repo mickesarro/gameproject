@@ -46,6 +46,7 @@
           "go": "6f4181ed-3cfe-4416-aeda-e441e76bcc7c"
         },
         "holdType": "RPG",
+        "Icon": "icons/rpg.vtex",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

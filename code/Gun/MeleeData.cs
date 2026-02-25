@@ -5,6 +5,7 @@ namespace Shooter;
 
 public sealed class MeleeData : Component
 {
+    [Property] public Texture Icon { get; private set; }
     [Property, RequireComponent] public GameObject ViewModel { get; private set; }
     [Property] public GameObject Worldmodel { get; private set; }
 

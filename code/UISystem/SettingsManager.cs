@@ -14,6 +14,7 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
 	public event Action<CrosshairType> OnCrosshairStyleChanged;
     public event Action<string> OnCrosshairColorChanged;
+	public event Action<string> OnHudColorChanged;
 	public event Action<float> OnFovChanged;
 	public event Action<float> OnVolumeChanged;
 
@@ -47,6 +48,16 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
 		stateChanged = true;
 	}
+
+	public void SetHudColor(string hex)
+    {
+        if (string.IsNullOrEmpty(hex) || playerPreferences.HudColor == hex) return;
+
+        playerPreferences.HudColor = hex;
+        OnHudColorChanged?.Invoke(hex);
+
+        stateChanged = true;
+    }
 
 	public void SetFOV(float fov)
 	{
@@ -110,6 +121,9 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
         OnCrosshairStyleChanged?.Invoke( playerPreferences.CrosshairStyle );
         OnCrosshairColorChanged?.Invoke( playerPreferences.CrosshairColor );
+        OnHudColorChanged?.Invoke( playerPreferences.HudColor );
+        OnFovChanged?.Invoke( playerPreferences.Fov );
+        OnVolumeChanged?.Invoke( playerPreferences.Volume );
 
 		IsLoaded = true;
     }

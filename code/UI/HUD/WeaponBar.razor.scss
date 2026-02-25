@@ -1,30 +1,77 @@
 WeaponBar {
-	.weapon-hud {
-		padding: 6px 12px;
-		border-radius: 6px;
-		text-align: center;
-		font-size: 16px;
-		position: absolute;
-		bottom: 10px;
-		left: 50%;
-		transform: translatex(-50%);
-		display: flex;
-		gap: 5px;
-	}
+    .weapon-hud {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+    }
 
-	.weapon-slot {
-		padding: 6px 12px;
-		background-color: rgba(0, 0, 0, 0.5);
-		border-radius: 6px;
-		text-align: center;
-		font-size: 16px;
-		color: white;
-		transition: all 0.1s;
-	}
+    .weapon-slot {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-out;
 
-	.weapon-slot.active {
-		border: 2px solid rgb(0, 0, 0);
-		box-shadow: 0 0 10px rgb(0, 0, 0);
-		transform: scale(1.1);
-	}
+        &.active {
+            width: 140px;
+            height: 140px;
+            border: 4px solid rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 10;
+        }
+    }
+
+    .slot-number {
+        position: absolute;
+        top: 4px;
+        left: 6px;
+        font-size: 12px;
+        font-family: monospace;
+        font-weight: bold;
+        opacity: 0.6;
+    }
+
+    .icon-container {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .weapon-icon {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        span {
+            font-size: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+
+    .cooldown-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        
+        .bar {
+            height: 100%;
+            transition: width 0.05s linear;
+        }
+    }
 }
