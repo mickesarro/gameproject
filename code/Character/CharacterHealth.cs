@@ -94,7 +94,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         GameObject.Enabled = false;
 
         if ( GameObject.Tags.Has( "npc" ) ) ReSpawn( 0 );
-        else IPlayerEvent.Post( e => e.OnDied() );
+        else IPlayerEvent.Post( e => e.OnDied( damageInfo ) );
     }
 
     private void CreateRagdoll(Vector3 velocity)

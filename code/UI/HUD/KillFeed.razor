@@ -1,7 +1,7 @@
 @using Sandbox;
 @using Sandbox.UI;
 @using System.Collections.Generic
-@inherits Shooter.UISystem.UILayer
+@inherits Panel
 @implements IMatchEvents
 @namespace Shooter.UI
 
@@ -31,7 +31,6 @@
 
 @code
 {
-    public override bool IsOverlay => true;
 
     [Property] public float EntryLifeTime { get; set; } = 5.0f;
     public enum KillFeedRelation { Self, Friendly, Enemy };
@@ -48,9 +47,8 @@
     /// </summary>
     protected override int BuildHash() => System.HashCode.Combine( Feed.Count );
 
-    void IMatchEvents.BroadcastOnKill( PlayerStats killed, DamageInfo damageInfo )
+    public void BroadcastOnKill( PlayerStats killed, DamageInfo damageInfo )
     {
-
         KillFeedRelation relation = !damageInfo.Tags.Has("npc") && !damageInfo.Attacker.IsProxy
             ? KillFeedRelation.Self
             : KillFeedRelation.Enemy; // !! Once teams are implemented, add the logic here
@@ -73,11 +71,9 @@
         );
     }
 
-    void IMatchEvents.OnGameEnd() => Hide();
-
-    protected override void OnUpdate()
+    public override void Tick()
     {
-        base.OnUpdate();
+        base.Tick();
 
         if ( Feed.Count == 0 ) return;
 
@@ -86,13 +82,6 @@
             Feed.Dequeue();
         }
 
-    }
-
-    public override void Hide( object data )
-    {
-        if ( data is string reason && reason == "UIManager" ) return;
-
-        GameObject.Enabled = false;
     }
 
     private string GetDisplayName( GameObject gameObject )

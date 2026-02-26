@@ -6,21 +6,20 @@ using Shooter.Sounds;
 namespace Shooter.Match;
 
 public sealed class MatchState( MatchManager matchManager, StateMachine stateMachine )
-    : MatchBaseState( matchManager, stateMachine )
+    : MatchBaseState( matchManager, stateMachine ), ICountdownable
 {
     public int StartTimer { get; set; } = 0;
 
-    private HUDTimer HUDTimer = null;
+    int ICountdownable.GetTime() => StartTimer;
+    private bool countdownActive = false;
+    bool ICountdownable.IsActive => countdownActive;
+    bool ICountdownable.Skippable => false;
 
     public override void OnEnter()
     {
         StartTimer = matchManager.MatchGameMode.StartCountdown;
 
-        // Add the timer runtime to HUD to manage lifetime well
-        var HUD = matchManager.Scene.Get<HUD>();
-        HUDTimer = HUD.AddComponent<HUDTimer>( true );
-
-        UIManager.Instance.ShowLayerWithData( HUDTimer, this, addToHistory: false );
+        IMatchEvents.Post( e => e.OnCountdownStart( this ) );
 
         _ = Timer();
 
@@ -49,6 +48,8 @@ public sealed class MatchState( MatchManager matchManager, StateMachine stateMac
         // A few notes on implementation:
         // A utility such as this should not handle audio as well
 
+        countdownActive = true;
+
         while ( StartTimer > 0 )
         {
             // Add specific match start sounds later
@@ -58,8 +59,7 @@ public sealed class MatchState( MatchManager matchManager, StateMachine stateMac
         }
 
         matchManager.MatchIsRunning = true;
-        UIManager.Instance.ResetToStartLayer();
-        HUDTimer.Destroy();
+        countdownActive = false;
 
         SoundManager.PlayLocal( SoundManager.SoundType.UIAccept, 3 );
     }
