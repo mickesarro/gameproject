@@ -1,18 +1,18 @@
 HealthBar {
     position: absolute;
-    bottom: 80px;
+    bottom: 60px;
     left: 80px;
     width: 550px;
 
     .health-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         width: 100%;
 
         // The unified background
         background-color: rgba(0, 0, 0, 0.6); // Black translucent
-        padding: 15px 25px;
+        padding: 15px 25px 15px 25px;
         border-radius: 2px;
         
         // Apply the slant to the entire UI element
