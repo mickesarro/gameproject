@@ -28,7 +28,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "populate": true
+          "populate": false
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -2243,7 +2243,7 @@
               "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
             },
             "Property": "Position",
-            "Value": "-48.85673,-7430.009,516.0501"
+            "Value": "-263.525,-7563.165,296.5826"
           },
           {
             "Target": {
@@ -3333,7 +3333,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Jump Pad",
-      "Position": "-752.9081,-7300.054,256.4175",
+      "Position": "-752.9081,-7303.024,256.4175",
       "Rotation": "0,0,0,1",
       "Scale": "2,2,2",
       "Tags": "",
@@ -5759,6 +5759,249 @@
       ]
     },
     {
+      "__guid": "0b571f0f-0d16-4d00-9357-d9553c216c04",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Jump Pad (14)",
+      "Position": "-288.8965,-9580.836,384.121",
+      "Rotation": "0,0,0,1",
+      "Scale": "2,2,2",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.JumpPad",
+          "__guid": "1cb5f6a7-4b92-47ab-8919-7096b261959b",
+          "__enabled": true,
+          "Flags": 0,
+          "Force": 800,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "06834a8c-8d00-4d88-b70d-01664e02b289",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/jump-pad.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "c231b095-f160-4876-b774-9af8e832e412",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0,3.639995",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "Normal": "0,0,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50",
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "09864adf-4e08-4a0a-af5d-dd1c026cfc09",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0.1877193,0",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50.37545,3.999869",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "72920373-6ee3-4957-8e0f-91a604a1ea3e",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Sprite",
+          "Position": "-4.12,0,15.71003",
+          "Rotation": "0,0,0,1",
+          "Scale": "3.400001,3.400001,0.6900026",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.SpriteRenderer",
+              "__guid": "e02f8048-686e-4d70-818b-1985070bc6a6",
+              "__enabled": true,
+              "Flags": 0,
+              "__version": 2,
+              "Additive": false,
+              "AlphaCutoff": 0,
+              "Billboard": "YOnly",
+              "Color": "0,0.3845,0.72093,1",
+              "DepthFeather": 0,
+              "FlipHorizontal": false,
+              "FlipVertical": false,
+              "FogStrength": 1,
+              "IsSorted": false,
+              "Lighting": false,
+              "OnAnimationEnd": null,
+              "OnAnimationStart": null,
+              "OnBroadcastMessage": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opaque": false,
+              "OverlayColor": "1,1,1,0",
+              "PlaybackSpeed": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "Shadows": false,
+              "Size": "10.94994,47.59",
+              "Sprite": {
+                "$compiler": "embed",
+                "$source": null,
+                "data": {
+                  "Animations": [
+                    {
+                      "Name": "Default",
+                      "FrameRate": 15,
+                      "Origin": "0.5,0.5",
+                      "LoopMode": "Loop",
+                      "Frames": [
+                        {
+                          "Texture": "textures/shapes/arrow2.vtex",
+                          "BroadcastMessages": []
+                        }
+                      ]
+                    }
+                  ],
+                  "__references": null
+                },
+                "compiled": null
+              },
+              "StartingAnimationName": "Default",
+              "TextureFilter": "Bilinear"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "6db91264-2b11-4b8f-8808-ef1d38e47a7f",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "-5,0,2.01",
+          "Rotation": "0,0,0,1",
+          "Scale": "0.7,0.7,0.7",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "9d2f05bb-b7ac-45c7-b2fd-58032222c476",
+              "__enabled": true,
+              "Flags": 0,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": {
+                "indexed": {
+                  "0": "materials/jump-pad-cylinder.vmat"
+                }
+              },
+              "Model": "models/cylinder.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "Off",
+              "Tint": "0,0.93333,1,1"
+            }
+          ],
+          "Children": []
+        }
+      ]
+    },
+    {
       "__guid": "7f50ad7a-d9d5-40d3-9765-b87f7d40713d",
       "__version": 2,
       "Flags": 0,
@@ -6249,7 +6492,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Jump Pad (4)",
-      "Position": "-1841.981,-8700.755,150.7944",
+      "Position": "-1841.981,-8666,150.7943",
       "Rotation": "0,0.258819,0,0.9659258",
       "Scale": "2,2,2",
       "Tags": "",
@@ -6440,7 +6683,7 @@
           "__version": 2,
           "Flags": 0,
           "Name": "Cube",
-          "Position": "-5,0,2.01",
+          "Position": "-5.000103,6.17627,2.009919",
           "Rotation": "0,0,0,1",
           "Scale": "0.7,0.7,0.7",
           "Tags": "",
@@ -6802,6 +7045,1614 @@
         "efffddec-78d4-405c-9490-7c6ee24ee86a": "e6ca4678-a7fe-4892-a03e-96905eef2f41",
         "415a6871-f410-4e0a-9e39-bbd3242684f4": "7da5e71d-e0d5-4e75-a5c7-169051e89674"
       }
+    },
+    {
+      "__guid": "5eee076d-4f6d-4f1c-a861-2863d709397f",
+      "__version": 2,
+      "__Prefab": "entity/cube.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "06402f92-6a56-400c-ae5f-19c31b67ad25"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "06402f92-6a56-400c-ae5f-19c31b67ad25",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "0,0,0",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          }
+        ],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Name",
+            "Value": "cube (6)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Position",
+            "Value": "-1205.8,-6887.771,826.487"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Rotation",
+            "Value": "0.956521,-0.00009134552,0.0005298369,0.2916627"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Scale",
+            "Value": "38.02145,0.2084907,3.878763"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "MaterialOverride",
+            "Value": "materials/generic/roof_tile_a.vmat"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "Model",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "Property": "__enabled",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "0378e312-f089-407e-bec3-004a1132310a": "5eee076d-4f6d-4f1c-a861-2863d709397f",
+        "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0": "b6724662-ddef-4e79-9c37-f60a621e6fac",
+        "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85": "acddf565-3bcc-4d75-8218-bc6bc6d03d75"
+      }
+    },
+    {
+      "__guid": "ea9887ca-b2a0-4c0f-b327-85d2984cb2ed",
+      "__version": 2,
+      "__Prefab": "entity/cube.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "854a2831-462a-4353-9b58-83d8a25d2de7"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "854a2831-462a-4353-9b58-83d8a25d2de7",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "0,0,0",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          }
+        ],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Name",
+            "Value": "cube (19)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Position",
+            "Value": "-1205.765,-6891.56,743.0968"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Rotation",
+            "Value": "0.7071067,-0.0003297115,0.0004246898,0.7071067"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Scale",
+            "Value": "38.02145,0.2084907,2.166658"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "MaterialOverride",
+            "Value": "materials/generic/roof_tile_a.vmat"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "Model",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "Property": "__enabled",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "0378e312-f089-407e-bec3-004a1132310a": "ea9887ca-b2a0-4c0f-b327-85d2984cb2ed",
+        "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0": "d71d9717-90db-49a2-8c95-e0afa0858d25",
+        "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85": "100c582e-6269-4e55-9666-b283a3324911"
+      }
+    },
+    {
+      "__guid": "9ffcb4a9-7858-440b-a4e4-6582af1809f6",
+      "__version": 2,
+      "__Prefab": "entity/cube.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "c5e935c7-b33c-42f7-83d2-e55b66b59982"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "c5e935c7-b33c-42f7-83d2-e55b66b59982",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "0,0,0",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          }
+        ],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Name",
+            "Value": "cube (5)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Position",
+            "Value": "1369.159,-8000.909,848.3683"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Rotation",
+            "Value": "0.2704185,0.2707811,0.6506659,0.6558852"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Scale",
+            "Value": "30.47086,0.2084907,3.144434"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "MaterialOverride",
+            "Value": "materials/generic/roof_tile_a.vmat"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "Model",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "Property": "__enabled",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "0378e312-f089-407e-bec3-004a1132310a": "9ffcb4a9-7858-440b-a4e4-6582af1809f6",
+        "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0": "4a0fa06c-1dd5-4832-bc63-ec9f1d9b9713",
+        "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85": "a6806cde-fbf9-44c9-9c18-f81df9a0a5bc"
+      }
+    },
+    {
+      "__guid": "01e51e54-1aa8-44a8-b366-b828d4e098e3",
+      "__version": 2,
+      "__Prefab": "entity/cube.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "6d01e1ba-1a62-44a8-bd2d-6a7ba7b4d98c"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "PreviousElement": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.BoxCollider",
+              "__guid": "6d01e1ba-1a62-44a8-bd2d-6a7ba7b4d98c",
+              "__enabled": true,
+              "Flags": 0,
+              "Center": "0,0,0",
+              "ColliderFlags": 0,
+              "Elasticity": null,
+              "Friction": null,
+              "IsTrigger": false,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
+              "RollingResistance": null,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
+            }
+          }
+        ],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Name",
+            "Value": "cube (18)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Position",
+            "Value": "1389.224,-8001.235,791.5325"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Rotation",
+            "Value": "0.5008303,0.499168,0.4975135,0.5024744"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "0378e312-f089-407e-bec3-004a1132310a"
+            },
+            "Property": "Scale",
+            "Value": "30.47086,0.2084907,3.144434"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "MaterialOverride",
+            "Value": "materials/generic/roof_tile_a.vmat"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "Model",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0"
+            },
+            "Property": "Tint",
+            "Value": "0.29804,0.29804,0.29804,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85"
+            },
+            "Property": "__enabled",
+            "Value": false
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "0378e312-f089-407e-bec3-004a1132310a": "01e51e54-1aa8-44a8-b366-b828d4e098e3",
+        "f4e16ddd-a5fe-49ab-a895-127b1a04d6c0": "cc8c05b1-523b-48b5-a2e7-b447396a3e4f",
+        "1a1e39ca-b6ef-4f11-8b6e-413fdefb1c85": "539d1022-9428-4bd3-93b8-0199d26b9452"
+      }
+    },
+    {
+      "__guid": "59c6052f-5aa2-4937-a421-59fb7ffa4507",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container",
+      "Position": "-13.6731,-8431.591,125.1295",
+      "Rotation": "-0.2428774,0.2428773,-0.6640861,0.6640863",
+      "Scale": "1.330131,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3b97d067-f3c6-49a0-a8b8-31af8c914650",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "30a3263b-bc03-4b1d-8415-df40aec59b86",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "11606845-86aa-493e-83cd-a2a0b0736a34",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (15)",
+      "Position": "-721.6494,-8109.711,485.2077",
+      "Rotation": "0.2126311,-0.2126311,-0.6743798,0.6743796",
+      "Scale": "0.8609911,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0e14265a-018b-4399-99c6-1456ca93ef63",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "red",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "3f88a42a-112f-485d-ae70-3276376a212b",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "fa293538-5497-49fc-b283-0cd281b07956",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (9)",
+      "Position": "943.9374,-8048.938,524.4479",
+      "Rotation": "-0.2418448,0.2418447,-0.664463,0.664463",
+      "Scale": "1.330131,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d8f3b5c9-f4a8-411d-b11f-b263c280db98",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "yellow",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "4c4f0964-eefa-42d8-8270-de87fe0aa082",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "4be4d58c-e608-4eac-bf42-46910ec23c3e",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (13)",
+      "Position": "322.9939,-8433.717,639.77",
+      "Rotation": "0.2418447,-0.2418448,-0.664463,0.664463",
+      "Scale": "2.262934,1,1.133065",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1ee77177-9d4a-47cf-8a8f-db386200ea86",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "teal",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "8256baf6-2585-4e6f-bf69-1a3df8d3b1e0",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "21a158c7-2cb0-46fa-88a2-e2d7cfd69879",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (7)",
+      "Position": "-1836.751,-8944.079,109.585",
+      "Rotation": "0.2418447,-0.2418448,-0.664463,0.664463",
+      "Scale": "1.330131,1,1.359291",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a1267de5-bda6-4316-a0b0-93a12cd35d5f",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "86a2a588-4758-49dd-897c-56883f7dd79a",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "d4dbb658-421d-4d94-99ea-eb3f0817cb0d",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (4)",
+      "Position": "-15.66943,-7535.394,481.8505",
+      "Rotation": "0.2418447,-0.2418448,-0.664463,0.664463",
+      "Scale": "1.368036,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "82b5b79e-e6ef-4ab6-b436-017259219e25",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "red",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "5caa631b-ab28-424b-b6ac-3ca49f8449a0",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "febc2689-e7ab-4ae4-94c1-7507e341ef10",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (1)",
+      "Position": "-0.4150391,-8431.597,46.76167",
+      "Rotation": "-0.00000002502469,-0.00000002502469,-0.7071068,0.7071068",
+      "Scale": "1.311654,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b7c55812-dc81-42fa-8476-1a8ca811180a",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "1ca01079-bd22-439e-9fa1-2fdbf8ce9f25",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "a5353710-5391-487d-9599-0c352f732427",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (2)",
+      "Position": "-1130.529,-8198.605,613.1293",
+      "Rotation": "-0.3007058,-0.000000008735741,-0.000000002754368,0.9537169",
+      "Scale": "0.8629853,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f841e395-7c24-4103-b4d3-1e832af5873a",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "38368220-392b-421b-bc5b-706be1d86cb6",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "b6edd9db-bdec-4aca-8b49-c3c6f61736ea",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (14)",
+      "Position": "-615.0651,-8391.026,262.8442",
+      "Rotation": "-0.3007058,-0.000000008735741,-0.000000002754368,0.9537169",
+      "Scale": "0.8629853,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6eed75ab-7d6e-4fd0-a3fd-83f885b977b3",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "white",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "02b8bf3e-b6bb-405c-8843-980b6350dc69",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "5d8d63f7-854b-4452-9c58-233281127bca",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (8)",
+      "Position": "-1383.372,-9726.779,738.0952",
+      "Rotation": "0.3420201,-0.000000008607283,0.000000003132795,0.9396926",
+      "Scale": "1.765149,1,1.042483",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "598051db-c5ec-40d2-9daf-2fe025cd39fe",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "yellow",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "67243620-ffb3-4615-9051-baf55a4c0eaa",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "b41c8230-e29b-47d7-8099-9e94b9a01cef",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (11)",
+      "Position": "-709.1436,-9659.016,483.2071",
+      "Rotation": "0.3470294,0.164647,0.05323218,0.9217529",
+      "Scale": "1.449663,1,1.076769",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6f4d6b1f-cd38-4168-851d-9b6035850532",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "red",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "472b20f4-cdb8-456d-a218-a12502c956fc",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "07d807d6-493e-4048-8369-d12c5b4844cc",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (10)",
+      "Position": "-969.9611,-9722.418,354.2403",
+      "Rotation": "-0.0000000000000004121492,0.7071068,0.0000000000000004121492,0.7071068",
+      "Scale": "1.352674,1,1.076769",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c6384e8f-b06b-4590-9f49-6fdec991ce05",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "8ec46df8-9257-4e71-83be-c6fd1b083e95",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "dd85f432-9f8f-490e-bbe0-791469b696f7",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (12)",
+      "Position": "-573.9523,-9635.52,282.2495",
+      "Rotation": "-0.0000000000000004121492,0.7071068,0.0000000000000004121492,0.7071068",
+      "Scale": "1.130476,1,1.076769",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8e47b2c4-8bc3-4735-bc6b-dee9418fa83c",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "98a5ae94-ed94-4718-94bf-41a15cfdce06",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "0613307c-1674-45f8-b6e3-3f0a217cd363",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (5)",
+      "Position": "-559.4684,-7371.97,358.4827",
+      "Rotation": "0.3420201,-0.000000008607283,0.000000003132795,0.9396926",
+      "Scale": "1.390294,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3373dcaf-7314-4b03-9853-bc350b3df9e6",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "bf9366eb-d650-4a6b-94c7-c959fe5611a5",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "d979e7e8-c4b1-4653-be7a-d1c7a13dc03e",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (6)",
+      "Position": "-939.8418,-7371.97,358.4827",
+      "Rotation": "0.3420201,-0.000000008607283,0.000000003132795,0.9396926",
+      "Scale": "1.356104,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "208130e5-c3ac-4960-b251-ab196653dc18",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "c860f297-ba6b-415d-b50b-2216abfc5688",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "2fdac99a-e6b7-424a-a725-519320a82fba",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "shipping_container (3)",
+      "Position": "-1577.688,-8198.605,613.1293",
+      "Rotation": "-0.3007058,-0.000000008735741,-0.000000002754368,0.9537169",
+      "Scale": "0.8629853,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0ce5b75b-be63-428a-aea3-234d62ce792b",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": "green",
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelCollider",
+          "__guid": "36330627-16f2-419d-8691-ad2c1cd88d67",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
@@ -6827,8 +8678,11 @@
   "Description": null,
   "__references": [
     "baik.projectile_rocket#43884",
+    "facepunch.roof_tile_a#85424",
+    "facepunch.shippingcontainer#143919",
     "facepunch.v_m4a1#125828",
-    "facepunch.wrecoillessrifle#113432"
+    "facepunch.wrecoillessrifle#113432",
+    "krynn.cube#131924"
   ],
   "__version": 3
 }
