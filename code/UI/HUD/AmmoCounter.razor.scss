@@ -1,6 +1,6 @@
 AmmoCounter {
     position: absolute;
-    bottom: 80px;
+    bottom: 50px;
     right: 80px;
     
     .ammo-wrapper {
@@ -12,7 +12,7 @@ AmmoCounter {
 
         // The unified background
         background-color: rgba(0, 0, 0, 0.6); // Black translucent
-        padding: 15px 25px;
+        padding: 15px 25px 15px 25px;
         border-radius: 2px;
         
         // Apply the slant to the entire UI element
