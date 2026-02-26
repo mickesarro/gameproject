@@ -2,61 +2,30 @@
   "__guid": "9ff3ad1d-1074-4bce-bed8-cff669fd5f56",
   "GameObjects": [
     {
-      "__guid": "a15cda76-43ad-4963-8c41-ae6488dfe861",
+      "__guid": "feee3ca3-1df5-4187-bafd-136da5676287",
       "__version": 2,
-      "__Prefab": "ui.prefab",
+      "__Prefab": "prefabs/ui.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "702f8103-47db-4552-bae5-7c51d91ed149"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "172d4b78-a7f0-4510-b74a-07a09e1aed84"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "71b109a1-c8b0-489d-a182-f1b7967ed38c"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Shooter.UI.DmgFlash",
-              "__guid": "702f8103-47db-4552-bae5-7c51d91ed149",
-              "__enabled": true,
-              "Flags": 0,
-              "FadeSpeed": 4,
-              "FlashColor": "1,0,0,1",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null
-            }
-          }
-        ],
+        "AddedObjects": [],
         "RemovedObjects": [],
         "PropertyOverrides": [],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
-        "6aec1b73-e38e-4436-96db-4f884162970b": "a15cda76-43ad-4963-8c41-ae6488dfe861",
-        "098c2a99-4a7c-4185-9c78-7daf5d84f830": "05d8a1e8-ec18-48e9-a81a-ba63a1278698",
-        "b3cbec8b-fae9-45af-9ec0-8c9222684eb1": "e19c6c9c-0f2a-462e-9f0c-d31bbad0ec56",
-        "172d4b78-a7f0-4510-b74a-07a09e1aed84": "30091807-b221-4f4a-b3d9-fe2e6c39e48d",
-        "dda31a64-6e25-4a53-b6c9-7daa84d6b20e": "fb687fec-9053-4758-b633-4e7fe20860fa",
-        "cc7d1b43-9040-407c-a67b-33d9f580c663": "cb8a6d06-88fa-45f8-9954-33f0517629c9",
-        "71b109a1-c8b0-489d-a182-f1b7967ed38c": "be4e05f9-6ed6-4432-9fef-6012cf8a88f1",
-        "f1d627a5-b56c-44da-8de3-be7eb10c3836": "582c47fb-0e6f-4780-a7a5-4c852a19b552",
-        "e774a10d-6e14-4d3d-a9a2-59a457d5e70a": "65302174-e907-47ae-b91a-de5bde030ca3",
-        "a57483a2-781b-4ede-b4fd-5131df48da5e": "5611ce86-65ee-4111-bf81-f8f5d43b656e",
-        "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4": "6ea1b9b8-9109-43a6-b84a-ea02f06cb89a",
-        "35a82ac1-decf-4fd7-99ec-3317fca9a176": "ab63f4f8-7682-4d99-9ac7-14aada15f57b",
-        "3c269391-9a4f-448a-81cd-80b1a4bdde8e": "a26ba545-d6f1-4b36-8097-cd00dba7b593",
-        "c136b065-d8fa-4670-a083-065636caaaa1": "23651265-b50c-4a34-a532-db1ab3f197a6"
+        "6aec1b73-e38e-4436-96db-4f884162970b": "feee3ca3-1df5-4187-bafd-136da5676287",
+        "098c2a99-4a7c-4185-9c78-7daf5d84f830": "85768cfb-dd8b-4530-a58a-2257f8313d7e",
+        "b3cbec8b-fae9-45af-9ec0-8c9222684eb1": "37484f0e-b93b-4c13-8b6f-60da99f85857",
+        "172d4b78-a7f0-4510-b74a-07a09e1aed84": "3aa8dda3-36e9-4ea1-88d7-791a77ef76ba",
+        "dda31a64-6e25-4a53-b6c9-7daa84d6b20e": "e2070123-2e55-499a-a15f-96ae3bc5fc19",
+        "cc7d1b43-9040-407c-a67b-33d9f580c663": "24312dd1-87af-4859-8d15-d1da70044b12",
+        "71b109a1-c8b0-489d-a182-f1b7967ed38c": "40059605-0269-42a4-b86b-c8bb4a649014",
+        "f1d627a5-b56c-44da-8de3-be7eb10c3836": "7c7c74e8-c536-4948-99ee-7fd9da2e5661",
+        "e774a10d-6e14-4d3d-a9a2-59a457d5e70a": "6d2b1b6e-89da-4840-a9cc-a747c6a39da3",
+        "a57483a2-781b-4ede-b4fd-5131df48da5e": "ef17eaaa-c39a-4275-9180-eb3ceb4adaa5",
+        "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4": "511870a6-3fb4-4172-a8ae-d49a9840d63e",
+        "35a82ac1-decf-4fd7-99ec-3317fca9a176": "881e4ac0-dfdb-4572-a7fd-2d503f21e758",
+        "3c269391-9a4f-448a-81cd-80b1a4bdde8e": "878587fc-10c2-41d6-be5c-0cc72c3c5764",
+        "c136b065-d8fa-4670-a083-065636caaaa1": "f2e02966-eeb4-491c-b062-f9b9c8157470"
       }
     }
   ],

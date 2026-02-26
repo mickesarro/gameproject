@@ -1,0 +1,42 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace Shooter.UI
+
+@if (DamageInfo == null) return;
+
+<root>
+    <div class="banner">
+        <h1 id="header">Killed By</h1>
+        <div class="infobox" >
+            <h2 id="name">@GetDisplayName(DamageInfo?.Attacker)</h2>
+
+            @*<div class="info">
+                <div>
+                    <span class="label">Damage</span>
+                    <span id="damage">@DamageInfo</span>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public DamageInfo DamageInfo { get; set; }
+    //if (damageInfo == null) return;
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( DamageInfo );
+
+    private string GetDisplayName(GameObject gameObject)
+    {
+        if (gameObject == null) return null;
+
+        return gameObject.Tags.Has("npc")
+        ? "Bot"
+        : (gameObject.Network?.Owner?.DisplayName ?? "Unknown");
+
+    }
+}

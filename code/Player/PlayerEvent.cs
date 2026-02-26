@@ -9,7 +9,7 @@ public interface IPlayerEvent : ISceneEvent<IPlayerEvent>
 {
 	void OnTakeDamage( float damage ) { }
 	
-	void OnDied() { }
+	void OnDied( DamageInfo damageInfo ) { }
 	void OnSpawn( GameObject self ) { }
 	void OnWeaponAdded( IWeapon weapon ) { }
 	void OnItemAdded( ICollectable item ) { }

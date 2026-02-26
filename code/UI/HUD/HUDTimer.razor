@@ -1,36 +1,40 @@
 @using Sandbox;
 @using Sandbox.UI;
-@using Shooter.Match;
-@using Shooter.UISystem;
-@inherits UILayer;
+@inherits Panel;
 @namespace Shooter.UI
+
+@if (!Countdownable.IsActive) return;
 
 <root>
     <div class="hud-timer">
-        @time
+        <span>@Countdownable.GetTime()</span>
+
+        @if (Countdownable.Skippable)
+        {
+            bool disabled = Countdownable.SkipTimeLeft() > 0;
+            var bgColour = disabled ? "#0000007F" : HudColour;
+
+            string skipButton = Input.GetButtonOrigin("Skip");
+
+            <div class="bar" style="background-color: @bgColour;">
+                <span class="skip_button" >Skip [@skipButton]</span>
+                @if (disabled)
+                {
+                    <span class="skip_button">@Countdownable.SkipTimeLeft()</span>
+                }
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
-    public override bool IsOverlay => true;
+    [Property] public string HudColour { get; set; } = "#FFFFFF";
 
-    private int time => matchState != null ? matchState.StartTimer : 0;
-    private MatchState matchState = null;
+    [Property] public ICountdownable Countdownable { get; set; }
 
-    public override void Show(object data)
-    {
-        base.Show(data);
+    //private int time => matchState != null ? matchState.StartTimer : 0;
 
-        if (data is MatchState)
-        {
-            matchState = data as MatchState;
-        }
-
-        GameObject.Enabled = true;
-        StateHasChanged();
-    }
-
-    protected override int BuildHash() => System.HashCode.Combine(time);
+    protected override int BuildHash() => System.HashCode.Combine( Countdownable.GetTime(), Countdownable.IsActive );
 
 }

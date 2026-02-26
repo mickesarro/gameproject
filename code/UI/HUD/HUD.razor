@@ -2,17 +2,31 @@
 @using Sandbox.UI;
 @inherits UISystem.UILayer
 @implements IPlayerEvent
+@implements IMatchEvents
 @namespace Shooter.UI
 
 @if (!ShouldDisplay) return;
 
 <root>
-    <HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" />
+    <KillFeed @ref="killFeed" />
 
-    <AmmoCounter PlayerInventory="@PlayerInventory" HudColour="@HudColour" />
+    @if ( countdownable != null && countdownable.IsActive )
+    {
+        <HUDTimer HudColour="@HudColour" Countdownable="@countdownable" />
+    }
+
+    @if ( PlayerAlive ) {
+        <HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" />
+
+        <AmmoCounter PlayerInventory="@PlayerInventory" HudColour="@HudColour" />
     
-    <WeaponBar PlayerInventory="@PlayerInventory" HudColour="@HudColour" @ref="weaponBar" />
-
+        <WeaponBar PlayerInventory="@PlayerInventory" HudColour="@HudColour" @ref="weaponBar" />
+    }
+    else
+    {
+        <DeathScreen DamageInfo="@lastDamageInfo" />
+    }
+    
 </root>
 
 @code
@@ -22,25 +36,48 @@
     private PlayerInventory PlayerInventory = null;
 
     WeaponBar weaponBar { get; set; }
+    private KillFeed killFeed;
+    private DamageInfo lastDamageInfo;
+
+    private ICountdownable countdownable = null;
 
     private CharacterHealth CharacterHealth = null;
 
-    private bool ShouldDisplay = false;
+    private bool ShouldDisplay = false; // Whole HUD
+    private bool PlayerAlive = true; // Player dead
 
     void IPlayerEvent.OnSpawn( GameObject player )
     {
         SetPlayerProperties( player );
     }
 
-    void IPlayerEvent.OnDied()
+    void IPlayerEvent.OnDied(DamageInfo damageInfo)
     {
-        ShouldDisplay = false;
+        lastDamageInfo = damageInfo;
+        PlayerAlive = false;
     }
 
     //void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
     //void IPlayerEvent.OnWeaponAdded(IWeapon weapon) => weaponBar.StateHasChanged();
 
-    protected override int BuildHash() => System.HashCode.Combine( ShouldDisplay );
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( ShouldDisplay, PlayerAlive );
+
+    void IMatchEvents.BroadcastOnKill(PlayerStats killed, DamageInfo damageInfo)
+        => killFeed.BroadcastOnKill(killed, damageInfo);
+
+    void IMatchEvents.OnGameEnd()
+    {
+        ShouldDisplay = false;
+    }
+
+    void IMatchEvents.OnCountdownStart(ICountdownable countdownable)
+    {
+        this.countdownable = countdownable;
+        StateHasChanged();
+    }
 
     public override void Show()
     {
@@ -72,6 +109,7 @@
     {
         if ( player == null || player.IsProxy ) return;
         ShouldDisplay = true;
+        PlayerAlive = true;
 
         CharacterHealth = player.GetComponent<CharacterHealth>();
         PlayerInventory = player.GetComponent<PlayerInventory>();

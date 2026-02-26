@@ -141,7 +141,7 @@ public class UIManager : SingletonBase<UIManager>
         }
         else
         {
-            ResetToStartLayer();
+            ShowLastLayer();
         }
     }
 
@@ -154,6 +154,10 @@ public class UIManager : SingletonBase<UIManager>
         if ( layerHistory.Count > 0 )
         {
             ShowLayer( layerHistory.Pop(), false );
+        }
+        else
+        {
+            ResetToStartLayer();
         }
     }
 

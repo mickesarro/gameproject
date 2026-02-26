@@ -1,12 +1,10 @@
-using Sandbox;
-
 namespace Shooter.Camera;
 
 /// <summary>
 /// Represents the death camera after dying.
 /// Player can orbit the ragdoll with this component.
 /// </summary>
-public sealed class OrbitCamera : BoundedCamera
+public sealed class OrbitCamera : BoundedCamera, ICountdownable
 {
     // How far to orbit from
     [Property] public float Radius { get; set; } = 50.0f;
@@ -15,19 +13,27 @@ public sealed class OrbitCamera : BoundedCamera
     private TimeSince TimeSince;
 
     // Defines how long the camera remains
-    [Property] public float Lifetime { get; private set; } = 10.0f;
-    [Property] private float MinWaitTime = 1.0f;
+    [Property] public int Lifetime { get; private set; } = 10;
+
+    private bool countdownActive = false;
+    public bool IsActive => countdownActive;
+    public int GetTime() => Lifetime - TimeSince.Relative.CeilToInt();
+    bool ICountdownable.Skippable => true;
+    int ICountdownable.SkipTimeLeft() => MinWaitTime - TimeSince.Relative.CeilToInt();
+
+    [Property] private int MinWaitTime = 3;
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
 
         TimeSince = 0.0f;
-        skipPressed = 0.0f;
         vecRadius = new Vector3( Radius );
+
+        countdownActive = true;
+        IMatchEvents.Post( e => e.OnCountdownStart( this ) );
     }
 
-    private TimeSince skipPressed;
     protected override void OnUpdate()
     {
         base.OnUpdate();
@@ -37,15 +43,10 @@ public sealed class OrbitCamera : BoundedCamera
             Respawn();
         }
 
-        if ( Input.Down("Skip") )
+        if ( Input.Down("Skip") && TimeSince > MinWaitTime )
         {
-            if ( skipPressed > MinWaitTime ) {
-                Respawn();
-            }
-            return;
+            Respawn();
         }
-        
-        skipPressed = 0.0f;  
     }
 
     protected override void OnDisabled()
@@ -73,6 +74,13 @@ public sealed class OrbitCamera : BoundedCamera
     protected override void Rotate()
     {
         camera.WorldRotation = Rotation.LookAt( position - camera.WorldPosition );
+    }
+
+    public override void Disable()
+    {
+        base.Disable();
+
+        countdownActive = false;
     }
 
     private void Respawn()
