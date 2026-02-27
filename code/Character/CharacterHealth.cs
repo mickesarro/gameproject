@@ -121,9 +121,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         //gc.Radius = 50.0f;
     }
 
-    private Vector3 ExplosionExtraVelocity( DamageInfo damageInfo )
+    private static Vector3 ExplosionExtraVelocity( DamageInfo damageInfo )
     {
-        Log.Info( damageInfo.Origin );
         return damageInfo.Position - damageInfo.Origin;
     }
     

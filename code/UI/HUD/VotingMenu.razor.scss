@@ -1,0 +1,81 @@
+VotingMenu {
+	left: 10%;
+	top: 10%;
+	width: 80%;
+	position: absolute;
+	//margin: auto;
+	height: 80%;
+	font-size: 30px;
+
+	.flex-col {
+		flex-direction: column;
+	}
+
+	.map-vote-container {
+		height: 100%;
+		width: 100%;
+		margin: 40px auto;
+		padding: 20px;
+		font-family: Roboto;
+		background-color: #1e1e2f;
+		border-radius: 10px;
+		color: white;
+		align-items: center;
+	}
+
+		.map-vote-container h1 {
+			text-align: center;
+			font-size: 50px;
+		}
+
+	.map-list {
+		gap: 15px;
+	}
+
+	.map-card {
+		cursor: pointer;
+	}
+
+		.map-card input {
+			display: none;
+		}
+
+	.map-content {
+		padding: 15px;
+		background-color: #2a2a40;
+		border-radius: 8px;
+		border: 2px solid transparent;
+		//transition: 0.2s ease;
+
+		.selected {
+			border-color: #4cafef;
+			background-color: #38386b;
+		}
+	}
+
+	.map-card:hover .map-content {
+		background-color: #34345a;
+	}
+
+	.map-card input + .map-content {
+		border-color: #4cafef;
+		background-color: #38386b;
+	}
+
+	.vote-button {
+		width: 100%;
+		margin-top: 20px;
+		padding: 12px;
+		border: none;
+		border-radius: 8px;
+		background-color: #4cafef;
+		color: white;
+		font-size: 16px;
+		cursor: pointer;
+		//transition: 0.2s ease;
+	}
+
+		.vote-button:hover {
+			background-color: #379edb;
+		}
+}

@@ -1,0 +1,82 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Shooter.UISystem;
+@using Shooter.Match;
+@inherits UILayer
+@namespace Shooter.UI
+
+<root>
+    <div class="map-vote-container flex-col">
+        <h1>Vote for the Next Map</h1>
+
+        <div class="map-list flex-col">
+            @foreach ( var option in VotingSystem.Instance.Options )
+            {
+                <div class="map-card">
+                    <div class="map-content flex-col">
+                        <h3>@option.Title</h3>
+                        <p>Classic competitive map</p>
+                    </div>
+                    <UIButton
+                        class=""
+                        T="string"
+                        DisplayValue="Select"
+                        ButtonCallback="@( () => {Selected = option.Index;} )"                />
+                </div>
+            }
+
+        </div>
+
+        <div>
+            <UIButton class="" T="string" DisplayValue="Stay" ButtonCallback="@( () => Vote( 0 ) )" />
+            <UIButton class="" T="string" DisplayValue="Vote" ButtonCallback="@( () => Vote( Selected ) )" />
+            <UIButton class="" T="string" DisplayValue="Return" ButtonCallback="@ReturnToMainMenu" />
+        </div>
+    </div>
+</root>
+
+@code
+{
+    //public override bool IsOverlay => true;
+
+    private int Selected = 0;
+
+    public override void Show()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameObject.Enabled = false;
+    }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+        UIManager.Instance.ShowLayer(this);
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(VotingSystem.Instance?.Options.Count);
+
+    private void Vote( int index )
+    {
+        VotingSystem.Instance.Vote(index);
+    }
+
+    private void ReturnToMainMenu()
+    {
+        Log.Info("Main menu");
+
+        Networking.Disconnect();
+
+        // Once again, make a scene manager
+        // Save stats etc. cleanup
+        var slo = new SceneLoadOptions { };
+        slo.SetScene("/scenes/mainMenu.scene");
+        //matchManager.Scene.Clear();
+        Scene.Load(slo);
+    }
+}

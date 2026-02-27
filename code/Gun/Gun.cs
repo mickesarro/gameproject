@@ -310,8 +310,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
     [Rpc.Broadcast( NetFlags.OwnerOnly | NetFlags.Unreliable | NetFlags.DiscardOnDelay )]
 	private void SpawnTracer( Vector3 target )
 	{
-		// For future reference:
-		// If needed, consider object pooling the tracers.
+        // For future reference:
+        // If needed, consider object pooling the tracers.
+
+        if ( !IsPlayer ) return;
 
 		if ( FireData.BulletData.Tracer == null ) return;
 

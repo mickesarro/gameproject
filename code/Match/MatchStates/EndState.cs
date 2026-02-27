@@ -7,6 +7,8 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     : MatchBaseState( matchManager, stateMachine )
 {
 
+    TransitionWindow transitionWindow;
+
     public override void OnEnter()
     {
         matchManager.MatchIsRunning = false;
@@ -20,7 +22,7 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
         // Show the win/lose screen
         var HUD = matchManager.Scene.Get<HUD>();
-        var transitionWindow = HUD.AddComponent<TransitionWindow>( startEnabled: true );
+        transitionWindow = HUD.AddComponent<TransitionWindow>( startEnabled: true );
 
         UIManager.Instance.ShowLayer( transitionWindow, addToHistory: false );
 
@@ -28,6 +30,7 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
     public override void OnExit( IState nextState )
     {
+        return;
         // Implement scene manager
         Log.Info( "Main menu" );
 
@@ -50,14 +53,14 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     {
         if ( EndTimer > statsUITime )
         {
-            UIManager.Instance.ResetToStartLayer();
+            transitionWindow.Hide();
             UIManager.Instance.ShowLayer<StatsUI>();
             statsUITime = EndTimeLimit * 2; // Makes this if block run only once
         }
 
         if ( EndTimer < EndTimeLimit ) return;
 
-        OnExit( null );
+        stateMachine.ChangeState<VotingState>();
     }
 }
 

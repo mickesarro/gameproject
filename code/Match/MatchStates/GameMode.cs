@@ -32,6 +32,8 @@ public abstract class GameMode : Component, ISceneMetadata
 
     public virtual string Objective { get; } = "Score points"; // Simple for now
 
+    public virtual List<MapInstance> AvailableMaps { get; } = new();
+
     public virtual int StartCountdown { get; } = 5;
 
     public abstract CameraType Camera { get; }

@@ -9,7 +9,7 @@ namespace Shooter;
 /// </summary>
 public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetworkListener, IMatchEvents
 {
-    [Sync( SyncFlags.FromHost )] public NetList<Connection> Players { get; private set; } = new();
+    [Sync( SyncFlags.FromHost )] public NetList<Guid> Players { get; private set; } = new();
     // private int initializedCount = 1;
     [Sync] public int CurrentPlayers { get; private set; } = 0;
 
@@ -72,7 +72,8 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         IState[] statelist = {
             new StartState(this, stateMachine),
             new MatchState(this, stateMachine),
-            new EndState(this, stateMachine)
+            new EndState(this, stateMachine),
+            new VotingState(this, stateMachine)
         };
 
         foreach (var state in statelist )
@@ -113,7 +114,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         PlayerCountChanged( false, channel.Id );
 
 
-        Players.Remove( channel );
+        Players.Remove( channel.Id );
         CurrentPlayers--;
 
         TryPopulate();
@@ -121,7 +122,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     private void AddPlayer( Connection channel )
     {
-        Players.Add( channel );
+        Players.Add( channel.Id );
         CurrentPlayers++;
         
         if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
