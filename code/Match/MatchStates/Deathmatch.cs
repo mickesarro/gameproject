@@ -30,4 +30,13 @@ public sealed class Deathmatch : GameMode
             Log.Info( "Game ended by score!" );
         }
     }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+        
+        AvailableMaps.Add(
+            Scene.Get<MapInstance>()
+        );
+    }
 }

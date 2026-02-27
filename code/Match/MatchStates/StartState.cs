@@ -49,7 +49,7 @@ public sealed class StartState( MatchManager matchManager, StateMachine stateMac
             stateMachine.ChangeState<MatchState>();
         }
 
-        foreach ( var con in matchManager.Players )
+        foreach ( var con in Connection.All )
         {
             if ( !con.IsActive ) return;
         }

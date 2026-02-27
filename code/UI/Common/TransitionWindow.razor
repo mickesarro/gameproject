@@ -27,13 +27,13 @@
     {
         base.Show();
 
-        var player = Game.ActiveScene.GetComponentsInChildren<ICharacterBase>( includeDisabled: true )
-            .FirstOrDefault(
-                character =>
-                    character.IsPlayer && character.CharacterStats.Network.IsOwner
-            );
+        //var player = Game.ActiveScene.GetComponentsInChildren<ICharacterBase>( includeDisabled: true )
+        //    .FirstOrDefault(
+        //        character =>
+        //            character.IsPlayer && character.CharacterStats.Network.IsOwner
+        //    );
 
-        winner = GetNonTeamWinStatus( player );
+        winner = GetNonTeamWinStatus( Shooter.PlayerController.Local );
 
         StateHasChanged();
     }
