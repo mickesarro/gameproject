@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "__guid": "153ef526-e5f6-4663-a4a2-bde6012145b8",
-    "__version": 1,
+    "__version": 2,
     "Flags": 0,
     "Name": "projectile",
     "Position": "0,0,0",
@@ -10,14 +10,16 @@
     "Tags": "",
     "Enabled": true,
     "NetworkMode": 1,
-    "NetworkInterpolation": true,
+    "NetworkFlags": 0,
     "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
     "OwnerTransfer": 1,
     "Components": [
       {
         "__type": "Sandbox.ModelRenderer",
         "__guid": "489838ba-5997-43a8-8ed2-a4ed64910a53",
         "__enabled": true,
+        "Flags": 0,
         "BodyGroups": 18446744073709551615,
         "CreateAttachments": false,
         "LodOverride": null,
@@ -41,9 +43,11 @@
         "Tint": "1,1,1,1"
       },
       {
-        "__type": "Projectile",
+        "__type": "Shooter.Projectile",
         "__guid": "2ff0da2c-aba8-41a6-935a-5e5f5dad3d32",
         "__enabled": true,
+        "Flags": 0,
+        "Attacker": null,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -56,8 +60,10 @@
         "__type": "Sandbox.CapsuleCollider",
         "__guid": "400cef6c-af29-48e1-b767-16ea17704ddc",
         "__enabled": true,
+        "Flags": 0,
+        "ColliderFlags": 0,
         "Elasticity": null,
-        "End": "10,0,0",
+        "End": "19.92014,0,0",
         "Friction": null,
         "IsTrigger": true,
         "OnComponentDestroy": null,
@@ -72,7 +78,7 @@
         "OnTriggerExit": null,
         "Radius": 3.8229465,
         "RollingResistance": null,
-        "Start": "0,0,0",
+        "Start": "-8.289994,0,0",
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
@@ -81,6 +87,7 @@
         "__type": "Sandbox.Helpers.SetSteamId",
         "__guid": "4fff217c-8544-4b40-b392-2a8f7fba998b",
         "__enabled": true,
+        "Flags": 0,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -92,7 +99,7 @@
     "Children": [
       {
         "__guid": "494d9231-f199-4061-821a-3d8412e2af7f",
-        "__version": 1,
+        "__version": 2,
         "Flags": 0,
         "Name": "trail",
         "Position": "0,0,0",
@@ -101,14 +108,16 @@
         "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
-        "NetworkInterpolation": true,
+        "NetworkFlags": 0,
         "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
         "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "Sandbox.TrailRenderer",
             "__guid": "d07844eb-3704-4e18-a991-3f867f8bc1d0",
             "__enabled": true,
+            "Flags": 0,
             "BlendMode": "Lighten",
             "CastShadows": false,
             "Color": {
@@ -147,6 +156,8 @@
               "Scale": 1,
               "Offset": 0,
               "Scroll": 0,
+              "FilterMode": "Anisotropic",
+              "TextureAddressMode": "Wrap",
               "Clamp": false
             },
             "Width": [
@@ -173,7 +184,7 @@
         "Enabled": false,
         "IncludeStaticBodies": true,
         "IncludeKeyframedBodies": true,
-        "EditorAutoUpdate": true,
+        "EditorAutoUpdate": false,
         "AgentHeight": 64,
         "AgentRadius": 16,
         "AgentStepSize": 18,
