@@ -18,5 +18,6 @@ public interface IWeapon
 	public GameObject User { get; set; }
 	public void Attack();
     public float CooldownFraction { get; }
+    public float ChargeFraction { get; }
     public Texture Icon { get; }
 }

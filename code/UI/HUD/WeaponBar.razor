@@ -31,11 +31,21 @@
                         }
                     </div>
 
-                    @if (weapon != null && weapon.CooldownFraction < 1.0f)
+                    @if (weapon != null)
                     {
-                        <div class="cooldown-overlay">
-                            <div class="bar" style="width: @(weapon.CooldownFraction * 100)%; background-color: @HudColour;"></div>
-                        </div>
+                        var isCharging = weapon.ChargeFraction > 0f;
+                        var isOnCooldown = weapon.CooldownFraction < 1.0f;
+
+                        if (isCharging || isOnCooldown)
+                        {
+                            var displayFraction = isCharging ? weapon.ChargeFraction : weapon.CooldownFraction;
+                            
+                            var barColor = isCharging ? "#00FFFF" : HudColour;
+
+                            <div class="cooldown-overlay">
+                                <div class="bar" style="width: @(displayFraction * 100)%; background-color: @barColor;"></div>
+                            </div>
+                        }
                     }
                 </div>
             }
@@ -52,18 +62,14 @@
     protected override int BuildHash()
     {
         var hash = new System.HashCode();
-        hash.Add(PlayerInventory?.CurrentItem);
+        hash.Add( PlayerInventory?.CurrentItem );
 
-        if (PlayerInventory?.Items != null)
+        if ( PlayerInventory?.CurrentItem is IWeapon weapon )
         {
-            foreach (var item in PlayerInventory.Items)
-            {
-                if (item is IWeapon weapon)
-                {
-                    hash.Add(weapon.CooldownFraction);
-                }
-            }
+            hash.Add( weapon.CooldownFraction );
+            hash.Add( weapon.ChargeFraction );
         }
+
         return hash.ToHashCode();
     }
 }

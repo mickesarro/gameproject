@@ -43,6 +43,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
     private TimeSince timeSinceLastAttack;
 
     public float CooldownFraction => timeSinceLastAttack > 0 ? Math.Clamp(timeSinceLastAttack / meleeData.Cooldown, 0, 1) : 1f;
+    public float ChargeFraction => 0; // Not needed but gives error otherwise
     
     private void HandleProxyAnimations()
     {

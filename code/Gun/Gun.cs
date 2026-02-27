@@ -103,7 +103,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private bool isCharging = false;
 
 	public float CooldownFraction => shootInterval > 0 ? Math.Clamp(timeSinceLastShot / shootInterval, 0, 1) : 1f;
-	public float ChargeFraction => FireData.ChargeDuration > 0 ? Math.Clamp(currentCharge / FireData.ChargeDuration, 0, 1) : 0;
+	public float ChargeFraction => FireData.ChargeDuration > 0 ? Math.Clamp(currentCharge / FireData.ChargeDuration, 0, 1) : 0f;
+
+	private SoundHandle chargeSoundHandle;
 
 	protected override void OnUpdate()
 	{
@@ -121,18 +123,48 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
 		if ( isTryingToFire && CanShoot() )
 		{
-			if ( FireData.ChargeDuration > 0 )
-			{
-				UpdateCharge();
-			}
-			else
+			currentCharge = Math.Min(currentCharge + Time.Delta, FireData.ChargeDuration);
+			isCharging = true;
+
+			if ( currentCharge >= FireData.ChargeDuration )
 			{
 				Attack();
+				currentCharge = 0; 
 			}
 		}
 		else
 		{
-			ResetCharge();
+			currentCharge = Math.Max(currentCharge - (Time.Delta * 1f), 0);
+			isCharging = currentCharge > 0;
+		}
+
+		HandleChargeSound();
+	}
+
+	private void HandleChargeSound()
+	{
+		if ( FireData.ChargeUpSound == null ) return;
+
+		bool isPlaying = chargeSoundHandle != null && chargeSoundHandle.IsPlaying;
+
+		if ( currentCharge > 0.05f && !isPlaying )
+		{
+			chargeSoundHandle = Sound.Play( FireData.ChargeUpSound, WorldPosition );
+		}
+		else if ( currentCharge <= 0.05f && isPlaying )
+		{
+			chargeSoundHandle.Stop( 0.2f );
+			chargeSoundHandle = null;
+		}
+
+		if ( chargeSoundHandle != null && chargeSoundHandle.IsPlaying )
+		{
+			chargeSoundHandle.Position = WorldPosition;
+
+			float pitch = 0.5f + (ChargeFraction * 1.5f);
+			chargeSoundHandle.Pitch = pitch;
+			
+			chargeSoundHandle.Volume = 0.4f + (ChargeFraction * 0.6f);
 		}
 	}
 
