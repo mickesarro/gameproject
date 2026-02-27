@@ -30,5 +30,6 @@ public sealed class FireData : Component
 	[Property, Group( "Magazine" )] public int AmmoLeft { get; set; } = 10;
 	[Property, Group( "Magazine" )] public bool HasInfiniteAmmo { get; set; } = false;
 	[Property, Group( "Magazine" )] public float LoadTime { get; private set; } = 1.0f;
+	[Property, Group("Fire")] public float ChargeDuration { get; set; } = 0f; // 0 for normal weapons, !0 for Railgun
 
 }

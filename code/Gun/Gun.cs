@@ -98,33 +98,60 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private float shootInterval = 0.0f; 
 	private TimeSince timeSinceLastShot = 0;
 
+	// For Railgun
+	private float currentCharge = 0f;
+	private bool isCharging = false;
+
 	public float CooldownFraction => shootInterval > 0 ? Math.Clamp(timeSinceLastShot / shootInterval, 0, 1) : 1f;
+	public float ChargeFraction => FireData.ChargeDuration > 0 ? Math.Clamp(currentCharge / FireData.ChargeDuration, 0, 1) : 0;
 
 	protected override void OnUpdate()
 	{
 		if ( IsProxy || !IsPlayer ) return;
 
-        if ( Input.Down( "reload" ) ) {
-            TryReload( loadAdditive: true );
-            return;
-        }
-
-		bool input = false;
-		switch (FireData.FireType)
+		if ( Input.Down( "reload" ) ) 
 		{
-			case FireType.FullAuto:
-				input = Input.Down( "attack1" );
-				break;
-			case FireType.SemiAuto:
-				input = Input.Pressed( "attack1" );
-				break;
+			TryReload( loadAdditive: true );
+			return;
 		}
 
-		// Should be implemented with some form of events perhaps
-		if ( input && CanShoot() )
+		bool isTryingToFire = FireData.ChargeDuration > 0 || FireData.FireType == FireType.FullAuto 
+			? Input.Down( "attack1" ) 
+			: Input.Pressed( "attack1" );
+
+		if ( isTryingToFire && CanShoot() )
+		{
+			if ( FireData.ChargeDuration > 0 )
+			{
+				UpdateCharge();
+			}
+			else
+			{
+				Attack();
+			}
+		}
+		else
+		{
+			ResetCharge();
+		}
+	}
+
+	private void UpdateCharge()
+	{
+		isCharging = true;
+		currentCharge += Time.Delta;
+		
+		if ( currentCharge >= FireData.ChargeDuration )
 		{
 			Attack();
+			ResetCharge();
 		}
+	}
+
+	private void ResetCharge()
+	{
+		isCharging = false;
+		currentCharge = 0;
 	}
 
 	/// <summary>

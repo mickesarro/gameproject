@@ -83,6 +83,7 @@
           "component_type": "BulletData"
         },
         "BulletType": "Bullet",
+        "ChargeDuration": 1,
         "FireType": "SemiAuto",
         "FiringSound": "GunshotRailgun",
         "HasInfiniteAmmo": false,
