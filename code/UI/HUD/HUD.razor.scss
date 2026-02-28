@@ -1,8 +1,10 @@
+@import "/UI/Styles/Theme.scss";
+
 HUD
 {
     font-weight: bold;
-    text-stroke: 8px black;
-    font-family: poppins;
+    text-stroke: $main-text-stroke;
+    font-family: $main-font;
 }
 
 .HP-counter {
@@ -10,7 +12,7 @@ HUD
     bottom: 20px;
     right: 20px;
     font-size: 24px;
-    color: white;
+    color: $main-text-color;
     background-color: rgba(227, 0, 0, 0.5);
     padding: 6px 12px;
     border-radius: 6px;
@@ -22,7 +24,7 @@ HUD
     bottom: 20px;
     right: 210px;
     font-size: 24px;
-    color: white;
+    color: $main-text-color;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 6px 12px;
     border-radius: 6px;

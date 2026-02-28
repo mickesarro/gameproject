@@ -1,3 +1,5 @@
+@import "/UI/Styles/Theme.scss";
+
 NameTag
 {
 	position: absolute;
@@ -13,8 +15,8 @@ NameTag
 	.title
 	{
 		font-size: 50px;
-		font-family: Poppins;
-		color: #ffffff;
+		font-family: $main-font;
+		color: $main-text-color;
 		text-stroke: 2px black;
 	}
 	//.title1

@@ -33,13 +33,13 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total]; // Plus 1 for empty
 	public IEnumerable<ICollectable> Items => weapons;
 
-    [Property] private AmmoInventory ammoInventory { get; set; }
+    [Property] public AmmoInventory AmmoInventory { get; private set; }
 
     protected override void OnStart()
     {
         base.OnStart();
 
-        ammoInventory ??= GetComponent<AmmoInventory>();
+        AmmoInventory ??= GetComponent<AmmoInventory>();
     }
 
 	/// <summary>
@@ -63,7 +63,7 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
             if ( weapon.WeaponType != WeaponType.Melee )
             {
                 var firedata = weapon.GunData.PrimaryFireData;
-                ammoInventory.AddAmmo( firedata.AmmoType, firedata.AmmoLeft );
+                AmmoInventory.AddAmmo( firedata.AmmoType, firedata.AmmoLeft );
                 firedata.AmmoLeft = 0;
             }
             DropWeapon( item );

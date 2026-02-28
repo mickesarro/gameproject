@@ -12,7 +12,7 @@ public sealed class AmmoInventory : Component
 	[Property] private int MaxAmount { get; set; } = 999; // Currently just for all types
 
 	// For detecting client side misuse or for future server authoring
-	[Sync] public NetDictionary<AmmoType, int> Ammunition { get; private set; } = new();
+	[Sync] private NetDictionary<AmmoType, int> Ammunition { get; set; } = new();
 
 	private void SetAmmo( AmmoType type, int amount )
 	{
@@ -66,4 +66,9 @@ public sealed class AmmoInventory : Component
 	{
 		return AmmoCount( type ) > 0;
 	}
+
+    public int GetAmmo( AmmoType type  )
+    {
+        return Ammunition.GetValueOrDefault( type, 0 );
+    }
 }

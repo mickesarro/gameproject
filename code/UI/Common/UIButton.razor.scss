@@ -1,9 +1,11 @@
+@import "/UI/Styles/Theme.scss";
+
 .uibutton {
     padding: 8px 16px;
     font-size: 1.5rem;
     font-weight: bold;
     background-color: #444;
-    color: white;
+    color: $main-text-color;
     border: none;
     border-radius: 4px;
     cursor: pointer;

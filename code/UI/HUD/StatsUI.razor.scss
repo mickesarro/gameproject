@@ -1,8 +1,10 @@
+@import "/UI/Styles/Theme.scss";
+
 StatsUI {
     z-index: 999;
     width: 100%;
     height: 100%;
-    font-family: Poppins;
+    font-family: $main-font;
 
     .stats_menu {
         position: relative;
@@ -11,9 +13,8 @@ StatsUI {
         margin: 10%;
         padding: 20px;
         background-color: rgba(0,0,0,0.85);
-        color: white;
+        color: $main-text-color;
         border-radius: 8px;
-        display: flex;
         flex-direction: column;
         align-items: center;
 
@@ -24,11 +25,9 @@ StatsUI {
 
         .stats_table {
             width: 100%;
-            display: flex;
             flex-direction: column;
 
             .stats_header, .stats_row {
-                display: flex;
                 justify-content: space-between;
                 padding: 4px 0;
             }

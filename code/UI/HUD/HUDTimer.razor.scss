@@ -1,7 +1,9 @@
+@import "/UI/Styles/Theme.scss";
+
 HUDTimer {
 	font-weight: bold;
-	text-stroke: 8px black;
-	font-family: poppins;
+	text-stroke: $main-text-stroke;
+	font-family: $main-font;
 
 	.hud-timer {
 		position: absolute;
@@ -12,7 +14,7 @@ HUDTimer {
 		transform: translateX(-50%);
 		font-size: 200px;
 		font-weight: bold;
-		color: white;
+		color: $main-text-color;
 		//background-color: rgba(0, 0, 0, 0.5);
 		padding: 12px 24px;
 		border-radius: 8px;

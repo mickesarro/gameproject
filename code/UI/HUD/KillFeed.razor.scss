@@ -1,3 +1,5 @@
+@import "/UI/Styles/Theme.scss";
+
 KillFeed {
 	z-index: 100;
 	position: absolute;
@@ -17,14 +19,14 @@ KillFeed {
 			display: flex;
 			flex-direction: row;
 			gap: 0.4em;
-			font-family: Roboto;
+			font-family: $secondary-font;
 			font-weight: 500;
 			font-size: 30px;
 			color: white;
 			margin: 5px 0px;
 			text-align: left;
 
-			background-color: rgba(0, 0, 0, 0.5);
+			background-color: $main-bg-color;
             padding: 4px 12px;
             border-radius: 6px;
             white-space: nowrap;

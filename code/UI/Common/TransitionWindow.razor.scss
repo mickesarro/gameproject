@@ -1,10 +1,12 @@
+@import "/UI/Styles/Theme.scss";
+
 TransitionWindow {
     z-index: 999;
-    font-family: Poppins;
-    text-stroke: 8px black;
+    font-family: $main-font;
+    text-stroke: $main-text-stroke;
     width: 100%;
     height: 100%;
-    color: white;
+    color: $main-text-color;
 
     .background {
         position: absolute;

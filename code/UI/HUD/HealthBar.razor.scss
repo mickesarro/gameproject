@@ -1,3 +1,5 @@
+@import "/UI/Styles/Theme.scss";
+
 HealthBar {
     position: absolute;
     bottom: 60px;
@@ -11,7 +13,7 @@ HealthBar {
         width: 100%;
 
         // The unified background
-        background-color: rgba(0, 0, 0, 0.6); // Black translucent
+        background-color: $main-bg-color;
         padding: 15px 25px 15px 25px;
         border-radius: 2px;
         
@@ -22,7 +24,7 @@ HealthBar {
         border-left: 4px solid rgba(255, 255, 255, 0.1);
 
         .health-text {
-            font-family: 'Poppins';
+            font-family: $main-font;
             font-size: 36px;
             font-weight: 900;
             text-align: left;
