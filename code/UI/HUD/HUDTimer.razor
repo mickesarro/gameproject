@@ -11,7 +11,7 @@
 
         @if (Countdownable.Skippable)
         {
-            bool disabled = Countdownable.SkipTimeLeft() > 0;
+            bool disabled = Countdownable.SkipTimeLeft() >= 0;
             var bgColour = disabled ? "#0000007F" : HudColour;
 
             string skipButton = Input.GetButtonOrigin("Skip");
@@ -20,7 +20,7 @@
                 <span class="skip_button" >Skip [@skipButton]</span>
                 @if (disabled)
                 {
-                    <span class="skip_button">@Countdownable.SkipTimeLeft()</span>
+                    <span class="skip_button">@(Countdownable.SkipTimeLeft() +1 )</span>
                 }
             </div>
         }
