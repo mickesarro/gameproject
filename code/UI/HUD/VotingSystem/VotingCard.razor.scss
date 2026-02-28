@@ -1,0 +1,41 @@
+@import "/UI/Styles/Theme.scss";
+
+VotingCard {
+	width: 100%;
+
+	.voting-button {
+		cursor: pointer;
+		pointer-events: all;
+
+		&:hover {
+			background-color: $main-bg-color;
+		}
+	}
+
+	.selected {
+		//border-color: #4cafef;
+		border: 1px solid orange;
+		box-shadow: 4px 4px 8px black;
+	}
+
+	.unselected {
+		//background-color: $main-bg-color;
+	}
+
+	.map-vote-container h1 {
+		text-align: center;
+		font-size: 50px;
+	}
+
+	.map-card {
+		background-color: $main-bg-color;
+		cursor: pointer;
+		align-items: center;
+		border-radius: 8px;
+
+		.map-content {
+			padding: 15px;
+			//transition: 0.2s ease;
+		}
+	}
+}

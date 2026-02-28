@@ -1,0 +1,45 @@
+@import "/UI/Styles/Theme.scss";
+
+VotingMenu {
+	left: 10%;
+	top: 10%;
+	width: 80%;
+	position: absolute;
+	//margin: auto;
+	height: 80%;
+	font-size: 30px;
+
+	.flex-col {
+		flex-direction: column;
+	}
+
+	.map-vote-container {
+		height: 100%;
+		width: 100%;
+		margin: 40px auto;
+		padding: 20px;
+		font-family: $secondary-font;
+		background-color: $main-bg-color;
+		border-radius: 10px;
+		color: $main-text-color;
+		align-items: center;
+
+		.bottom {
+			margin-top: auto;
+		}
+
+		.map-list {
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 80%;
+			justify-content: center;
+			margin-top: 20px;
+			gap: 15px;
+
+			> * {
+				width: 40%;
+				padding: 0% 5%;
+			}
+		}
+	}
+}

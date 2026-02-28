@@ -2,23 +2,32 @@ using System;
 
 namespace Shooter.Match;
 
+// See BuildOptions()
+
 public sealed class VotingSystem : SingletonBase<VotingSystem>
 {
     [Sync( SyncFlags.FromHost )] public NetList<Option> Options { get; private set; } = new();
     [Sync( SyncFlags.FromHost )] private NetDictionary<Guid, int> Votes { get; set; } = new();
+    public int VoteCount => Votes.Count;
 
     [Property] private int VotingTime = 10;
     private TimeSince Elapsed;
+    public int VotingTimeLeft => (VotingTime - Elapsed.Relative).CeilToInt();
 
     public Action<string> OnVotingEnded;
+    public Action OnVote;
 
-    [Rpc.Host]
+    [Rpc.Broadcast( NetFlags.Reliable )]
     public void Vote( int ind )
     {
         if ( ind < 0 || ind >= Options.Count ) return;
 
-        // Could check for same value to reduce network load
-        Votes[Rpc.CallerId] = ind;
+        if ( Networking.IsHost ) {
+            // Could check for same value to reduce network load
+            Votes[Rpc.CallerId] = ind;
+        }
+
+        OnVote?.Invoke();
     }
 
     protected override void OnUpdate()
@@ -26,7 +35,7 @@ public sealed class VotingSystem : SingletonBase<VotingSystem>
         base.OnUpdate();
 
         if ( !Networking.IsHost || Elapsed < VotingTime ) return;
-
+        
         int winner = DetermineWinner();
 
         OnVotingEnded?.Invoke( Options[winner].Ident );

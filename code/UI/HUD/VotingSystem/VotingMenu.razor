@@ -8,28 +8,25 @@
 <root>
     <div class="map-vote-container flex-col">
         <h1>Vote for the Next Map</h1>
+        <h3>Current votes: @VotingSystem.Instance.VoteCount</h3>
+        <h3>Time left: @VotingSystem.Instance.VotingTimeLeft s</h3>
 
-        <div class="map-list flex-col">
+        <div class="map-list">
+            @*
+                Use scene.GetMetadata() in the future
+            *@
             @foreach ( var option in VotingSystem.Instance.Options )
             {
-                <div class="map-card">
-                    <div class="map-content flex-col">
-                        <h3>@option.Title</h3>
-                        <p>Classic competitive map</p>
-                    </div>
-                    <UIButton
-                        class=""
-                        T="string"
-                        DisplayValue="Select"
-                        ButtonCallback="@( () => {Selected = option.Index;} )"                />
-                </div>
+                <VotingCard
+                    Option="@option"
+                    Select="@((int ind) => Vote(ind))"
+                />
             }
 
         </div>
 
-        <div>
+        <div class="bottom">
             <UIButton class="" T="string" DisplayValue="Stay" ButtonCallback="@( () => Vote( 0 ) )" />
-            <UIButton class="" T="string" DisplayValue="Vote" ButtonCallback="@( () => Vote( Selected ) )" />
             <UIButton class="" T="string" DisplayValue="Return" ButtonCallback="@ReturnToMainMenu" />
         </div>
     </div>
@@ -37,9 +34,10 @@
 
 @code
 {
-    //public override bool IsOverlay => true;
-
-    private int Selected = 0;
+    private void Vote(int index)
+    {
+        VotingSystem.Instance.Vote(index);
+    }
 
     public override void Show()
     {
@@ -57,14 +55,14 @@
     {
         base.OnStart();
         UIManager.Instance.ShowLayer(this);
+
+        VotingSystem.Instance?.OnVote += StateHasChanged;
     }
 
-    protected override int BuildHash() => System.HashCode.Combine(VotingSystem.Instance?.Options.Count);
-
-    private void Vote( int index )
-    {
-        VotingSystem.Instance.Vote(index);
-    }
+    protected override int BuildHash() => System.HashCode.Combine(
+        VotingSystem.Instance?.Options.Count,
+        VotingSystem.Instance.VotingTimeLeft
+    );
 
     private void ReturnToMainMenu()
     {
