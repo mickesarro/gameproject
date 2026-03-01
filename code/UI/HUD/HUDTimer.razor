@@ -20,7 +20,7 @@
                 <span class="skip_button" >Skip [@skipButton]</span>
                 @if (disabled)
                 {
-                    <span class="skip_button">@(Countdownable.SkipTimeLeft() +1 )</span>
+                    <span class="skip_button">@(Countdownable.SkipTimeLeft() + 1 )</span>
                 }
             </div>
         }
@@ -35,6 +35,11 @@
 
     //private int time => matchState != null ? matchState.StartTimer : 0;
 
-    protected override int BuildHash() => System.HashCode.Combine( Countdownable.GetTime(), Countdownable.IsActive );
+    protected override int BuildHash()
+    {//Countdownable.GetTime(), Countdownable.IsActive
+        if (!Countdownable.IsActive) return 0;
+
+        return System.HashCode.Combine(Countdownable.GetTime(), Countdownable.IsActive);
+    }
 
 }

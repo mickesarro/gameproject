@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace Shooter.Camera;
 
-public enum CameraType { Orbit }; // Add follow etc. when created
+public enum CameraType { Orbit, Flying }; // Add follow etc. when created
 
 public static class CameraTypeExtensions
 {
@@ -14,6 +14,9 @@ public static class CameraTypeExtensions
         {
             case CameraType.Orbit:
                 boundedCamera = go.AddComponent<OrbitCamera>();
+                break;
+            case CameraType.Flying:
+                boundedCamera = go.AddComponent<FlyingCamera>();
                 break;
         }
         ;

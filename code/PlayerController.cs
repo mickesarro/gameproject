@@ -401,6 +401,13 @@ public sealed class PlayerController : Component, ICharacterBase
         Gravity = UseCustomGravity ? CustomGravity : Scene.PhysicsWorld.Gravity;
     }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+
+        if ( !IsProxy ) Local = null;
+    }
+
     protected override void OnFixedUpdate() {
         if (CollisionBox == null) return;
         

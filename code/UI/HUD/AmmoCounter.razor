@@ -28,5 +28,10 @@
 
     [Property] public string HudColour { get; set; } = "#FFFFFF";
 
-    protected override int BuildHash() => System.HashCode.Combine(AmmoLeft, MaxAmmo, HasWeapon);
+    protected override int BuildHash()
+    {
+        if (!HasWeapon) return 0;
+
+        return System.HashCode.Combine(AmmoLeft, MaxAmmo, HasWeapon);
+    }
 }

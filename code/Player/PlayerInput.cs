@@ -1,6 +1,7 @@
 using Sandbox;
 using Shooter.UISystem;
 using Shooter.UI;
+using Shooter.Camera;
 
 namespace Shooter;
 
@@ -60,6 +61,13 @@ public sealed class PlayerInput : Component
         if ( Input.Pressed( "Suicide" ) )
         {
             GameObject.GetComponent<CharacterHealth>().TakeDamage( new DamageInfo { Damage = 10000000, Attacker = GameObject } );
+        }
+
+        if ( Input.Keyboard.Down( "PGUP" ) )
+        {
+            GameObject.Enabled = false;
+            var fc = CameraType.Flying.CreateCamera();
+            fc.GameObject.Enabled = true;
         }
         #endif
     }

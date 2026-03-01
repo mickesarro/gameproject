@@ -1,6 +1,3 @@
-using System.Data;
-using System.Runtime;
-
 namespace Shooter.Camera;
 
 /// <summary>
@@ -48,10 +45,11 @@ public sealed class OrbitCamera : BoundedCamera, ICountdownable
         if ( Input.Down("Skip") && TimeSince > MinWaitTime )
         {
             // locks input
-            var skipAction = Input.GetActions().First(action => action.Name == "Skip");
+            var skipButton = Input.GetButtonOrigin( "Skip" );
+
             foreach ( var action in Input.GetActions() )
             {
-                if ( action.KeyboardCode == skipAction.KeyboardCode || action.GamepadCode == skipAction.GamepadCode )
+                if ( action.KeyboardCode == skipButton || action.GamepadCode.ToString() == skipButton )
                 {
                     Input.ReleaseAction( action.Name );
                 }
