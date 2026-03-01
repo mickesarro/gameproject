@@ -6,17 +6,30 @@ namespace Shooter.Camera;
 /// </summary>
 public sealed class FlyingCamera : BoundedCamera
 {
+    [Property] private readonly float Speed = 500f;
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
 
-        speed = 1000f;
+        speed = Speed;
     }
 
     protected override void OnUpdate()
     {
         base.OnUpdate();
+
+        if ( Input.Down( "Duck" ) )
+        {
+            speed = Speed / 2;
+        }
+        else if ( Input.Down( "Slow" ) )
+        {
+            speed = Speed * 2;
+        } else
+        {
+            speed = Speed;
+        }
 
         if ( Input.Down( "Skip" ) )
         {

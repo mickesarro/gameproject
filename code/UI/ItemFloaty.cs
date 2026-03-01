@@ -17,6 +17,8 @@ public sealed class ItemFloaty : Component
     
     protected override void OnStart()
     {
+        DestroyGameObject();
+
         base.OnStart();
         offset = Size / 2;
         Camera = Scene.Camera;
