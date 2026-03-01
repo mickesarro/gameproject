@@ -66,7 +66,7 @@ public sealed class PlayerInput : Component
         if ( Input.Keyboard.Down( "PGUP" ) )
         {
             GameObject.GetComponent<CharacterHealth>().Health = 10000000;
-            HUD.Hide();
+            HUD?.Hide();
 
             foreach ( var item in GameObject.GetComponentsInChildren<ModelRenderer>() )
             {

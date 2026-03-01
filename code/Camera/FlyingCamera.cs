@@ -98,6 +98,7 @@ public sealed class FlyingCamera : BoundedCamera
 
         #if DEBUG
         PlayerController.Local.Enabled = true;
+        PlayerController.Local.GetComponent<PlayerInput>(includeDisabled: true).Enabled = true;
         return;
         #else
         PlayerController.Local
