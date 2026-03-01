@@ -31,7 +31,8 @@ public sealed class Podium : Component
 
             InstantiateCharacter( player.GameObject, spawnPoints[position] );
 
-            if ( position < 2 ) position++;
+            if ( position == 2 ) break;
+            position++;
         }
 
     }

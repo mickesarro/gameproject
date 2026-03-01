@@ -11,10 +11,14 @@
         <div class="infobox" >
             <h2 id="name">@GetDisplayName(DamageInfo?.Attacker)</h2>
 
-            <div class="info">
-                <div>
-                    <span class="label">Damage</span>
-                    <span id="damage">@DamageInfo</span>
+            <div class="info flex-col">
+                <div class="infoitem">
+                    <span class="label">HP  &lt;- </span>
+                    <span id="health">@GetRemainingHealth()</span>
+                </div>
+                <div class="infoitem">
+                    <span class="label">Dmg  &lt;- </span>
+                    <span id="damage">@GetDamageDealt()</span>
                 </div>
             </div>
         </div>
@@ -24,6 +28,10 @@
 @code
 {
     public DamageInfo DamageInfo { get; set; }
+
+    private CharacterHealth enemyHealth = null;
+    private PlayerInteraction playerInteraction = null;
+
     //if (damageInfo == null) return;
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
@@ -39,4 +47,24 @@
         : (gameObject.Network?.Owner?.DisplayName ?? "Unknown");
 
     }
+
+    private string GetRemainingHealth()
+    {
+        enemyHealth = DamageInfo?.Attacker.GetComponent<CharacterHealth>( includeDisabled: true );
+
+        if (enemyHealth == null) return "NaN";
+
+        return $"{(int)(enemyHealth.Health + 0.5f)} / {enemyHealth.MaxHealth}";
+    }
+
+    private string GetDamageDealt()
+    {
+        playerInteraction = Shooter.PlayerController.Local
+            ?.GetComponent<PlayerInteraction>(includeDisabled: true);
+        
+        if (playerInteraction == null) return "0";
+        
+        return $"{(int)(playerInteraction.DamageDealt[DamageInfo.Attacker.Id] + 0.5f)}";
+    }
+
 }

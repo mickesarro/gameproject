@@ -1,14 +1,17 @@
 using Sandbox;
+using System;
 
 namespace Shooter;
 
 /// <summary>
 /// Acts as a proxy for different player interactions.
 /// </summary>
-public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents
+public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents, IDamageEvent
 {
 	[Property, RequireComponent] private PlayerController Player { get; set; }
 	[Property, RequireComponent] private PlayerInventory PlayerInventory { get; set; }
+
+    public Dictionary<Guid, float> DamageDealt { get; set; } = new();
     
     protected override void OnAwake()
 	{
@@ -58,6 +61,15 @@ public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents
     void IMatchEvents.OnGameEnd()
     {
         GameObject.Enabled = false;
+    }
+
+    void IDamageEvent.OnDamage( GameObject receiver, DamageInfo damageInfo )
+    {
+        if ( !DamageDealt.TryGetValue( receiver.Id, out var _ ) )
+        {
+            DamageDealt.Add( receiver.Id, 0 );
+        }
+        DamageDealt[receiver.Id] += damageInfo.Damage;
     }
 
 }
