@@ -96,8 +96,13 @@ public sealed class FlyingCamera : BoundedCamera
     {
         Disable();
 
+        #if DEBUG
+        PlayerController.Local.Enabled = true;
+        return;
+        #else
         PlayerController.Local
             .GetComponentInChildren<CharacterSpawner>( includeDisabled: true )
             .Respawn( Spawner.GetSpawnPoint() );
+        #endif
     }
 }

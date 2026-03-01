@@ -65,9 +65,25 @@ public sealed class PlayerInput : Component
 
         if ( Input.Keyboard.Down( "PGUP" ) )
         {
-            GameObject.Enabled = false;
+            GameObject.GetComponent<CharacterHealth>().Health = 10000000;
+            HUD.Hide();
+
+            foreach ( var item in GameObject.GetComponentsInChildren<ModelRenderer>() )
+            {
+                Log.Info( item.GameObject.Parent.Name );
+                if ( item.GameObject.Parent.Name == "Melee" )
+                {
+                    item.GameObject.Enabled = false;
+                }
+
+                item.RenderType = ModelRenderer.ShadowRenderType.On;
+            }
+
+            GameObject.GetComponent<PlayerController>().Enabled = false;
+
             var fc = CameraType.Flying.CreateCamera();
             fc.GameObject.Enabled = true;
+            this.Enabled = false;
         }
         #endif
     }
