@@ -3,6 +3,7 @@
 @using UISystem
 @inherits UILayer
 @implements IMatchEvents
+@implements IPlayerEvent
 @namespace Shooter.UI
 
 <root>
@@ -64,6 +65,8 @@
     void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
     void IMatchEvents.OnPlayerJoined() => StateHasChanged();
     void IMatchEvents.OnPlayerLeft(System.Guid connectionId) => StateHasChanged();
+
+    void IPlayerEvent.OnDied(DamageInfo _) => Hide();
 
     protected override int BuildHash() => System.HashCode.Combine( characters );
 

@@ -132,11 +132,11 @@ public class UIManager : SingletonBase<UIManager>
         {
             if ( data != null )
             {
-                ShowLayerWithData( layer, data );
+                ShowLayerWithData( layer, data, addToHistory: !layer.IsOverlay );
             }
             else
             {
-                ShowLayer( layer );
+                ShowLayer( layer, addToHistory: !layer.IsOverlay );
             }
         }
         else

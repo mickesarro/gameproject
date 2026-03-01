@@ -78,6 +78,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	{
 		// Animations
 
+        if ( IsProxy ) return;
+
         ownedStats.AddDeath();
         
         var velocity = CharacterBase.Velocity;
@@ -106,8 +108,8 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         if (GameObject.Tags.Has("npc")) return;
 
-        var camera = MatchManager.Instance.MatchGameMode
-            .Camera.CreateCamera();
+        var camera = MatchManager.Instance?.MatchGameMode
+            ?.Camera.CreateCamera();
 
         if (camera == null)
         {
