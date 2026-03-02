@@ -219,7 +219,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 				Damage = FireData.Damage,
 				Attacker = User,
 				Position = traceRay.HitPosition,
-				Weapon = this.GetGameObject()
+				Weapon = GameObject
 			};
 
             if ( !IsPlayer )
