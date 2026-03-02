@@ -6,6 +6,8 @@ public sealed class StartState( MatchManager matchManager, StateMachine stateMac
 {
     public GameMode GameMode { get; private set; }
 
+    public override StateEnum StateEnum => StateEnum.Start;
+
     public override void OnEnter()
     {
         if ( !Networking.IsHost ) return;

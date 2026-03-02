@@ -29,6 +29,7 @@ public abstract class GameMode : Component, ISceneMetadata
 
     public abstract int MaxPlayers { get; }
     public abstract int MinPlayers { get; }
+    [Property] public virtual bool PopulateWithNPCs { get; set; } = true;
 
     public virtual string Objective { get; } = "Score points"; // Simple for now
 

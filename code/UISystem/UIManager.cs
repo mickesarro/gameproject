@@ -49,13 +49,16 @@ public class UIManager : SingletonBase<UIManager>
     {
         if ( layer == null ) return;
 
-        if ( currentLayer != null && !layer.IsOverlay )
+        if ( currentLayer != null )
         {
             if ( addToHistory )
             {
                 layerHistory.Push( currentLayer );
             }
-            currentLayer.Hide();
+            if ( !layer.IsOverlay )
+            {
+                currentLayer.Hide();
+            }
         }
 
         // Might add data option to this and conditionally call
@@ -132,11 +135,11 @@ public class UIManager : SingletonBase<UIManager>
         {
             if ( data != null )
             {
-                ShowLayerWithData( layer, data, addToHistory: !layer.IsOverlay );
+                ShowLayerWithData( layer, data );
             }
             else
             {
-                ShowLayer( layer, addToHistory: !layer.IsOverlay );
+                ShowLayer( layer );
             }
         }
         else
@@ -167,7 +170,13 @@ public class UIManager : SingletonBase<UIManager>
     /// </summary>
     public void ResetToStartLayer()
     {
+
+        foreach ( var layer in layerHistory )
+        {
+            layer?.Hide();
+        }
         layerHistory.Clear();
+
         ShowLayer( StartLayer, false );
     }
 

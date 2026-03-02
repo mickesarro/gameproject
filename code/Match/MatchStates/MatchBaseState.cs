@@ -9,6 +9,8 @@ public abstract class MatchBaseState( MatchManager matchManager, StateMachine st
     protected StateMachine stateMachine = stateMachine;
     protected MatchManager matchManager = matchManager;
 
+    public virtual StateEnum StateEnum { get; } = StateEnum.None;
+
     public abstract void OnEnter();
     public abstract void OnExit( IState nextState );
     public abstract void OnUpdate();

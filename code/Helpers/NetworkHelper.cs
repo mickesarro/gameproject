@@ -38,16 +38,16 @@ public sealed class NetworkHelper : Component, Component.INetworkListener
             await Task.DelayRealtimeSeconds( 0.1f );
 
             // Need to clone this here because MatchManager is not yet initialised
-            var gamemode = GameObject.Clone( GameMode.Current ).GetComponent<GameMode>( includeDisabled: true );
+            // var gamemode = GameObject.Clone( GameMode.Current ).GetComponent<GameMode>( includeDisabled: true );
+
+            var gamemode = ResourceLibrary.Get<PrefabFile>( GameMode.Current );
 
             var lobbyConfig = new LobbyConfig
             {
-                MaxPlayers = gamemode.MaxPlayers,
+                MaxPlayers = gamemode.GetMetadata( "MaxPlayers" ).ToInt( Default: 1 ),
                 Privacy = !Scene.IsEditor ? LobbyPrivacy.Public : LobbyPrivacy.Private,
-                Name = gamemode.ModeName
+                Name = gamemode.GetMetadata( "Name" )
             };
-
-            gamemode.DestroyGameObject();
 
             Networking.CreateLobby( lobbyConfig );
         }

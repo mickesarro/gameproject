@@ -25,6 +25,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     // This is because at this moment it is not sure, whether we can use rpc or sync in state machine
     [Sync( SyncFlags.FromHost )] public bool GoToNextState { get; set; } = false;
+    [Sync( SyncFlags.FromHost )] public float EndTimerStamp { get; set; } = 0.0f;
 
     protected override void OnStart()
     {
@@ -76,13 +77,16 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
             new VotingState(this, stateMachine)
         };
 
-        foreach (var state in statelist )
+        foreach ( var state in statelist )
         {
             stateMachine.AddState( state );
         }
 
-        stateMachine.Initialize<StartState>();
-        
+        if ( Networking.IsHost )
+        {
+            stateMachine.Initialize<StartState>();
+        }
+
     }
 
     [Rpc.Broadcast]
@@ -128,6 +132,12 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
     }
 
+    [Rpc.Broadcast( NetFlags.SendImmediate | NetFlags.Reliable )]
+    private void SetModeState( StateEnum state )
+    {
+        stateMachine.Initialize( state.CreateState( this, stateMachine ) );
+    }
+
     void INetworkListener.OnActive( Connection channel )
 	{
         PlayerCountChanged( true, Guid.Empty );
@@ -135,13 +145,18 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         if ( channel.IsHost )
         {
             StartGame();
-            TryPopulate();
+            if ( MatchGameMode.PopulateWithNPCs ){
+                TryPopulate();
+            }
             AddPlayer( channel );
         }
         else
         {
-            Log.Info( "setting gamemode: " + GameMode.Current + " on client (t host)" );
-            //SetCurrentGameMode(GameMode.Current);
+            using ( Rpc.FilterInclude( c => c.Id == channel.Id ) )
+            {
+                MatchBaseState state = stateMachine.CurrentState as MatchBaseState;
+                SetModeState( state.StateEnum );
+            }
         }
     }
 

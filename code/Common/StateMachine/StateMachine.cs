@@ -46,11 +46,11 @@ public class StateMachine {
         states.TryAdd(state.GetType(), state);
     }
 
-    public IState GetState<T>() {
+    public IState GetState<T>() where T: IState {
         return states.GetValueOrDefault(typeof(T));
     }
 
-    public T GetState<T>(bool asRealType)
+    public T GetState<T>(bool asRealType) where T : IState
     {
         return (T)states.GetValueOrDefault( typeof( T ) );
     }

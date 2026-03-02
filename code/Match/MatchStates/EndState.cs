@@ -9,12 +9,18 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
     TransitionWindow transitionWindow;
 
+    public override StateEnum StateEnum => StateEnum.End;
+
     public override void OnEnter()
     {
-        matchManager.MatchIsRunning = false;
+        if ( Networking.IsHost ) {
+            matchManager.MatchIsRunning = false;
+            matchManager.EndTimerStamp = 0;
+            EndTimer = 0;
+        }
+        EndTimer = matchManager.EndTimerStamp;
 
         IMatchEvents.Post( e => e.OnGameEnd() );
-        EndTimer = 0;
         
         // Switch to the podium
         matchManager.Scene.GetComponentInChildren<Podium>( includeDisabled: true )
@@ -51,6 +57,8 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
     public override void OnUpdate()
     {
+        if ( Networking.IsHost ) matchManager.EndTimerStamp = EndTimer.Relative;
+
         if ( EndTimer > statsUITime )
         {
             transitionWindow.Hide();

@@ -8,6 +8,8 @@ namespace Shooter.Match;
 public sealed class MatchState( MatchManager matchManager, StateMachine stateMachine )
     : MatchBaseState( matchManager, stateMachine ), ICountdownable
 {
+    public override StateEnum StateEnum => StateEnum.Match;
+
     public int StartTimer { get; set; } = 0;
 
     int ICountdownable.GetTime() => StartTimer;
@@ -17,6 +19,8 @@ public sealed class MatchState( MatchManager matchManager, StateMachine stateMac
 
     public override void OnEnter()
     {
+        if ( matchManager.MatchIsRunning ) return;
+
         StartTimer = matchManager.MatchGameMode.StartCountdown;
 
         IMatchEvents.Post( e => e.OnCountdownStart( this ) );

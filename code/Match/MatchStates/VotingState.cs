@@ -3,9 +3,10 @@ namespace Shooter.Match;
 public sealed class VotingState( MatchManager matchManager, StateMachine stateMachine )
     : MatchBaseState( matchManager, stateMachine )
 {
+    public override StateEnum StateEnum => StateEnum.Voting;
+
     public override void OnEnter()
     {
-
         if ( Networking.IsHost )
         {
             var vs = GameObject.Clone(
