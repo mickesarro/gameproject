@@ -1,6 +1,7 @@
 using Sandbox;
 using Shooter.Camera;
 using System;
+using System.Diagnostics.Metrics;
 
 namespace Shooter;
 
@@ -47,8 +48,9 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         // Flinch animations, screen red etc.
         OnDamage?.Invoke( damageInfo );
 
-		if ( Health <= 0 )
+        if ( Health <= 0 )
 		{
+            Health = 0;
 			Death( damageInfo );
 		}
 	}
