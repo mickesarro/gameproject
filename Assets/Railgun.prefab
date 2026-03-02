@@ -103,7 +103,7 @@
         "__guid": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
         "__enabled": true,
         "Flags": 0,
-        "Damage": 100,
+        "Damage": 75,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
