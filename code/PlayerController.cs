@@ -529,6 +529,10 @@ public sealed class PlayerController : Component, ICharacterBase
 		    {
 			    Camera.FieldOfView = Preferences.FieldOfView;
 		    }
+
+            // Set the LookAngle to point where the spawn point was pointing
+            LookAngle = new Vector2( GameObject.WorldRotation.Pitch(), GameObject.WorldRotation.Yaw() );
+            
 	    }
 
 	    BodyRenderer.RenderType =

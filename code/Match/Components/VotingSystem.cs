@@ -64,9 +64,11 @@ public sealed class VotingSystem : SingletonBase<VotingSystem>
     {
         base.OnStart();
 
-        if ( !Networking.IsHost ) return;
-
-        BuildOptions();
+        if ( Networking.IsHost )
+        {
+            BuildOptions();
+        }
+        
         Elapsed = 0;
         
     }

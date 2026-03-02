@@ -13,11 +13,16 @@ public class BlastEffect : GameObject
 	[Property] public float Radius { get; set; } = 300.0f; // Tweak the blast radius
 	[Property] public float BlastForce { get; set; } = 500.0f; // Tweak blast force
 	[Property] public float Damage { get; set; } = 100.0f; // Tweak damage
-	[Property, Range(0f, 1f)] public float SelfDamageMultiplier {get; set;} = 0.1f;
+    [Property, Range( 0f, 1f )] public float SelfDamageMultiplier { get; set; } = 0.1f;
 	
 	public void TriggerBlast( Vector3 position, GameObject attacker )
 	{
 		SoundManager.PlayGlobal( SoundManager.SoundType.Explosion, position, 6700f );
+
+        if ( IsProxy ) {
+            Destroy();
+            return;
+        }
 
         bool IsPlayer = attacker.GetComponent<ICharacterBase>().IsPlayer; // !! Quick solution for now
 		
@@ -61,7 +66,7 @@ public class BlastEffect : GameObject
 					};
                     damageInfo.Tags.Add( "explosion" );
 
-                    if ( !attacker.GetComponent<ICharacterBase>().IsPlayer )
+                    if ( !IsPlayer )
                     {
                         damageInfo.Tags.Add( "npc" );
                     }

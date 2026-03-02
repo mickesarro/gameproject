@@ -40,7 +40,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	[Rpc.Owner]
 	public void TakeDamage( DamageInfo damageInfo )
 	{
-		if ( IsProxy ) return;
+		if ( IsProxy || !IsAlive ) return;
 
 		Health -= damageInfo.Damage;
 		// Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
@@ -61,6 +61,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	/// <param name="damageInfo"></param>
 	void IDamageable.OnDamage( in DamageInfo damageInfo )
 	{
+        if ( !IsAlive ) return;
 		TakeDamage( damageInfo );
 	}
 

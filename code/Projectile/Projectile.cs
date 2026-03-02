@@ -34,6 +34,8 @@ public sealed class Projectile : Component
 	private void OnCollision( GameObject objectHit )
 	{
 
+        if ( IsProxy ) return;
+
         if ( objectHit.Root == Attacker )
 		{
 			return;
