@@ -75,7 +75,7 @@
         "__enabled": true,
         "Flags": 0,
         "AmmoLeft": 5,
-        "AmmoType": "Medium",
+        "AmmoType": "Heavy",
         "BulletData": {
           "_type": "component",
           "component_id": "e8c15d69-f5f1-41cf-bfd4-95b86cdce02c",
