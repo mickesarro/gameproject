@@ -1,0 +1,150 @@
+{
+  "RootObject": {
+    "__guid": "1fba6ab8-6c4a-4acc-be97-9d5f50390365",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "floaty",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "light_point,light",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Shooter.UI.ItemFloaty",
+        "__guid": "d74068d3-ab03-4d25-8666-4d3567097e1f",
+        "__enabled": true,
+        "Flags": 0,
+        "Light": {
+          "_type": "component",
+          "component_id": "3b8a8aef-5616-4aec-8a72-ed62c63abd12",
+          "go": "1fba6ab8-6c4a-4acc-be97-9d5f50390365",
+          "component_type": "PointLight"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "SourceRenderer": {
+          "_type": "component",
+          "component_id": "8e470fcd-d067-4df7-a46e-750e2630a823",
+          "go": "1fba6ab8-6c4a-4acc-be97-9d5f50390365",
+          "component_type": "SpriteRenderer"
+        }
+      },
+      {
+        "__type": "Sandbox.SpriteRenderer",
+        "__guid": "8e470fcd-d067-4df7-a46e-750e2630a823",
+        "__enabled": true,
+        "Flags": 0,
+        "__version": 2,
+        "Additive": true,
+        "AlphaCutoff": 0.5,
+        "Billboard": "Always",
+        "Color": "0.06667,0,1,1",
+        "DepthFeather": 0,
+        "FlipHorizontal": false,
+        "FlipVertical": false,
+        "FogStrength": 1,
+        "IsSorted": false,
+        "Lighting": false,
+        "OnAnimationEnd": null,
+        "OnAnimationStart": null,
+        "OnBroadcastMessage": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opaque": false,
+        "OverlayColor": "1,1,1,0",
+        "PlaybackSpeed": 1,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "Shadows": false,
+        "Size": "40,40",
+        "Sprite": {
+          "$compiler": "embed",
+          "$source": null,
+          "data": {
+            "Animations": [
+              {
+                "Name": "Default",
+                "FrameRate": 15,
+                "Origin": "0.5,0.5",
+                "LoopMode": "Loop",
+                "Frames": [
+                  {
+                    "Texture": "textures/shapes/sphere2.vtex",
+                    "BroadcastMessages": []
+                  }
+                ]
+              }
+            ],
+            "__references": null
+          },
+          "compiled": null
+        },
+        "StartingAnimationName": "Default",
+        "TextureFilter": "Bilinear"
+      },
+      {
+        "__type": "Sandbox.PointLight",
+        "__guid": "3b8a8aef-5616-4aec-8a72-ed62c63abd12",
+        "__enabled": true,
+        "Flags": 0,
+        "Attenuation": 1.3385826,
+        "FogMode": "Disabled",
+        "FogStrength": 1,
+        "LightColor": "0.61569,1,0,1",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 50,
+        "Shadows": true
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
