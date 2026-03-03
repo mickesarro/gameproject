@@ -32,6 +32,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
+        "OnlyShowWhenEmpty": true,
         "SourceRenderer": {
           "_type": "component",
           "component_id": "8e470fcd-d067-4df7-a46e-750e2630a823",

@@ -7,13 +7,16 @@ namespace Shooter.UI;
 public sealed class ItemFloaty : Component
 {    
     [Property] private SpriteRenderer SourceRenderer { get; set; }
-	[Property] private PointLight Light { get; set; }
-	
+    [Property] private PointLight Light { get; set; }
+
+    /// <summary>
+    /// If true, the floaty and light will be completely disabled if the player already owns this weapon.
+    /// </summary>
+    [Property] public bool OnlyShowWhenEmpty { get; set; } = false;
     
     protected override void OnStart()
     {
         base.OnStart();
-        
 
         if (SourceRenderer == null) 
         {
@@ -22,33 +25,48 @@ public sealed class ItemFloaty : Component
     }
     
     protected override void OnUpdate()
-	{
-		base.OnUpdate();
+    {
+        base.OnUpdate();
 
-		bool owned = IsAlreadyOwned();
-        bool hiding = IsHiding();
-        bool shouldShow = !hiding;
+        bool isOwned = IsAlreadyOwned();
+        bool isHiding = IsHiding();
 
 
-		if ( SourceRenderer.IsValid() )
-		{
-			SourceRenderer.Enabled = shouldShow;
+        // New Logic: 
+        // 1. Hide if the "HideForTime" component says so.
+        // 2. Hide if OnlyShowWhenEmpty is on AND we already have the weapon.
+        bool shouldShow = !isHiding;
+
+        if ( OnlyShowWhenEmpty && isOwned )
+        {
+            shouldShow = false;
+        }
+
+        
+
+
+        // Apply visibility to Light
+        if ( Light.IsValid() )
+        {
+            Light.Enabled = shouldShow;
+        }
+
+        // Apply visibility and Overlay to Renderer
+        if ( SourceRenderer.IsValid() )
+        {
+            SourceRenderer.Enabled = shouldShow;
 
             if ( shouldShow ) 
             {
-                // Show the item as an overlay (through walls) if the player already owns it, otherwise show it as a world element
-                SourceRenderer.RenderOptions.Overlay = !owned;
+                // Overlay (see through walls) is active only if NOT owned
+                SourceRenderer.RenderOptions.Overlay = !isOwned;
             }
-		}
+        }
 
-		if ( Light.IsValid() )
-		{
-			Light.Enabled = shouldShow;
-		}
-
-		if ( !shouldShow ) return;
-		
-	}
+        if ( !shouldShow ) return;
+        
+        // Add any rotation or bobbing logic here...
+    }
 
     private bool IsHiding()
     {
@@ -67,10 +85,7 @@ public sealed class ItemFloaty : Component
         int slotIndex = (int)prefabGun.GunData.WeaponType;
         var ownedWeapon = inventory.Items.ElementAtOrDefault( slotIndex );
 
-        if ( ownedWeapon is Gun ownedGun && ownedGun.GunData.PrimaryFireData.AmmoLeft > 0 )
-        {
-            return true;
-        }
-        return false;
+        // Returns true if the player has the gun and it has ammo
+        return ownedWeapon is Gun { GunData.PrimaryFireData.AmmoLeft: > 0 };
     }
 }
