@@ -47,12 +47,7 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": {
-            "_type": "component",
-            "component_id": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
-            "go": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
-            "component_type": "Dresser"
-          },
+          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1345,7 +1340,86 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "5a9414d4-eb8d-44a7-80d5-d4afe9e513bc"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            },
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "5a9414d4-eb8d-44a7-80d5-d4afe9e513bc",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Cube",
+              "Position": "2.739999,0,-18.22015",
+              "Rotation": "0,0,0,1",
+              "Scale": "0.7,0.7,0.7999992",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "9a62c6fd-952c-45a1-9220-7c6a4b09bf7f"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "5a9414d4-eb8d-44a7-80d5-d4afe9e513bc"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "9a62c6fd-952c-45a1-9220-7c6a4b09bf7f",
+              "__enabled": true,
+              "Flags": 0,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": {
+                "indexed": {
+                  "0": "materials/common-gun-cylinder.vmat"
+                }
+              },
+              "Model": "models/cylinder.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "Off",
+              "Tint": "0,0.93333,1,1"
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
