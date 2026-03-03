@@ -1,84 +1,103 @@
 ﻿using System;
+using Sandbox;
+using System.Linq;
 
 namespace Shooter.UI;
 
 public sealed class ItemFloaty : Component
 {
-	[Property] private Texture Texture { get; set; }
-	[Property] private Color SpriteColor { get; set; }
-	[Property] private float Size { get; set; }
-	private CameraComponent Camera;
-	private float offset;
+    [Property] private Color SpriteColor { get; set; } = Color.White;
+    [Property] private float Size { get; set; } = 64f;
+    
+    [Property] private SpriteRenderer SourceRenderer { get; set; }
+	[Property] private PointLight Light { get; set; }
 	
-	const float minDistance = 150f;
-	const float maxDistance = 400f;
-	const float minScale = 3f;
-	const float maxScale = 1f;
+
+
+    private CameraComponent Camera;
+    private float offset;
+    
+    const float minDistance = 150f;
+    const float maxDistance = 400f;
+    const float minScale = 3f;
+    const float maxScale = 1f;
     
     protected override void OnStart()
     {
-        DestroyGameObject();
-
         base.OnStart();
+        
         offset = Size / 2;
         Camera = Scene.Camera;
+
+        if (SourceRenderer == null) 
+        {
+            SourceRenderer = Components.Get<SpriteRenderer>();
+        }
     }
     
-	protected override void OnUpdate()
+    protected override void OnUpdate()
 	{
 		base.OnUpdate();
 
-		if ( IsAlreadyOwned() ) return;
+		bool owned = IsAlreadyOwned();
+
+		if ( SourceRenderer.IsValid() )
+		{
+			SourceRenderer.Enabled = !owned;
+		}
+
+		if ( Light.IsValid() )
+		{
+			Light.Enabled = !owned;
+		}
+
+		if ( owned ) return;
 		
+		if ( Camera == null || SourceRenderer?.Texture == null ) return;
+
 		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);
-		
-		// AI SLOP
-		// muuten piirtä vaikka kamera osottaa päinvastaseen suuntaan
-
-		// Check if the object is in front of the camera
-		var cameraForward = Camera.WorldTransform.Rotation.Forward; // The camera's forward direction
+		var cameraForward = Camera.WorldTransform.Rotation.Forward;
 		var directionToItem = (GameObject.WorldPosition - Camera.WorldTransform.Position).Normal;
-
-		// Use dot product to check if the item is in front of the camera
 		var dotProduct = Vector3.Dot(cameraForward, directionToItem);
 		
-		// If the dot product is positive, the item is in front of the camera
-
 		if (dotProduct > 0)
 		{
-            var scale = Scale();
-            var sizeWithScale = Size * scale;
-			var offsetWithScale = offset * scale;
-			Camera.Hud.DrawTexture(Texture, new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), SpriteColor);
+			var scale = Scale();
+			var sizeWithScale = Size * scale;
+			var offsetWithScale = sizeWithScale / 2;
+
+			Camera.Hud.DrawTexture(
+				SourceRenderer.Texture, 
+				new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), 
+				SpriteColor
+			);
 		}
 	}
 
-private bool IsAlreadyOwned()
-{
-    var pickup = Components.GetInParent<ItemPickup>();
-    var prefabGun = pickup?.ItemPrefab?.Components.Get<Gun>( true );
-    var inventory = PlayerController.Local?.Components.Get<PlayerInventory>();
-
-    if ( prefabGun == null || inventory == null ) return false;
-
-    int slotIndex = (int)prefabGun.GunData.WeaponType;
-    var ownedWeapon = inventory.Items.ElementAtOrDefault( slotIndex );
-
-	// Return true if you have the weapon and you have ammo left
-    if ( ownedWeapon is Gun ownedGun && ownedGun.GunData.PrimaryFireData.AmmoLeft > 0 )
+    private bool IsAlreadyOwned()
     {
-        return true;
+        var pickup = Components.GetInParent<ItemPickup>();
+        var prefabGun = pickup?.ItemPrefab?.Components.Get<Gun>( true );
+        var inventory = PlayerController.Local?.Components.Get<PlayerInventory>();
+
+        if ( prefabGun == null || inventory == null ) return false;
+
+        int slotIndex = (int)prefabGun.GunData.WeaponType;
+        var ownedWeapon = inventory.Items.ElementAtOrDefault( slotIndex );
+
+        if ( ownedWeapon is Gun ownedGun && ownedGun.GunData.PrimaryFireData.AmmoLeft > 0 )
+        {
+            return true;
+        }
+
+        return false;
     }
 
-    return false;
-}
-
-
-	float Scale()
-	{
-		var distance = GameObject.WorldPosition.Distance(Camera.WorldPosition);
-		var t = (distance - minDistance) / (maxDistance - minDistance);
-		t = t.Clamp(0f, 1f);
-		return MathX.Lerp(minScale, maxScale, t);
-	}
+    float Scale()
+    {
+        var distance = GameObject.WorldPosition.Distance(Camera.WorldPosition);
+        var t = (distance - minDistance) / (maxDistance - minDistance);
+        t = t.Clamp(0f, 1f);
+        return MathX.Lerp(minScale, maxScale, t);
+    }
 }
