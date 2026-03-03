@@ -9,19 +9,11 @@ public sealed class ItemFloaty : Component
     [Property] private SpriteRenderer SourceRenderer { get; set; }
 	[Property] private PointLight Light { get; set; }
 	
-    private CameraComponent Camera;
-    private float offset;
-    
-    const float minDistance = 150f;
-    const float maxDistance = 400f;
-    const float minScale = 3f;
-    const float maxScale = 1f;
     
     protected override void OnStart()
     {
         base.OnStart();
         
-        Camera = Scene.Camera;
 
         if (SourceRenderer == null) 
         {
@@ -35,12 +27,18 @@ public sealed class ItemFloaty : Component
 
 		bool owned = IsAlreadyOwned();
         bool hiding = IsHiding();
-
         bool shouldShow = !hiding;
+
 
 		if ( SourceRenderer.IsValid() )
 		{
 			SourceRenderer.Enabled = shouldShow;
+
+            if ( shouldShow ) 
+            {
+                // Show the item as an overlay (through walls) if the player already owns it, otherwise show it as a world element
+                SourceRenderer.RenderOptions.Overlay = !owned;
+            }
 		}
 
 		if ( Light.IsValid() )
@@ -50,7 +48,6 @@ public sealed class ItemFloaty : Component
 
 		if ( !shouldShow ) return;
 		
-		if ( Camera == null || SourceRenderer?.Texture == null ) return;
 	}
 
     private bool IsHiding()
