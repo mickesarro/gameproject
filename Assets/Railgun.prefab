@@ -47,6 +47,7 @@
         },
         "holdType": "Rifle",
         "Icon": "icons/railgun.vtex",
+        "Model": "guns/railgun.vmdl",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -59,6 +60,7 @@
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "FireData"
         },
+        "Rarity": "Common",
         "Viewmodel": {
           "_type": "gameobject",
           "go": "e3d1259e-2595-4483-be1a-91d336a207e4"
@@ -1944,7 +1946,11 @@
       "NetworkInterpolation": true,
       "TimeScale": 1,
       "WantsSystemScene": true,
-      "Metadata": {},
+      "Metadata": {
+        "Rarity": "Common",
+        "WeaponType": "Railgun",
+        "Icon": "icons/railgun.vtex"
+      },
       "NavMesh": {
         "Enabled": false,
         "IncludeStaticBodies": true,

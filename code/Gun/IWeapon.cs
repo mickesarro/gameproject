@@ -10,6 +10,12 @@ public enum WeaponType {
     Total = 4
 }
 
+public enum WeaponRarity
+{
+    Common,
+    Rare,
+}
+
 public interface IWeapon
 {
 	public GunData GunData { get; }

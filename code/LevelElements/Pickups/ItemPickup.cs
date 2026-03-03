@@ -1,4 +1,6 @@
+using Sandbox.Movement;
 using Shooter.Sounds;
+using System;
 namespace Shooter;
 
 /// <summary>
@@ -8,15 +10,21 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
 {
 	// Imitates the one that was done using the visual script
 
-	[Property] public GameObject ItemPrefab { get; private set; }
+	[Property] public override PrefabFile ItemPrefab { get; set; }
 	[Property] private float Spin { get; set; } = 0f;
-	protected override void OnAwake()
+    public override Action<Pickup> Collected { get; set; }
+
+    protected override void OnAwake()
 	{
         if ( ItemPrefab == null )
         {
-            Log.Error( "No item prefab provided, destroying." );
-            DestroyGameObject();
+            //Log.Error( "No item prefab provided, destroying." );
+            //DestroyGameObject();
+            ModelRenderer.Model = null;
+            return;
         }
+
+        ModelRenderer.Model = Model.Load( ItemPrefab.GetMetadata( "Model" ));
 
         base.OnAwake();
 	}
@@ -33,6 +41,8 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
 	/// <param name="other"></param>
 	public void OnTriggerEnter( Collider other )
 	{
+
+        if ( ItemPrefab == null ) return;
 		
 		if ( other.Tags.Contains( "player" ) && !HideForTime.IsHiding() )
 		{
@@ -42,7 +52,7 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
 				GameObject Parent = other.GameObject.Root;
 
 				// Not enabling at first is important as picking up new weapons would then result in multiple enabled
-				var item = ItemPrefab.Clone( Parent.WorldTransform, parent: Parent, startEnabled: false, name: ItemPrefab.Name );
+				var item = GameObject.Clone( ItemPrefab, Parent.WorldTransform, parent: Parent, startEnabled: false, name: ItemPrefab.ResourceName );
 
 				var spawnOptions = new NetworkSpawnOptions
 				{
@@ -58,6 +68,7 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
 			}
             //DestroyGameObject();
             HideForTime.HideFor();
+            Collected?.Invoke( this );
         }
     }
 

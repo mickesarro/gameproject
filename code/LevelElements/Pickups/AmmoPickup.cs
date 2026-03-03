@@ -1,10 +1,12 @@
 using Shooter.Sounds;
+using System;
 
 namespace Shooter;
 
 public sealed class AmmoPickup : Pickup, Component.ITriggerListener
 {
-	[Property] private AmmoType AmmoType { get; set; }
+    public override Action<Pickup> Collected { get; set; }
+    [Property] private AmmoType AmmoType { get; set; }
 	[Property] private int Amount { get; set; }
 
     public void OnTriggerEnter( Collider other )
@@ -21,7 +23,8 @@ public sealed class AmmoPickup : Pickup, Component.ITriggerListener
 
             // DestroyGameObject();
             HideForTime.HideFor();
-		}
+            Collected?.Invoke( this );
+        }
 	}
 
 }

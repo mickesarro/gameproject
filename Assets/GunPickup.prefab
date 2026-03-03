@@ -97,16 +97,15 @@
           "go": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8",
           "component_type": "HideForTime"
         },
-        "ItemPrefab": {
-          "_type": "gameobject",
-          "prefab": "rockets_test.prefab"
-        },
+        "ItemPrefab": "rockets_test.prefab",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
+        "PickupRarity": "Common",
+        "ShouldRandomize": false,
         "Spin": 90
       },
       {

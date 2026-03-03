@@ -6,7 +6,8 @@ namespace Shooter;
 
 public sealed class HealthPickup : Pickup, Component.ITriggerListener
 {
-	[Property] private float HealthAmount { get; set; } = 50f;
+    public override Action<Pickup> Collected { get; set; }
+    [Property] private float HealthAmount { get; set; } = 50f;
 
 
     public void OnTriggerEnter( Collider other )
@@ -30,6 +31,7 @@ public sealed class HealthPickup : Pickup, Component.ITriggerListener
 
             // DestroyGameObject();
             HideForTime.HideFor();
-		}
+            Collected?.Invoke( this );
+        }
 	}
 }

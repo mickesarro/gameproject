@@ -47,12 +47,7 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": {
-            "_type": "component",
-            "component_id": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
-            "go": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
-            "component_type": "Dresser"
-          },
+          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -79,6 +74,19 @@
           "OnComponentUpdate": null,
           "Source": "Manual",
           "WorkshopItems": []
+        },
+        {
+          "__type": "Shooter.PickupRandomizer",
+          "__guid": "667518ec-3d1f-4d07-b87e-3e1d49cc3061",
+          "__enabled": true,
+          "Flags": 0,
+          "GunPrefabs": [],
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": []
@@ -791,6 +799,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -835,6 +851,14 @@
             },
             "Property": "Position",
             "Value": "1004.544,-7533.157,269.8884"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -891,6 +915,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -935,6 +967,14 @@
             },
             "Property": "Position",
             "Value": "-531.1823,-8578.926,140.0346"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -991,6 +1031,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1035,6 +1083,14 @@
             },
             "Property": "Position",
             "Value": "-1398.092,-9129.011,782.056"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1091,6 +1147,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1135,6 +1199,14 @@
             },
             "Property": "Position",
             "Value": "-858.1175,-8102.018,649.1295"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1191,6 +1263,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1235,6 +1315,14 @@
             },
             "Property": "Position",
             "Value": "1022.99,-8874.125,652.749"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1291,6 +1379,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1335,6 +1431,14 @@
             },
             "Property": "Position",
             "Value": "-2221.428,-9202.702,266.5089"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1391,6 +1495,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1435,6 +1547,14 @@
             },
             "Property": "Position",
             "Value": "-1875.835,-7206.865,269.6912"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1491,6 +1611,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1541,6 +1669,14 @@
               "Type": "Component",
               "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
             },
+            "Property": "ItemPrefab",
+            "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
             "Property": "PickupRarity",
             "Value": "Common"
           },
@@ -1585,6 +1721,14 @@
             },
             "Property": "Position",
             "Value": "-780.1507,-5783.877,17.83666"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ItemPrefab",
+            "Value": null
           },
           {
             "Target": {
@@ -1664,16 +1808,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -1757,26 +1893,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -1860,26 +1977,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -1963,26 +2061,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2066,26 +2145,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2169,26 +2229,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2272,26 +2313,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2375,26 +2397,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "ar-rifle.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2461,16 +2464,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2537,16 +2532,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2613,16 +2600,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2689,16 +2668,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2765,16 +2736,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2841,16 +2804,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -2925,16 +2880,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -3009,16 +2956,8 @@
               "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Property": "ItemPrefab",
+            "Value": null
           }
         ],
         "MovedObjects": []
@@ -3086,26 +3025,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           },
           {
             "Target": {
@@ -3197,26 +3117,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           },
           {
             "Target": {
@@ -3308,26 +3209,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           },
           {
             "Target": {
@@ -3419,26 +3301,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           },
           {
             "Target": {
@@ -3530,26 +3393,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": "railgun.prefab"
           },
           {
             "Target": {
@@ -3641,26 +3485,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": "railgun.prefab"
           },
           {
             "Target": {
@@ -3752,26 +3577,7 @@
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "ItemPrefab",
-            "Value": {
-              "_type": "gameobject",
-              "prefab": "railgun.prefab"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
+            "Value": null
           },
           {
             "Target": {
@@ -3856,22 +3662,6 @@
             },
             "Property": "HideForTime",
             "Value": null
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "PickupRarity",
-            "Value": "Common"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
-            },
-            "Property": "ShouldRandomize",
-            "Value": false
           }
         ],
         "MovedObjects": []
