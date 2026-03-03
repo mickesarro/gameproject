@@ -5,15 +5,10 @@ using System.Linq;
 namespace Shooter.UI;
 
 public sealed class ItemFloaty : Component
-{
-    [Property] private Color SpriteColor { get; set; } = Color.White;
-    [Property] private float Size { get; set; } = 64f;
-    
+{    
     [Property] private SpriteRenderer SourceRenderer { get; set; }
 	[Property] private PointLight Light { get; set; }
 	
-
-
     private CameraComponent Camera;
     private float offset;
     
@@ -26,7 +21,6 @@ public sealed class ItemFloaty : Component
     {
         base.OnStart();
         
-        offset = Size / 2;
         Camera = Scene.Camera;
 
         if (SourceRenderer == null) 
@@ -54,24 +48,6 @@ public sealed class ItemFloaty : Component
 		if ( owned ) return;
 		
 		if ( Camera == null || SourceRenderer?.Texture == null ) return;
-
-		var pos = Camera.PointToScreenPixels(GameObject.WorldPosition);
-		var cameraForward = Camera.WorldTransform.Rotation.Forward;
-		var directionToItem = (GameObject.WorldPosition - Camera.WorldTransform.Position).Normal;
-		var dotProduct = Vector3.Dot(cameraForward, directionToItem);
-		
-		if (dotProduct > 0)
-		{
-			var scale = Scale();
-			var sizeWithScale = Size * scale;
-			var offsetWithScale = sizeWithScale / 2;
-
-			Camera.Hud.DrawTexture(
-				SourceRenderer.Texture, 
-				new Rect(pos.x - offsetWithScale, pos.y - offsetWithScale, sizeWithScale, sizeWithScale), 
-				SpriteColor
-			);
-		}
 	}
 
     private bool IsAlreadyOwned()
@@ -89,15 +65,6 @@ public sealed class ItemFloaty : Component
         {
             return true;
         }
-
         return false;
-    }
-
-    float Scale()
-    {
-        var distance = GameObject.WorldPosition.Distance(Camera.WorldPosition);
-        var t = (distance - minDistance) / (maxDistance - minDistance);
-        t = t.Clamp(0f, 1f);
-        return MathX.Lerp(minScale, maxScale, t);
     }
 }
