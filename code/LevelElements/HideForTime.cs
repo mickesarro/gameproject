@@ -14,6 +14,8 @@ public sealed class HideForTime : Component
     [Property] private bool randomize = false;
     [Property] private RangedFloat randomRange;
 
+    private Pickup Pickup;
+
     public bool IsHiding() => !displayRenderer.Enabled;
 
     protected override void OnAwake()
@@ -21,6 +23,7 @@ public sealed class HideForTime : Component
         base.OnAwake();
 
         displayRenderer ??= GetComponent<SkinnedModelRenderer>();
+        Pickup ??= GetComponent<Pickup>();
     }
 
     public async void HideFor()

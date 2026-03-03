@@ -35,6 +35,7 @@ public sealed class PickupRandomizer : Component
     {
         var item = pickup.ItemPrefab;
         pickup.ItemPrefab = null;
+        pickup.ModelRenderer.Enabled = false;
 
         var rarity = item.GetMetadata( "Rarity" );
         if ( !Enum.TryParse( rarity, ignoreCase: true, out Pickup.Rarity parsed ) ) return;
@@ -43,6 +44,7 @@ public sealed class PickupRandomizer : Component
             .FirstOrDefault( p => p.PickupRarity == parsed );
 
         newPickup.ItemPrefab = item;
+        newPickup.ModelRenderer.Enabled = true;
         newPickup.ModelRenderer.Model = Model.Load( item.GetMetadata( "Model" ) );
     }
 	

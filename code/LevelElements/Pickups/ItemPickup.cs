@@ -20,7 +20,7 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
         {
             //Log.Error( "No item prefab provided, destroying." );
             //DestroyGameObject();
-            ModelRenderer.Model = null;
+            ModelRenderer.Enabled = false;
             return;
         }
 
@@ -67,7 +67,7 @@ public sealed class ItemPickup : Pickup, Component.ITriggerListener
 				SoundManager.PlayLocal(SoundManager.SoundType.Reload);
 			}
             //DestroyGameObject();
-            HideForTime.HideFor();
+            //HideForTime.HideFor();
             Collected?.Invoke( this );
         }
     }

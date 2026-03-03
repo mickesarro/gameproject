@@ -47,6 +47,7 @@
         },
         "holdType": "RPG",
         "Icon": "icons/rpg.vtex",
+        "Model": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -59,6 +60,7 @@
           "go": "301d39c9-6e96-490b-9aba-537bb96735bd",
           "component_type": "FireData"
         },
+        "Rarity": "Common",
         "Viewmodel": {
           "_type": "gameobject",
           "go": "c3e8b4bf-9c00-4d23-8709-5b2bb49a6f5e"
@@ -1797,7 +1799,12 @@
       "NetworkInterpolation": true,
       "TimeScale": 1,
       "WantsSystemScene": true,
-      "Metadata": {},
+      "Metadata": {
+        "Rarity": "Common",
+        "WeaponType": "Primary",
+        "Icon": "icons/rpg.vtex",
+        "Model": "models/weapons/sbox_rpg_recoillessrifle/w_recoillessrifle.vmdl"
+      },
       "NavMesh": {
         "Enabled": false,
         "IncludeStaticBodies": true,
