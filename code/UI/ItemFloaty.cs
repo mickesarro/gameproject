@@ -34,21 +34,30 @@ public sealed class ItemFloaty : Component
 		base.OnUpdate();
 
 		bool owned = IsAlreadyOwned();
+        bool hiding = IsHiding();
+
+        bool shouldShow = !hiding;
 
 		if ( SourceRenderer.IsValid() )
 		{
-			SourceRenderer.Enabled = !owned;
+			SourceRenderer.Enabled = shouldShow;
 		}
 
 		if ( Light.IsValid() )
 		{
-			Light.Enabled = !owned;
+			Light.Enabled = shouldShow;
 		}
 
-		if ( owned ) return;
+		if ( !shouldShow ) return;
 		
 		if ( Camera == null || SourceRenderer?.Texture == null ) return;
 	}
+
+    private bool IsHiding()
+    {
+        var hideComp = Components.GetInParent<HideForTime>();
+        return hideComp != null && hideComp.IsHiding();
+    }
 
     private bool IsAlreadyOwned()
     {

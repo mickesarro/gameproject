@@ -1377,6 +1377,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1392,7 +1400,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "b2c929df-ec43-4423-b561-43eebab158a6",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "84811b4a-fbe4-4819-9259-8fbbab3b1ba6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "ce01df84-d634-4a82-a26d-8581c395d9e9",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a0ac0cc9-6412-4207-aff2-578d343de803"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a0ac0cc9-6412-4207-aff2-578d343de803",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "1a1f96c5-e1a6-4a92-9b57-508beed31c3b",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "d9fd1816-13b7-4635-8c96-c9f96564bd19"
       }
     },
     {
@@ -1453,6 +1463,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1479,7 +1497,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "aa90ac0c-98f6-4db5-a8e3-665002c32c36",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e7871b22-dd93-4099-9f33-820096054504",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "c502df2b-a863-4f51-a9bc-3cee7d0fba63",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "91e8d6cd-2732-47d7-aa6a-bbe4fc791de4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "91e8d6cd-2732-47d7-aa6a-bbe4fc791de4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "938c4f2c-2183-448b-9c35-7944bf6f4318",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "b44c4fdb-0597-43e5-a40c-07c3876dada6"
       }
     },
     {
@@ -1540,6 +1560,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1566,7 +1594,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "7a4540c0-ac8d-4787-aaa3-c355de45631b",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "16682d11-9e73-4bdc-9b38-ff2fadabb5e7",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "05dffdf1-d057-4a41-923d-adb63d2c05d5",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f35d96fb-704d-40e4-934d-2c74e4e21e37"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f35d96fb-704d-40e4-934d-2c74e4e21e37",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "6484b5a7-53e5-4a17-880f-f625971fa043",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "eef78373-6abd-4fc6-98ee-fc52a142709f"
       }
     },
     {
@@ -1574,119 +1604,7 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Sandbox.SpriteRenderer",
-              "__guid": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7",
-              "__enabled": true,
-              "Flags": 0,
-              "__version": 2,
-              "Additive": true,
-              "AlphaCutoff": 0.5,
-              "Billboard": "Always",
-              "Color": "0.61667,1,0,1",
-              "DepthFeather": 0,
-              "FlipHorizontal": false,
-              "FlipVertical": false,
-              "FogStrength": 1,
-              "IsSorted": false,
-              "Lighting": false,
-              "OnAnimationEnd": null,
-              "OnAnimationStart": null,
-              "OnBroadcastMessage": null,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Opaque": false,
-              "OverlayColor": "1,1,1,0",
-              "PlaybackSpeed": 1,
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "Shadows": false,
-              "Size": "40,40",
-              "Sprite": {
-                "$compiler": "embed",
-                "$source": null,
-                "data": {
-                  "Animations": [
-                    {
-                      "Name": "Default",
-                      "FrameRate": 15,
-                      "Origin": "0.5,0.5",
-                      "LoopMode": "Loop",
-                      "Frames": [
-                        {
-                          "Texture": "textures/shapes/sphere2.vtex",
-                          "BroadcastMessages": []
-                        }
-                      ]
-                    }
-                  ],
-                  "__references": null
-                },
-                "compiled": null
-              },
-              "StartingAnimationName": "Default",
-              "TextureFilter": "Bilinear"
-            }
-          },
-          {
-            "Id": {
-              "Type": "Component",
-              "IdValue": "ac7f0a4d-3cea-4ecb-bb7a-8f6651f9bd88"
-            },
-            "Parent": {
-              "Type": "GameObject",
-              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
-            },
-            "PreviousElement": {
-              "Type": "Component",
-              "IdValue": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7"
-            },
-            "ContainerProperty": "Components",
-            "IsContainerArray": true,
-            "Data": {
-              "__type": "Sandbox.PointLight",
-              "__guid": "ac7f0a4d-3cea-4ecb-bb7a-8f6651f9bd88",
-              "__enabled": true,
-              "Flags": 0,
-              "Attenuation": 1.3385826,
-              "FogMode": "Disabled",
-              "FogStrength": 1,
-              "LightColor": "0.61569,1,0,1",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Radius": 50,
-              "Shadows": true
-            }
-          }
-        ],
+        "AddedObjects": [],
         "RemovedObjects": [
           {
             "Id": {
@@ -1762,48 +1680,6 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
-            },
-            "Property": "Position",
-            "Value": "0,0,6.08001"
-          },
-          {
-            "Target": {
-              "Type": "GameObject",
-              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
-            },
-            "Property": "Tags",
-            "Value": "light_point,light"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Light",
-            "Value": {
-              "_type": "component",
-              "component_id": "ac7f0a4d-3cea-4ecb-bb7a-8f6651f9bd88",
-              "go": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
-              "component_type": "PointLight"
-            }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SourceRenderer",
-            "Value": {
-              "_type": "component",
-              "component_id": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7",
-              "go": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
-              "component_type": "SpriteRenderer"
-            }
           }
         ],
         "MovedObjects": []
@@ -1815,7 +1691,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "fba27637-fcf7-4df9-9f01-e9729e62eb1f",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "949078ca-0884-4a53-8349-c7f56bbb6e6a",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "f919cda6-928c-4108-9446-e40c6603c4ee",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "75343221-5cc3-452a-8f5f-f07638ec7c9d"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "75343221-5cc3-452a-8f5f-f07638ec7c9d",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "ac7f0a4d-3cea-4ecb-bb7a-8f6651f9bd88"
       }
     },
     {
@@ -1876,6 +1754,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1902,7 +1788,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "e440bb88-b342-4db7-a419-aa7302ef3181",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "3149b389-27f4-48a6-8f0a-cf4f2733a84b",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "50526865-46db-49c6-a41c-853d00426e1a"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "50526865-46db-49c6-a41c-853d00426e1a",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "d32af7ef-3dcc-4f85-a4dd-f42e40475fc6",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "d547d72d-b390-4126-89c3-37c7eb641c78"
       }
     },
     {
@@ -1963,6 +1851,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1989,7 +1885,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f971348b-3729-427a-8681-af633428260c",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "46661ca3-d69f-46a9-a8df-eaa7eddb6b36",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "1d900fc0-4172-4037-9ae3-97d040889872",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6fbe0007-bf1d-4d76-b1a9-f627c6063ea2"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6fbe0007-bf1d-4d76-b1a9-f627c6063ea2",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "71704ea3-bbac-433a-a178-29b46036a4c9",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "cb2bffeb-0b13-4e94-a4dd-7d7dc7eb4827"
       }
     },
     {
@@ -2050,6 +1948,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2076,7 +1982,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d91e63c9-47f4-47f6-86fb-96c450531bef",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e0d73675-cee1-4d21-9b78-65e531ee305f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "81c72a59-3e1b-48cc-8076-13859a1ddd4a",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "580859d5-a541-406b-a7d1-fcc3fd6070f8"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "580859d5-a541-406b-a7d1-fcc3fd6070f8",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "5464c975-104e-48b1-bd53-105bd5454e6e",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "352ee448-f23a-426e-9c86-b1c3bfd82501"
       }
     },
     {
@@ -2137,6 +2045,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2163,7 +2079,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "2cf0596b-c80a-4826-aab3-3a3cca1a011c",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "dc610c39-e0ef-4444-bf49-f4b55dfd22ad",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "2a250525-3a44-4a3a-b95a-9e47bd878950",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f8150a7f-4a6c-4750-9242-0791ed8249a4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f8150a7f-4a6c-4750-9242-0791ed8249a4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "eacc06f3-8694-434f-931c-1d9f6edc4a07",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "967b9354-d4fe-49e2-847a-88dbf1037f4c"
       }
     },
     {
@@ -2208,6 +2126,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2223,7 +2149,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f18da195-b454-4a87-9772-18d49fa23427",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "5fde3b17-7163-431c-b57a-add1465b9034",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "67b174b4-63c3-4180-bb18-caa47abc4957",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "885b1b9a-3991-4711-80ba-6348168ba668"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "885b1b9a-3991-4711-80ba-6348168ba668",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "e6867082-98f4-4630-918a-b038e986f352",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "49807c20-118c-47a9-8b76-0c0688453dca"
       }
     },
     {
@@ -2268,6 +2196,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2283,7 +2219,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "98726222-a9d0-4781-9621-ccef3482fe04",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "42051e22-603f-4bf2-a076-b49d5f63e8d3",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "6786fee4-95d8-4c92-962f-3d913a71ea73",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "186ee661-9334-40d5-8ddd-fb9ad3cc1fdc"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "186ee661-9334-40d5-8ddd-fb9ad3cc1fdc",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "7a243706-6bb3-4908-9362-3a83f748e587",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "a8ead0c0-8293-49e3-8584-7ef18243bd16"
       }
     },
     {
@@ -2328,6 +2266,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2343,7 +2289,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "bca12010-aada-4212-8159-83f18610ad24",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c04c4a7d-9eb1-4abf-9afc-9e6f195945ac",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "b24b885f-50bf-4917-81b2-f69f719cc9f1",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "31d72ae3-e729-4cfb-a690-9253eed45d01"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "31d72ae3-e729-4cfb-a690-9253eed45d01",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "1496135f-499f-4f1a-aa4f-38a21ffbbefa",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "98c01336-54b7-4a7f-9373-8fed0450f238"
       }
     },
     {
@@ -2388,6 +2336,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2403,7 +2359,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "150d6f8f-626a-4851-9df0-98b6e2eb2e84",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bcf8069a-cce0-4971-a738-9ca11072f2c6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "dcf62061-1631-432e-b604-f7091a7b5346",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2e99ddbf-d4e9-4d15-966b-1f471b6296c1"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2e99ddbf-d4e9-4d15-966b-1f471b6296c1",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "6bfcd287-1dab-4879-9071-8833ee9e854d",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "b41bd69a-9702-46b3-8f80-f634c52b5fbe"
       }
     },
     {
@@ -2448,6 +2406,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2463,7 +2429,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "219509e3-25e4-48a4-b9cf-fab0c72bfe39",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e46790d5-dcf1-4548-9966-4936bbc5f191",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "799608dd-891d-49b0-92b3-f87075a8d91e",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "209ba36b-86b8-4234-9b48-c020edcda9c9"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "209ba36b-86b8-4234-9b48-c020edcda9c9",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "bec2aaa2-262b-4ba2-b8c5-308715edf2ab",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "8359fb11-bb1e-4739-a878-2c117c4e4dc2"
       }
     },
     {
@@ -2508,6 +2476,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2523,7 +2499,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "6477982c-76b4-4d6d-aa90-5c3996e93b76",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "a6c9af32-a51a-42b8-92ad-c5425394c490",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "8c1d0889-c158-42d3-8f54-a45ba79b3602",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2235db72-ff2d-41aa-8a99-0c1ae3eeb2a4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2235db72-ff2d-41aa-8a99-0c1ae3eeb2a4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "aa63bd91-0e56-42d9-b928-b8b03a59f3af",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "7fc02e71-ad2f-4890-b463-2ff410286574"
       }
     },
     {
@@ -2576,6 +2554,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2591,7 +2577,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "a070caa8-dad3-4ed0-93e0-05dcaf5fcbc7",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "b3f2394a-c2f2-49ba-96f6-75e08850a35f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "556d86d7-81f1-4f5e-8942-a516fdd28b48",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "64ee0b89-d7f0-48bc-a8f1-a490cf52f7c8"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "64ee0b89-d7f0-48bc-a8f1-a490cf52f7c8",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "cddfc2fd-4b31-403d-9072-a9f980a32648",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "13c1b6dc-61ef-4789-abf1-b2eb07ee0e7e"
       }
     },
     {
@@ -2644,6 +2632,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2659,7 +2655,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "fb737796-be54-489d-a1b8-e1744389a983",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "eaaf5fc3-4383-4e86-ab02-cf4ff1a6c8d6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "fccefb8e-0411-43f7-b6c8-65112dbdeec9",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8cbbe4fc-cf76-46cd-8ae5-f106ba0850b0"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8cbbe4fc-cf76-46cd-8ae5-f106ba0850b0",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "8d71a149-c221-45f8-b2b6-bb5487c34cfa",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "dade2354-2b3e-4b8f-ac2f-2a7945cf79ac"
       }
     },
     {
@@ -2704,6 +2702,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2719,6 +2725,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -2730,7 +2752,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "06b69c65-88ae-43dd-88a7-ccb29cb965b3",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "cc347c45-9373-4687-b34b-05cc6c19ff92",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "40e5597f-71fb-4c9e-b267-ee2fcd95a6a1",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a4777e3d-f25a-45e2-9bab-3ea8fcce8323"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a4777e3d-f25a-45e2-9bab-3ea8fcce8323",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "0d840eba-c6ea-4fe2-85c6-8ba8e4eada61",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "a4ea5521-a069-4f2d-8d0f-ea12f3d62c50"
       }
     },
     {
@@ -2775,6 +2799,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2790,6 +2822,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -2801,7 +2849,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "93f2891d-0907-4b63-bba5-d9233d459960",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "75d850bc-fac9-4467-9a0c-916567ac2807",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "3f4a574d-8310-455b-867e-588f60991575",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8a55de2c-92d9-4173-a5fb-bb38b37268d2"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8a55de2c-92d9-4173-a5fb-bb38b37268d2",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "8256e26a-ef76-46fb-b2f0-674378ced958",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "2df3a35f-6706-4111-a6d3-abc73851f56f"
       }
     },
     {
@@ -2846,6 +2896,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2861,6 +2919,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -2872,7 +2946,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d2d94995-1ebf-4efc-9842-44f7c4c7a656",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "34b3272e-8093-46e7-b0af-52b120e1254f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "8486983c-6f54-4ed6-897f-622bfda0e1a2",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "d267949f-4763-472f-97bf-680e5ec79582"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "d267949f-4763-472f-97bf-680e5ec79582",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "69f69b04-5801-4ee0-aede-c2fbe06ae4b8",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "76cb0674-fb9f-4123-abcf-e2056073c34b"
       }
     },
     {
@@ -2917,6 +2993,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2932,6 +3016,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -2943,7 +3043,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d8463c0e-33f2-48b6-bee5-bf34221fa786",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bf704375-d6d6-48a0-b966-a4051ee0eb3f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "9d4ffa1a-70da-4965-bb13-325b4afa1563",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "07d4a601-c6a6-49cc-8d05-67dda84b9522"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "07d4a601-c6a6-49cc-8d05-67dda84b9522",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "ef132d0e-dad8-44cf-89a3-d9b8e2d11cb6",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "2ef7df98-c318-4118-a1eb-d99d60571262"
       }
     },
     {
@@ -2988,6 +3090,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3003,6 +3113,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -3014,7 +3140,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f9c6c752-232d-4b4a-b770-74851469f104",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "357287df-347f-4050-a2cf-2b8b882c2352",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "63dc9fa7-94af-4ed9-b9cc-081ac8d4944b",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "124cb85b-cda8-44c6-ae18-858455064951"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "124cb85b-cda8-44c6-ae18-858455064951",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "d08ce235-d4fe-41f8-9db3-d4a9bc063b63",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "7ede1f7d-32a9-44a3-8d16-977ed76efe72"
       }
     },
     {
@@ -3059,6 +3187,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3074,6 +3210,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -3085,7 +3237,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "5aad4f29-ebc2-4ab7-8346-61e869f30aa3",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c9441846-8b77-4cad-813c-b71bd6e28b92",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "1cbd522c-0b7b-4595-beb1-3cf62bd719d6",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "5f5d1b7c-645a-4ae7-a368-3fc177ed9cd6"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "5f5d1b7c-645a-4ae7-a368-3fc177ed9cd6",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "f5a5c8bc-7e4b-4cb3-89f4-35710f712af3",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "59324563-de3a-44dc-a92e-2c4c998c0011"
       }
     },
     {
@@ -3130,6 +3284,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3145,6 +3307,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            },
+            "Property": "Color",
+            "Value": "1,0,0,1"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            },
+            "Property": "LightColor",
+            "Value": "1,0,0,1"
           }
         ],
         "MovedObjects": []
@@ -3156,7 +3334,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "479977fc-f537-42da-a009-73e0a972bdf7",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "fe8cb251-77ce-4bcf-aca7-89ea003d6769",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "ee4dae56-400f-4620-a799-0b559c16a0f4",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2afc8ae3-429f-4497-8744-75c3f5d89e98"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2afc8ae3-429f-4497-8744-75c3f5d89e98",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "6e6a651b-88b1-43cc-827a-0b000692826a",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "7988dc9e-a3de-42ec-b710-7057cbe3c362"
       }
     },
     {
@@ -3201,6 +3381,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3216,7 +3404,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "3dba581b-f9b3-4eab-ab71-99e85ba32616",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "ad1f1183-b76f-4607-abdd-eb8a5c96459e",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "dda43f94-891c-4113-a8ea-f1a43e9875fb",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6a7b4716-f60e-4f90-bb0d-6ee0b832c9b1"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6a7b4716-f60e-4f90-bb0d-6ee0b832c9b1",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "e9994b29-5e56-4335-95fa-02ad3fe494ee",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "41487b02-8860-456e-a527-377f1d991d14"
       }
     },
     {
