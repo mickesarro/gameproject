@@ -785,6 +785,22 @@
             },
             "Property": "Position",
             "Value": "414.7487,-8497.929,147.7812"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -819,6 +835,22 @@
             },
             "Property": "Position",
             "Value": "1004.544,-7533.157,269.8884"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -853,6 +885,22 @@
             },
             "Property": "Position",
             "Value": "-377.174,-7301.078,273.8556"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -887,6 +935,22 @@
             },
             "Property": "Position",
             "Value": "-531.1823,-8578.926,140.0346"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -921,6 +985,22 @@
             },
             "Property": "Position",
             "Value": "-608.1602,-9084.836,780.9169"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -955,6 +1035,22 @@
             },
             "Property": "Position",
             "Value": "-1398.092,-9129.011,782.056"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -989,6 +1085,22 @@
             },
             "Property": "Position",
             "Value": "140.237,-8537.224,780.6827"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1023,6 +1135,22 @@
             },
             "Property": "Position",
             "Value": "-858.1175,-8102.018,649.1295"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1057,6 +1185,22 @@
             },
             "Property": "Position",
             "Value": "1107.318,-8044.469,654.8099"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1091,6 +1235,22 @@
             },
             "Property": "Position",
             "Value": "1022.99,-8874.125,652.749"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1125,6 +1285,22 @@
             },
             "Property": "Position",
             "Value": "-582.7718,-9451.402,143.3733"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1159,6 +1335,22 @@
             },
             "Property": "Position",
             "Value": "-2221.428,-9202.702,266.5089"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1193,6 +1385,22 @@
             },
             "Property": "Position",
             "Value": "-843.551,-7733.495,273.647"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1227,6 +1435,22 @@
             },
             "Property": "Position",
             "Value": "-1875.835,-7206.865,269.6912"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1261,6 +1485,22 @@
             },
             "Property": "Position",
             "Value": "-2548.172,-8230.08,269.2647"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1295,6 +1535,22 @@
             },
             "Property": "Position",
             "Value": "338.0446,-6726.163,18.27583"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1329,6 +1585,22 @@
             },
             "Property": "Position",
             "Value": "-780.1507,-5783.877,17.83666"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1386,6 +1658,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1473,6 +1761,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1560,6 +1864,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1647,6 +1967,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1734,6 +2070,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1821,6 +2173,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1908,6 +2276,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -1995,6 +2379,22 @@
               "_type": "gameobject",
               "prefab": "ar-rifle.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2055,6 +2455,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2115,6 +2531,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2175,6 +2607,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2235,6 +2683,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2295,6 +2759,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2355,6 +2835,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2423,6 +2919,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2491,6 +3003,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
@@ -2562,6 +3090,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           },
           {
             "Target": {
@@ -2661,6 +3205,22 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
             },
             "Property": "Size",
@@ -2752,6 +3312,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           },
           {
             "Target": {
@@ -2851,6 +3427,22 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
             },
             "Property": "Size",
@@ -2942,6 +3534,22 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           },
           {
             "Target": {
@@ -3041,6 +3649,22 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
             },
             "Property": "Size",
@@ -3136,6 +3760,22 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
             },
             "Property": "Size",
@@ -3216,6 +3856,22 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "PickupRarity",
+            "Value": "Common"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ShouldRandomize",
+            "Value": false
           }
         ],
         "MovedObjects": []
