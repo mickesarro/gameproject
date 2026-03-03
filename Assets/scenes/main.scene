@@ -47,12 +47,7 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": {
-            "_type": "component",
-            "component_id": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
-            "go": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
-            "component_type": "Dresser"
-          },
+          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -1630,7 +1625,7 @@
                 "AfterUILayer": false
               },
               "Shadows": false,
-              "Size": "30,30",
+              "Size": "40,40",
               "Sprite": {
                 "$compiler": "embed",
                 "$source": null,
@@ -1796,14 +1791,6 @@
               "go": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
               "component_type": "PointLight"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 0
           },
           {
             "Target": {
@@ -2732,14 +2719,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -2811,14 +2790,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -2890,14 +2861,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -2969,14 +2932,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -3048,14 +3003,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -3127,14 +3074,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
@@ -3206,14 +3145,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
           }
         ],
         "MovedObjects": []
