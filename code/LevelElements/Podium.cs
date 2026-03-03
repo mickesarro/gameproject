@@ -39,7 +39,8 @@ public sealed class Podium : Component
 
     private void InstantiateCharacter( GameObject character, SpawnPoint spawnPoint )
     {
-        var body = character.GetComponentInChildren<SkinnedModelRenderer>( includeDisabled: true );
+        var body = character.GetComponentsInChildren<SkinnedModelRenderer>( includeDisabled: true )
+            .FirstOrDefault( smr => smr.GameObject.Name == "Body" );
         
         // May not work on the client with NPCs, need to investigate
         var cloned = body.GameObject.Clone(
