@@ -1,3 +1,4 @@
+using System;
 using Shooter.UI;
 
 namespace Shooter;
@@ -7,6 +8,9 @@ public sealed class Podium : Component
     [Property] private SpawnPoint First { get; set; }
     [Property] private SpawnPoint Second { get; set; }
     [Property] private SpawnPoint Third { get; set; }
+
+    private List<SkinnedModelRenderer> renderers = [];
+    private List<String> idleanims = ["AvatarMenu_Idle_01", "AvatarMenu_Idle_02"];
 
     protected override void OnEnabled()
     {
@@ -29,7 +33,7 @@ public sealed class Podium : Component
         {
             if ( player?.GameObject == null ) continue;
 
-            InstantiateCharacter( player.GameObject, spawnPoints[position] );
+            InstantiateCharacter( player.GameObject, spawnPoints[position], position );
 
             if ( position == 2 ) break;
             position++;
@@ -37,7 +41,7 @@ public sealed class Podium : Component
 
     }
 
-    private void InstantiateCharacter( GameObject character, SpawnPoint spawnPoint )
+    private void InstantiateCharacter( GameObject character, SpawnPoint spawnPoint, int position )
     {
         var body = character.GetComponentsInChildren<SkinnedModelRenderer>( includeDisabled: true )
             .FirstOrDefault( smr => smr.GameObject.Name == "Body" );
@@ -48,6 +52,26 @@ public sealed class Podium : Component
         );
 
         cloned.WorldTransform = spawnPoint.WorldTransform;
+
+        foreach ( var renderer in cloned.GetComponents<SkinnedModelRenderer>() )
+        {
+            renderers.Add( renderer );
+            renderer.UseAnimGraph = false;
+            renderer.Sequence.Blending = true;
+            switch ( position )
+            {
+                case 0:
+                    renderer.Sequence.Name = "AvatarMenu_Entry_Flex";
+                    break;
+                case 1:
+                    renderer.Sequence.Name = "AvatarMenu_Entry_Wave_02";
+                    break;
+                case 2:
+                    renderer.Sequence.Name = "AvatarMenu_ExamineArms_03";
+                    break;
+            }
+            renderer.Sequence.Looping = false;
+        }
 
         var nametag = GameObject.Clone(
             "prefabs/nametag.prefab",
@@ -73,4 +97,16 @@ public sealed class Podium : Component
         }
     }
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        foreach ( var renderer in renderers )
+        {
+            if ( renderer.Sequence.IsFinished )
+            {
+                renderer.Sequence.Looping = true;
+                renderer.Sequence.Name = idleanims[new Random().Next( 0, idleanims.Count )];
+            }
+        }
+    }
 }
