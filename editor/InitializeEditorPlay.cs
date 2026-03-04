@@ -21,18 +21,18 @@ public static class EditorScene
         var spawnPoints = Game.ActiveScene.FindAllWithTag("spawnpoint").ToArray();
         var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
 
-        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
         
         // Second one
         startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
   
-        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
   
         startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
-        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
   
         startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
-        SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
+        //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
     }
 
     private static void SpawnDummy( Transform startLocation, StateEnum startState, StateEnum[] states )

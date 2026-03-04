@@ -5,7 +5,7 @@
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/weapons/railgun-zap-charge.vsnd"
+    "sounds/characters/neck-crack.vsnd"
   ],
   "Occlusion": true,
   "AirAbsorption": true,
@@ -44,8 +44,8 @@
     }
   ],
   "DefaultMixer": {
-    "Name": "game",
-    "Id": "4b227aca-7a0d-45cb-9e2d-3314e1f176a6"
+    "Name": "unknown",
+    "Id": "00000000-0000-0000-0000-000000000000"
   },
   "__references": [],
   "__version": 1

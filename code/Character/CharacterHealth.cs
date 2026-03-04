@@ -2,6 +2,7 @@ using Sandbox;
 using Shooter.Camera;
 using System;
 using System.Diagnostics.Metrics;
+using Shooter.Sounds;
 
 namespace Shooter;
 
@@ -48,6 +49,12 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         // Flinch animations, screen red etc.
         OnDamage?.Invoke( damageInfo );
 
+        var gun = damageInfo.Weapon?.Name;
+        if ( gun == "railgun" )
+        {
+            SoundManager.PlayLocal( SoundManager.SoundType.RailgunHit, 0.3f );
+        }
+
         if ( Health <= 0 )
 		{
             Health = 0;
@@ -83,6 +90,11 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 
         if ( IsProxy ) return;
 
+        if (CharacterBase.IsPlayer)
+        {
+            SoundManager.PlayLocal( SoundManager.SoundType.PlayerDeath );
+        }
+        
         ownedStats.AddDeath();
         
         var velocity = CharacterBase.Velocity;

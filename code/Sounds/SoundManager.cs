@@ -23,7 +23,8 @@ public static class SoundManager
         UIReject,
         GunshotRailgun,
         JumpPad,
-        HealthPack
+        HealthPack,
+        RailgunHit
     }
 
     private static readonly Dictionary<SoundType, string> SoundPaths = new()
@@ -39,7 +40,9 @@ public static class SoundManager
         {SoundType.UIReject, "sounds/ui/ui_accept.sound" },
         {SoundType.GunshotRailgun, "sounds/weapons/railgun-zap-charge.sound" },
         {SoundType.JumpPad, "sounds/items/sci-fi.sound" },
-        {SoundType.HealthPack, "sounds/items/health.sound" } // No UI reject sound yet
+        {SoundType.HealthPack, "sounds/items/health.sound" },
+        {SoundType.PlayerDeath, "sounds/characters/neck-crack.sound" },
+        {SoundType.RailgunHit, "sounds/characters/railgun-hit.sound" }
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };

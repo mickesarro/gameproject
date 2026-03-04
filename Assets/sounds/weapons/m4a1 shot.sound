@@ -44,8 +44,8 @@
     }
   ],
   "DefaultMixer": {
-    "Name": "ui",
-    "Id": "c82e4357-2719-4dc4-83ae-82e61c8beec8"
+    "Name": "game",
+    "Id": "4b227aca-7a0d-45cb-9e2d-3314e1f176a6"
   },
   "__references": [],
   "__version": 1
