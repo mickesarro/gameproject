@@ -34,12 +34,23 @@ public sealed class VotingSystem : SingletonBase<VotingSystem>
     {
         base.OnUpdate();
 
+        // Just to avoid voting state not advancing
+        if ( Networking.IsHost && VotingTimeLeft < 0 )
+        {
+            StopVoting();
+            return;
+        }
+
         if ( !Networking.IsHost || Elapsed < VotingTime ) return;
-        
+
+        StopVoting();
+    }
+
+    private void StopVoting()
+    {
         int winner = DetermineWinner();
 
         OnVotingEnded?.Invoke( Options[winner].Ident );
-
     }
 
     private int DetermineWinner()
