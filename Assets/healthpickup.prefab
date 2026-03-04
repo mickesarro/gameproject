@@ -27,7 +27,8 @@
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
-        "OnComponentUpdate": null
+        "OnComponentUpdate": null,
+        "Spin": 90
       },
       {
         "__type": "Sandbox.SphereCollider",
