@@ -48,6 +48,10 @@
         "__enabled": true,
         "Flags": 0,
         "Attacker": null,
+        "explosionPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/explosion.prefab"
+        },
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -63,7 +67,7 @@
         "Flags": 0,
         "ColliderFlags": 0,
         "Elasticity": null,
-        "End": "25.23048,0,0",
+        "End": "27.06441,0,0",
         "Friction": null,
         "IsTrigger": true,
         "OnComponentDestroy": null,
@@ -78,7 +82,7 @@
         "OnTriggerExit": null,
         "Radius": 3.8229465,
         "RollingResistance": null,
-        "Start": "-15.09836,0,0",
+        "Start": "-16.01933,0,0",
         "Static": false,
         "Surface": null,
         "SurfaceVelocity": "0,0,0"
@@ -98,81 +102,41 @@
     ],
     "Children": [
       {
-        "__guid": "494d9231-f199-4061-821a-3d8412e2af7f",
+        "__guid": "aef718e1-ee25-411b-8996-8e089062f306",
         "__version": 2,
-        "Flags": 0,
-        "Name": "trail",
-        "Position": "0,0,0",
-        "Rotation": "0,0,0,1",
-        "Scale": "1,1,1",
-        "Tags": "",
-        "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkFlags": 0,
-        "NetworkOrphaned": 0,
-        "NetworkTransmit": true,
-        "OwnerTransfer": 1,
-        "Components": [
-          {
-            "__type": "Sandbox.TrailRenderer",
-            "__guid": "d07844eb-3704-4e18-a991-3f867f8bc1d0",
-            "__enabled": true,
-            "Flags": 0,
-            "BlendMode": "Lighten",
-            "CastShadows": false,
-            "Color": {
-              "blend": "Linear",
-              "color": [
-                {
-                  "t": 0.5,
-                  "c": "0,1,1,1"
-                }
-              ],
-              "alpha": []
-            },
-            "Emitting": true,
-            "Face": "Normal",
-            "LifeTime": 0.59999937,
-            "MaxPoints": 64,
-            "OnComponentDestroy": null,
-            "OnComponentDisabled": null,
-            "OnComponentEnabled": null,
-            "OnComponentFixedUpdate": null,
-            "OnComponentStart": null,
-            "OnComponentUpdate": null,
-            "Opaque": false,
-            "PointDistance": 3.5000033,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "Texturing": {
-              "Texture": null,
-              "Material": null,
-              "WorldSpace": true,
-              "UnitsPerTexture": 9.999994,
-              "Scale": 1,
-              "Offset": 0,
-              "Scroll": 0,
-              "FilterMode": "Anisotropic",
-              "TextureAddressMode": "Wrap",
-              "Clamp": false
-            },
-            "Width": [
-              {
-                "x": 0.5,
-                "y": 5,
-                "in": 0,
-                "out": 0,
-                "mode": "Mirrored"
-              }
-            ],
-            "Wireframe": false
-          }
-        ],
-        "Children": []
+        "__Prefab": "prefabs/rocket_trail.prefab",
+        "__PrefabInstancePatch": {
+          "AddedObjects": [],
+          "RemovedObjects": [],
+          "PropertyOverrides": [
+            {
+              "Target": {
+                "Type": "GameObject",
+                "IdValue": "f1e2d3c4-b5a6-4789-0abc-de1234567890"
+              },
+              "Property": "Name",
+              "Value": "Object"
+            }
+          ],
+          "MovedObjects": []
+        },
+        "__PrefabIdToInstanceId": {
+          "f1e2d3c4-b5a6-4789-0abc-de1234567890": "aef718e1-ee25-411b-8996-8e089062f306",
+          "21f75b03-4447-4aee-8e5f-58bbdbabe89b": "9974d326-8e1c-42a0-96f7-2496cf7bf864",
+          "82870755-79f3-4866-8e8c-ce861ba8f8e1": "f77b2946-2081-40ac-b220-6631f9b4d7f3",
+          "6bb1c231-f1a5-442a-8a79-0e6c6df7515d": "b3d90a6b-6144-41c2-af2b-d38e1d767891",
+          "be0c0d18-e086-4cbb-ae5f-7eb670f96126": "f3c89841-38b7-4c43-bb65-559dcc5a94d5",
+          "a1b2c3d4-e5f6-4789-abcd-100000000001": "a06a2536-8fc6-4c2a-a762-8cda17c95bdf",
+          "b2c3d4e5-f6a7-4890-bcde-200000000001": "9066676c-b019-463f-b6ed-04da3acf4dd4",
+          "c3d4e5f6-a7b8-4901-cdef-300000000001": "04797b9b-f1d0-4985-957b-16caee3dfbcc",
+          "d4e5f6a7-b8c9-4012-def0-400000000001": "c6247948-abd3-407b-af82-9b184fcdd64c",
+          "e5f6a7b8-c9d0-4123-ef01-500000000001": "e6e906df-5573-4553-b2fd-dd2b41d20f10",
+          "a1b2c3d4-e5f6-4789-abcd-100000000002": "a1f605c0-8333-4f34-8e97-3c7332f5fda5",
+          "b2c3d4e5-f6a7-4890-bcde-200000000002": "f035231c-11b2-4f8e-87c0-b9c78db029f0",
+          "c3d4e5f6-a7b8-4901-cdef-300000000002": "241b76d2-1155-445c-94fa-6c00af30175b",
+          "67f744dc-663f-49a0-bee6-446833218161": "da6262f1-0093-42fc-b13b-5201c9bf26e0",
+          "e5f6a7b8-c9d0-4123-ef01-500000000002": "f9867ea2-52e3-4edd-829c-c71e8f6580e5"
+        }
       }
     ],
     "__properties": {
