@@ -23,7 +23,7 @@
     private FireData FireData => PlayerInventory?.CurrentWeapon?.GunData?.PrimaryFireData;
 
     public int AmmoLeft => FireData?.AmmoLeft ?? 0;
-    public int MaxAmmo => HasWeapon ? ammoInventory.GetAmmo(FireData.AmmoType) : 0;
+    public int MaxAmmo => HasWeapon ? FireData.MaxAmmo : 0;
     public bool HasWeapon => FireData != null;
 
     [Property] public string HudColour { get; set; } = "#FFFFFF";

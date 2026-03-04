@@ -272,13 +272,16 @@ public sealed class Gun : Component, IWeapon, ICollectable
 
     private void Reload()
 	{
-		int reloaded = AmmoInventory
+        // For the time being, until reload anims etc.
+        return;
+
+        int reloaded = AmmoInventory
 			.RemoveAmmo( FireData.AmmoType, FireData.MaxAmmo - FireData.AmmoLeft); // Intentionally MaxAmmo as it is the magazine size
 
 		FireData.AmmoLeft += reloaded;
 
-		// Should do some animation etc. as well
-		timeSinceLastShot -= FireData.LoadTime; // Better solution required
+        // Should do some animation etc. as well
+        timeSinceLastShot -= FireData.LoadTime; // Better solution required
 
 		if ( reloaded > 0 ) {
             BroadcastSound( SoundManager.SoundType.Reload, GameObject.WorldPosition, 500f, 0.5f );
@@ -341,8 +344,9 @@ public sealed class Gun : Component, IWeapon, ICollectable
         //Check ammo before firing
         if ( FireData.AmmoLeft <= 0 )
         {
-            TryReload();
+            // Again to make the gun work without ammo inventory
             return;
+            if ( !TryReload() ) return;
         }
 
         --FireData.AmmoLeft;
