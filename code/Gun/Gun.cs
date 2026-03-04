@@ -348,14 +348,8 @@ public sealed class Gun : Component, IWeapon, ICollectable
         --FireData.AmmoLeft;
 
 		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 6900f, 0.3f );
-		
-		var projectile = FireData.BulletData.ProjectilePrefab
-			.Clone( gunData.BarrelEnd.WorldTransform );
-
-		// A better solution is required for final product
-		projectile.GetComponent<Projectile>().Attacker = User;
-
-		projectile.NetworkSpawn();
+		Log.Info( User );
+		Projectile.Spawn( FireData.BulletData.ProjectilePrefab, gunData.BarrelEnd.WorldTransform, User );
 
 		SetAnimation(modelType.ViewModel, "fire", true );
 		SetAnimation(modelType.WorldModel, "b_attack", true );

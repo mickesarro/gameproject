@@ -9,6 +9,20 @@ public sealed class Projectile : Component
 {
 	[Property] private float velocity = 1500.0f;
 	[Property] public GameObject Attacker { get; set; }
+	[Property] private GameObject explosionPrefab { get; set; }
+
+	/// <summary>
+	/// Clones the projectile prefab, sets the attacker, and spawns it on the network.
+	/// </summary>
+	public static Projectile Spawn( GameObject prefab, Transform spawnTransform, GameObject attacker )
+	{
+		var go = prefab.Clone( new CloneConfig( spawnTransform, startEnabled: false ) );
+		var projectile = go.Components.Get<Projectile>( includeDisabled: true );
+		projectile.Attacker = attacker;
+		go.Enabled = true;
+		go.NetworkSpawn();
+		return projectile;
+	}
 
 	private Collider collider; // Can be used with different types of colliders
 
@@ -41,14 +55,14 @@ public sealed class Projectile : Component
 			return;
 		}
 
-		var blastEffect = new BlastEffect
+		if ( explosionPrefab is null )
 		{
-			BlastForce = 700.0f,
-		};
-		blastEffect.NetworkSpawn();
-		blastEffect.TriggerBlast( WorldPosition, Attacker );
+			Log.Warning( "Projectile: explosionPrefab not set" );
+			DestroyGameObject();
+			return;
+		}
 
-		// Just destroy for now
+		BlastEffect.Spawn( explosionPrefab, WorldPosition, Attacker );
 		DestroyGameObject();
 	}
 	
