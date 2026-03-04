@@ -16,6 +16,7 @@ public sealed class LobbyWaitState( MatchManager matchManager, StateMachine stat
         if ( !Networking.IsHost ) return;
 
 #if DEBUG
+        if ( !Application.IsEditor ) return;
         HoldLobby = true;
 #endif
 

@@ -7,7 +7,7 @@
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
     "Scale": "2,2,2",
-    "Tags": "",
+    "Tags": "pickup",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkFlags": 0,
@@ -165,6 +165,7 @@
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
+            "OnlyShowWhenEmpty": false,
             "SourceRenderer": {
               "_type": "component",
               "component_id": "2313ffc2-2263-4d68-bf8a-6b858149b839",

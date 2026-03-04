@@ -50,6 +50,8 @@ public sealed class Projectile : Component
 
         if ( IsProxy ) return;
 
+        if ( objectHit.Tags.Has( "pickup" ) ) return;
+
         if ( objectHit.Root == Attacker )
 		{
 			return;
