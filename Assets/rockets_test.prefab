@@ -45,6 +45,7 @@
           "_type": "gameobject",
           "go": "6f4181ed-3cfe-4416-aeda-e441e76bcc7c"
         },
+        "Color": "1,0,0,0.5",
         "holdType": "RPG",
         "Icon": "icons/rpg.vtex",
         "OnComponentDestroy": null,

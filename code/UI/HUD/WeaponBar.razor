@@ -16,7 +16,7 @@
                 int slotLabel = i + 1;
 
                 <div class="weapon-slot @(isActive ? "active" : "")" 
-                     style="border-color: @(isActive ? HudColour : "rgba(255, 255, 255, 0.1)");">
+                     style="border-color: @(isActive ? weapon?.GunData?.Color.Rgb != null ? weapon?.GunData?.Color.Rgb : HudColour : "rgba(255, 255, 255, 0.1)");">
                     
                     <div class="slot-number">@slotLabel.</div>
 

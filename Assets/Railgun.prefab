@@ -45,6 +45,7 @@
           "_type": "gameobject",
           "go": "8293b50c-81e1-4363-a6be-74f8b28f5a97"
         },
+        "Color": "1,0,0.8,0.5",
         "holdType": "Rifle",
         "Icon": "icons/railgun.vtex",
         "OnComponentDestroy": null,

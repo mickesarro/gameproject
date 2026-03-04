@@ -8,6 +8,7 @@ namespace Shooter;
 /// </summary>
 public sealed class GunData : Component
 {
+    [Property] public Color Color { get; private set; }
 	[Property] public Texture Icon { get; private set; }
 	[Property] public WeaponType WeaponType { get; private set; } = WeaponType.Primary;
 
