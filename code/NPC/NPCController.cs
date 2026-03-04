@@ -49,27 +49,28 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
     public CharacterHealth characterHealth { get; private set; }
 
-    public Vector3 Velocity => Agent.Velocity;
+    [Sync] public Vector3 Velocity { get; private set; } = Vector3.Zero;
+    [Sync] public Rotation AgentRotation { get; private set; } = new();
     
     protected override void OnAwake()
     {
+        base.OnAwake();
+
+        animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
+
         if ( IsProxy )
         {
             playerStats = GetComponent<PlayerStats>();
             return;
         }
 
-        base.OnAwake();
-
         StateMachine = new StateMachine();
         PopulateFSM();
-
-        animationHelper ??= GetComponentInChildren<CitizenAnimationHelper>( includeDisabled: false );
 
         characterHealth = GetComponent<CharacterHealth>();
         
         playerStats = GetOrAddComponent<PlayerStats>();
-        MatchStatsManager.Instance.RegisterCharacter( GameObject );
+        MatchStatsManager.Instance?.RegisterCharacter( GameObject );
 
         gun = GetComponentInChildren<Gun>();
 
@@ -148,9 +149,16 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
     };
 
     protected override void OnFixedUpdate() {
-        if ( IsProxy || !MatchManager.Instance.MatchIsRunning ) return;
+        if ( MatchManager.Instance?.MatchIsRunning != true ) return;
 
-        StateMachine.Update();
+        if ( !IsProxy )
+        {
+            StateMachine.Update();
+
+            Velocity = Agent.Velocity;
+            AgentRotation = Agent.WorldRotation;
+        }
+
         UpdateCitizenAnims();
     }
 
@@ -196,13 +204,13 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
     private void UpdateCitizenAnims()
     {
-        if ( animationHelper == null || Agent == null || !Agent.IsValid ) return;
-
+        if ( animationHelper == null ) return;
+        
         // animationHelper.WithWishVelocity( Agent.WorldTransform.Forward * Agent.Velocity );
-        animationHelper.WithVelocity( Agent.Velocity );
-        animationHelper.AimAngle = Agent.WorldTransform.Rotation;
+        animationHelper.WithVelocity( Velocity );
+        animationHelper.AimAngle = AgentRotation;
         animationHelper.IsGrounded = true;
-        animationHelper.WithLook( Agent.WorldTransform.Forward, 1f, 0.75f, 0.5f );
+        animationHelper.WithLook( AgentRotation.Forward, 1f, 0.75f, 0.5f );
         animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Auto;
     }
 

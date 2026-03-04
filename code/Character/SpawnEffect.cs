@@ -183,6 +183,7 @@ protected override void OnAwake()
     void DestroyAll()
     {
         dresser.ApplyClothing();
+        originalRenderer.RenderType = shouldRender ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
         // tempRenderer.Destroy();
         // tempHelper.Destroy();
         //Destroy();
