@@ -92,7 +92,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		AmmoInventory = User.GetComponent<AmmoInventory>();
 
 		shootInterval = 60f / FireData.RPM;
-		timeSinceLastShot = 0; // Seems the sandbox time.now is messed up at object creation
+		timeSinceLastShot = shootInterval; // Seems the sandbox time.now is messed up at object creation
 	}
 
 	private float shootInterval = 0.0f; 
@@ -191,13 +191,14 @@ public sealed class Gun : Component, IWeapon, ICollectable
 	private void FireBullet()
 	{
 
-		//Check ammo before firing
-		if (FireData.AmmoLeft <= 0) {
-			TryReload();
-			return;
+        //Check ammo before firing
+        if ( FireData.AmmoLeft <= 0 )
+        {
+            // Again to make the gun work without ammo inventory
+            return;
+            if ( !TryReload() ) return;
+        }
 
-		}
-        
         --FireData.AmmoLeft;
 
         BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 2000f, 0.3f );
@@ -353,7 +354,7 @@ public sealed class Gun : Component, IWeapon, ICollectable
         --FireData.AmmoLeft;
 
 		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 6900f, 0.3f );
-		Log.Info( User );
+		
 		Projectile.Spawn( FireData.BulletData.ProjectilePrefab, gunData.BarrelEnd.WorldTransform, User );
 
 		SetAnimation(modelType.ViewModel, "fire", true );
