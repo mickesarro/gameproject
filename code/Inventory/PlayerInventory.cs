@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 namespace Shooter;
 
@@ -63,8 +64,13 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
             if ( weapon.WeaponType != WeaponType.Melee )
             {
                 var firedata = weapon.GunData.PrimaryFireData;
-                AmmoInventory.AddAmmo( firedata.AmmoType, firedata.AmmoLeft );
-                firedata.AmmoLeft = 0;
+                //AmmoInventory.AddAmmo( firedata.AmmoType, firedata.PickupAmmo, firedata.MaxAmmo );
+                // This is now an ugly solution for avoiding ammo inventory
+                // If this is to remain permanent, a better one should be made
+                var currFiredata = ((IWeapon)current).GunData.PrimaryFireData;
+                var ammoToAdd = Math.Min( currFiredata.MaxAmmo - currFiredata.AmmoLeft, firedata.PickupAmmo );
+                currFiredata.AmmoLeft += ammoToAdd;
+                firedata.AmmoLeft -= ammoToAdd;
             }
             DropWeapon( item );
             return false;
