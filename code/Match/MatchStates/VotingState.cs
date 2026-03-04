@@ -1,7 +1,9 @@
+using Sandbox;
+
 namespace Shooter.Match;
 
 public sealed class VotingState( MatchManager matchManager, StateMachine stateMachine )
-    : MatchBaseState( matchManager, stateMachine )
+    : MatchBaseState( matchManager, stateMachine ), Component.INetworkListener
 {
     public override StateEnum StateEnum => StateEnum.Voting;
 
@@ -18,6 +20,11 @@ public sealed class VotingState( MatchManager matchManager, StateMachine stateMa
 
             vs.GetComponent<VotingSystem>().OnVotingEnded += StartNewMatch;
         }
+    }
+
+    void Component.INetworkListener.OnBecameHost( Connection previousHost )
+    {
+        VotingSystem.Instance.OnVotingEnded += StartNewMatch;
     }
 
     public override void OnExit( IState nextState ) {}

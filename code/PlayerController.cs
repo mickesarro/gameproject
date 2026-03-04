@@ -520,7 +520,7 @@ public sealed class PlayerController : Component, ICharacterBase
 		    Height = StandingHeight;
 		    HeightGoal = StandingHeight;
 
-		    if ( UseCustomFOV )
+		    if ( UseCustomFOV && SettingsManager.Instance != null )
 		    {
 			    Camera.FieldOfView = SettingsManager.Instance.PlayerPreferences.Fov;
                 SettingsManager.Instance.SubscribeCameraFOV( Camera, true );
