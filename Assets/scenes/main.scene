@@ -47,7 +47,12 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": null,
+          "dresser": {
+            "_type": "component",
+            "component_id": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
+            "go": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
+            "component_type": "Dresser"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -2168,6 +2173,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -2353,6 +2366,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -2538,6 +2559,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -2723,6 +2752,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -2908,6 +2945,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -3093,6 +3138,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -3286,6 +3339,14 @@
                     },
                     "Property": "OverlayColor",
                     "Value": "0,0,0,0"
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "0.03529,0.83137,0.99216,0.5098"
                   }
                 ],
                 "MovedObjects": []
@@ -3471,6 +3532,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -3637,6 +3706,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -3795,6 +3872,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -3961,6 +4046,14 @@
                     },
                     "Property": "OverlayColor",
                     "Value": "0,0,0,0"
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4127,6 +4220,14 @@
                     },
                     "Property": "OverlayColor",
                     "Value": "1,0,0,0"
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4285,6 +4386,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4443,6 +4552,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4601,6 +4718,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4767,6 +4892,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -4941,6 +5074,14 @@
                     },
                     "Property": "FogStrength",
                     "Value": 0
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5082,7 +5223,7 @@
                       "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
                     },
                     "Property": "Position",
-                    "Value": "0,0,7.25"
+                    "Value": "0,1.715495,7.25"
                   },
                   {
                     "Target": {
@@ -5099,6 +5240,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5276,6 +5425,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5453,6 +5610,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5630,6 +5795,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5807,6 +5980,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -5984,6 +6165,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -6161,6 +6350,14 @@
                     },
                     "Property": "DepthFeather",
                     "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "c657bf49-6a22-4ec9-8812-f65d2a550dcf"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0.8,1"
                   }
                 ],
                 "MovedObjects": []
@@ -14183,7 +14380,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "6b5ef1e4-aa78-4353-a8bd-61b2807a00a3"
+          "$blob": "32268d0f-8179-4364-b74b-c15cf0eecae9"
         }
       }
     }
