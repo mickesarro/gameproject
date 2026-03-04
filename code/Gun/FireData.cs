@@ -28,7 +28,8 @@ public sealed class FireData : Component
 	[Property, Group( "Magazine" )] public AmmoType AmmoType { get; private set; }
 	[Property, Group( "Magazine" )] public int MaxAmmo { get; private set; } = 10;
 	[Property, Group( "Magazine" )] public int AmmoLeft { get; set; } = 10;
-	[Property, Group( "Magazine" )] public bool HasInfiniteAmmo { get; set; } = false;
+    [Property, Group( "Magazine" )] public int PickupAmmo { get; set; } = 5;
+    [Property, Group( "Magazine" )] public bool HasInfiniteAmmo { get; set; } = false;
 	[Property, Group( "Magazine" )] public float LoadTime { get; private set; } = 1.0f;
 
 }
