@@ -61,7 +61,9 @@ public sealed class PlayerInput : Component
 			UIManager.Instance.ToggleLayer<PauseMenu>();
 		}
 
-        #if DEBUG
+#if DEBUG
+        if ( !Application.IsEditor ) return;
+
         if ( Input.Pressed( "Suicide" ) )
         {
             GameObject.GetComponent<CharacterHealth>().TakeDamage( new DamageInfo { Damage = 10000000, Attacker = GameObject } );
