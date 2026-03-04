@@ -23,7 +23,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 			return;
 		}
 
-        if ( !damageInfo.Attacker.Components.TryGet<PlayerStats>( out var attacker ) )
+        if ( damageInfo.Attacker is null || !damageInfo.Attacker.Components.TryGet<PlayerStats>( out var attacker ) )
 		{
 			Log.Error( $"DamageInfo for death of {killed} did not contain attacker, ignoring." );
 			return;

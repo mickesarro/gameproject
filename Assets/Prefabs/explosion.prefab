@@ -1,0 +1,80 @@
+{
+  "RootObject": {
+    "__guid": "c3d4e5f6-a7b8-4901-bcde-f12345678901",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "explosion",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Shooter.ExplosionEffect",
+        "__guid": "e5f6a7b8-c9d0-4123-def0-123456789012",
+        "__enabled": true,
+        "Flags": 0,
+        "EffectPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/explosion_med.prefab"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Scale": 1
+      },
+      {
+        "__type": "Shooter.BlastEffect",
+        "__guid": "d4e5f6a7-b8c9-4012-cdef-012345678902",
+        "__enabled": true,
+        "Flags": 0,
+        "BlastForce": 700,
+        "Damage": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Radius": 300,
+        "SelfDamageMultiplier": 0.1
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
