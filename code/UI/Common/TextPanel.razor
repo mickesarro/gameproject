@@ -1,0 +1,23 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System
+@using Shooter.Sounds;
+@inherits Panel
+@namespace Shooter.UI
+
+@typeparam T
+
+<root class="textPanel">
+	<h1>@DisplayValue</h1>
+</root>
+
+@code
+{
+
+	[Property, TextArea] public T DisplayValue { get; set; }
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(DisplayValue);
+
+}

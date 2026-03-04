@@ -26,15 +26,11 @@ public sealed class MatchState( MatchManager matchManager, StateMachine stateMac
         IMatchEvents.Post( e => e.OnCountdownStart( this ) );
 
         _ = Timer();
-
-        if ( Networking.IsHost )
-        {
-            matchManager.GoToNextState = false;
-        }
     }
 
     public override void OnExit( IState nextState )
     {
+        matchManager.GoToNextState = false;
         return;
     }
 

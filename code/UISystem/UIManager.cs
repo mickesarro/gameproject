@@ -16,7 +16,7 @@ public class UIManager : SingletonBase<UIManager>
 
     private readonly Stack<UILayer> layerHistory = new();
 
-    private UILayer currentLayer;
+    public UILayer CurrentLayer { get; private set; }
 
     protected override void OnAwake()
     {
@@ -49,22 +49,22 @@ public class UIManager : SingletonBase<UIManager>
     {
         if ( layer == null ) return;
 
-        if ( currentLayer != null )
+        if ( CurrentLayer != null )
         {
             if ( addToHistory )
             {
-                layerHistory.Push( currentLayer );
+                layerHistory.Push( CurrentLayer );
             }
             if ( !layer.IsOverlay )
             {
-                currentLayer.Hide();
+                CurrentLayer.Hide();
             }
         }
 
         // Might add data option to this and conditionally call
         // layers Show method to unify the methods below.
 
-        currentLayer = layer;
+        CurrentLayer = layer;
     }
 
     /// <summary>
@@ -191,9 +191,9 @@ public class UIManager : SingletonBase<UIManager>
         {
             UILayers.Remove( layer );
             UILayerLookup.Remove( layer.GetType() );
-            if ( layer == currentLayer )
+            if ( layer == CurrentLayer )
             {
-                currentLayer = null;
+                CurrentLayer = null;
             }
         }
     }

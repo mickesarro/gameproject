@@ -44,13 +44,17 @@ public sealed class PlayerInput : Component
 
 	private void PollUIToggle()
 	{
-		if ( Input.Pressed( "OpenStats" ) )
+		if ( Input.Down( "OpenStats" ) )
 		{
-			if ( HUD.GameObject.Enabled )
+			if ( UIManager.Instance.CurrentLayer is not StatsUI )
             {
                 UIManager.Instance.ToggleLayer<StatsUI>();
             }
 		}
+        else if ( UIManager.Instance.CurrentLayer is StatsUI )
+        {
+            UIManager.Instance.ToggleLayer<StatsUI>();
+        }
 
 		if ( Input.Pressed( "Menu" ) )
 		{

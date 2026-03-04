@@ -9,6 +9,7 @@ public interface IMatchEvents : ISceneEvent<IMatchEvents>
 {
 	void OnGameEnd() { }
 	void OnGameStart() { }
+    void OnWaitPlayers() { }
     void OnCountdownStart( ICountdownable countdownable ) { }
 
 	void OnPlayerJoined() { }

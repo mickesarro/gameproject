@@ -1,3 +1,6 @@
+using Shooter.UI;
+using Shooter.UISystem;
+
 namespace Shooter.Camera;
 
 /// <summary>
@@ -55,6 +58,18 @@ public sealed class OrbitCamera : BoundedCamera, ICountdownable
                 }
             }
             Respawn();
+        }
+
+        if ( Input.Down( "OpenStats" ) )
+        {
+            if ( UIManager.Instance.CurrentLayer is not StatsUI )
+            {
+                UIManager.Instance.ToggleLayer<StatsUI>();
+            }
+        }
+        else if ( UIManager.Instance.CurrentLayer is StatsUI )
+        {
+            UIManager.Instance.ToggleLayer<StatsUI>();
         }
     }
 

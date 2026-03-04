@@ -33,8 +33,6 @@ public sealed class StartState( MatchManager matchManager, StateMachine stateMac
         // Should this be network spawned or not?
         //MatchGameMode.Clone( WorldTransform, parent: GameObject );
         GameMode = gameMode;
-
-        IMatchEvents.Post( e => e.OnGameStart() );
     }
 
     public override void OnExit( IState nextState )
@@ -45,22 +43,10 @@ public sealed class StartState( MatchManager matchManager, StateMachine stateMac
 
     public override void OnUpdate()
     {
-        if ( !Networking.IsHost ) return;
-        else if ( matchManager.GoToNextState )
+        if ( matchManager.MatchGameMode != null )
         {
-            stateMachine.ChangeState<MatchState>();
+            stateMachine.ChangeState<LobbyWaitState>();
         }
-
-        foreach ( var con in Connection.All )
-        {
-            if ( !con.IsActive ) return;
-        }
-
-        // Add some player spawn timer thing here, seperate state or match
-
-        matchManager.GoToNextState = true;
-        stateMachine.ChangeState<MatchState>();
-
     }
 
 }
