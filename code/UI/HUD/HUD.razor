@@ -15,6 +15,11 @@
         <HUDTimer HudColour="@HudColour" Countdownable="@countdownable" />
     }
 
+	@if (waitPlayers)
+	{
+		<TextPanel T="string" DisplayValue="Waiting for players..." />
+	}
+
     @if ( PlayerAlive ) {
         <HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" />
 
@@ -31,53 +36,65 @@
 
 @code
 {
-    public string HudColour = "#FFFFFF";
+	public string HudColour = "#FFFFFF";
 
-    private PlayerInventory PlayerInventory = null;
+	private PlayerInventory PlayerInventory = null;
 
-    WeaponBar weaponBar { get; set; }
-    private KillFeed killFeed;
-    private DamageInfo lastDamageInfo;
+	WeaponBar weaponBar { get; set; }
+	private KillFeed killFeed;
+	private DamageInfo lastDamageInfo;
 
-    private ICountdownable countdownable = null;
+	private ICountdownable countdownable = null;
 
-    private CharacterHealth CharacterHealth = null;
+	private CharacterHealth CharacterHealth = null;
 
-    private bool ShouldDisplay = false; // Whole HUD
-    private bool PlayerAlive = true; // Player dead
+	private bool ShouldDisplay = false; // Whole HUD
+	private bool PlayerAlive = true; // Player dead
 
-    void IPlayerEvent.OnSpawn( GameObject player )
-    {
-        SetPlayerProperties( player );
-    }
+	private bool waitPlayers = false;
 
-    void IPlayerEvent.OnDied(DamageInfo damageInfo)
-    {
-        lastDamageInfo = damageInfo;
-        PlayerAlive = false;
-    }
+	void IPlayerEvent.OnSpawn( GameObject player )
+	{
+		SetPlayerProperties( player );
+	}
 
-    //void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
-    //void IPlayerEvent.OnWeaponAdded(IWeapon weapon) => weaponBar.StateHasChanged();
+	void IPlayerEvent.OnDied(DamageInfo damageInfo)
+	{
+		lastDamageInfo = damageInfo;
+		PlayerAlive = false;
+	}
 
-    /// <summary>
-    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-    /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( ShouldDisplay, PlayerAlive );
+	//void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
+	//void IPlayerEvent.OnWeaponAdded(IWeapon weapon) => weaponBar.StateHasChanged();
 
-    void IMatchEvents.BroadcastOnKill(PlayerStats killed, DamageInfo damageInfo)
-        => killFeed.BroadcastOnKill(killed, damageInfo);
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( ShouldDisplay, PlayerAlive );
 
-    void IMatchEvents.OnGameEnd()
-    {
-        ShouldDisplay = false;
-    }
+	void IMatchEvents.BroadcastOnKill(PlayerStats killed, DamageInfo damageInfo)
+		=> killFeed.BroadcastOnKill(killed, damageInfo);
 
-    void IMatchEvents.OnCountdownStart(ICountdownable countdownable)
-    {
-        this.countdownable = countdownable;
-        StateHasChanged();
-    }
+	void IMatchEvents.OnGameEnd()
+	{
+		ShouldDisplay = false;
+	}
+
+	void IMatchEvents.OnCountdownStart(ICountdownable countdownable)
+	{
+		this.countdownable = countdownable;
+		StateHasChanged();
+	}
+
+	void IMatchEvents.OnWaitPlayers()
+	{
+		waitPlayers = true;
+	}
+
+	void IMatchEvents.OnGameStart()
+	{
+		waitPlayers = false;
+	}
 
     public override void Show()
     {

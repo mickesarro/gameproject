@@ -57,7 +57,7 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
     {
         MatchGameMode = stateMachine.GetState<StartState>(asRealType: true).GameMode;
 
-        IMatchEvents.Post( e => e.OnGameStart() );
+        //IMatchEvents.Post( e => e.OnGameStart() );
 	}
 
 	public void StartGame( GameObject gameMode )
@@ -70,16 +70,9 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
     {
         stateMachine ??= new StateMachine();
 
-        IState[] statelist = {
-            new StartState(this, stateMachine),
-            new MatchState(this, stateMachine),
-            new EndState(this, stateMachine),
-            new VotingState(this, stateMachine)
-        };
-
-        foreach ( var state in statelist )
+        foreach ( var state in Enum.GetValues<StateEnum>() )
         {
-            stateMachine.AddState( state );
+            stateMachine.AddState( state.CreateState( this, stateMachine ) );
         }
 
         if ( Networking.IsHost )

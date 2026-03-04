@@ -420,7 +420,7 @@ public sealed class PlayerController : Component, ICharacterBase
 			return;
 
         GatherInput();
-        if ( !MatchManager.Instance.MatchIsRunning ) return;
+        if ( MatchManager.Instance?.MatchIsRunning != true ) return;
 
         // Crouching
         var InitHeight = HeightGoal;

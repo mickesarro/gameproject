@@ -2,9 +2,12 @@
 
 HUD
 {
+    position: absolute;
     font-weight: bold;
     text-stroke: $main-text-stroke;
     font-family: $main-font;
+    width: 100%;
+    height: 100%;
 }
 
 .HP-counter {

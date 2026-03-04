@@ -20,6 +20,7 @@
         "__guid": "7acd0b80-cfc3-4c72-aaac-ea0846edbab3",
         "__enabled": true,
         "Flags": 0,
+        "CameraType": "Orbit",
         "maxPlayers": 12,
         "minPlayers": 2,
         "modeName": "Demo Deathmatch",
@@ -29,6 +30,7 @@
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
+        "PopulateWithNPCs": true,
         "scoreLimit": 3
       }
     ],
