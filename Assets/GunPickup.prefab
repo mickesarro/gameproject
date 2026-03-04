@@ -137,10 +137,10 @@
         "__version": 2,
         "Flags": 0,
         "Name": "Object",
-        "Position": "0,0,48.48",
+        "Position": "0,0,6.08001",
         "Rotation": "0,0,0,1",
         "Scale": "1,1,1",
-        "Tags": "",
+        "Tags": "light_point,light",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkFlags": 0,
@@ -153,15 +153,103 @@
             "__guid": "5dd09498-807f-4dc9-8671-53e08250fac2",
             "__enabled": true,
             "Flags": 0,
+            "Light": {
+              "_type": "component",
+              "component_id": "ab4ea4df-acbb-4f31-9562-2dba12a28320",
+              "go": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
+              "component_type": "PointLight"
+            },
             "OnComponentDestroy": null,
             "OnComponentDisabled": null,
             "OnComponentEnabled": null,
             "OnComponentFixedUpdate": null,
             "OnComponentStart": null,
             "OnComponentUpdate": null,
-            "Size": 100,
-            "SpriteColor": "1,0,0,1",
-            "Texture": "textures/shapes/spark3.vtex"
+            "SourceRenderer": {
+              "_type": "component",
+              "component_id": "2313ffc2-2263-4d68-bf8a-6b858149b839",
+              "go": "8b1ca92f-1eae-4e67-a356-fcf79843d5de",
+              "component_type": "SpriteRenderer"
+            }
+          },
+          {
+            "__type": "Sandbox.SpriteRenderer",
+            "__guid": "2313ffc2-2263-4d68-bf8a-6b858149b839",
+            "__enabled": true,
+            "Flags": 0,
+            "__version": 2,
+            "Additive": true,
+            "AlphaCutoff": 0.5,
+            "Billboard": "Always",
+            "Color": "0.61667,1,0,1",
+            "DepthFeather": 0,
+            "FlipHorizontal": false,
+            "FlipVertical": false,
+            "FogStrength": 1,
+            "IsSorted": false,
+            "Lighting": false,
+            "OnAnimationEnd": null,
+            "OnAnimationStart": null,
+            "OnBroadcastMessage": null,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Opaque": false,
+            "OverlayColor": "1,1,1,0",
+            "PlaybackSpeed": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "Shadows": false,
+            "Size": "40,40",
+            "Sprite": {
+              "$compiler": "embed",
+              "$source": null,
+              "data": {
+                "Animations": [
+                  {
+                    "Name": "Default",
+                    "FrameRate": 15,
+                    "Origin": "0.5,0.5",
+                    "LoopMode": "Loop",
+                    "Frames": [
+                      {
+                        "Texture": "textures/shapes/sphere2.vtex",
+                        "BroadcastMessages": []
+                      }
+                    ]
+                  }
+                ],
+                "__references": null
+              },
+              "compiled": null
+            },
+            "StartingAnimationName": "Default",
+            "TextureFilter": "Bilinear"
+          },
+          {
+            "__type": "Sandbox.PointLight",
+            "__guid": "ab4ea4df-acbb-4f31-9562-2dba12a28320",
+            "__enabled": true,
+            "Flags": 0,
+            "Attenuation": 1.3385826,
+            "FogMode": "Disabled",
+            "FogStrength": 1,
+            "LightColor": "0.61569,1,0,1",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Radius": 50,
+            "Shadows": true
           }
         ],
         "Children": []

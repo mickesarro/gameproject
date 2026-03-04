@@ -37,7 +37,7 @@
 
     public record KillFeedEntry(
         string Attacker, string Victim, KillFeedRelation AttackerRelation, KillFeedRelation VictimRelation,
-        bool IsSuicide, bool IsExplosion, RealTimeSince TimeSince
+        bool IsSuicide, bool IsExplosion, TimeSince TimeSince, bool IsRailgun
     ) { };
 
     private Queue<KillFeedEntry> Feed = new Queue<KillFeedEntry>( capacity: 20 );
@@ -66,7 +66,8 @@
                 VictimRelation: victimRelation,
                 IsSuicide: damageInfo.Attacker == killed.GameObject,
                 IsExplosion: damageInfo.Tags.Has( "explosion" ),
-                TimeSince: 0
+                TimeSince: 0,
+                IsRailgun: damageInfo.Weapon?.Name == "railgun"
             )
         );
     }
@@ -107,6 +108,10 @@
         if ( entry.IsExplosion )
         {
             return "exploded";
+        }
+        else if ( entry.IsRailgun )
+        {
+            return "railed";
         }
         else
         {

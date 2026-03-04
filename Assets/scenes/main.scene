@@ -47,12 +47,7 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": {
-            "_type": "component",
-            "component_id": "1bbb7998-80aa-4df9-9aaf-115b9cfab7a9",
-            "go": "95769e63-05b9-4aa7-90f6-46cd386daf7a",
-            "component_type": "Dresser"
-          },
+          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -767,7 +762,47 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "e54eda29-58fd-4343-986b-b104fa15cbb9"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "e54eda29-58fd-4343-986b-b104fa15cbb9",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "e54eda29-58fd-4343-986b-b104fa15cbb9",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "fc1dac24-1e73-469e-abf4-2796b280dc7c",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "06dab942-aa15-4284-9c69-63fa17819426",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "1a782b7d-4769-4147-9ff8-76227577bbc4"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -801,7 +836,47 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "9c86a7e8-d9ee-457b-ac19-59b9a89c059f"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "9c86a7e8-d9ee-457b-ac19-59b9a89c059f",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "9c86a7e8-d9ee-457b-ac19-59b9a89c059f",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "9cac697b-a0d5-47b9-b84e-a7269835c9a2",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "d2941ea1-53d8-41f6-bdbe-e7f078ebc7fa",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "723339b3-0489-4d26-a404-b16f0eb390e1"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -835,7 +910,47 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "5e199cda-b98a-48c1-95ed-8586623ad030"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "5e199cda-b98a-48c1-95ed-8586623ad030",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "5e199cda-b98a-48c1-95ed-8586623ad030",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "8ae7b70a-3592-4847-aeec-0bc6640e5592",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "3602755d-a46f-4292-b6f3-c4c52b9f0108",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "792e0c64-c896-4403-84ee-0de16f9f0670"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -869,7 +984,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "50e6694a-c13b-4063-839b-6ff3812c4570"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "50e6694a-c13b-4063-839b-6ff3812c4570",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "50e6694a-c13b-4063-839b-6ff3812c4570",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "7945854f-9c76-43a8-886e-39f4e8b77e4f",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "e6b84d02-8f53-4cf4-a7ff-1406bd328cd5",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "d2a7d2e0-27e5-4520-9b84-5c1882887366"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -903,7 +1066,47 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "7e7c7bb5-4592-48c8-b11f-cd3c2e9f5d5d"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "7e7c7bb5-4592-48c8-b11f-cd3c2e9f5d5d",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "7e7c7bb5-4592-48c8-b11f-cd3c2e9f5d5d",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "6d853fde-eef0-40b5-b4ff-b839106cbaa9",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "2a270e3e-5f58-432d-866f-9d09e67d8b53",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "884cdf51-4f6d-4874-9be9-da497dd8c7f1"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -933,11 +1136,51 @@
       }
     },
     {
-      "__guid": "2c41490d-48a2-4643-be1c-a01983baa240",
+      "__guid": "a656996e-4daf-4ac1-bdd2-08da5a30ca1b",
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "ba384456-dc3c-42ff-a46b-5fb77ab32fc3"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "ba384456-dc3c-42ff-a46b-5fb77ab32fc3",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "ba384456-dc3c-42ff-a46b-5fb77ab32fc3",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "47204574-5d55-4e0f-baee-2d56001b9dc0",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "b49d4bd1-bcb5-4d0f-9ce6-f292e2bd3e00",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "c7883c88-0ae5-475a-9610-14ce1e7bfe17"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -946,7 +1189,7 @@
               "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
             },
             "Property": "Name",
-            "Value": "healthpickup (14)"
+            "Value": "healthpickup (19)"
           },
           {
             "Target": {
@@ -954,16 +1197,16 @@
               "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
             },
             "Property": "Position",
-            "Value": "-1398.092,-9129.011,782.056"
+            "Value": "-1388.309,-9084.836,780.9169"
           }
         ],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
-        "78a02cdf-1d32-46ea-bae9-990630af0230": "2c41490d-48a2-4643-be1c-a01983baa240",
-        "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b": "bae3f45b-07d0-47e4-a87c-744c40860e34",
-        "b1adc96d-df67-4239-a521-21c6d575a619": "398e9aa6-9534-496a-a2f5-77fa0a497f60",
-        "971cc31e-431e-4be6-a3f7-42189edafdde": "1c4fe326-2e42-4452-aad4-8207127a5c88"
+        "78a02cdf-1d32-46ea-bae9-990630af0230": "a656996e-4daf-4ac1-bdd2-08da5a30ca1b",
+        "ed4edfa5-0525-427f-b7fa-05df0d6d2c4b": "ec02df97-53b1-49bc-a114-aba8b2aba0b3",
+        "b1adc96d-df67-4239-a521-21c6d575a619": "b260dd36-ade2-4340-82d8-545107c15681",
+        "971cc31e-431e-4be6-a3f7-42189edafdde": "0b7d6ffe-385b-416e-992e-2d85aa95a68e"
       }
     },
     {
@@ -971,7 +1214,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "6a1c00ff-1c15-40e5-975e-57b005b44888"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "6a1c00ff-1c15-40e5-975e-57b005b44888",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "6a1c00ff-1c15-40e5-975e-57b005b44888",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "213c051a-cf08-41c3-949b-b1a55cff34a1",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "c5f1af4f-3086-4b19-a199-b61f06944d89",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "bd696b92-e13f-4e9f-80d6-30a8c0432006"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1005,7 +1296,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "d8b9a1d5-3a19-48cb-925f-2949a7973429"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "d8b9a1d5-3a19-48cb-925f-2949a7973429",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "d8b9a1d5-3a19-48cb-925f-2949a7973429",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "d54246f9-9b96-4822-a9fe-b8439fad3d5e",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "6c9b267e-4566-4475-b7d9-e7f9d015c029",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "a70a2a71-f411-4f0e-93e9-24a3b5846ab3"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1039,7 +1378,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "93d22352-ae0a-4ff5-aa6a-f0dc87600d35"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "93d22352-ae0a-4ff5-aa6a-f0dc87600d35",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "93d22352-ae0a-4ff5-aa6a-f0dc87600d35",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "2a640d83-b448-4550-ba35-3f8fb0984c07",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "89aa3eb9-4ee2-407b-b807-9915985abfba",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "edde6df3-71b2-4641-9586-7c269a4b040c"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1073,7 +1460,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "7ed035b7-33b5-4559-ae1f-1c2e8c89f819"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "7ed035b7-33b5-4559-ae1f-1c2e8c89f819",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "7ed035b7-33b5-4559-ae1f-1c2e8c89f819",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "bbd70bbd-21bf-42f6-8675-480d36e459ef",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "f382ed07-5c31-450a-9ae5-db7adce39836",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "bcdd51d6-02b9-4cd7-ba16-f38e4e84c359"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1107,7 +1542,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "1cb8e2ea-abee-48d8-b7fa-a88bbe317822"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "1cb8e2ea-abee-48d8-b7fa-a88bbe317822",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "1cb8e2ea-abee-48d8-b7fa-a88bbe317822",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "7cbc0492-a471-42e5-b37c-c57b11ee930c",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "c1d76976-c86a-4795-9cb2-0709272482fa",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "36501962-c02c-4f97-a5cc-78973c5fd8c3"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1141,7 +1624,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "856808b8-fbce-434b-98ce-a087b3333c1d"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "856808b8-fbce-434b-98ce-a087b3333c1d",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "856808b8-fbce-434b-98ce-a087b3333c1d",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "4af72221-ad41-45d7-b81b-a5e4d5f7cb19",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "af483be5-3042-400b-be12-d53f67f25b04",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "87be619b-fd79-4a5e-bad3-5603150fe0fd"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1175,7 +1706,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "654923b1-5804-4b2f-a6b9-7af2b5eecfcb"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "654923b1-5804-4b2f-a6b9-7af2b5eecfcb",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "654923b1-5804-4b2f-a6b9-7af2b5eecfcb",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "c0866455-3c66-4a02-818e-289f4470566d",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "08deee77-518e-4d0d-a0b0-a85cef415757",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "53593da4-777d-4ded-adaf-083253bc3468"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1209,7 +1788,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "3c77b58e-4345-4ceb-8479-106bf1ab46e0"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "3c77b58e-4345-4ceb-8479-106bf1ab46e0",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "3c77b58e-4345-4ceb-8479-106bf1ab46e0",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "252d6edc-c3f7-4d35-b568-d7167b91272f",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "61170ecd-a76a-49db-b3cc-dd5998f9c25f",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "362599eb-cf3f-48ec-bb9b-ecd197fdc1d2"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1243,7 +1870,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "93b59023-4d29-4110-9d68-f3ec58819434"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "93b59023-4d29-4110-9d68-f3ec58819434",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "93b59023-4d29-4110-9d68-f3ec58819434",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "7d415fc3-b002-491b-85f2-a2bdd9f1979e",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "44a3f60c-3cc0-4d0b-93d8-be9361c0a63f",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "8f3254b6-85b7-4550-b737-73c3cce38375"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1277,7 +1952,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "5a29b46e-076b-4a4d-8171-32c15256e4dd"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "5a29b46e-076b-4a4d-8171-32c15256e4dd",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "5a29b46e-076b-4a4d-8171-32c15256e4dd",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "c32a2cfc-a112-4c93-bec5-4a20b12b3c45",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "7d0c95e9-366b-4910-99fd-01478fc43dce",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "42de9e16-dd3a-4ac8-979c-b2d8511bcc8d"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1311,7 +2034,55 @@
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "9998d3f7-03c5-4a66-b179-9d2d8f2a45df"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "78a02cdf-1d32-46ea-bae9-990630af0230"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "9998d3f7-03c5-4a66-b179-9d2d8f2a45df",
+              "__version": 2,
+              "__Prefab": "floaties/healthfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,0"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "9998d3f7-03c5-4a66-b179-9d2d8f2a45df",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "39503402-7f55-4c57-aa23-60c607359c2f",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "66ea441e-3691-4a8c-88e5-6602c0588f8e",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "6d67ccf1-4ddb-4199-bb78-2096ad117e9b"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [],
         "PropertyOverrides": [
           {
@@ -1345,12 +2116,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "85ca399b-dc8a-4fbc-b955-d1da308d25e0"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "85ca399b-dc8a-4fbc-b955-d1da308d25e0",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "85ca399b-dc8a-4fbc-b955-d1da308d25e0",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "64eb8e5c-a4ce-459c-a3d3-aeafd1495dce",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "9bca7741-cdf8-4810-b535-e82ea395ed81",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "762a5ddf-ff29-4905-b074-d8a7feba493b"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1382,6 +2217,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1397,7 +2240,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "b2c929df-ec43-4423-b561-43eebab158a6",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "84811b4a-fbe4-4819-9259-8fbbab3b1ba6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "ce01df84-d634-4a82-a26d-8581c395d9e9",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a0ac0cc9-6412-4207-aff2-578d343de803"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a0ac0cc9-6412-4207-aff2-578d343de803",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "1a1f96c5-e1a6-4a92-9b57-508beed31c3b",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "d9fd1816-13b7-4635-8c96-c9f96564bd19"
       }
     },
     {
@@ -1405,12 +2250,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "bd086c2b-50f6-4cc0-9ce2-9bd24948def1"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "bd086c2b-50f6-4cc0-9ce2-9bd24948def1",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "bd086c2b-50f6-4cc0-9ce2-9bd24948def1",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "9f98a6d6-42a2-4eeb-ac34-8ca5643918f4",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "a5561f53-3904-48c7-b31a-025441207d31",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "792b0e6a-2b8d-43cb-8fd2-20ff12f61e32"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1458,6 +2367,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1484,7 +2401,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "aa90ac0c-98f6-4db5-a8e3-665002c32c36",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e7871b22-dd93-4099-9f33-820096054504",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "c502df2b-a863-4f51-a9bc-3cee7d0fba63",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "91e8d6cd-2732-47d7-aa6a-bbe4fc791de4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "91e8d6cd-2732-47d7-aa6a-bbe4fc791de4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "938c4f2c-2183-448b-9c35-7944bf6f4318",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "b44c4fdb-0597-43e5-a40c-07c3876dada6"
       }
     },
     {
@@ -1492,12 +2411,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "68107912-4d8c-45d5-85fc-9239d6ba2c24"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "68107912-4d8c-45d5-85fc-9239d6ba2c24",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "68107912-4d8c-45d5-85fc-9239d6ba2c24",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "66659dc8-41b8-42e0-aaff-98e52bd2261d",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "85681539-5be0-440b-b097-bcb8da242797",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "f2b04233-896a-4775-9a12-403063b0180e"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1545,6 +2528,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1571,7 +2562,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "7a4540c0-ac8d-4787-aaa3-c355de45631b",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "16682d11-9e73-4bdc-9b38-ff2fadabb5e7",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "05dffdf1-d057-4a41-923d-adb63d2c05d5",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f35d96fb-704d-40e4-934d-2c74e4e21e37"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f35d96fb-704d-40e4-934d-2c74e4e21e37",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "6484b5a7-53e5-4a17-880f-f625971fa043",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "eef78373-6abd-4fc6-98ee-fc52a142709f"
       }
     },
     {
@@ -1579,12 +2572,84 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "949078ca-0884-4a53-8349-c7f56bbb6e6a"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "949078ca-0884-4a53-8349-c7f56bbb6e6a",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,6.080017"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "949078ca-0884-4a53-8349-c7f56bbb6e6a",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "54bb2b1d-6739-4891-9a54-200a228fb9bc",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "08e2b16d-0b9a-464a-bf55-29d367c001bc",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "bef4b074-2b18-40d5-867e-23d78155861e"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1632,6 +2697,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1658,7 +2731,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "fba27637-fcf7-4df9-9f01-e9729e62eb1f",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "949078ca-0884-4a53-8349-c7f56bbb6e6a",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "f919cda6-928c-4108-9446-e40c6603c4ee",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "75343221-5cc3-452a-8f5f-f07638ec7c9d"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "75343221-5cc3-452a-8f5f-f07638ec7c9d",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "c045d1a0-e83b-431d-99e1-6a4245fcf2e7",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "ac7f0a4d-3cea-4ecb-bb7a-8f6651f9bd88"
       }
     },
     {
@@ -1666,12 +2741,84 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,6.080017"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "dd615420-fffd-409b-8b6b-cd4f614e1cd9",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "fb8687ee-bf03-4d2b-bc69-4d8093330909",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "251e579d-9d4c-4680-9400-4add1adbcc53"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1719,6 +2866,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1745,7 +2900,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "e440bb88-b342-4db7-a419-aa7302ef3181",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "0e99ce7b-3e8f-4178-9f63-a48a26b7e5bf",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "3149b389-27f4-48a6-8f0a-cf4f2733a84b",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "50526865-46db-49c6-a41c-853d00426e1a"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "50526865-46db-49c6-a41c-853d00426e1a",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "d32af7ef-3dcc-4f85-a4dd-f42e40475fc6",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "d547d72d-b390-4126-89c3-37c7eb641c78"
       }
     },
     {
@@ -1753,12 +2910,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "085d96a0-10c9-42d0-8878-0a10ad0771e6"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "085d96a0-10c9-42d0-8878-0a10ad0771e6",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "085d96a0-10c9-42d0-8878-0a10ad0771e6",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "9f41b2a7-8c1e-4c03-986f-182173d12db7",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "501de242-aa81-4011-9df4-734895951e2d",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "9620b7a4-cd9c-4bc8-964c-93fddd5f4166"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1806,6 +3027,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1832,7 +3061,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f971348b-3729-427a-8681-af633428260c",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "46661ca3-d69f-46a9-a8df-eaa7eddb6b36",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "1d900fc0-4172-4037-9ae3-97d040889872",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6fbe0007-bf1d-4d76-b1a9-f627c6063ea2"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6fbe0007-bf1d-4d76-b1a9-f627c6063ea2",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "71704ea3-bbac-433a-a178-29b46036a4c9",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "cb2bffeb-0b13-4e94-a4dd-7d7dc7eb4827"
       }
     },
     {
@@ -1840,12 +3071,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "c1244574-131f-421c-8330-f4ee920972c6"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "c1244574-131f-421c-8330-f4ee920972c6",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "c1244574-131f-421c-8330-f4ee920972c6",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "14904289-ea43-430f-8db8-cc13683a6b6b",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "76446a15-9be5-4457-adca-b7c8f1dcba97",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "e997e488-a50a-4e69-959e-b15250ab097e"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1893,6 +3188,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -1919,7 +3222,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d91e63c9-47f4-47f6-86fb-96c450531bef",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e0d73675-cee1-4d21-9b78-65e531ee305f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "81c72a59-3e1b-48cc-8076-13859a1ddd4a",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "580859d5-a541-406b-a7d1-fcc3fd6070f8"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "580859d5-a541-406b-a7d1-fcc3fd6070f8",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "5464c975-104e-48b1-bd53-105bd5454e6e",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "352ee448-f23a-426e-9c86-b1c3bfd82501"
       }
     },
     {
@@ -1927,12 +3232,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "5c8a40a7-dc31-44d9-9d35-2f62d43698c1"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "5c8a40a7-dc31-44d9-9d35-2f62d43698c1",
+              "__version": 2,
+              "__Prefab": "floaties/arfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "5c8a40a7-dc31-44d9-9d35-2f62d43698c1",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "9935eeaf-bb62-4920-b7a2-b184ad1edd33",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "a305f230-f5e9-4a12-bd0c-9530373848ab",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "98031493-d524-44aa-befc-e319944c2220"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -1980,6 +3349,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2006,7 +3383,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "2cf0596b-c80a-4826-aab3-3a3cca1a011c",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "dc610c39-e0ef-4444-bf49-f4b55dfd22ad",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "2a250525-3a44-4a3a-b95a-9e47bd878950",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f8150a7f-4a6c-4750-9242-0791ed8249a4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "f8150a7f-4a6c-4750-9242-0791ed8249a4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "eacc06f3-8694-434f-931c-1d9f6edc4a07",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "967b9354-d4fe-49e2-847a-88dbf1037f4c"
       }
     },
     {
@@ -2014,12 +3393,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "da9dda97-e90e-40fc-b2f6-4e968a9cdb22"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "da9dda97-e90e-40fc-b2f6-4e968a9cdb22",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "da9dda97-e90e-40fc-b2f6-4e968a9cdb22",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "0c90b5e0-172d-4dbb-9f77-8669f1f820b7",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "fc6e8520-08db-4619-bd35-b054532a5925",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "e926988b-4c31-496a-87e4-e98e47e50dea"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2051,6 +3494,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2066,7 +3517,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f18da195-b454-4a87-9772-18d49fa23427",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "5fde3b17-7163-431c-b57a-add1465b9034",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "67b174b4-63c3-4180-bb18-caa47abc4957",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "885b1b9a-3991-4711-80ba-6348168ba668"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "885b1b9a-3991-4711-80ba-6348168ba668",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "e6867082-98f4-4630-918a-b038e986f352",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "49807c20-118c-47a9-8b76-0c0688453dca"
       }
     },
     {
@@ -2074,12 +3527,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "d3acdd69-8172-4321-90a8-1074ab387a88"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "d3acdd69-8172-4321-90a8-1074ab387a88",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "d3acdd69-8172-4321-90a8-1074ab387a88",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "e7b74ff3-35e9-4653-bee1-558bb3f31d77",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "5bb0054b-1240-4c60-b5f5-7077e6549604",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "1d1650e2-b2a9-4dab-aa30-fc60872cf26c"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2111,6 +3628,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2126,7 +3651,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "98726222-a9d0-4781-9621-ccef3482fe04",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "42051e22-603f-4bf2-a076-b49d5f63e8d3",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "6786fee4-95d8-4c92-962f-3d913a71ea73",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "186ee661-9334-40d5-8ddd-fb9ad3cc1fdc"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "186ee661-9334-40d5-8ddd-fb9ad3cc1fdc",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "7a243706-6bb3-4908-9362-3a83f748e587",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "a8ead0c0-8293-49e3-8584-7ef18243bd16"
       }
     },
     {
@@ -2134,12 +3661,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8a0b89e1-2224-4355-a16d-750005294b41"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "8a0b89e1-2224-4355-a16d-750005294b41",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "8a0b89e1-2224-4355-a16d-750005294b41",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "c3f0d263-df90-4b6d-bf30-13e99738f4d0",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "7acfe889-6712-4981-9b42-bc0ba195b44c",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "1032a877-7356-48a2-b440-9d6a8bd0f341"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2171,6 +3762,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2186,7 +3785,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "bca12010-aada-4212-8159-83f18610ad24",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c04c4a7d-9eb1-4abf-9afc-9e6f195945ac",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "b24b885f-50bf-4917-81b2-f69f719cc9f1",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "31d72ae3-e729-4cfb-a690-9253eed45d01"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "31d72ae3-e729-4cfb-a690-9253eed45d01",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "1496135f-499f-4f1a-aa4f-38a21ffbbefa",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "98c01336-54b7-4a7f-9373-8fed0450f238"
       }
     },
     {
@@ -2194,12 +3795,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "ad1fb4d3-e071-455f-b167-57612256989f"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "ad1fb4d3-e071-455f-b167-57612256989f",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "ad1fb4d3-e071-455f-b167-57612256989f",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "a59cb21b-313b-43b5-8610-b6d627ac9618",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "1cc28bc9-f02b-4e6c-bbd5-c571c28b5d40",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "f5064359-f454-44b5-a72e-2ea92bd72b85"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2231,6 +3896,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2246,7 +3919,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "150d6f8f-626a-4851-9df0-98b6e2eb2e84",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bcf8069a-cce0-4971-a738-9ca11072f2c6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "dcf62061-1631-432e-b604-f7091a7b5346",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2e99ddbf-d4e9-4d15-966b-1f471b6296c1"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2e99ddbf-d4e9-4d15-966b-1f471b6296c1",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "6bfcd287-1dab-4879-9071-8833ee9e854d",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "b41bd69a-9702-46b3-8f80-f634c52b5fbe"
       }
     },
     {
@@ -2254,12 +3929,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "679ce719-d7c7-4592-a692-71af48a935b2"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "679ce719-d7c7-4592-a692-71af48a935b2",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "679ce719-d7c7-4592-a692-71af48a935b2",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "ea28733f-26cc-46f0-9afd-878e37d1ae3d",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "89cf02af-1e00-4b13-8a07-bf0607543849",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "d6d83a65-b752-49a9-8838-6081c8b8fc99"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2291,6 +4030,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2306,7 +4053,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "219509e3-25e4-48a4-b9cf-fab0c72bfe39",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "e46790d5-dcf1-4548-9966-4936bbc5f191",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "799608dd-891d-49b0-92b3-f87075a8d91e",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "209ba36b-86b8-4234-9b48-c020edcda9c9"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "209ba36b-86b8-4234-9b48-c020edcda9c9",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "bec2aaa2-262b-4ba2-b8c5-308715edf2ab",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "8359fb11-bb1e-4739-a878-2c117c4e4dc2"
       }
     },
     {
@@ -2314,12 +4063,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "82308e01-9f80-4e03-88d9-0a263a042cde"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "82308e01-9f80-4e03-88d9-0a263a042cde",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "82308e01-9f80-4e03-88d9-0a263a042cde",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "f740fef2-8f7b-47a6-9a3a-ac0fb1944134",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "ab554507-cbd6-444d-984c-a69fc191f86d",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "51f7013b-b2cc-49ab-85c5-bb83625ae14d"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2351,6 +4164,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2366,7 +4187,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "6477982c-76b4-4d6d-aa90-5c3996e93b76",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "a6c9af32-a51a-42b8-92ad-c5425394c490",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "8c1d0889-c158-42d3-8f54-a45ba79b3602",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2235db72-ff2d-41aa-8a99-0c1ae3eeb2a4"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2235db72-ff2d-41aa-8a99-0c1ae3eeb2a4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "aa63bd91-0e56-42d9-b928-b8b03a59f3af",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "7fc02e71-ad2f-4890-b463-2ff410286574"
       }
     },
     {
@@ -2374,12 +4197,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "bfaaeb81-4c16-4abf-877d-9e74f1b17430"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "bfaaeb81-4c16-4abf-877d-9e74f1b17430",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "bfaaeb81-4c16-4abf-877d-9e74f1b17430",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "7a76ff2a-64c8-4899-8d2d-bc5e10894bcf",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "bae999c3-1340-451e-ae99-c5979da6b5ed",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "2f420072-9338-499e-9d06-a8929f30099d"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2419,6 +4306,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2434,7 +4329,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "a070caa8-dad3-4ed0-93e0-05dcaf5fcbc7",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "b3f2394a-c2f2-49ba-96f6-75e08850a35f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "556d86d7-81f1-4f5e-8942-a516fdd28b48",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "64ee0b89-d7f0-48bc-a8f1-a490cf52f7c8"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "64ee0b89-d7f0-48bc-a8f1-a490cf52f7c8",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "cddfc2fd-4b31-403d-9072-a9f980a32648",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "13c1b6dc-61ef-4789-abf1-b2eb07ee0e7e"
       }
     },
     {
@@ -2442,12 +4339,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "bd7ecacb-5d82-410e-a968-1377319774bc"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "bd7ecacb-5d82-410e-a968-1377319774bc",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "bd7ecacb-5d82-410e-a968-1377319774bc",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "19dd6a13-3655-4bb2-beb0-89249272e1d5",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "d0f1bc5f-e6e1-40e9-a372-c831d37dfbbb",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "2546fdab-1a16-46f9-9f2e-6465c2d65395"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2487,6 +4448,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2502,7 +4471,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "fb737796-be54-489d-a1b8-e1744389a983",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "eaaf5fc3-4383-4e86-ab02-cf4ff1a6c8d6",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "fccefb8e-0411-43f7-b6c8-65112dbdeec9",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8cbbe4fc-cf76-46cd-8ae5-f106ba0850b0"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8cbbe4fc-cf76-46cd-8ae5-f106ba0850b0",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "8d71a149-c221-45f8-b2b6-bb5487c34cfa",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "dade2354-2b3e-4b8f-ac2f-2a7945cf79ac"
       }
     },
     {
@@ -2510,12 +4481,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "d29819ee-f8f3-43bf-b0b2-3c8efd73d814"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "d29819ee-f8f3-43bf-b0b2-3c8efd73d814",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "d29819ee-f8f3-43bf-b0b2-3c8efd73d814",
+                "9b336be6-acfd-427b-8113-db74016949b7": "2d4d3e20-dd33-4f59-9462-c92626480480",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "5d985d67-ff27-46db-b6c7-a76ce5f03214",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "2db6b088-3ee5-42fd-82b6-21ab9655c525"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2547,6 +4582,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2562,30 +4605,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -2597,7 +4616,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "06b69c65-88ae-43dd-88a7-ccb29cb965b3",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "cc347c45-9373-4687-b34b-05cc6c19ff92",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "40e5597f-71fb-4c9e-b267-ee2fcd95a6a1",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a4777e3d-f25a-45e2-9bab-3ea8fcce8323"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "a4777e3d-f25a-45e2-9bab-3ea8fcce8323",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "0d840eba-c6ea-4fe2-85c6-8ba8e4eada61",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "a4ea5521-a069-4f2d-8d0f-ea12f3d62c50"
       }
     },
     {
@@ -2605,12 +4626,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "1040e266-f1b6-491c-a5b8-c8d5e83c9d76"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "1040e266-f1b6-491c-a5b8-c8d5e83c9d76",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "1040e266-f1b6-491c-a5b8-c8d5e83c9d76",
+                "9b336be6-acfd-427b-8113-db74016949b7": "eedc2957-432d-4e59-b995-c77919bc190d",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "c6b09ec9-d30e-44f1-8819-6fff97b20406",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "0f422e58-96c2-4ce3-83aa-750d517ebb02"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2642,6 +4727,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2657,30 +4750,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -2692,7 +4761,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "93f2891d-0907-4b63-bba5-d9233d459960",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "75d850bc-fac9-4467-9a0c-916567ac2807",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "3f4a574d-8310-455b-867e-588f60991575",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8a55de2c-92d9-4173-a5fb-bb38b37268d2"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "8a55de2c-92d9-4173-a5fb-bb38b37268d2",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "8256e26a-ef76-46fb-b2f0-674378ced958",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "2df3a35f-6706-4111-a6d3-abc73851f56f"
       }
     },
     {
@@ -2700,12 +4771,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "a579bb47-1583-45e0-99d2-02f7433f3793"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "a579bb47-1583-45e0-99d2-02f7433f3793",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "a579bb47-1583-45e0-99d2-02f7433f3793",
+                "9b336be6-acfd-427b-8113-db74016949b7": "a4fe53a9-5ef3-4f9e-b269-005396bad639",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "c46d9361-63a4-4825-9410-be59c3f05220",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "6c47030d-d2e0-4d0a-90ab-79c06b0dd002"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2737,6 +4872,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2752,30 +4895,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -2787,7 +4906,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d2d94995-1ebf-4efc-9842-44f7c4c7a656",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "34b3272e-8093-46e7-b0af-52b120e1254f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "8486983c-6f54-4ed6-897f-622bfda0e1a2",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "d267949f-4763-472f-97bf-680e5ec79582"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "d267949f-4763-472f-97bf-680e5ec79582",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "69f69b04-5801-4ee0-aede-c2fbe06ae4b8",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "76cb0674-fb9f-4123-abcf-e2056073c34b"
       }
     },
     {
@@ -2795,12 +4916,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "da9cf0fb-d316-47d0-8f0a-10062356db70"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "da9cf0fb-d316-47d0-8f0a-10062356db70",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "da9cf0fb-d316-47d0-8f0a-10062356db70",
+                "9b336be6-acfd-427b-8113-db74016949b7": "bfec8aad-3e13-4691-a44c-19c82e95f7f7",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "2ea482b7-6759-46a6-b42b-f70e891e6549",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "1d4351c1-24b4-4a26-b134-816a7193e8b2"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2832,6 +5017,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2847,30 +5040,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -2882,7 +5051,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "d8463c0e-33f2-48b6-bee5-bf34221fa786",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "bf704375-d6d6-48a0-b966-a4051ee0eb3f",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "9d4ffa1a-70da-4965-bb13-325b4afa1563",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "07d4a601-c6a6-49cc-8d05-67dda84b9522"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "07d4a601-c6a6-49cc-8d05-67dda84b9522",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "ef132d0e-dad8-44cf-89a3-d9b8e2d11cb6",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "2ef7df98-c318-4118-a1eb-d99d60571262"
       }
     },
     {
@@ -2890,12 +5061,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "0896da4e-a98e-41bb-831b-e4aecbabd0a8"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "0896da4e-a98e-41bb-831b-e4aecbabd0a8",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "0896da4e-a98e-41bb-831b-e4aecbabd0a8",
+                "9b336be6-acfd-427b-8113-db74016949b7": "c4e66ce1-9559-46f4-945a-55ba00964e92",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "d24d3ceb-b700-4284-99cc-16e524c5910c",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "b49be542-dbfc-41dc-8908-f4e6806a6854"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -2927,6 +5162,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -2942,30 +5185,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -2977,7 +5196,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "f9c6c752-232d-4b4a-b770-74851469f104",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "357287df-347f-4050-a2cf-2b8b882c2352",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "63dc9fa7-94af-4ed9-b9cc-081ac8d4944b",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "124cb85b-cda8-44c6-ae18-858455064951"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "124cb85b-cda8-44c6-ae18-858455064951",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "d08ce235-d4fe-41f8-9db3-d4a9bc063b63",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "7ede1f7d-32a9-44a3-8d16-977ed76efe72"
       }
     },
     {
@@ -2985,12 +5206,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "ce20f6b8-847c-4df6-af14-2141b5aedff0"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "ce20f6b8-847c-4df6-af14-2141b5aedff0",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "ce20f6b8-847c-4df6-af14-2141b5aedff0",
+                "9b336be6-acfd-427b-8113-db74016949b7": "5fc56e56-6d86-4dbb-b93e-038f8a29ad09",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "c01a87bb-ce0c-4b57-b32f-f3f342a75f97",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "8140cdd0-0fa1-4a24-807c-01439027c8de"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -3022,6 +5307,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3037,30 +5330,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -3072,7 +5341,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "5aad4f29-ebc2-4ab7-8346-61e869f30aa3",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "c9441846-8b77-4cad-813c-b71bd6e28b92",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "1cbd522c-0b7b-4595-beb1-3cf62bd719d6",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "5f5d1b7c-645a-4ae7-a368-3fc177ed9cd6"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "5f5d1b7c-645a-4ae7-a368-3fc177ed9cd6",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "f5a5c8bc-7e4b-4cb3-89f4-35710f712af3",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "59324563-de3a-44dc-a92e-2c4c998c0011"
       }
     },
     {
@@ -3080,12 +5351,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "6c0031f3-d80f-43c1-be8d-30225958a9d8"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "6c0031f3-d80f-43c1-be8d-30225958a9d8",
+              "__version": 2,
+              "__Prefab": "floaties/railgunfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "6d055549-5d3d-40c7-9c7d-386323e8ff87"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "6d055549-5d3d-40c7-9c7d-386323e8ff87": "6c0031f3-d80f-43c1-be8d-30225958a9d8",
+                "9b336be6-acfd-427b-8113-db74016949b7": "798f7644-4e92-42b6-bd93-39be14b2b3cd",
+                "7e97d1a8-e5c6-4d13-8e1e-e1a6aa35270f": "85665733-cadb-43d2-ae2e-62c1ace8b17a",
+                "c657bf49-6a22-4ec9-8812-f65d2a550dcf": "171d9629-5739-4d24-935f-61633ecc7f85"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -3117,6 +5452,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3132,30 +5475,6 @@
               "_type": "gameobject",
               "prefab": "railgun.prefab"
             }
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Size",
-            "Value": 50
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "SpriteColor",
-            "Value": "0.49302,0,0,1"
-          },
-          {
-            "Target": {
-              "Type": "Component",
-              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
-            },
-            "Property": "Texture",
-            "Value": "textures/shapes/money3.vtex"
           }
         ],
         "MovedObjects": []
@@ -3165,9 +5484,11 @@
         "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "93ddceac-7796-48b1-89f4-dd4ebc216b2d",
         "db491a2f-51f3-447a-a0da-b6a931c07baa": "586a6b76-94dc-40d2-a1b7-5c0c6bcb3fa1",
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "479977fc-f537-42da-a009-73e0a972bdf7",
-        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "fe8cb251-77ce-4bcf-aca7-89ea003d6769",
-        "5dd09498-807f-4dc9-8671-53e08250fac2": "ee4dae56-400f-4620-a799-0b559c16a0f4",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2afc8ae3-429f-4497-8744-75c3f5d89e98"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "2afc8ae3-429f-4497-8744-75c3f5d89e98",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "20c13463-5baf-4d0f-a04d-b19cb19c22a8",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "45cb3acc-6f89-446f-b2d3-c99f62adde93",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "b62d0539-8ccd-49d8-b16c-bd6100782fe4",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "d8b12b4c-c6b5-49ad-a2d4-806d437313f8"
       }
     },
     {
@@ -3175,12 +5496,76 @@
       "__version": 2,
       "__Prefab": "gunpickup.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "c37806b0-1997-4ad4-89b1-7910d1046887"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "c37806b0-1997-4ad4-89b1-7910d1046887",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "c37806b0-1997-4ad4-89b1-7910d1046887",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "0d5ffa9c-2881-4eb7-a872-c233b8915f7c",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "c09d345e-99f6-4f37-9c15-f1cbfbf551af",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "6fd033b5-f6d7-484a-9224-bb61125b89a7"
+              }
+            }
+          }
+        ],
         "RemovedObjects": [
           {
             "Id": {
               "Type": "Component",
               "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
             }
           }
         ],
@@ -3212,6 +5597,14 @@
           {
             "Target": {
               "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
               "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
             },
             "Property": "HideForTime",
@@ -3227,7 +5620,9 @@
         "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "3dba581b-f9b3-4eab-ab71-99e85ba32616",
         "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "ad1f1183-b76f-4607-abdd-eb8a5c96459e",
         "5dd09498-807f-4dc9-8671-53e08250fac2": "dda43f94-891c-4113-a8ea-f1a43e9875fb",
-        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6a7b4716-f60e-4f90-bb0d-6ee0b832c9b1"
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "6a7b4716-f60e-4f90-bb0d-6ee0b832c9b1",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "e9994b29-5e56-4335-95fa-02ad3fe494ee",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "41487b02-8860-456e-a527-377f1d991d14"
       }
     },
     {
@@ -4758,6 +7153,251 @@
             {
               "__type": "Sandbox.ModelRenderer",
               "__guid": "ada38a4d-03eb-4e46-a6c5-8dfd8a41cde7",
+              "__enabled": true,
+              "Flags": 0,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": {
+                "indexed": {
+                  "0": "materials/jump-pad-cylinder.vmat"
+                }
+              },
+              "Model": "models/cylinder.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "Off",
+              "Tint": "0,0.93333,1,1"
+            }
+          ],
+          "Children": []
+        }
+      ]
+    },
+    {
+      "__guid": "3d416bd5-06e0-4763-ab88-7cebcacb4be0",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Jump Pad (18)",
+      "Position": "792.6122,-6387.036,384",
+      "Rotation": "0,0,0,1",
+      "Scale": "2,2,2",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.JumpPad",
+          "__guid": "b6f15012-93db-443d-821a-0b19ee75af60",
+          "__enabled": true,
+          "Flags": 0,
+          "Factor": 1.5,
+          "Force": 800,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Trampoline": false
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c8841f87-362e-4e87-848c-ff19d4c20926",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/jump-pad.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "5c7305bb-f68e-497e-ac7e-228fa8881701",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0,3.639995",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "Normal": "0,0,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50",
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "60a0bae1-7969-48e6-b6a8-7b214b8600f7",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0.1877193,0",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50.37545,3.999869",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "bedbea58-184f-4313-b4a4-fd251feea920",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Sprite",
+          "Position": "-4.119995,0,15.6185",
+          "Rotation": "0,0,0,1",
+          "Scale": "3.400001,3.400001,0.6900026",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.SpriteRenderer",
+              "__guid": "92e335aa-29dd-4ab1-8fce-14546a08cd97",
+              "__enabled": true,
+              "Flags": 0,
+              "__version": 2,
+              "Additive": false,
+              "AlphaCutoff": 0,
+              "Billboard": "YOnly",
+              "Color": "0,0.3845,0.72093,1",
+              "DepthFeather": 0,
+              "FlipHorizontal": false,
+              "FlipVertical": false,
+              "FogStrength": 1,
+              "IsSorted": false,
+              "Lighting": false,
+              "OnAnimationEnd": null,
+              "OnAnimationStart": null,
+              "OnBroadcastMessage": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opaque": false,
+              "OverlayColor": "1,1,1,0",
+              "PlaybackSpeed": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "Shadows": false,
+              "Size": "10.94994,47.59",
+              "Sprite": {
+                "$compiler": "embed",
+                "$source": null,
+                "data": {
+                  "Animations": [
+                    {
+                      "Name": "Default",
+                      "FrameRate": 15,
+                      "Origin": "0.5,0.5",
+                      "LoopMode": "Loop",
+                      "Frames": [
+                        {
+                          "Texture": "textures/shapes/arrow2.vtex",
+                          "BroadcastMessages": []
+                        }
+                      ]
+                    }
+                  ],
+                  "__references": null
+                },
+                "compiled": null
+              },
+              "StartingAnimationName": "Default",
+              "TextureFilter": "Bilinear"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "7ced1101-c8ee-4e2b-894c-d6339bd4354d",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "-5,0,2.01",
+          "Rotation": "0,0,0,1",
+          "Scale": "0.7,0.7,0.7",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "64748696-8cda-485a-8d50-4f72932b349f",
               "__enabled": true,
               "Flags": 0,
               "BodyGroups": 18446744073709551615,
@@ -7242,6 +9882,251 @@
       ]
     },
     {
+      "__guid": "b65384e1-8d84-4363-82e5-21893002a5ba",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Jump Pad (19)",
+      "Position": "-1971.185,-7762.967,288.7747",
+      "Rotation": "0,-0.258819,0,0.9659258",
+      "Scale": "2,2,2",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.JumpPad",
+          "__guid": "50e32c78-1860-4759-8639-37c640b4e3a3",
+          "__enabled": true,
+          "Flags": 0,
+          "Factor": 1.5,
+          "Force": 800,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Trampoline": false
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a60123e0-2955-4207-8abd-2960a82d2a3a",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": "models/jump-pad.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "c2a5121d-f109-4924-8e1c-b6dc8847e924",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0,2.689986",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "Normal": "0,0,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50",
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "1b04539d-ae0e-4d02-a26a-10066e212255",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0.1877193,0",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50.37545,3.999869",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "4dd52920-4b99-4816-b33c-d0fecfe45016",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Sprite",
+          "Position": "-4.12,0,15.71003",
+          "Rotation": "0,0,0,1",
+          "Scale": "3.400001,3.400001,0.6900026",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.SpriteRenderer",
+              "__guid": "fcfd7775-25a1-47e6-b79f-594aefba0ee6",
+              "__enabled": true,
+              "Flags": 0,
+              "__version": 2,
+              "Additive": false,
+              "AlphaCutoff": 0,
+              "Billboard": "None",
+              "Color": "0,0.3845,0.72093,1",
+              "DepthFeather": 0,
+              "FlipHorizontal": false,
+              "FlipVertical": false,
+              "FogStrength": 1,
+              "IsSorted": false,
+              "Lighting": false,
+              "OnAnimationEnd": null,
+              "OnAnimationStart": null,
+              "OnBroadcastMessage": null,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opaque": false,
+              "OverlayColor": "1,1,1,0",
+              "PlaybackSpeed": 1,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "Shadows": false,
+              "Size": "10.94994,47.59",
+              "Sprite": {
+                "$compiler": "embed",
+                "$source": null,
+                "data": {
+                  "Animations": [
+                    {
+                      "Name": "Default",
+                      "FrameRate": 15,
+                      "Origin": "0.5,0.5",
+                      "LoopMode": "Loop",
+                      "Frames": [
+                        {
+                          "Texture": "textures/shapes/arrow2.vtex",
+                          "BroadcastMessages": []
+                        }
+                      ]
+                    }
+                  ],
+                  "__references": null
+                },
+                "compiled": null
+              },
+              "StartingAnimationName": "Default",
+              "TextureFilter": "Bilinear"
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "40c40b33-2ff2-4881-acf4-f80babda28ba",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "-5,0,2.01",
+          "Rotation": "0,0,0,1",
+          "Scale": "0.7,0.7,0.7",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "28d9f8a8-5b8f-417f-a849-5b857ad2e7a4",
+              "__enabled": true,
+              "Flags": 0,
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "LodOverride": null,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Materials": {
+                "indexed": {
+                  "0": "materials/jump-pad-cylinder.vmat"
+                }
+              },
+              "Model": "models/cylinder.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "Off",
+              "Tint": "0,0.93333,1,1"
+            }
+          ],
+          "Children": []
+        }
+      ]
+    },
+    {
       "__guid": "d71f3bef-249f-45f1-984b-fbc758622f6a",
       "__version": 2,
       "Flags": 0,
@@ -7491,7 +10376,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Jump Pad (15)",
-      "Position": "-649.8261,-5510.428,27.49003",
+      "Position": "-574.0029,-5510.428,27.49003",
       "Rotation": "0.2588191,-0.000000001799177,0.0000000004820881,0.9659258",
       "Scale": "2,2,2",
       "Tags": "",
@@ -9600,77 +12485,6 @@
         {
           "__type": "Sandbox.ModelCollider",
           "__guid": "07e8f16d-b1b8-4462-a857-2e98823567e6",
-          "__enabled": true,
-          "Flags": 0,
-          "ColliderFlags": 0,
-          "Elasticity": null,
-          "Friction": null,
-          "IsTrigger": false,
-          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnObjectTriggerEnter": null,
-          "OnObjectTriggerExit": null,
-          "OnTriggerEnter": null,
-          "OnTriggerExit": null,
-          "RollingResistance": null,
-          "Static": false,
-          "Surface": null,
-          "SurfaceVelocity": "0,0,0"
-        }
-      ],
-      "Children": []
-    },
-    {
-      "__guid": "d979e7e8-c4b1-4653-be7a-d1c7a13dc03e",
-      "__version": 2,
-      "Flags": 0,
-      "Name": "shipping_container (6)",
-      "Position": "-746.944,-7564.193,402.3465",
-      "Rotation": "-0.3420201,-0.000000008607283,-0.000000003132794,0.9396926",
-      "Scale": "0.8920631,1,1",
-      "Tags": "",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "NetworkFlags": 0,
-      "NetworkOrphaned": 0,
-      "NetworkTransmit": true,
-      "OwnerTransfer": 1,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "208130e5-c3ac-4960-b251-ab196653dc18",
-          "__enabled": true,
-          "Flags": 0,
-          "BodyGroups": 18446744073709551615,
-          "CreateAttachments": false,
-          "LodOverride": null,
-          "MaterialGroup": "green",
-          "MaterialOverride": null,
-          "Materials": null,
-          "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.ModelCollider",
-          "__guid": "c860f297-ba6b-415d-b50b-2216abfc5688",
           "__enabled": true,
           "Flags": 0,
           "ColliderFlags": 0,
