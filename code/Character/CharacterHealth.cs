@@ -50,7 +50,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         OnDamage?.Invoke( damageInfo );
 
         var gun = damageInfo.Weapon?.Name;
-        if ( gun == "railgun" )
+        if ( gun == "railgun" && CharacterBase.IsPlayer )
         {
             SoundManager.PlayLocal( SoundManager.SoundType.RailgunHit, 0.3f );
         }
