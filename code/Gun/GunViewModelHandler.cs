@@ -35,6 +35,11 @@ public class GunViewModelHandler : Component
         base.OnEnabled();
 
         camera = Scene.Camera;
+
+        if (camera == null)
+        {
+            camera = new();
+        }
     }
     
     protected override void OnPreRender()

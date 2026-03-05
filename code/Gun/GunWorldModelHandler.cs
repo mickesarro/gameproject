@@ -23,13 +23,18 @@ public sealed class GunWorldModelHandler : Component
 	protected override void OnStart()
 	{
 		base.OnStart();
-        if ( Components.TryGet<SkinnedModelRenderer>( out var renderer )) 
+        if ( Components.TryGet<SkinnedModelRenderer>( out var renderer ) ) 
 		{
             bool shouldRender = Network.IsProxy || GameObject.Tags.Has( "npc");
 
             renderer.RenderType =
                 shouldRender ? ModelRenderer.ShadowRenderType.On : ModelRenderer.ShadowRenderType.ShadowsOnly;
 			var anchorC = GameObject.GetComponentInParent<Anchor>();
+            if ( anchorC == null )
+            {
+                anchor = GameObject;
+                return;
+            }
 			anchor = anchorC.Object;
 		}
 		else

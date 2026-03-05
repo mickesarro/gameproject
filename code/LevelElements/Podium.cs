@@ -102,7 +102,7 @@ public sealed class Podium : Component
         base.OnUpdate();
         foreach ( var renderer in renderers )
         {
-            if ( renderer.Sequence.IsFinished )
+            if ( renderer?.Sequence?.IsFinished == true && idleanims != null )
             {
                 renderer.Sequence.Looping = true;
                 renderer.Sequence.Name = idleanims[new Random().Next( 0, idleanims.Count )];

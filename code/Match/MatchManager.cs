@@ -114,7 +114,10 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
         Players.Remove( channel.Id );
         CurrentPlayers--;
 
-        TryPopulate();
+        if ( MatchGameMode.PopulateWithNPCs )
+        {
+            TryPopulate();
+        }
     }
 
     private void AddPlayer( Connection channel )
