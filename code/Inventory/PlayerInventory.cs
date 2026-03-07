@@ -132,14 +132,14 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
         
         if ( ind < 0 || ind >= weapons.Length ) return;
 
+        if ( weapons[ind] == null ) return;
+
         // Disable previous weapon safely
         CurrentItem?.EnableGo( false );
 
-        if ( weapons[ind] == null ) ind = 3;
-
-		// Set new weapon
+        // Set new weapon
         //Log.Info( "set weapon" );
-		CurrentItem = weapons[ind];
+        CurrentItem = weapons[ind];
 		currentSlot = ind;
 
         // Uses null propagation to safelu set it
