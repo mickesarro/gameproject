@@ -758,6 +758,40 @@
       "Children": []
     },
     {
+      "__guid": "0d37ae92-1c99-48ad-b1b3-cff95b5a5b56",
+      "__version": 2,
+      "__Prefab": "prefabs/worldboundary.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "48825f71-aa70-49eb-b811-2f6949be2788"
+            },
+            "Property": "Position",
+            "Value": "0,0,-300"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "57c14276-bbaf-437e-8249-dbd8696803c0"
+            },
+            "Property": "ColliderFlags",
+            "Value": 0
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "6d9a2027-801b-4f96-a21a-a8d372318811": "0d37ae92-1c99-48ad-b1b3-cff95b5a5b56",
+        "48825f71-aa70-49eb-b811-2f6949be2788": "867bdac6-e08b-4097-be98-814b501b8901",
+        "57c14276-bbaf-437e-8249-dbd8696803c0": "6a107841-e5cc-43f5-a86e-ecf46bba9653",
+        "f8c5786c-0c1e-4c14-84eb-cb529726a81e": "f09d5e68-0e56-44cd-bf44-1b1f20804fb5"
+      }
+    },
+    {
       "__guid": "b078a838-12d4-44a7-8c75-d57b68401c21",
       "__version": 2,
       "__Prefab": "healthpickup.prefab",
@@ -14375,7 +14409,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "47b3b0dd-1aa1-4967-8e36-8e4d3c287bcd"
+          "$blob": "91ff031c-1981-4d43-a87f-572a4b390ebe"
         }
       }
     }

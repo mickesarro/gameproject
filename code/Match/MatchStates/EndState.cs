@@ -37,17 +37,6 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
     public override void OnExit( IState nextState )
     {
         return;
-        // Implement scene manager
-        Log.Info( "Main menu" );
-
-        Networking.Disconnect();
-
-        // Once again, make a scene manager
-        // Save stats etc. cleanup
-        var slo = new SceneLoadOptions { };
-        slo.SetScene( "/scenes/mainMenu.scene" );
-        //matchManager.Scene.Clear();
-        matchManager.Scene.Load( slo );
         
     }
 
