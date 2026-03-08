@@ -26,6 +26,7 @@ public abstract class GameMode : Component, ISceneMetadata
     public virtual string ModeName { get; } = "GameMode";
     public abstract int ScoreLimit { get; }
     public abstract void WinCondition(PlayerStats latestScoreEvent);
+    public abstract void DetermineWinners();
 
     public abstract int MaxPlayers { get; }
     public abstract int MinPlayers { get; }

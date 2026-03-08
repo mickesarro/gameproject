@@ -60,6 +60,7 @@ public sealed class PlayerInteraction : Component, IPlayerEvent, IMatchEvents, I
 
     void IMatchEvents.OnGameEnd()
     {
+        GetComponent<PlayerStats>().UpdateRemoteStats();
         GameObject.Enabled = false;
     }
 

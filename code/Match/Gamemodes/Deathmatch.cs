@@ -25,10 +25,25 @@ public sealed class Deathmatch : GameMode
     {
         if ( latestScoreEvent.Score >= scoreLimit )
         {
+            DetermineWinners();
             MatchManager.Instance.EndGame();
             GameObject.Enabled = false; // Might not work, but for dev time
             Log.Info( "Game ended by score!" );
         }
+    }
+
+    public override void DetermineWinners()
+    {
+        if ( IsProxy || MatchStatsManager.Instance == null ) return;
+
+        var winners = MatchStatsManager.Instance.Tracked
+            .OrderByDescending( x => x.Score ).Take(3);
+
+        foreach ( var winner in winners )
+        {
+            winner.IncrementWins();
+        }
+
     }
 
     protected override void OnStart()
