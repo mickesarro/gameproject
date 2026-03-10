@@ -6,72 +6,84 @@
 
 <root>
     <div class="main_menu">
-        <h1>Movement shooter</h1>
-        <UIButton class="button" T="string" DisplayValue="Join game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
-		<UIButton class="button" T="string" DisplayValue="Information" ButtonCallback="@ShowInfo"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
+        @if (!ShowPlayOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Movement Shooter</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Play" ButtonCallback="@OpenPlayOptions"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Information" ButtonCallback="@ShowInfo"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
+            </div>
+        }
+        else
+        {
+            <div class="menu_cluster">
+                <h1>Play</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Join Game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Create Game" ButtonCallback="@OpenCreateGame"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@ClosePlayOptions"></UIButton>
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
+    public bool ShowPlayOptions { get; set; } = false;
 
-	protected override void OnStart()
-	{
-		base.OnStart();
+    protected override void OnStart()
+    {
+        base.OnStart();
+        Show();
+    }
 
-		Show();
-	}
+    public override void Show()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+        ShowPlayOptions = false; // Reset to main root on show
+    }
 
-	public override void Show()
-	{
-		Mouse.Visibility = MouseVisibility.Visible;
-		GameObject.Enabled = true;
-	}
+    public override void Hide()
+    {
+        GameObject.Enabled = false;
+    }
 
-	public override void Hide()
-	{
-		GameObject.Enabled = false;
-	}
+    private void OpenPlayOptions()
+    {
+        ShowPlayOptions = true;
+    }
 
-	private void OpenLobbyBrowser()
-	{
-		UIManager.Instance.ShowLayer<LobbyBrowser>();
-	}
+    private void ClosePlayOptions()
+    {
+        ShowPlayOptions = false;
+    }
 
-	private void StartGame( string scene = "/scenes/main.scene" )
-	{
-		// Make a scene manager for loading
-		// Also a loading screen that is additively loaded??
-		Log.Info( "Loading game scene" );
-		var slo = new SceneLoadOptions { ShowLoadingScreen = true };
-		slo.SetScene( scene );
-		Scene.Load( slo );
+    private void OpenLobbyBrowser()
+    {
+        UIManager.Instance.ShowLayer<LobbyBrowser>();
+    }
 
-		Mouse.Visibility = MouseVisibility.Hidden;
-		//GameManager.Current.LoadUI();
+    private void OpenCreateGame()
+    {
+        UIManager.Instance.ShowLayer<NewLobbyCreator>();
+    }
 
-		// Just for reference, I have no clue how they work
-		LoadingScreen.Media = "splash.png";
-		LoadingScreen.Title = "Loading the game";
-	}
+    private void OpenSettings()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
+        Log.Info("Settings");
+    }
 
-	private void Quit()
-	{
-		Log.Info( "Quitting game" );
-		Game.Close();
-	}
+    private void ShowInfo()
+    {
+        UIManager.Instance.ShowLayer<InfoPage>();
+    }
 
-	private void OpenSettings()
-	{
-		UIManager.Instance.ShowLayer<SettingsMenu>();
-		Log.Info("Settings");
-	}
-
-	private void ShowInfo()
-	{
-		UIManager.Instance.ShowLayer<InfoPage>();
-	}
-
+    private void Quit()
+    {
+        Log.Info( "Quitting game" );
+        Game.Close();
+    }
 }
