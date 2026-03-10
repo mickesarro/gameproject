@@ -6,9 +6,10 @@
 
 <root>
     <div class="main_menu">
-        <h1>Main Menu</h1>
+        <h1>Movement shooter</h1>
         <UIButton class="button" T="string" DisplayValue="Join game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
         <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
+		<UIButton class="button" T="string" DisplayValue="Information" ButtonCallback="@ShowInfo"></UIButton>
         <UIButton class="button" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
     </div>
 </root>
@@ -16,56 +17,61 @@
 @code
 {
 
-    protected override void OnStart()
-    {
-        base.OnStart();
+	protected override void OnStart()
+	{
+		base.OnStart();
 
-        Show();
-    }
+		Show();
+	}
 
-    public override void Show()
-    {
-        Mouse.Visibility = MouseVisibility.Visible;
-        GameObject.Enabled = true;
-    }
+	public override void Show()
+	{
+		Mouse.Visibility = MouseVisibility.Visible;
+		GameObject.Enabled = true;
+	}
 
-    public override void Hide()
-    {
-        GameObject.Enabled = false;
-    }
+	public override void Hide()
+	{
+		GameObject.Enabled = false;
+	}
 
-    private void OpenLobbyBrowser()
-    {
-        UIManager.Instance.ShowLayer<LobbyBrowser>();
-    }
+	private void OpenLobbyBrowser()
+	{
+		UIManager.Instance.ShowLayer<LobbyBrowser>();
+	}
 
-    private void StartGame( string scene = "/scenes/main.scene" )
-    {
-        // Make a scene manager for loading
-        // Also a loading screen that is additively loaded??
-        Log.Info( "Loading game scene" );
-        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
-        slo.SetScene( scene );
-        Scene.Load( slo );
+	private void StartGame( string scene = "/scenes/main.scene" )
+	{
+		// Make a scene manager for loading
+		// Also a loading screen that is additively loaded??
+		Log.Info( "Loading game scene" );
+		var slo = new SceneLoadOptions { ShowLoadingScreen = true };
+		slo.SetScene( scene );
+		Scene.Load( slo );
 
-        Mouse.Visibility = MouseVisibility.Hidden;
-        //GameManager.Current.LoadUI();
+		Mouse.Visibility = MouseVisibility.Hidden;
+		//GameManager.Current.LoadUI();
 
-        // Just for reference, I have no clue how they work
-        LoadingScreen.Media = "splash.png";
-        LoadingScreen.Title = "Loading the game";
-    }
+		// Just for reference, I have no clue how they work
+		LoadingScreen.Media = "splash.png";
+		LoadingScreen.Title = "Loading the game";
+	}
 
-    private void Quit()
-    {
-        Log.Info( "Quitting game" );
-        Game.Close();
-    }
+	private void Quit()
+	{
+		Log.Info( "Quitting game" );
+		Game.Close();
+	}
 
-    private void OpenSettings()
-    {
-        UIManager.Instance.ShowLayer<SettingsMenu>();
-        Log.Info("Settings");
-    }
+	private void OpenSettings()
+	{
+		UIManager.Instance.ShowLayer<SettingsMenu>();
+		Log.Info("Settings");
+	}
+
+	private void ShowInfo()
+	{
+		UIManager.Instance.ShowLayer<InfoPage>();
+	}
 
 }
