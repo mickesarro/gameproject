@@ -45,12 +45,23 @@
         ShowPlayOptions = false; // Reset to main root on show
     }
 
+    // Enables to go back directly to play options from join/create game rather than the main root
+    public override void Show(object? data)
+    {
+        Show();
+
+        if (data is string menuTarget && menuTarget == "PlayOptions")
+        {
+            ShowPlayOptions = true;
+        }
+    }
+
     public override void Hide()
     {
         GameObject.Enabled = false;
     }
 
-    private void OpenPlayOptions()
+    public void OpenPlayOptions()
     {
         ShowPlayOptions = true;
     }

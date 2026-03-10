@@ -129,6 +129,12 @@
               "component_id": "aa8717c7-942c-45e8-9b35-aa6b5617de01",
               "go": "9477e00a-92cd-459d-aedd-e5fc5223f52f",
               "component_type": "InfoPage"
+            },
+            {
+              "_type": "component",
+              "component_id": "58da8ab3-b3e9-4042-b904-743131d5ecb1",
+              "go": "9ecea3ff-37b4-4109-bbd8-5b1242bef8a5",
+              "component_type": "NewLobbyCreator"
             }
           ]
         }
@@ -269,6 +275,37 @@
             }
           ],
           "Children": []
+        },
+        {
+          "__guid": "9ecea3ff-37b4-4109-bbd8-5b1242bef8a5",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "LobbyCreator",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.UI.NewLobbyCreator",
+              "__guid": "58da8ab3-b3e9-4042-b904-743131d5ecb1",
+              "__enabled": true,
+              "Flags": 0,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
         }
       ]
     }
@@ -293,7 +330,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "ae64a57a-e87c-4dfc-adf3-3027e5993929"
+          "$blob": "f26d7cf2-3b76-4fb2-964e-aa054f6237a3"
         }
       }
     }

@@ -4,47 +4,59 @@
 @inherits UILayer
 @namespace Shooter.UI
 
-<!--
-    This is mainly for reference now. Maybe develop it later.
--->
-
 <root>
-    <div id="modes_menu">
-        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@Close" />
-        <h1>Match Stats</h1>
+    <div class="menu_center">
+        <div class="menu_cluster">
+            <h1>Create Game</h1>
 
-        <div class="modes_table">
-            <div class="modes_header">
-                <span class="col player">Player</span>
-                <span class="col score">Score</span>
-                <span class="col kills">Kills</span>
-                <span class="col deaths">Deaths</span>
+            <div class="section_box presets_box">
+                <h2>Presets</h2>
+                <div class="btn_list">
+                    @foreach ( var mode in ResourceLibrary.GetAll<PrefabFile>("gamemodes/") )
+                    {
+                        string label = mode.GetMetadata("Name", mode.ResourceName);
+                        <UIButton class="menu_btn" T="string" DisplayValue="@label" ButtonCallback="@(() => StartGame(mode.ResourceName))"></UIButton>
+                    }
+                </div>
             </div>
 
-            @foreach (var mode in ResourceLibrary.GetAll<PrefabFile>("gamemodes/"))
-            {
-                if (!mode.IsValid()) continue;
-
-                <div class="modes_row">
-                    <span class="col player">@mode.GetMetadata("Name", "")</span>
-                    <span class="col score">@mode.GetMetadata("ScoreLimit", "0")</span>
-                    <span class="col kills">@mode.GetMetadata("MaxPlayers", "")</span>
-                    <span class="col deaths">@mode.GetMetadata("MinPlayers", "")</span>
-                    <span class="col deaths">@mode.GetMetadata("Objective", "")</span>
+            <div class="section_box custom_box">
+                <h2>Advanced</h2>
+                <div class="btn_list">
+                    <UIButton class="menu_btn custom_btn" T="string" DisplayValue="Custom Game" ButtonCallback="@CustomGame"></UIButton>
                 </div>
-            }
+            </div>
 
+            <div class="spacer"></div>
+            <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@GoBack"></UIButton>
         </div>
     </div>
 </root>
 
-
 @code
 {
-
-    private void Close()
+    private void StartGame( string gameModePrefab, string scene = "/scenes/main.scene" )
     {
-        
+        Log.Info( $"Loading game scene: {scene} with gamemode: {gameModePrefab}" );
+        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
+        slo.SetScene( scene );
+        Scene.Load( slo );
+
+        GameMode.SetGameMode($"gamemodes/{gameModePrefab}.prefab");
+        Mouse.Visibility = MouseVisibility.Hidden;
+
+        // Can be used to change loading screen 
+        //LoadingScreen.Media = "splash.png";
+        LoadingScreen.Title = "Starting Game...";
     }
 
+    private void CustomGame()
+    {
+        Log.Info("Not implemented yet");
+    }
+
+    private void GoBack()
+    {
+        UIManager.Instance.ShowLayerWithData<MainMenu>("PlayOptions");
+    }
 }

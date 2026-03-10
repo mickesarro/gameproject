@@ -7,36 +7,26 @@
 @namespace Shooter.UI
 
 <root>
-    <div class="browser">
-        <UIButton class="button back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
-        <h1 class="title">Lobbies</h1>
+    <div class="menu_center">
+        <div class="menu_cluster">
+            <h1>Join Game</h1>
 
-        <div class="container">
-            <UIButton class="button" T="string" DisplayValue="Refresh" ButtonCallback="@Refresh"></UIButton>
-
-            <div>
-                <div class="info">Automatic</div>
-                <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => StartGame())" ></UIButton>
-                <div class="dropdown_section">
-                    <UIButton class="button dropdown_button"
-                              T="string"
-                              DisplayValue="Selected Mode: @selectedGameModeDisplay ▼"
-                              ButtonCallback="@OpenGameModeDropdown" />
-
-                    <DropDown @ref="GameModeDropdown" style="display:none;" />
-                </div>
-            </div>
-            
-            @foreach ( var lobby in lobbies )
+            @if ( lobbies == null || lobbies.Count == 0 )
             {
-                <div>
-                    <div> @*Just a quick working version*@
-                        <p class="info">@lobby.Name</p>
-                        <p class="info">Players: @lobby.Members</p>
-                    </div>
-                    <UIButton class="button" T="string" DisplayValue="Select" ButtonCallback="@(() => JoinLobby(lobby))"></UIButton>
-                </div>
+                <div class="info_text">No ongoing games</div>
             }
+            else
+            {
+                @foreach ( var lobby in lobbies )
+                {
+                    <UIButton class="menu_btn" T="string" DisplayValue="@($"{lobby.Name} - {lobby.Members} Players")" ButtonCallback="@(() => JoinLobby(lobby))"></UIButton>
+                }
+            }
+
+            <div class="spacer"></div>
+            <UIButton class="menu_btn action_btn" T="string" DisplayValue="Refresh" ButtonCallback="@Refresh"></UIButton>
+            <UIButton class="menu_btn action_btn" T="string" DisplayValue="Create Game" ButtonCallback="@OpenCreateGame"></UIButton>
+            <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@GoBack"></UIButton>
         </div>
     </div>
 </root>
@@ -45,32 +35,15 @@
 {
     private List<LobbyInformation> lobbies = new();
 
-    private DropDown GameModeDropdown;
-    private string selectedGameMode = "deathmatch";
-    private string selectedGameModeDisplay = "Deathmatch";
-
     public override void Show()
     {
         base.Show();
-
         GetLobbies();
     }
 
-    /// <summary>
-    /// Fetches the lobbies available and queries a change after
-    /// </summary>
     private async void GetLobbies()
     {
         lobbies = await Networking.QueryLobbies();
-
-        // Just for testing purposes
-        if ( lobbies.Count == 0 )
-        {
-            var temp = new LobbyInformation();
-            temp.Name = "Grand lobby";
-            lobbies.Add( temp );
-        }
-
         StateHasChanged();
     }
 
@@ -81,73 +54,20 @@
 
     private void GoBack()
     {
-        UIManager.Instance.ShowLastLayer();
+        UIManager.Instance.ShowLayerWithData<MainMenu>("PlayOptions");
+
     }
 
-    // !! This is just a version for testing purposes
-    private void StartGame( string scene = "/scenes/main.scene" )
+    private void OpenCreateGame()
     {
-        // Make a scene manager for loading
-        // Also a loading screen that is additively loaded??
-        Log.Info( "Loading game scene" );
-        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
-        slo.SetScene( scene );
-        Scene.Load( slo );
-
-        // Default to deathmatch
-        GameMode.SetGameMode($"gamemodes/{selectedGameMode ?? "deathmatch" }.prefab" );
-
-        Mouse.Visibility = MouseVisibility.Hidden;
-        //GameManager.Current.LoadUI();
-
-        // Just for reference, I have no clue how they work
-        LoadingScreen.Media = "splash.png";
-        LoadingScreen.Title = "Loading the game";
+        UIManager.Instance.ShowLayer<NewLobbyCreator>();
     }
 
     private void JoinLobby( LobbyInformation lobbyInformation )
     {
-        if ( lobbyInformation.Name == "Grand lobby" )
-        {
-            StartGame();
-            return;
-        }
-
         Log.Info( $"Joining lobby {lobbyInformation.LobbyId}" );
         Networking.Connect( lobbyInformation.LobbyId );
     }
 
-    /// <summary>
-    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-    /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( lobbies );
-
-    private void OpenGameModeDropdown()
-    {
-        if ( GameModeDropdown == null ) return;
-
-        var popup = new Popup(GameModeDropdown, Popup.PositionMode.BelowLeft, 45);
-
-        foreach ( var mode in ResourceLibrary.GetAll<PrefabFile>("gamemodes/") )
-        {
-            string label = mode.GetMetadata("Name", "");
-            var panel = popup.AddOption(
-                $"{label} | Max players: {mode.GetMetadata("MaxPlayers", "NaN")} | Score limit: {mode.GetMetadata("ScoreLimit", "NaN")}"
-                , "", action: () =>
-            {
-                selectedGameMode = mode.ResourceName;
-                selectedGameModeDisplay = label;
-                StateHasChanged();
-            });
-
-            if (label == selectedGameMode)
-                panel.AddClass("active");
-
-            panel.Style.Width = Length.Auto;
-            panel.Style.BackgroundColor = Color.Parse("#444");
-            panel.Style.FontColor = Color.White;
-        }
-
-        popup.CloseWhenParentIsHidden = true;
-    }
+    protected override int BuildHash() => System.HashCode.Combine( lobbies?.Count ?? 0 );
 }
