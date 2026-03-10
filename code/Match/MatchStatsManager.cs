@@ -65,7 +65,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
     [Rpc.Host]
 	public void RegisterCharacter( GameObject character )
 	{
-		if (character.Components.TryGet<PlayerStats>( out var stats ))
+        if ( character.IsValid() && character.Components.TryGet<PlayerStats>( out var stats ) )
         {
 			tracked.Add( stats );
             UpdateScore();
@@ -78,11 +78,14 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 	}
 
     [Rpc.Host]
-    void IMatchEvents.OnPlayerLeft(Guid connectionId)
+    void IMatchEvents.OnPlayerLeft( Guid connectionId )
     {
-        var toRemove = tracked.FirstOrDefault(p => p.Network.OwnerId == connectionId);
-        if (toRemove is not null)
-            tracked.Remove(toRemove);
+        var toRemove = tracked.FirstOrDefault( p => p?.Network?.OwnerId == connectionId, defaultValue: null );
+
+        if ( toRemove != null )
+        {
+            tracked.Remove( toRemove );
+        }
     }
 
 }

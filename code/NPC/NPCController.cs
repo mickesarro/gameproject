@@ -155,8 +155,11 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
         {
             StateMachine.Update();
 
-            Velocity = Agent.Velocity;
-            AgentRotation = Agent.WorldRotation;
+            if ( Agent.IsValid() )
+            {
+                Velocity = Agent.Velocity;
+                AgentRotation = Agent.WorldRotation;
+            }
         }
 
         UpdateCitizenAnims();
@@ -204,7 +207,7 @@ public class NPCController : Component, ICharacterBase, IPlayerEvent, IMatchEven
 
     private void UpdateCitizenAnims()
     {
-        if ( animationHelper == null ) return;
+        if ( !animationHelper.IsValid() ) return;
         
         // animationHelper.WithWishVelocity( Agent.WorldTransform.Forward * Agent.Velocity );
         animationHelper.WithVelocity( Velocity );

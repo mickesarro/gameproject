@@ -33,7 +33,11 @@ public sealed class PlayerStats : Component, ISerializable
     public void AddScore(int amount)   => Score += amount;
 
     [Rpc.Owner]
-    public void IncrementWins() => Wins++;
+    public void IncrementWins()
+    {
+        if ( !this.IsValid() ) return;
+        Wins++;
+    }
 
     public void Accumulate( ISerializable data )
     {

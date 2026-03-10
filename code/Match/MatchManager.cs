@@ -122,10 +122,12 @@ public sealed class MatchManager : SingletonBase<MatchManager>, Component.INetwo
 
     private void AddPlayer( Connection channel )
     {
+        if ( channel == null ) return;
+
         Players.Add( channel.Id );
         CurrentPlayers++;
-        
-        if (CurrentPlayers > MatchGameMode.MaxPlayers) populator?.RemoveDummy();
+
+        if ( CurrentPlayers > MatchGameMode?.MaxPlayers ) populator?.RemoveDummy();
     }
 
     [Rpc.Broadcast( NetFlags.SendImmediate | NetFlags.Reliable )]

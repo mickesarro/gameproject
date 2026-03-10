@@ -23,7 +23,7 @@ public sealed class Deathmatch : GameMode
     [Rpc.Host]
     public override void WinCondition( PlayerStats latestScoreEvent )
     {
-        if ( latestScoreEvent.Score >= scoreLimit )
+        if ( latestScoreEvent.IsValid() && latestScoreEvent.Score >= scoreLimit )
         {
             DetermineWinners();
             MatchManager.Instance.EndGame();

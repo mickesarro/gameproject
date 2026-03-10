@@ -259,12 +259,15 @@ public sealed class Gun : Component, IWeapon, ICollectable
             tr.Surface.PrefabCollection.BulletImpact
             ?? tr.Surface.GetBaseSurface()?.PrefabCollection.BulletImpact;
 
-        // Clone the impact prefab at the surface and set the appropriate rotations
-        bulletImpact?.Clone
-            (
-                tr.EndPosition + tr.Normal,
-                Rotation.LookAt( tr.Normal )
-            ).SetParent( tr.GameObject, keepWorldPosition: true );
+        if ( bulletImpact.IsValid() ) {
+
+            // Clone the impact prefab at the surface and set the appropriate rotations
+            bulletImpact.Clone
+                (
+                    tr.EndPosition + tr.Normal,
+                    Rotation.LookAt( tr.Normal )
+                ).SetParent( tr.GameObject, keepWorldPosition: true );
+        }
 
         if ( tr.Surface.SoundCollection.Bullet != null )
         {

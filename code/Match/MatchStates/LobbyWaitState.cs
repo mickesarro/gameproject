@@ -53,7 +53,7 @@ public sealed class LobbyWaitState( MatchManager matchManager, StateMachine stat
         var connections = Connection.All;
 
         // If less than min players, continue waiting
-        if ( matchManager.MatchGameMode.MinPlayers > connections.Count ) return;
+        if ( matchManager.MatchGameMode.MinPlayers > matchManager.CurrentPlayers ) return;
 
         foreach ( var con in connections )
         {
