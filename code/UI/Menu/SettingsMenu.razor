@@ -46,6 +46,8 @@
 </root>
 
 @code {
+    public bool ShowSettingsOptions { get; set; } = false;
+
     private DropDown CrosshairDropdown;
     private DropDown ColorDropdown;
     private DropDown HudColorDropdown;
@@ -99,7 +101,17 @@
 
     private void GoBack()
     {
-        UIManager.Instance.ShowLayerWithData<MainMenu>("SettingsOptions");
+        UIManager.Instance.ShowLastLayer();
+
+        // 2. Check which menu we're on
+        if (UIManager.Instance.CurrentLayer is MainMenu mainMenu)
+        {
+            mainMenu.OpenSettingsOptions();
+        }
+        else if (UIManager.Instance.CurrentLayer is PauseMenu pauseMenu)
+        {
+            pauseMenu.OpenSettingsOptions();
+        }
     }
 
     private void OpenSettingContextMenu(string settingType)

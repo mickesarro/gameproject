@@ -6,26 +6,36 @@
 
 <root>
     <div class="pause_menu">
-        <h1>Paused</h1>
-        <UIButton class="button" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
+        @if (!ShowSettingsOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Paused</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettingsOptions"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
+            </div>
+        }
+        else
+        {
+            <div class="menu_cluster">
+                <h1>Settings</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Game Settings" ButtonCallback="@OpenGameSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Preferences" ButtonCallback="@OpenPreferences"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
-    [Property, TextArea] public string MyStringValue { get; set; } = "ajsdfaiöwejfiöasdf!";
-
-    /// <summary>
-    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-    /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+    public bool ShowSettingsOptions { get; set; } = false;
 
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
+        CloseSubMenus(); // Ensures we start at the root pause menu every time it opens
     }
 
     public override void Hide()
@@ -43,7 +53,6 @@
     {
         // Implement scene manager
         Log.Info("Main menu");
-
         Networking.Disconnect();
 
         // Once again, make a scene manager
@@ -53,10 +62,23 @@
         Scene.Load( slo );
     }
 
-    private void OpenSettings()
+    public void OpenSettingsOptions()
     {
-        UIManager.Instance.ShowLayer<SettingsMenu>();
-        Log.Info("Settings");
+        ShowSettingsOptions = true;
     }
 
+    private void CloseSubMenus()
+    {
+        ShowSettingsOptions = false;
+    }
+
+    private void OpenGameSettings()
+    {
+        Game.Overlay.ShowSettingsModal();
+    }
+
+    private void OpenPreferences()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
+    }
 }
