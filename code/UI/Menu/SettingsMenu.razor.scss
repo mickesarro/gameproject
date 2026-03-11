@@ -10,7 +10,6 @@ SettingsMenu {
     width: 100%;
     height: 100%;
     
-    // Allow clicking through to underlying components
     pointer-events: none;
 
     .menu_center {
@@ -21,8 +20,8 @@ SettingsMenu {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center; // Centers content vertically
-        align-items: center;     // Centers content horizontally
+        justify-content: center;
+        align-items: center;
         
         pointer-events: all;
 
@@ -52,30 +51,29 @@ SettingsMenu {
                 align-items: center;
                 gap: 20px; 
                 width: 100%;
-                min-width: 450px; // Slightly wider to accommodate the new color boxes
+                min-width: 450px;
             }
 
             .dropdown_section {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.25); // New separate transparent background
-                padding: 10px 15px; // Padding inside the individual dropdown box
-                border-radius: 8px; // Rounded corners for individual boxes
+                background-color: rgba(0, 0, 0, 0.25);
+                padding: 10px 15px;
+                border-radius: 8px;
                 
                 .dropdown_row {
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: center;
-                    gap: 15px; // Space between the text and the color preview
+                    gap: 15px;
                 }
 
                 .dropdown_button {
                     text-transform: none; 
                 }
 
-                // Styling for the chosen color indicator
                 .color_preview {
                     width: 24px;
                     height: 24px;
@@ -129,13 +127,12 @@ SettingsMenu {
                 height: 10px;
             }
 
-            // By defining the menu_btn block here, it overrides any default grey button background
             .menu_btn {
                 background-color: transparent;
                 color: rgba(255, 255, 255, 0.8);
                 font-size: 32px;
                 font-weight: 600;
-                padding: 5px 0;
+                padding: 15px 30px;
                 border: none;
                 cursor: pointer;
                 text-align: center;
