@@ -48,6 +48,26 @@
         Show();
     }
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Input.EscapePressed )
+        {
+            // Closes s&box menu if open
+            Game.Overlay.Close();
+            // Suppress default s&box menu
+            Input.EscapePressed = false;
+
+            // If a sub-menu is open, go back to the main root
+            if ( ShowPlayOptions || ShowSettingsOptions )
+            {
+                CloseSubMenus();
+                StateHasChanged();
+            }
+        }
+    }
+
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;

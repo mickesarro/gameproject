@@ -56,9 +56,24 @@ public sealed class PlayerInput : Component
             UIManager.Instance.ToggleLayer<StatsUI>();
         }
 
-		if ( Input.Pressed( "Menu" ) )
+		
+        if ( Input.EscapePressed )
 		{
-			UIManager.Instance.ToggleLayer<PauseMenu>();
+            // Closes s&box menu if open
+            Game.Overlay.Close();
+			// Prevents the default s&box menu from opening
+			Input.EscapePressed = false; 
+
+			if ( UIManager.Instance.CurrentLayer is SettingsMenu settingsMenu )
+			{
+                // Goes back in the settings menu rather than toggles the whole menu off
+				settingsMenu.GoBack();
+			}
+			else
+			{
+				// Otherwise toggle the pause menu
+				UIManager.Instance.ToggleLayer<PauseMenu>();
+			}
 		}
 
 #if DEBUG

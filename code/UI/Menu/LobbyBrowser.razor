@@ -41,6 +41,19 @@
         GetLobbies();
     }
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Input.EscapePressed )
+        {
+            // Suppress default s&box menu
+            Input.EscapePressed = false;
+
+            GoBack();
+        }
+    }
+
     private async void GetLobbies()
     {
         lobbies = await Networking.QueryLobbies();

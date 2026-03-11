@@ -67,14 +67,16 @@
         ShowSettingsOptions = true;
     }
 
-    private void CloseSubMenus()
+    public void CloseSubMenus()
     {
         ShowSettingsOptions = false;
+        StateHasChanged();
     }
 
-    private void OpenGameSettings()
+    public void OpenGameSettings()
     {
         Game.Overlay.ShowSettingsModal();
+        StateHasChanged();
     }
 
     private void OpenPreferences()
