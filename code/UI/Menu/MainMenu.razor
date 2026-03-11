@@ -6,23 +6,32 @@
 
 <root>
     <div class="main_menu">
-        @if (!ShowPlayOptions)
+        @if (!ShowPlayOptions && !ShowSettingsOptions)
         {
             <div class="menu_cluster">
                 <h1>Movement Shooter</h1>
                 <UIButton class="menu_btn" T="string" DisplayValue="Play" ButtonCallback="@OpenPlayOptions"></UIButton>
-                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettingsOptions"></UIButton>
                 <UIButton class="menu_btn" T="string" DisplayValue="Information" ButtonCallback="@ShowInfo"></UIButton>
                 <UIButton class="menu_btn" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
             </div>
         }
-        else
+        else if (ShowPlayOptions)
         {
             <div class="menu_cluster">
                 <h1>Play</h1>
                 <UIButton class="menu_btn" T="string" DisplayValue="Join Game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
                 <UIButton class="menu_btn" T="string" DisplayValue="Create Game" ButtonCallback="@OpenCreateGame"></UIButton>
-                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@ClosePlayOptions"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
+            </div>
+        }
+        else if (ShowSettingsOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Settings</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Game Settings" ButtonCallback="@OpenGameSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Preferences" ButtonCallback="@OpenPreferences"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
             </div>
         }
     </div>
@@ -31,6 +40,7 @@
 @code
 {
     public bool ShowPlayOptions { get; set; } = false;
+    public bool ShowSettingsOptions { get; set; } = false;
 
     protected override void OnStart()
     {
@@ -42,17 +52,16 @@
     {
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
-        ShowPlayOptions = false; // Reset to main root on show
+        CloseSubMenus(); // Reset to main root on show
     }
 
-    // Enables to go back directly to play options from join/create game rather than the main root
     public override void Show(object? data)
     {
         Show();
-
-        if (data is string menuTarget && menuTarget == "PlayOptions")
+        if (data is string menuTarget)
         {
-            ShowPlayOptions = true;
+            if (menuTarget == "PlayOptions") ShowPlayOptions = true;
+            if (menuTarget == "SettingsOptions") ShowSettingsOptions = true;
         }
     }
 
@@ -66,9 +75,26 @@
         ShowPlayOptions = true;
     }
 
-    private void ClosePlayOptions()
+    public void OpenSettingsOptions()
+    {
+        ShowSettingsOptions = true;
+    }
+
+    private void CloseSubMenus()
     {
         ShowPlayOptions = false;
+        ShowSettingsOptions = false;
+    }
+
+    private void OpenGameSettings()
+    {
+        // Opens the default s&box settings overlay
+        Game.Overlay.ShowSettingsModal();
+    }
+
+    private void OpenPreferences()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
     }
 
     private void OpenLobbyBrowser()
@@ -79,12 +105,6 @@
     private void OpenCreateGame()
     {
         UIManager.Instance.ShowLayer<NewLobbyCreator>();
-    }
-
-    private void OpenSettings()
-    {
-        UIManager.Instance.ShowLayer<SettingsMenu>();
-        Log.Info("Settings");
     }
 
     private void ShowInfo()

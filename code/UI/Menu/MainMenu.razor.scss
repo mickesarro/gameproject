@@ -22,8 +22,8 @@ MainMenu {
         padding: 60px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; // Pushes content to the bottom
-        align-items: flex-start;   // Pushes content to the left
+        justify-content: flex-end;
+        align-items: flex-start;
         
         // Re-enable clicks for the actual menu content
         pointer-events: all;
@@ -58,7 +58,7 @@ MainMenu {
 
                 &:hover {
                     color: white;
-                    transform: translateX(15px) scale(1.05); // Smooth slide and scale right
+                    transform: translateX(15px) scale(1.05);
                     text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
                 }
                 
