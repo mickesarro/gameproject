@@ -8,6 +8,7 @@ namespace Shooter;
 public sealed class BulletData : Component
 {
 	[Property] public float Damage { get; private set; } = 10.0f;
+	[Property] public float HeadshotMultiplier { get; private set; } = 2.0f;
 
 	[Property, Group( "Fire" )] public GameObject Tracer { get; private set; } = null;
 

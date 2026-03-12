@@ -106,6 +106,7 @@
         "__enabled": true,
         "Flags": 0,
         "Damage": 75,
+        "HeadshotMultiplier": 1.34,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

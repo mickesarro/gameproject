@@ -215,9 +215,18 @@ public sealed class Gun : Component, IWeapon, ICollectable
 		var traceGo = traceRay.GameObject;
 		if ( traceRay.Hit && traceGo.GetComponent<IDamageable>() is IDamageable damageable )
 		{
+			
+			bool isHeadshot = FireData.UseHitboxMultipliers
+                && traceRay.Hitbox != null
+                && traceRay.Hitbox.Tags.Contains( "head" );
+
+            float finalDamage = isHeadshot
+                ? FireData.HeadshotDamage
+                : FireData.Damage;
+
 			var damageInfo = new DamageInfo()
 			{
-				Damage = FireData.Damage,
+				Damage = finalDamage,
 				Attacker = User,
 				Position = traceRay.HitPosition,
 				Weapon = GameObject
@@ -226,6 +235,10 @@ public sealed class Gun : Component, IWeapon, ICollectable
             if ( !IsPlayer )
             {
                 damageInfo.Tags.Add( "npc" );
+            }
+            if ( isHeadshot )
+            {
+                damageInfo.Tags.Add( "head" );
             }
 
 			IDamageEvent.Post( e => e.OnDamage( traceGo, damageInfo ) );

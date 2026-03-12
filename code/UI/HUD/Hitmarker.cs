@@ -1,6 +1,5 @@
 using System;
 using Sandbox.Rendering;
-using Shooter.Sounds;
 
 namespace Shooter.UI;
 
@@ -21,9 +20,7 @@ public sealed class Hitmarker : Component, IDamageEvent
         // NPC inflicted the damage, hitmarker should not be shown
         // Previously displayed this on the host
         if ( damageInfo.Tags.Has( "npc" ) ) return;
-
-		SoundManager.PlayLocal( SoundManager.SoundType.Hitmarker);
-
+		
 		if ( Scene.Camera == null )
 			return;
 
@@ -41,9 +38,9 @@ public sealed class Hitmarker : Component, IDamageEvent
 		{
 			type = HitmarkerType.Kill;
 		}
-		else if ( false ) // No hitboxes for head specifically yet
+		else if ( damageInfo.Tags.Has( "head" ) ) // No hitboxes for head specifically yet
 		{
-			type = HitmarkerType.Headshot;
+			//type = HitmarkerType.Headshot;
 		}
 
 		DrawMarker( hudPainter, center, type );
@@ -70,9 +67,9 @@ public sealed class Hitmarker : Component, IDamageEvent
 		if ( type == HitmarkerType.Kill )
 			width *= 1.2f;
 
-		for (int i = 0; i < 4; ++i )
+		for ( int i = 0; i < 4; ++i )
 		{
-			var angle = (baseAngle + i * 90f) * MathF.PI / 180f;
+            var angle = (baseAngle + i * 90f) * MathF.PI / 180f;
 
 			var dir = new Vector2( MathF.Cos( angle ), MathF.Sin( angle ) );
 

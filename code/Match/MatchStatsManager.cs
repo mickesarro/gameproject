@@ -1,6 +1,5 @@
 ﻿using System;
 using Sandbox;
-using Sandbox.VR;
 
 namespace Shooter;
 
@@ -25,7 +24,7 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
 
         if ( damageInfo.Attacker is null || !damageInfo.Attacker.Components.TryGet<PlayerStats>( out var attacker ) )
 		{
-			Log.Error( $"DamageInfo for death of {killed} did not contain attacker, ignoring." );
+			Log.Warning( $"DamageInfo for death of {killed} did not contain attacker, ignoring." );
 			return;
 		}
 
