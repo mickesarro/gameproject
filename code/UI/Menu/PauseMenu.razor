@@ -31,6 +31,12 @@
 {
     public bool ShowSettingsOptions { get; set; } = false;
 
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        HideTimeMs = 200; // For fade-in animation
+    }
+
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;
@@ -47,7 +53,7 @@
     public override void Hide()
     {
         Mouse.Visibility = MouseVisibility.Hidden;
-        GameObject.Enabled = false;
+        base.Hide();
     }
 
     private void ResumeGame()

@@ -1,5 +1,30 @@
 @import "/UI/Styles/Theme.scss";
 
+// Fade animations for the background
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+// Animation for the text
+@keyframes dropIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes riseOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-30px); opacity: 0; }
+}
+
 PauseMenu {
     z-index: 999;
     font-family: $main-font;
@@ -12,6 +37,13 @@ PauseMenu {
     
     background-color: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(8px);
+
+    animation: fadeIn 0.2s ease-out forwards;
+
+    // Fade the background/blur out when closing
+    &.closing {
+        animation: fadeOut 0.2s ease-in forwards;
+    }
     
     // Ensure the menu panel doesn't block the camera/world if you click empty space
     pointer-events: none;
@@ -27,6 +59,9 @@ PauseMenu {
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
+        pointer-events: all;
+
+        animation: dropIn 0.2s ease-out forwards;
         
         // Re-enable clicks for the actual menu content
         pointer-events: all;
@@ -35,6 +70,8 @@ PauseMenu {
             display: flex;
             flex-direction: column;
             gap: 12px;
+
+            animation: slideInRight 0.2s ease-out forwards;
             
             h1 {
                 color: white;
@@ -81,5 +118,8 @@ PauseMenu {
                 }
             }
         }
+    }
+    &.closing .pause_menu {
+        animation: riseOut 0.2s ease-in forwards;
     }
 }

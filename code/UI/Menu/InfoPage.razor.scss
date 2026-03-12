@@ -1,5 +1,10 @@
 @import "/UI/Styles/Theme.scss";
 
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 InfoPage {
 	position: absolute;
 	z-index: 999;
@@ -20,6 +25,8 @@ InfoPage {
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
+
+		animation: slideInRight 0.2s ease-out forwards;
 
 		h1 {
 			margin-bottom: 20px;

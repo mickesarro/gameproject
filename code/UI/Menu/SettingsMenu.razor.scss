@@ -1,5 +1,10 @@
 @import "/UI/Styles/Theme.scss";
 
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 SettingsMenu {
     z-index: 999;
     font-family: $main-font;
@@ -33,6 +38,8 @@ SettingsMenu {
             flex-direction: column;
             gap: 20px;
             align-items: center;
+
+            animation: slideInRight 0.2s ease-out forwards;
 
             h1 {
                 color: white;

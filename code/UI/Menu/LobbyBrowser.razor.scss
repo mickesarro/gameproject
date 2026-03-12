@@ -1,5 +1,10 @@
 @import "/UI/Styles/Theme.scss";
 
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 LobbyBrowser {
     z-index: 100;
     font-family: $main-font;
@@ -30,6 +35,8 @@ LobbyBrowser {
             flex-direction: column;
             gap: 12px;
             align-items: center;
+
+            animation: slideInRight 0.2s ease-out forwards;
             
             h1 {
                 color: white;
