@@ -86,18 +86,8 @@ public class UIManager : SingletonBase<UIManager>
     {
         if ( layer == null ) return;
 
-        // Prevent overlapping StatsUI and PauseMenu
-        if ( CurrentLayer != null )
-        {
-            string currentName = CurrentLayer.GetType().Name;
-            string newName = layer.GetType().Name;
-
-            if ( (currentName == "StatsUI" && newName == "PauseMenu") ||
-                 (currentName == "PauseMenu" && newName == "StatsUI") )
-            {
-                return;
-            }
-        }
+        if ( !layer.CanShow( CurrentLayer ) ) return;
+        
         SwitchToLayer( layer, addToHistory );
         layer?.Show();
     }
@@ -120,6 +110,10 @@ public class UIManager : SingletonBase<UIManager>
     /// <param name="addToHistory">Save in the history stack.</param>
     public void ShowLayerWithData( UILayer layer, object data, bool addToHistory = true )
     {
+        if ( layer == null ) return;
+
+        if ( !layer.CanShow( CurrentLayer ) ) return;
+
         SwitchToLayer( layer, addToHistory );
         layer?.Show( data );
     }

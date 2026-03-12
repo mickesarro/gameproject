@@ -59,6 +59,12 @@
 
     IEnumerable<PlayerStats> characters;
 
+    public override bool CanShow(UILayer currentLayer)
+    {
+        // Don't show if Pause or Settings menu is open
+        return currentLayer is not PauseMenu && currentLayer is not SettingsMenu;
+    }
+
     //int totalScore = MatchStatsManager.Instance.TotalScore;
     int totalScore = 0;
 

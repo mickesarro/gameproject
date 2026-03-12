@@ -38,6 +38,12 @@
         CloseSubMenus(); // Ensures we start at the root pause menu every time it opens
     }
 
+    public override bool CanShow(UILayer currentLayer)
+    {
+        // Don't allow the pause menu to open if StatsUI is currently showing
+        return currentLayer is not StatsUI;
+    }
+
     public override void Hide()
     {
         Mouse.Visibility = MouseVisibility.Hidden;
