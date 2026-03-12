@@ -18,8 +18,10 @@ public sealed class FireData : Component
 	[Property, Group( "Bullet" )] public BulletType BulletType { get; private set; } = BulletType.Bullet;
 	[Property, Group( "Bullet" )] public BulletData BulletData { get; private set; }
 	[Hide] public float Damage => BulletData.Damage;
+    [Hide] public float HeadshotDamage => BulletData.Damage * BulletData.HeadshotMultiplier;
+    [Property, Group( "Bullet" )] public bool UseHitboxMultipliers { get; private set; } = true;
 
-	[Property, Group( "Fire" )] public int RPM { get; private set; } = 100;
+    [Property, Group( "Fire" )] public int RPM { get; private set; } = 100;
 	[Property, Group( "Fire" )] public float Spread { get; private set; } = 10f;
 	[Property, Group( "Fire" )] public float Recoil { get; private set; } = 5f;
 	[Property, Group( "Fire" )] public SoundManager.SoundType FiringSound { get; private set; } 

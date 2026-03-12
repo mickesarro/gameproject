@@ -25,8 +25,40 @@
         "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4": "511870a6-3fb4-4172-a8ae-d49a9840d63e",
         "35a82ac1-decf-4fd7-99ec-3317fca9a176": "881e4ac0-dfdb-4572-a7fd-2d503f21e758",
         "3c269391-9a4f-448a-81cd-80b1a4bdde8e": "878587fc-10c2-41d6-be5c-0cc72c3c5764",
-        "c136b065-d8fa-4670-a083-065636caaaa1": "f2e02966-eeb4-491c-b062-f9b9c8157470"
+        "c136b065-d8fa-4670-a083-065636caaaa1": "f2e02966-eeb4-491c-b062-f9b9c8157470",
+        "b0a16d92-d852-4c22-9f1e-103778e23955": "e3967713-22e4-4aa1-99ee-c7f2ac4e0e0f"
       }
+    },
+    {
+      "__guid": "3259e168-7799-4d66-ac74-daa7808e91bf",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "SoundListener",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.Sounds.HitmarkerSound",
+          "__guid": "5e437b99-36ff-4f65-a1b5-fa9c17773fb3",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
@@ -45,6 +77,13 @@
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
       "IncludedBodies": ""
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "c2cf0cda-7a59-4838-855a-d6006a30fe98"
+        }
+      }
     }
   },
   "ResourceVersion": 3,

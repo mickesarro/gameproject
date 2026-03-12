@@ -1,6 +1,4 @@
 using Sandbox;
-using static Sandbox.Component;
-using Sandbox.Audio;
 using Shooter.Sounds;
 
 namespace Shooter;

@@ -98,7 +98,8 @@
         "PickupAmmo": 10,
         "Recoil": 10,
         "RPM": 60,
-        "Spread": 10
+        "Spread": 10,
+        "UseHitboxMultipliers": false
       },
       {
         "__type": "Shooter.BulletData",
@@ -106,6 +107,7 @@
         "__enabled": true,
         "Flags": 0,
         "Damage": 80,
+        "HeadshotMultiplier": 2,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,

@@ -24,7 +24,8 @@ public static class SoundManager
         GunshotRailgun,
         JumpPad,
         HealthPack,
-        RailgunHit
+        RailgunHit,
+        Headshot
     }
 
     private static readonly Dictionary<SoundType, string> SoundPaths = new()
@@ -42,7 +43,8 @@ public static class SoundManager
         {SoundType.JumpPad, "sounds/items/sci-fi.sound" },
         {SoundType.HealthPack, "sounds/items/health.sound" },
         {SoundType.PlayerDeath, "sounds/characters/neck-crack.sound" },
-        {SoundType.RailgunHit, "sounds/characters/railgun-hit.sound" }
+        {SoundType.RailgunHit, "sounds/characters/railgun-hit.sound" },
+        {SoundType.Headshot, "sounds/weapons/hitmarker-headshot.sound"}
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };

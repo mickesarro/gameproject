@@ -85,6 +85,7 @@ public sealed class MeleeWeapon : Component, IWeapon, ICollectable
                 Attacker = User,
                 Position = trace.HitPosition
             };
+
             if ( !IsPlayer )
             {
                 damageInfo.Tags.Add( "npc" );

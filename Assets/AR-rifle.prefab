@@ -106,6 +106,7 @@
         "__enabled": true,
         "Flags": 0,
         "Damage": 5,
+        "HeadshotDamage": 10,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
