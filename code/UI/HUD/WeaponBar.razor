@@ -45,9 +45,14 @@
 
 @code
 {
-    [Property] public PlayerInventory PlayerInventory;
+	[Property] public PlayerInventory PlayerInventory;
 
-    [Property] public string HudColour { get; set; } = "#FFFFFF";
+	[Property] public string HudColour { get; set; } = "#FFFFFF";
+
+	public void OnAmmoAdded( IWeapon item, int amount)
+	{
+		// Do nothing for now
+	}
 
     protected override int BuildHash()
     {

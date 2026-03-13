@@ -1,13 +1,22 @@
 @using Sandbox;
 @using Sandbox.UI;
-@using System
+@using System;
+@using System.Collections.Generic;
 @inherits Panel
+@implements IPopupConsumer
 @namespace Shooter.UI
 
 <root>
     <div class="health-wrapper">
+        <div class="pickup-container">
+            @foreach(var popup in _activePopups)
+            {
+                <div class="pickup-text" style="color: @HudColour;">+@popup.Amount</div>
+            }
+        </div>
+
         <div class="health-text" style="color: @HudColour;">
-            @((int)Health)/@((int)MaxHealth)
+            @Health/@MaxHealth
         </div>
 
         <div class="segments-container">
@@ -22,25 +31,38 @@
 </root>
 
 @code {
-    [Property] public CharacterHealth PlayerHealth { get; set; } = null;
+	[Property] public CharacterHealth PlayerHealth { get; set; }
+	[Property] public string HudColour { get; set; } = "#FFFFFF";
 
-    public float Health => PlayerHealth?.Health ?? 0.0f;
-    public float MaxHealth => PlayerHealth?.MaxHealth ?? 0.0f;
+	public float Health => PlayerHealth?.Health ?? 0.0f;
+	public float MaxHealth => PlayerHealth?.MaxHealth ?? 0.0f;
 
-    [Property] public string HudColour { get; set; } = "#FFFFFF";
+	private HashSet<UIPopup> _activePopups = new();
 
-    // Logic to calculate fill for each 25% chunk
+	public void OnHealthAdded( int amount )
+	{
+		if ( amount == 0 ) return;
+
+		_activePopups.Add(new( this, 1.5f ) { Amount = amount });
+	}
+
+	void IPopupConsumer.RemovePopup(UIPopup popup)
+	{
+		_activePopups.Remove(popup);
+	}
+
+	TaskSource IPopupConsumer.Task => this.Task;
+
     private float GetSegmentFill(int index)
     {
         float healthPerSegment = MaxHealth / 4;
         float startThreshold = index * healthPerSegment;
         
-        // Calculate how much health falls into this specific segment
         float fillAmount = Health - startThreshold;
         float percentage = (fillAmount / healthPerSegment) * 100;
 
         return Math.Clamp(percentage, 0, 100);
     }
 
-    protected override int BuildHash() => System.HashCode.Combine(Health, MaxHealth);
+    protected override int BuildHash() => System.HashCode.Combine(Health, MaxHealth, _activePopups.Count);
 }

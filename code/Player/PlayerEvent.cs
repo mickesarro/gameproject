@@ -8,11 +8,14 @@ namespace Shooter;
 public interface IPlayerEvent : ISceneEvent<IPlayerEvent>
 {
 	void OnTakeDamage( float damage ) { }
+    void OnHealthAdded( int health ) { }
 	
 	void OnDied( DamageInfo damageInfo ) { }
 	void OnSpawn( GameObject self ) { }
+
 	void OnWeaponAdded( IWeapon weapon ) { }
 	void OnItemAdded( ICollectable item ) { }
 	void OnSwitchItem( ICollectable collectable ) { }
 	void OnSwitchItem( InventorySlot slot ) { }
+    void OnAmmoAdded( IWeapon item, int amount ) { }
 }

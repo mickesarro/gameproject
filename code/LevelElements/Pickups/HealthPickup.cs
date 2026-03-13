@@ -6,7 +6,7 @@ namespace Shooter;
 
 public sealed class HealthPickup : Pickup, Component.ITriggerListener
 {
-	[Property] private float HealthAmount { get; set; } = 50f;
+	[Property] private int HealthAmount { get; set; } = 50;
     [Property] private float Spin { get; set; } = 90f;
 
     [Rpc.Broadcast]
@@ -31,7 +31,7 @@ public sealed class HealthPickup : Pickup, Component.ITriggerListener
                     return;
             }
 
-            healthComp.Health = Math.Min( healthComp.Health + HealthAmount, healthComp.MaxHealth );
+            healthComp.AddHealth( HealthAmount );
 
             // Makes sure that bots hitting the JumpPad don't play the sound to you locally
             if ( other.Tags.Contains( "player" ) )

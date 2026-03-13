@@ -21,9 +21,9 @@
 	}
 
     @if ( PlayerAlive ) {
-        <HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" />
+		<HealthBar PlayerHealth="@CharacterHealth" HudColour="@HudColour" @ref="HealthBar" />
 
-        <AmmoCounter PlayerInventory="@PlayerInventory" HudColour="@HudColour" />
+		<AmmoCounter PlayerInventory="@PlayerInventory" HudColour="@HudColour" @ref="AmmoCounter" />
     
         <WeaponBar PlayerInventory="@PlayerInventory" HudColour="@HudColour" @ref="weaponBar" />
     }
@@ -41,6 +41,8 @@
 	private PlayerInventory PlayerInventory = null;
 
 	WeaponBar weaponBar { get; set; }
+	AmmoCounter AmmoCounter { get; set; }
+	HealthBar HealthBar { get; set; }
 	private KillFeed killFeed;
 	private DamageInfo lastDamageInfo;
 
@@ -62,6 +64,17 @@
 	{
 		lastDamageInfo = damageInfo;
 		PlayerAlive = false;
+	}
+
+	void IPlayerEvent.OnAmmoAdded(IWeapon item, int amount)
+	{
+		AmmoCounter.OnAmmoAdded(item, amount);
+		weaponBar.OnAmmoAdded(item, amount);
+	}
+
+	void IPlayerEvent.OnHealthAdded(int health)
+	{
+		HealthBar.OnHealthAdded(health);
 	}
 
 	//void IPlayerEvent.OnItemAdded(ICollectable item) => weaponBar.StateHasChanged();
