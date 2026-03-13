@@ -19,30 +19,28 @@
             </div>
 
             @{
-                int botCounter = 1;
+                botCounter = 1;
                 BuildCharacterList();
             }
 
             @foreach (var character in characters)
             {
-
-                string displayName = "";
                 if (character.GameObject == null) continue;
 
-                if ( character.GameObject.Tags.Has( "npc" ) )
-                {
-                    displayName = $"Bot{ botCounter }";
-                    botCounter++;
-                }
-                else
-                {
-                    // Real player
-                    displayName = character.Network?.Owner
-                        ?.DisplayName ?? "Unknown";
-                }
+				string displayName = GetDisplayName(character);
 
-                <div class="stats_row">
-                    <span class="col player">@displayName</span>
+                <div class="stats_row" onclick=@(() => SelectPlayer(character))>
+                    <span class="col player">
+                        @if ( character.GameObject.Tags.Has( "npc" ) )
+                        {
+                            <div class="avatar bot-avatar"></div>
+                        }
+                        else if ( character.Network?.Owner != null )
+                        {
+                            <img class="avatar" src="avatar:@character.Network.Owner.SteamId" />
+                        }
+                        <span class="name">@displayName</span>
+                    </span>
                     <span class="col score">@character.Score</span>
                     <span class="col kills">@character.Kills</span>
                     <span class="col deaths">@character.Deaths</span>
@@ -50,41 +48,146 @@
             }
 
         </div>
+        
+        @if (selectedPlayer != null)
+        {
+            <div class="player_profile_popup">
+                <div class="popup_bg" onclick=@ClosePopup></div>
+                
+                <div class="popup_content">
+                    <div class="popup_header">
+						<h2>@GetDisplayName(selectedPlayer)</h2>
+                        <button class="close_btn" onclick=@ClosePopup>✕</button>
+                    </div>
+                    <div class="popup_body">
+                        @if (selectedPlayer.GameObject.Tags.Has("npc"))
+                        {
+                            <div class="large_avatar bot-avatar"></div>
+                            <p>This is a bot.</p>
+                        }
+                        else if (selectedPlayer.Network?.Owner != null)
+                        {
+                            <img class="large_avatar" src="avatar:@selectedPlayer.Network.Owner.SteamId" />
+                            <button class="steam_btn" onclick=@(() => OpenProfile(selectedPlayer.Network.Owner.SteamId))>Profile</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
-    public override bool IsOverlay => true;
+	public override bool IsOverlay => true;
+	IEnumerable<PlayerStats> characters;
 
-    IEnumerable<PlayerStats> characters;
+	bool cursorActive = false;
+	PlayerStats selectedPlayer;
+	int botCounter = 1;
 
-    //int totalScore = MatchStatsManager.Instance.TotalScore;
-    int totalScore = 0;
+	public override bool CanShow(UILayer currentLayer)
+	{
+		return currentLayer is not PauseMenu && currentLayer is not SettingsMenu;
+	}
 
-    void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
-    void IMatchEvents.OnPlayerJoined() => StateHasChanged();
-    void IMatchEvents.OnPlayerLeft(System.Guid connectionId) => StateHasChanged();
+	int totalScore = 0;
 
-    void IPlayerEvent.OnDied(DamageInfo _) => Hide();
+	void IMatchEvents.OnScoreAdded(int score, string reason) => StateHasChanged();
+	void IMatchEvents.OnPlayerJoined() => StateHasChanged();
+	void IMatchEvents.OnPlayerLeft(System.Guid connectionId) => StateHasChanged();
 
-    protected override int BuildHash() => System.HashCode.Combine( characters );
+	void IPlayerEvent.OnDied(DamageInfo _) => Hide();
+	protected override int BuildHash() => System.HashCode.Combine( characters, selectedPlayer );
 
-    private void BuildCharacterList()
-    {
+	private void BuildCharacterList()
+	{
+		characters = MatchStatsManager.Instance.Tracked
+			.OrderByDescending(chr => chr?.Score);
+	}
 
-        characters = MatchStatsManager.Instance.Tracked
-            .OrderByDescending(chr => chr?.Score);
+	public override void Show()
+	{
+		StateHasChanged();
+		GameObject.Enabled = true;
+		cursorActive = false;
+		selectedPlayer = null; // Close popup when reopening scoreboard
+		Mouse.Visibility = MouseVisibility.Hidden;
+
+		if ( Panel != null )
+		{
+			Panel.Style.PointerEvents = PointerEvents.None;
+		}
+	}
+
+	public override void Hide()
+	{
+		GameObject.Enabled = false;
+		cursorActive = false;
+		selectedPlayer = null;
+		Mouse.Visibility = MouseVisibility.Hidden;
+
+		if ( Panel != null )
+		{
+			Panel.Style.PointerEvents = PointerEvents.None;
+		}
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( Panel == null ) return;
+
+		if ( Input.Pressed( "attack2" ) )
+		{
+			cursorActive = !cursorActive;
+			Mouse.Visibility = cursorActive ? MouseVisibility.Visible : MouseVisibility.Hidden;
+			Panel.Style.PointerEvents = cursorActive ? PointerEvents.All : PointerEvents.None;
+		}
+	}
+
+	private void SelectPlayer(PlayerStats player)
+	{
+		// Require the cursor to be enabled to select a player
+		if (!cursorActive) return; 
+
+		selectedPlayer = player;
+		StateHasChanged();
+	}
+
+	private void ClosePopup()
+	{
+		selectedPlayer = null;
+		StateHasChanged();
+	}
+
+	/// <summary>
+	/// Returns the appropriate display name.
+	/// Incerements botCounter if character is not a player.
+	/// </summary>
+	/// <param name="character"></param>
+	/// <returns></returns>
+	private string GetDisplayName( PlayerStats character )
+	{
+		// This now handles the incerement of botCounter until we
+		// introduce character owning objects, i.e. object
+		// under which character and all else related to it are
+		if (character.GameObject.Tags.Has("npc"))
+		{
+			// When viewing the bot displays "wrong" number there
+			return $"Bot {botCounter++} ";
+		}
+		return character.Network?.Owner?.DisplayName ?? "Unknown";
     }
 
-    public override void Show()
+    private async void OpenProfile(ulong steamId)
     {
-        StateHasChanged();
-        GameObject.Enabled = true;
-    }
-
-    public override void Hide()
-    {
-        GameObject.Enabled = false; 
+        try
+        {
+            Game.Overlay.ShowPlayer(steamId, "");
+        }
+        catch (System.Exception e)
+        {
+            Log.Warning($"Failed to open profile: {e.Message}");
+        }
     }
 }

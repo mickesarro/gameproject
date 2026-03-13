@@ -9,13 +9,10 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    pointer-events: all;
 
     &:hover {
         background-color: #666;
-    }
-
-    button {
-        pointer-events: all;
     }
 }
 

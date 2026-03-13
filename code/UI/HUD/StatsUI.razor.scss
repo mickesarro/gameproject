@@ -2,47 +2,219 @@
 
 StatsUI {
     z-index: 999;
+    position: absolute;
     width: 100%;
     height: 100%;
     font-family: $main-font;
+    
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 
     .stats_menu {
-        position: relative;
-        height: 80%;
-        width: 80%;
-        margin: 10%;
-        padding: 20px;
-        background-color: rgba(0,0,0,0.85);
+        width: 70%;
+        max-width: 900px;
+        background-color: $main-bg-color;
         color: $main-text-color;
         border-radius: 8px;
         flex-direction: column;
-        align-items: center;
+        padding: 30px;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
+        position: relative; // Keeps the popup contained to the menu bounds
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .stats_table {
             width: 100%;
             flex-direction: column;
+            gap: 4px;
 
             .stats_header, .stats_row {
-                justify-content: space-between;
-                padding: 4px 0;
+                flex-direction: row;
+                width: 100%;
             }
 
             .stats_header {
                 font-weight: bold;
-                border-bottom: 1px solid white;
+                font-size: 20px;
+                color: rgba(255, 255, 255, 0.8);
+                text-transform: uppercase;
+                padding: 8px 12px;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+                margin-bottom: 8px;
+                
+                .col {
+                    border-left: none;
+                }
+            }
+
+            .stats_row {
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 4px;
+                padding: 6px 12px;
+                align-items: center;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                cursor: pointer; // Indicates to the user that this row can be clicked
+                transition: background-color 0.1s;
+                
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
             }
 
             .col {
-                width: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 90px;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .col.player {
-                width: 150px;
+                flex-grow: 1; 
+                width: auto;
+                justify-content: flex-start; 
+                border-left: none; 
+                font-size: 25px;
+                font-weight: 500;
+                text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+                
+                gap: 12px; 
+                
+                .avatar {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 4px;
+                    background-color: rgba(255, 255, 255, 0.05);
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+                    
+                    &.bot-avatar {
+                        background-image: url('/icons/bot.png');
+                        background-size: cover;
+                        background-color: rgba(200, 50, 50, 0.2);
+                    }
+                }
+            }
+        }
+
+        // --- PLAYER PROFILE POPUP ---
+        .player_profile_popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            pointer-events: all;
+            border-radius: 8px;
+
+            .popup_bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(4px);
+                cursor: pointer;
+            }
+
+            .popup_content {
+                z-index: 101;
+                background-color: #1e1e1e;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                padding: 24px;
+                width: 320px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+
+                .popup_header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+
+                    h2 {
+                        margin: 0;
+                        font-size: 24px;
+                        color: white;
+                    }
+
+                    .close_btn {
+                        background: none;
+                        border: none;
+                        color: #aaa;
+                        font-size: 20px;
+                        cursor: pointer;
+                        transition: color 0.2s;
+                        font-weight: bold;
+                        padding: 4px 8px;
+
+                        &:hover {
+                            color: white;
+                        }
+                    }
+                }
+
+                .popup_body {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+
+                    .large_avatar {
+                        width: 128px;
+                        height: 128px;
+                        border-radius: 8px;
+                        background-color: #333;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+                        &.bot-avatar {
+                            background-image: url('/icons/bot.png');
+                            background-size: cover;
+                            background-color: rgba(200, 50, 50, 0.2);
+                        }
+                    }
+
+                    .steam_btn {
+                        background-color: #171a21;
+                        color: #c7d5e0;
+                        border: 1px solid #2a475e;
+                        padding: 10px 20px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        font-size: 16px;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            background-color: #2a475e;
+                            color: white;
+                            border-color: #66c0f4;
+                        }
+                    }
+                    
+                    p {
+                        color: #aaa;
+                        font-size: 18px;
+                    }
+                }
             }
         }
     }

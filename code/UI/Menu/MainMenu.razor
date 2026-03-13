@@ -6,27 +6,83 @@
 
 <root>
     <div class="main_menu">
-        <h1>Main Menu</h1>
-        <UIButton class="button" T="string" DisplayValue="Join game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
+        @if (!ShowPlayOptions && !ShowSettingsOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Movement Shooter</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Play" ButtonCallback="@OpenPlayOptions"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettingsOptions"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Information" ButtonCallback="@ShowInfo"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Quit" ButtonCallback="@Quit"></UIButton>
+            </div>
+        }
+        else if (ShowPlayOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Play</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Join Game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Create Game" ButtonCallback="@OpenCreateGame"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
+            </div>
+        }
+        else if (ShowSettingsOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Settings</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Game Settings" ButtonCallback="@OpenGameSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Preferences" ButtonCallback="@OpenPreferences"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
+    public bool ShowPlayOptions { get; set; } = false;
+    public bool ShowSettingsOptions { get; set; } = false;
 
     protected override void OnStart()
     {
         base.OnStart();
-
         Show();
+    }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Input.EscapePressed )
+        {
+            // Closes s&box menu if open
+            Game.Overlay.Close();
+            // Suppress default s&box menu
+            Input.EscapePressed = false;
+
+            // If a sub-menu is open, go back to the main root
+            if ( ShowPlayOptions || ShowSettingsOptions )
+            {
+                CloseSubMenus();
+                StateHasChanged();
+            }
+        }
     }
 
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
+        CloseSubMenus(); // Reset to main root on show
+    }
+
+    public override void Show(object? data)
+    {
+        Show();
+        if (data is string menuTarget)
+        {
+            if (menuTarget == "PlayOptions") ShowPlayOptions = true;
+            if (menuTarget == "SettingsOptions") ShowSettingsOptions = true;
+        }
     }
 
     public override void Hide()
@@ -34,26 +90,46 @@
         GameObject.Enabled = false;
     }
 
+    public void OpenPlayOptions()
+    {
+        ShowPlayOptions = true;
+    }
+
+    public void OpenSettingsOptions()
+    {
+        ShowSettingsOptions = true;
+    }
+
+    private void CloseSubMenus()
+    {
+        ShowPlayOptions = false;
+        ShowSettingsOptions = false;
+    }
+
+    private void OpenGameSettings()
+    {
+        // Opens the default s&box settings overlay
+        Game.Overlay.ShowSettingsModal();
+    }
+
+    private void OpenPreferences()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
+    }
+
     private void OpenLobbyBrowser()
     {
         UIManager.Instance.ShowLayer<LobbyBrowser>();
     }
 
-    private void StartGame( string scene = "/scenes/main.scene" )
+    private void OpenCreateGame()
     {
-        // Make a scene manager for loading
-        // Also a loading screen that is additively loaded??
-        Log.Info( "Loading game scene" );
-        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
-        slo.SetScene( scene );
-        Scene.Load( slo );
+        UIManager.Instance.ShowLayer<NewLobbyCreator>();
+    }
 
-        Mouse.Visibility = MouseVisibility.Hidden;
-        //GameManager.Current.LoadUI();
-
-        // Just for reference, I have no clue how they work
-        LoadingScreen.Media = "splash.png";
-        LoadingScreen.Title = "Loading the game";
+    private void ShowInfo()
+    {
+        UIManager.Instance.ShowLayer<InfoPage>();
     }
 
     private void Quit()
@@ -61,11 +137,4 @@
         Log.Info( "Quitting game" );
         Game.Close();
     }
-
-    private void OpenSettings()
-    {
-        UIManager.Instance.ShowLayer<SettingsMenu>();
-        Log.Info("Settings");
-    }
-
 }

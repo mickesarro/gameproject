@@ -1,25 +1,41 @@
 
 namespace Shooter.UISystem;
 
-/// <summary>
-/// Makes different UI layers/elements possible to use with UIManager.
-/// </summary>
 public abstract class UILayer : PanelComponent
 {
-    // At the moment is inherting the PanelComponent, but if for some reason
-    // another is needed or preferred, create another instance or modify.
-
-    public virtual void Show() => GameObject.Enabled = true;
-
     public virtual bool IsOverlay { get; set; } = false;
+    public virtual int HideTimeMs { get; set; } = 0;
 
-    /// <summary>
-    /// Override this method if layer accepts data, default is empty.
-    /// </summary>
-    /// <param name="data"></param>
+    public virtual void Show() 
+    {
+        GameObject.Enabled = true;
+        Panel?.RemoveClass("closing");
+    }
+
     public virtual void Show( object data ) => Show();
+    public virtual bool CanShow( UILayer currentLayer ) => true;
 
-    public virtual void Hide() => GameObject.Enabled = false;
+    public virtual async void Hide()
+    {
+        if ( HideTimeMs <= 0 )
+        {
+            GameObject.Enabled = false;
+            Panel?.RemoveClass("closing");
+            return;
+        }
+
+        Panel?.AddClass("closing");
+        await Task.Delay( HideTimeMs );
+
+        // Stop execution if the component was destroyed during the delay
+        if ( !IsValid ) return;
+
+        if ( Panel?.HasClass("closing") == true )
+        {
+            GameObject.Enabled = false;
+            Panel?.RemoveClass("closing");
+        }
+    }
+
     public virtual void Hide( object data ) => Hide();
-
 }

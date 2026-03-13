@@ -84,6 +84,10 @@ public class UIManager : SingletonBase<UIManager>
     /// <param name="addToHistory">Save in the history stack.</param>
     public void ShowLayer( UILayer layer, bool addToHistory = true )
     {
+        if ( layer == null ) return;
+
+        if ( !layer.CanShow( CurrentLayer ) ) return;
+        
         SwitchToLayer( layer, addToHistory );
         layer?.Show();
     }
@@ -106,6 +110,10 @@ public class UIManager : SingletonBase<UIManager>
     /// <param name="addToHistory">Save in the history stack.</param>
     public void ShowLayerWithData( UILayer layer, object data, bool addToHistory = true )
     {
+        if ( layer == null ) return;
+
+        if ( !layer.CanShow( CurrentLayer ) ) return;
+
         SwitchToLayer( layer, addToHistory );
         layer?.Show( data );
     }
