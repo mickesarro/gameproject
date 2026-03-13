@@ -1,89 +1,175 @@
 @import "/UI/Styles/Theme.scss";
 
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
 SettingsMenu {
     z-index: 999;
+    font-family: $main-font;
+    text-stroke: $main-text-stroke;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    font-family: $main-font;
 
-    .settings_menu {
-        position: relative;
-        margin: 10%;
-        width: 80%;
-        height: 80%;
-        background-color: $main-bg-color;
-        padding: 20px 40px;
-        border-radius: 8px;
-        text-align: center;
-        color: $main-text-color;
-        text-stroke: $main-text-stroke;
+    background-color: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(8px);
+    
+    pointer-events: none;
+
+    .menu_center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        justify-content: flex-start;
-
-        h1 {
-            margin-top: 40px;
-            font-size: 3rem; 
-            font-weight: bold;
-        }
-
         
-        .back_button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
+        pointer-events: all;
 
-        .dropdown_section {
-            position: relative;
-            z-index: 1000;
-            margin-top: 40px;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-
-            .dropdown_button {
-                width: 280px;
-            }
-        }
-
-        .slider_section {
-            pointer-events: all;
-            margin-top: 40px;
+        .menu_cluster {
             display: flex;
             flex-direction: column;
+            gap: 20px;
             align-items: center;
-            gap: 16px;
 
-            label {
-                font-size: 1.5rem;
+            animation: slideInRight 0.2s ease-out forwards;
 
+            h1 {
+                color: white;
+                font-size: 48px;
+                font-weight: 800;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
             }
 
-            .Slidercontrol {
-                width: 280px;
-                height : 40px;
+            .section_box {
+                background-color: rgba(0, 0, 0, 0.4);
+                padding: 30px 40px;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px; 
+                width: 100%;
+                min-width: 450px;
             }
 
-            .track {
-                height: 16px;
-                background-color: #555;
-                border-radius: 4px;
+            .dropdown_section {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.25);
+                padding: 10px 15px;
+                border-radius: 8px;
+                
+                .dropdown_row {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 15px;
+                }
+
+                .dropdown_button {
+                    text-transform: none; 
+                }
+
+                .color_preview {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 4px;
+                    border: 2px solid rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+                }
             }
 
-            .track-active {
-                background-color: #ffb700;
+            .slider_section {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 10px;
+                align-items: center;
+                width: 100%;
+
+                .slider_label {
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 24px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+
+                .Slidercontrol {
+                    width: 400px; // Made the slider wider
+                    height: 20px;
+                }
+
+                .track {
+                    height: 10px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    border-radius: 4px;
+                }
+
+                .track-active {
+                    background-color: white;
+                }
+
+                .thumb {
+                    width: 20px;
+                    height: 20px;
+                    background-color: white;
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                    cursor: pointer;
+                }    
             }
 
-            .thumb {
-                width: 50px;
-                height: 50px;
-                background-color: #ffffff;
-                border: 2px solid #ffb700;
-                border-radius: 50%;
+            .spacer {
+                height: 10px;
+            }
+
+            .menu_btn {
+                background-color: transparent;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 32px;
+                font-weight: 600;
+                padding: 15px 30px;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                transition: all 0.15s ease-out;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: white;
+                    transform: scale(1.05);
+                    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+                }
+                
+                &:active {
+                    transform: scale(1.0);
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+
+            .back_btn {
+                margin-top: 5px;
+                font-size: 24px;
+                color: rgba(255, 255, 255, 0.5);
+                
+                &:hover {
+                    color: white;
+                }
             }
         }
-
     }
 }

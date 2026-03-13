@@ -1,0 +1,58 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using UISystem
+@inherits UILayer
+@namespace Shooter.UI
+
+<root>
+	<div class="information">
+		<UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@GoBack"></UIButton>
+		<h1>Information</h1>
+		@*If adding more here, abstract each to separate panel*@
+		<div class="info-section flex-col">
+			<h1>Credits</h1>
+			<ul class="items">
+				<h3>Developers:</h3>
+				<li>Peliryhmä</li>
+			</ul>
+		</div>
+		<div class="info-section flex-col">
+			<h1>Open Source Licenses</h1>
+			<ul class="items">
+				<li>Facepunch - MIT</li>
+				<li>Smilefordiscord - CC BY 4.0</li>
+			</ul>
+		</div>
+		<div class="info-section flex-col">
+			<h1>Attributions</h1>
+			<ul class="items">
+				<h3>Freesound.org:</h3>
+				<li><a href="https://freesound.org/s/322640/ ">Hitmarker Sound Effect ~ aruscio28</a> - CC0</li>
+				<li><a href="https://freesound.org/s/660769/">Headshot sound ~ MadPanCake</a> - CC0</li>
+				<li><a href="https://freesound.org/s/249298/">rpg launcher three shots ~ klangfabrik</a> - CC0</li>
+				<li><a href="https://freesound.org/s/660769/">Headshot sound ~ MadPanCake</a> - CC0</li>
+			</ul>
+		</div>
+	</div>
+</root>
+
+@code
+{
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		if ( Input.EscapePressed )
+		{
+			// Suppress default s&box menu
+			Input.EscapePressed = false;
+
+			GoBack();
+		}
+	}
+
+	private void GoBack()
+	{
+		UIManager.Instance.ShowLastLayer();
+	}
+}

@@ -6,32 +6,54 @@
 
 <root>
     <div class="pause_menu">
-        <h1>Paused</h1>
-        <UIButton class="button" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettings"></UIButton>
-        <UIButton class="button" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
+        @if (!ShowSettingsOptions)
+        {
+            <div class="menu_cluster">
+                <h1>Paused</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettingsOptions"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
+            </div>
+        }
+        else
+        {
+            <div class="menu_cluster">
+                <h1>Settings</h1>
+                <UIButton class="menu_btn" T="string" DisplayValue="Game Settings" ButtonCallback="@OpenGameSettings"></UIButton>
+                <UIButton class="menu_btn" T="string" DisplayValue="Preferences" ButtonCallback="@OpenPreferences"></UIButton>
+                <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
+            </div>
+        }
     </div>
 </root>
 
 @code
 {
-    [Property, TextArea] public string MyStringValue { get; set; } = "ajsdfaiöwejfiöasdf!";
+    public bool ShowSettingsOptions { get; set; } = false;
 
-    /// <summary>
-    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
-    /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        HideTimeMs = 200; // For fade-in animation
+    }
 
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;
         GameObject.Enabled = true;
+        CloseSubMenus(); // Ensures we start at the root pause menu every time it opens
+    }
+
+    public override bool CanShow(UILayer currentLayer)
+    {
+        // Don't allow the pause menu to open if StatsUI is currently showing
+        return currentLayer is not StatsUI;
     }
 
     public override void Hide()
     {
         Mouse.Visibility = MouseVisibility.Hidden;
-        GameObject.Enabled = false;
+        base.Hide();
     }
 
     private void ResumeGame()
@@ -43,20 +65,34 @@
     {
         // Implement scene manager
         Log.Info("Main menu");
-
         Networking.Disconnect();
 
         // Once again, make a scene manager
         // Save stats etc. cleanup
         var slo = new SceneLoadOptions {};
-        slo.SetScene( "/scenes/mainMenu.scene" );
+        slo.SetScene( "/scenes/MainMenu.scene" );
         Scene.Load( slo );
     }
 
-    private void OpenSettings()
+    public void OpenSettingsOptions()
     {
-        UIManager.Instance.ShowLayer<SettingsMenu>();
-        Log.Info("Settings");
+        ShowSettingsOptions = true;
     }
 
+    public void CloseSubMenus()
+    {
+        ShowSettingsOptions = false;
+        StateHasChanged();
+    }
+
+    public void OpenGameSettings()
+    {
+        Game.Overlay.ShowSettingsModal();
+        StateHasChanged();
+    }
+
+    private void OpenPreferences()
+    {
+        UIManager.Instance.ShowLayer<SettingsMenu>();
+    }
 }

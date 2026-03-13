@@ -5,63 +5,49 @@
 @namespace Shooter.UI
 
 <root>
-    <div class="settings_menu">
-        <UIButton class="back_button" T="string" DisplayValue="Back" ButtonCallback="@GoBack" />
-        <h1>Settings</h1>
+    <div class="menu_center">
+        <div class="menu_cluster">
+            <h1>Preferences</h1>
 
-        <!-- Crosshair Style Dropdown -->
-        <div class="dropdown_section">
-            <UIButton class="dropdown_button"
-                      T="string"
-                      DisplayValue="Crosshair: @SelectedCrosshairLabel ▼"
-                      ButtonCallback="@(() => OpenSettingContextMenu("Style"))" /> 
+            <div class="section_box">
+                <div class="dropdown_section">
+                    <div class="dropdown_row">
+                        <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="Crosshair: @SelectedCrosshairLabel ▼" ButtonCallback="@(() => OpenSettingContextMenu("Style"))" /> 
+                    </div>
+                    <DropDown @ref="CrosshairDropdown" class="crosshair_dropdown" style="display:none;" />
+                </div>
 
-            <DropDown @ref="CrosshairDropdown" class="crosshair_dropdown" style="display:none;" />
-        </div>
+                <div class="dropdown_section">
+                    <div class="dropdown_row">
+                        <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="Crosshair Color: @SelectedColorLabel ▼" ButtonCallback="@(() => OpenSettingContextMenu("Color"))" /> 
+                        <div class="color_preview" style="background-color: @SelectedColorHex;"></div>
+                    </div>
+                    <DropDown @ref="ColorDropdown" class="color_dropdown" style="display:none;" />
+                </div>
 
-        <!-- Crosshair Color Dropdown -->
-        <div class="dropdown_section">
-            <UIButton class="dropdown_button"
-                      T="string"
-                      DisplayValue="Crosshair Color: @SelectedColorLabel ▼"
-                      ButtonCallback="@(() => OpenSettingContextMenu("Color"))" /> 
+                <div class="dropdown_section">
+                    <div class="dropdown_row">
+                        <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="HUD Color: @SelectedHudColorLabel ▼" ButtonCallback="@(() => OpenSettingContextMenu("HudColor"))" /> 
+                        <div class="color_preview" style="background-color: @SelectedHudColorHex;"></div>
+                    </div>
+                    <DropDown @ref="HudColorDropdown" class="color_dropdown" style="display:none;" />
+                </div>
 
-            <DropDown @ref="ColorDropdown" class="color_dropdown" style="display:none;" />
-        </div>
+                <div class="slider_section">
+                    <label class="slider_label">FOV: @currentFov</label>
+                    <SliderControl Min="@MinFov" Max="@MaxFov" Step="@Step" Value="@currentFov" OnValueChanged="@OnFovChanged" ShowRange="@true" ShowValueTooltip="@false" />
+                </div>
+            </div>
 
-        <!-- Hud Color Dropdown -->
-        <div class="dropdown_section">
-            <UIButton class="dropdown_button"
-                      T="string"
-                      DisplayValue="HUD Color: @SelectedHudColorLabel ▼"
-                      ButtonCallback="@(() => OpenSettingContextMenu("HudColor"))" /> 
-
-            <DropDown @ref="HudColorDropdown" class="color_dropdown" style="display:none;" />
-        </div>
-
-        <!-- FOV Slider -->
-        <div class="slider_section">
-            <SliderControl Min="@MinFov" Max="@MaxFov" Step="@Step"
-                           Value="@currentFov" 
-                           OnValueChanged="@OnFovChanged"
-                           ShowRange="@true" 
-                           ShowValueTooltip="@true" />
-            <label>FOV: @currentFov</label>
-        </div>
-
-        <!-- Volume Slider -->
-        <div class="slider_section">
-            <SliderControl Min="@MinVolume" Max="@MaxVolume" Step="@Step"
-                        Value="@currentVolume"
-                        OnValueChanged="@OnVolumeChange"
-                        ShowRange="@true"
-                        ShowValueTooltip="@true" />
-            <label>Volume: @currentVolume</label>
+            <div class="spacer"></div>
+            <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@GoBack"></UIButton>
         </div>
     </div>
 </root>
 
 @code {
+    public bool ShowSettingsOptions { get; set; } = false;
+
     private DropDown CrosshairDropdown;
     private DropDown ColorDropdown;
     private DropDown HudColorDropdown;
@@ -71,55 +57,43 @@
     private float MaxFov => playerPreferences.maxFov;
     private float Step => 1f;
 
-    private float currentVolume;
-    private float MinVolume =>playerPreferences.minVolume;
-    private float MaxVolume => playerPreferences.maxVolume;
-
     private PlayerPreferences playerPreferences;
-
-    // Selected internal values
+    
     private CrosshairType SelectedCrosshair => playerPreferences.CrosshairStyle;
     private string SelectedColorHex => playerPreferences.CrosshairColor;
     private string SelectedHudColorHex => playerPreferences.HudColor;
 
-    // Display labels
     private string SelectedCrosshairLabel => SelectedCrosshair.ToDisplayName();
-    private string SelectedColorLabel => Crosshair.AvailableColors
-                                            .FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
-    
-    private string SelectedHudColorLabel => Crosshair.AvailableColors
-                                             .FirstOrDefault(c => c.Hex == SelectedHudColorHex).Name ?? "Unknown";
+    private string SelectedColorLabel => Crosshair.AvailableColors.FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
+    private string SelectedHudColorLabel => Crosshair.AvailableColors.FirstOrDefault(c => c.Hex == SelectedHudColorHex).Name ?? "Unknown";
 
     protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov);
-
+    
     protected override void OnEnabled()
     {
         base.OnEnabled();
-        // Cache preferences for the menu
         playerPreferences = SettingsManager.Instance.PlayerPreferences;
         currentFov = playerPreferences.Fov;
-        currentVolume = playerPreferences.Volume;
-        
+    }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Input.EscapePressed )
+        {
+            // Suppress default s&box menu
+            Input.EscapePressed = false;
+
+            GoBack();
+        }
     }
 
     private void OnFovChanged(float fov)
     {
         currentFov = fov;
-
-        // Update SettingsManager and notify listeners
         SettingsManager.Instance.SetFOV(currentFov);
-
-        StateHasChanged(); // update label
-    }
-
-    private void OnVolumeChange(float volume)
-    {
-        currentVolume = volume;
-
-        // Update SettingsManager and notify listeners
-        SettingsManager.Instance.SetVolume(currentVolume);
-
-        StateHasChanged(); // update label
+        StateHasChanged();
     }
 
     public override void Show()
@@ -138,19 +112,29 @@
         SettingsManager.Instance?.Save();
     }
 
-    private void GoBack()
+    public void GoBack()
     {
         UIManager.Instance.ShowLastLayer();
+
+        // 2. Check which menu we're on
+        if (UIManager.Instance.CurrentLayer is MainMenu mainMenu)
+        {
+            mainMenu.OpenSettingsOptions();
+        }
+        else if (UIManager.Instance.CurrentLayer is PauseMenu pauseMenu)
+        {
+            pauseMenu.OpenSettingsOptions();
+        }
     }
 
     private void OpenSettingContextMenu(string settingType)
     {
         DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : 
                                   settingType == "Color" ? ColorDropdown : HudColorDropdown;
+        
         if (targetDropdown == null) return;
 
         var popup = new Popup(targetDropdown, Popup.PositionMode.BelowLeft, 45);
-
         if (settingType == "Style")
         {
             foreach (CrosshairType type in Enum.GetValues<CrosshairType>())
@@ -161,13 +145,11 @@
                     SettingsManager.Instance.SetCrosshairStyle(type);
                     StateHasChanged();
                 });
-
-                if (type == SelectedCrosshair)
-                    panel.AddClass("active");
-
+                if (type == SelectedCrosshair) panel.AddClass("active");
+                
                 panel.Style.Width = 280;
-                panel.Style.BackgroundColor = Color.Parse("#444");
-                panel.Style.FontColor = Color.Parse("#ffffffff");
+                panel.Style.BackgroundColor = Color.Black.WithAlpha(0.4f);
+                panel.Style.FontColor = Color.White;
             }
         }
         else if (settingType == "Color" || settingType == "HudColor")
@@ -183,11 +165,10 @@
                     
                     StateHasChanged();
                 });
-
-                if (color.Hex == SelectedColorHex)
-                    panel.AddClass("active");
-
-                panel.Style.BackgroundColor = Color.Parse("#444");
+                
+                if (color.Hex == SelectedColorHex) panel.AddClass("active");
+                
+                panel.Style.BackgroundColor = Color.Black.WithAlpha(0.4f);
                 panel.Style.Width = 280;
                 panel.Style.FontFamily = "Poppins";
                 panel.Style.FontColor = Color.Parse(color.Hex);

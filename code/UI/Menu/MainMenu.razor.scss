@@ -1,37 +1,89 @@
 @import "/UI/Styles/Theme.scss";
 
-// Blatantly copied from PauseMenu
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
 
 MainMenu {
-	z-index: 999;
-	font-family: $main-font;
-	text-stroke: $main-text-stroke;
-	width: 100%;
-	height: 100%;
+    z-index: 999;
+    font-family: $main-font;
+    text-stroke: $main-text-stroke;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Ensure the menu panel doesn't block the camera/world if you click empty space
+    pointer-events: none;
 
-	.main_menu {
-		position: relative;
-		margin: auto;
-		background-color: $main-bg-color;
-		padding: 20px 40px;
-		border-radius: 8px;
-		text-align: center;
-		color: $main-text-color;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
+    .main_menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        
+        // Re-enable clicks for the actual menu content
+        pointer-events: all;
 
-		h1 {
-			margin-bottom: 20px;
-			font-size: 12rem;
-			font-weight: bold;
-		}
+        .menu_cluster {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
 
-		.button {
-			width: 80%;
-			padding: 10px;
-			font-size: 8rem;
-		}
-	}
+            animation: slideInRight 0.2s ease-out forwards;
+            
+            h1 {
+                color: white;
+                font-size: 48px;
+                font-weight: 800;
+                margin-bottom: 24px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
+            }
+
+            .menu_btn {
+                background-color: transparent;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 32px;
+                font-weight: 600;
+                padding: 15px 30px 15px 0;
+                border: none;
+                cursor: pointer;
+                text-align: left;
+                transform-origin: left center;
+                transition: all 0.15s ease-out;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: white;
+                    transform: translateX(15px) scale(1.05);
+                    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+                }
+                
+                &:active {
+                    transform: translateX(10px) scale(1.0);
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+
+            .back_btn {
+                margin-top: 15px;
+                font-size: 24px;
+                color: rgba(255, 255, 255, 0.5);
+                
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
 }
