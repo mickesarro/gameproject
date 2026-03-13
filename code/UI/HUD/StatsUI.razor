@@ -42,7 +42,17 @@
                 }
 
                 <div class="stats_row">
-                    <span class="col player">@displayName</span>
+                    <span class="col player">
+                        @if ( character.GameObject.Tags.Has( "npc" ) )
+                        {
+                            <div class="avatar bot-avatar"></div>
+                        }
+                        else if ( character.Network?.Owner != null )
+                        {
+                            <img class="avatar" src="avatar:@character.Network.Owner.SteamId" />
+                        }
+                        <span class="name">@displayName</span>
+                    </span>
                     <span class="col score">@character.Score</span>
                     <span class="col kills">@character.Kills</span>
                     <span class="col deaths">@character.Deaths</span>
