@@ -69,8 +69,11 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
                 // If this is to remain permanent, a better one should be made
                 var currFiredata = ((IWeapon)current).GunData.PrimaryFireData;
                 var ammoToAdd = Math.Min( currFiredata.MaxAmmo - currFiredata.AmmoLeft, firedata.PickupAmmo );
+
                 currFiredata.AmmoLeft += ammoToAdd;
                 firedata.AmmoLeft -= ammoToAdd;
+
+                IPlayerEvent.Post( e => e.OnAmmoAdded( (IWeapon)current, ammoToAdd ) );
             }
             DropWeapon( item );
             return false;

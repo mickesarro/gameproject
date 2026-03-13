@@ -1,27 +1,71 @@
 @import "/UI/Styles/Theme.scss";
 
+// Animation keyframes
+@keyframes float-up {
+    0% {
+        transform: translateY(10px) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        transform: translateY(0px) scale(1.1);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-5px) scale(1);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-35px);
+        opacity: 0;
+    }
+}
+
 AmmoCounter {
     position: absolute;
     bottom: 50px;
     right: 80px;
     
     .ammo-wrapper {
+        position: relative;
         display: flex;
         align-items: flex-end;
         font-family: $main-font;
         font-weight: 800;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
-        // The unified background
         background-color: $main-bg-color;
         padding: 15px 25px 15px 25px;
         border-radius: 2px;
         
-        // Apply the slant to the entire UI element
         transform: skewX(-15deg); 
         
-        // Optional: adds a thin line on the left for a tactical feel
         border-left: 4px solid rgba(255, 255, 255, 0.1);
+
+        // -- Popup Styles --
+        .pickup-container {
+            position: absolute;
+            bottom: 100%;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            pointer-events: none;
+
+            .pickup-text {
+                color: #000000;
+                font-size: 60px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+                
+                animation-name: float-up;
+                animation-duration: 1.5s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+            }
+        }
 
         .current-ammo {
             font-size: 60px;

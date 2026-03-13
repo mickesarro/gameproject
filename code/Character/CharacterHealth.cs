@@ -14,10 +14,10 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 {
 	private PlayerStats ownedStats;
 
-	[Property] public float MaxHealth { get; private set; } = 100f;
+	[Property] public int MaxHealth { get; private set; } = 100;
 
     [Description("Should not be manually altered in editor outside testing!")]
-	[Property, Sync] public float Health { get; set; } = 100f;
+	[Property, Sync] public int Health { get; set; } = 100;
 
 	public bool IsAlive => Health > 0;
 
@@ -43,7 +43,7 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
 	{
 		if ( IsProxy || !IsAlive ) return;
 
-		Health -= damageInfo.Damage;
+		Health -= (int)damageInfo.Damage;
 		// Log.Info( $"Dealt {damageInfo.Damage} by {damageInfo.Attacker} " );
 
         // Flinch animations, screen red etc.
@@ -71,6 +71,20 @@ public sealed class CharacterHealth : Component, Component.IDamageable, IMatchEv
         if ( !IsAlive ) return;
 		TakeDamage( damageInfo );
 	}
+
+    public void AddHealth( int amount )
+    {
+        int healthToAdd = Health + amount <= MaxHealth
+            ? amount
+            : MaxHealth - Health;
+
+        Health += healthToAdd;
+
+        if ( CharacterBase.IsPlayer )
+        {
+            IPlayerEvent.Post( e => e.OnHealthAdded( healthToAdd ) );
+        }
+    }
 
 	public void ReSpawn(float health)
 	{
