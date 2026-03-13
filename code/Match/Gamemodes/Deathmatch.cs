@@ -34,14 +34,17 @@ public sealed class Deathmatch : GameMode
 
     public override void DetermineWinners()
     {
-        if ( IsProxy || MatchStatsManager.Instance == null ) return;
+        if ( !Networking.IsHost || MatchStatsManager.Instance == null ) return;
 
         var winners = MatchStatsManager.Instance.Tracked
-            .OrderByDescending( x => x.Score ).Take(3);
+            .OrderByDescending( x => x?.Score ).Take(3);
 
         foreach ( var winner in winners )
         {
-            winner.IncrementWins();
+            if ( winner?.GameObject?.IsValid() == true )
+            {
+                winner?.IncrementWins();
+            }
         }
 
     }

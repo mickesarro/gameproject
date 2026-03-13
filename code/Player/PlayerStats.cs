@@ -35,7 +35,7 @@ public sealed class PlayerStats : Component, ISerializable
     [Rpc.Owner]
     public void IncrementWins()
     {
-        if ( !this.IsValid() ) return;
+        if ( this?.IsValid() != true ) return;
         Wins++;
     }
 

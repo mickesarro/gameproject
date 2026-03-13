@@ -79,7 +79,13 @@ public sealed class MatchStatsManager : SingletonBase<MatchStatsManager>, IMatch
     [Rpc.Host]
     void IMatchEvents.OnPlayerLeft( Guid connectionId )
     {
-        var toRemove = tracked.FirstOrDefault( p => p?.Network?.OwnerId == connectionId, defaultValue: null );
+        if ( tracked == null ) return;
+
+        var toRemove = tracked.FirstOrDefault(
+            p => p?.GameObject?.IsValid() == true
+                 && p?.Network?.OwnerId == connectionId,
+            defaultValue: null
+        );
 
         if ( toRemove != null )
         {
