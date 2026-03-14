@@ -409,11 +409,12 @@ public sealed class PlayerController : Component, ICharacterBase
     }
 
     protected override void OnFixedUpdate() {
-        if (CollisionBox == null) return;
-        
-        if (CollisionBox.Scale != LastSize) {
+        if ( !CollisionBox.IsValid() ) return;
+
+        if ( CollisionBox.Scale != LastSize )
+        {
             CollisionBox.Scale = LastSize;
-            CollisionBox.Center = new Vector3(0, 0, LastSize.z * 0.5f);
+            CollisionBox.Center = new Vector3( 0, 0, LastSize.z * 0.5f );
         }
         
 		if ( IsProxy )

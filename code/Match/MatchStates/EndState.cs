@@ -28,6 +28,8 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
         // Show the win/lose screen
         var HUD = matchManager.Scene.Get<HUD>();
+        if ( HUD == null ) return;
+
         transitionWindow = HUD.AddComponent<TransitionWindow>( startEnabled: true );
 
         UIManager.Instance.ShowLayer( transitionWindow, addToHistory: false );
@@ -50,8 +52,8 @@ public sealed class EndState( MatchManager matchManager, StateMachine stateMachi
 
         if ( EndTimer > statsUITime )
         {
-            transitionWindow.Hide();
-            UIManager.Instance.ShowLayer<StatsUI>();
+            transitionWindow?.Hide();
+            UIManager.Instance?.ShowLayer<StatsUI>();
             statsUITime = EndTimeLimit * 2; // Makes this if block run only once
         }
 

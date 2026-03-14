@@ -64,7 +64,7 @@ public sealed class PlayerInput : Component
 			// Prevents the default s&box menu from opening
 			Input.EscapePressed = false; 
 
-			if ( UIManager.Instance.CurrentLayer is SettingsMenu settingsMenu )
+			if ( UIManager.Instance?.CurrentLayer is SettingsMenu settingsMenu )
 			{
                 // Goes back in the settings menu rather than toggles the whole menu off
 				settingsMenu.GoBack();
@@ -72,7 +72,7 @@ public sealed class PlayerInput : Component
 			else
 			{
 				// Otherwise toggle the pause menu
-				UIManager.Instance.ToggleLayer<PauseMenu>();
+				UIManager.Instance?.ToggleLayer<PauseMenu>();
 			}
 		}
 

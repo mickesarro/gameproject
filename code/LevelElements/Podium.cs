@@ -5,12 +5,12 @@ namespace Shooter;
 
 public sealed class Podium : Component
 {
-    [Property] private SpawnPoint First { get; set; }
-    [Property] private SpawnPoint Second { get; set; }
-    [Property] private SpawnPoint Third { get; set; }
+    [Property, RequireComponent] private SpawnPoint First { get; set; }
+    [Property, RequireComponent] private SpawnPoint Second { get; set; }
+    [Property, RequireComponent] private SpawnPoint Third { get; set; }
 
     private List<SkinnedModelRenderer> renderers = [];
-    private readonly List<String> idleanims = ["AvatarMenu_Idle_01", "AvatarMenu_Idle_02"];
+    private readonly List<string> idleanims = ["AvatarMenu_Idle_01", "AvatarMenu_Idle_02"];
 
     protected override void OnEnabled()
     {
@@ -50,6 +50,9 @@ public sealed class Podium : Component
         var cloned = body.GameObject.Clone(
             new CloneConfig { Parent = GameObject, StartEnabled = true }
         );
+
+        // Tags don't apparently automatically copy anymore
+        cloned.Tags.Add( body.Tags );
 
         cloned.WorldTransform = spawnPoint.WorldTransform;
 
@@ -105,16 +108,16 @@ public sealed class Podium : Component
         // Therefore this is now riddled with them to reduce our erroring rate
         // The method only runs on idle point of game and on clients
 
-        if ( renderers == null || renderers.Count == 0 ) return;
+        if ( renderers == null ) return;
 
         foreach ( var renderer in renderers )
         {
-            if ( !renderer.IsValid() || renderer?.Sequence == null ) return;
+            if ( !renderer.IsValid() || !renderer.SceneModel.IsValid() ) return;
 
             if ( renderer.Sequence?.IsFinished == true && idleanims != null )
             {
                 renderer.Sequence?.Looping = true;
-                renderer.Sequence?.Name = idleanims[new Random().Next( 0, idleanims.Count )];
+                renderer.Sequence?.Name = Random.Shared.FromList( idleanims );
             }
         }
     }

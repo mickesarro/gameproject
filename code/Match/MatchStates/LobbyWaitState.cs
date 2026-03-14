@@ -19,7 +19,7 @@ public sealed class LobbyWaitState( MatchManager matchManager, StateMachine stat
 
 #if DEBUG
         if ( !Application.IsEditor ) return;
-        HoldLobby = true;
+        HoldLobby = false;
 #endif
 
     }

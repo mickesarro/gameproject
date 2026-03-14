@@ -8,7 +8,7 @@ namespace Shooter.Editor;
 /// <summary>
 /// Can be used to run scripts in the editor.
 /// </summary>
-public static class EditorScene
+public static partial class EditorScene
 {
 
     [Event( "scene.play", Priority = 100 )]
@@ -22,16 +22,16 @@ public static class EditorScene
         var startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
 
         //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
-        
+
         // Second one
-        startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
-  
+        startLocation = Random.Shared.FromArray( spawnPoints ).WorldTransform;
+
         //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
-  
-        startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
+
+        startLocation = Random.Shared.FromArray( spawnPoints ).WorldTransform;
         //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
-  
-        startLocation = spawnPoints[new Random().Next( 0, spawnPoints.Length )].WorldTransform;
+
+        startLocation = Random.Shared.FromArray( spawnPoints ).WorldTransform;
         //SpawnDummy( startLocation, StateEnum.Search, [StateEnum.Search, StateEnum.Attack, StateEnum.Hunt] );
     }
 
