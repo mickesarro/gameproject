@@ -9,6 +9,7 @@ public enum InventorySlot
     Second = 1,
     Third = 2,
 	Fourth = 3,
+    Count, // Dynamically assigns the value
 	Next,
 	Previous,
 }

@@ -1,6 +1,5 @@
 @using Sandbox;
 @using Sandbox.UI;
-@using System;
 @using System.Collections.Generic;
 @inherits Panel
 @implements IPopupConsumer
@@ -8,19 +7,17 @@
 
 <root>
     <div class="health-wrapper">
-        <div class="pickup-container">
-            @foreach(var popup in _activePopups)
-            {
-                <div class="pickup-text" style="color: @HudColour;">+@popup.Amount</div>
-            }
-        </div>
+        @foreach(var popup in _activePopups)
+        {
+			<UIPopupCard HudColour="@HudColour" UIPopup="@popup" />
+        }
 
         <div class="health-text" style="color: @HudColour;">
             @Health/@MaxHealth
         </div>
 
         <div class="segments-container">
-            @for (int i = 0; i < 4; i++)
+			@for (int i = 0; i < segments; i++)
             {
                 <div class="segment-background">
                     <div class="segment-fill" style="width: @(GetSegmentFill(i))%; background-color: @HudColour;"></div>
@@ -36,6 +33,7 @@
 
 	public float Health => PlayerHealth?.Health ?? 0.0f;
 	public float MaxHealth => PlayerHealth?.MaxHealth ?? 0.0f;
+	private int segments = 4;
 
 	private HashSet<UIPopup> _activePopups = new();
 
@@ -55,13 +53,13 @@
 
     private float GetSegmentFill(int index)
     {
-        float healthPerSegment = MaxHealth / 4;
+		float healthPerSegment = MaxHealth / segments;
         float startThreshold = index * healthPerSegment;
         
         float fillAmount = Health - startThreshold;
         float percentage = (fillAmount / healthPerSegment) * 100;
 
-        return Math.Clamp(percentage, 0, 100);
+        return System.Math.Clamp(percentage, 0, 100);
     }
 
     protected override int BuildHash() => System.HashCode.Combine(Health, MaxHealth, _activePopups.Count);

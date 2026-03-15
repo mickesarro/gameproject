@@ -1,46 +1,58 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits Panel
+@implements IPopupConsumer
 @namespace Shooter.UI
 
+@if (PlayerInventory == null) return;
+
 <root>
-    <div class="weapon-hud">
-        @if (PlayerInventory != null)
-        {
-            @for (int i = 0; i < 4; i++)
-            {
-                var item = PlayerInventory.Items.ElementAtOrDefault(i);
-                var weapon = item as IWeapon;
-                
-                bool isActive = (item != null && item == PlayerInventory.CurrentItem);
-                int slotLabel = i + 1;
+	<div class="weapon-hud">
+		@{
+			var Items = PlayerInventory.Items; // cache
+		}
+		@for (int i = 0; i < gunSlots; i++)
+		{
+			var item = Items.ElementAtOrDefault(i);
+			var weapon = item as IWeapon;
 
-                <div class="weapon-slot @(isActive ? "active" : "")" 
-                     style="border-color: @(isActive ? weapon?.GunData?.Color.Rgb != null ? weapon?.GunData?.Color.Rgb : HudColour : "rgba(255, 255, 255, 0.1)");">
-                    
-                    <div class="slot-number">@slotLabel.</div>
+			bool isActive = weapon != null && weapon == PlayerInventory.CurrentWeapon;
 
-                    <div class="icon-container">
-                        @if (weapon?.Icon != null)
-                        {
-                            <img src="@weapon.Icon.ResourcePath" class="weapon-icon" />
-                        }
-                        else if (item != null)
-                        {
-                            <span>@item.Name</span>
-                        }
-                    </div>
+			var colour = weapon?.GunData?.Color.Rgb ?? HudColour;
+			var style = isActive
+				? colour
+				: "rgba(255, 255, 255, 0.1)";
 
-                    @if (weapon != null && weapon.CooldownFraction < 1.0f)
-                    {
-                        <div class="cooldown-overlay">
-                            <div class="bar" style="width: @(weapon.CooldownFraction * 100)%; background-color: @HudColour;"></div>
-                        </div>
-                    }
-                </div>
-            }
-        }
-    </div>
+			<div class="weapon-slot @(isActive ? "active" : "")" style="border-color: @style;">
+				@if (TryGetPopup(out var popup, i))
+				{
+					<UIPopupCard HudColour="@colour" UIPopup="@popup" FontSize=@(30) Left="@(15)" />
+				}
+				<div class="slot-number">@(i + 1).</div>
+
+				@if (item != null)
+				{
+					<div class="icon-container">
+						@if (weapon?.Icon != null)
+						{
+							<img src="@weapon.Icon.ResourcePath" class="weapon-icon" />
+						}
+						else
+						{
+							<span>@item.Name</span>
+						}
+					</div>
+
+					@if (weapon != null && weapon.CooldownFraction < 1.0f)
+					{
+						<div class="cooldown-overlay">
+							<div class="bar" style="width: @(weapon.CooldownFraction * 100)%; background-color: @HudColour;"></div>
+						</div>
+					}
+				}
+			</div>
+		}
+	</div>
 </root>
 
 @code
@@ -49,26 +61,56 @@
 
 	[Property] public string HudColour { get; set; } = "#FFFFFF";
 
-	public void OnAmmoAdded( IWeapon item, int amount)
+	private int gunSlots = InventorySlot.Count.AsInt();
+
+	private readonly UIPopup[] activePopups = new UIPopup[InventorySlot.Count.AsInt()];
+
+	TaskSource IPopupConsumer.Task => this.Task;
+
+	void IPopupConsumer.RemovePopup(UIPopup popup)
 	{
-		// Do nothing for now
+		// Not the most performant, but is enough for now.
+		// If causes performance problems in the future, consider a better alternative.
+		int index = System.Array.IndexOf( activePopups, popup);
+		if (index != -1)
+		{
+			activePopups[index] = null;
+			StateHasChanged();
+		}
 	}
 
-    protected override int BuildHash()
-    {
-        var hash = new System.HashCode();
-        hash.Add(PlayerInventory?.CurrentItem);
 
-        if (PlayerInventory?.Items != null)
-        {
-            foreach (var item in PlayerInventory.Items)
-            {
-                if (item is IWeapon weapon)
-                {
-                    hash.Add(weapon.CooldownFraction);
-                }
-            }
-        }
-        return hash.ToHashCode();
-    }
+	public void OnAmmoAdded(IWeapon weapon, int amount)
+	{
+		if ( weapon == PlayerInventory.CurrentWeapon || amount <= 0 ) return;
+
+		activePopups[weapon.WeaponType.AsInt()] = new(this, 1.0f) { Amount = amount };
+		StateHasChanged();
+
+	}
+
+	protected override int BuildHash()
+	{
+		var hash = new System.HashCode();
+		hash.Add(PlayerInventory?.CurrentItem);
+
+		if (PlayerInventory?.Items != null)
+		{
+			foreach (var item in PlayerInventory.Items)
+			{
+				if (item is IWeapon weapon)
+				{
+					hash.Add(weapon.CooldownFraction);
+				}
+			}
+		}
+		return hash.ToHashCode();
+	}
+
+	private bool TryGetPopup( out UIPopup uipopup, int index )
+	{
+		uipopup = activePopups[index];
+
+		return uipopup != null ? true : false;
+	}
 }
