@@ -1,14 +1,11 @@
-using Sandbox;
-using Sandbox.Rendering;
-
 namespace Shooter.UI;
 
 public sealed class DmgFlash : Component, IPlayerEvent
 {
-    [Property] public Color FlashColor { get; set; } = Color.Red;
-    [Property] public float FadeSpeed { get; set; } = 4.0f;
-    [Property] public float LowHealthThreshold { get; set; } = 20.0f;
-    [Property] public float LowHealthOpacity { get; set; } = 0.4f;
+    [Property] private Color FlashColor { get; set; } = Color.Red;
+    [Property] private float FadeSpeed { get; set; } = 4.0f;
+    [Property] private float LowHealthThreshold { get; set; } = 20.0f;
+    [Property] private float LowHealthOpacity { get; set; } = 0.4f;
 
     private float currentOpacity = 0f;
     private CharacterHealth playerHealth;
@@ -19,30 +16,27 @@ public sealed class DmgFlash : Component, IPlayerEvent
 
         playerHealth = player.GetComponent<CharacterHealth>();
         
-        if ( playerHealth != null )
-        {
-           
-            playerHealth.OnDamage += HandleDamage;
-        }
+        playerHealth?.OnDamage += HandleDamage;
     }
 
-    private void HandleDamage( DamageInfo info )
+    private void HandleDamage( DamageInfo _ )
     {
         currentOpacity = 0.6f;
     }
 
+    private static readonly float epsilon = 0.01f;
     protected override void OnUpdate()
     {
-        if ( currentOpacity <= 0 || Scene.Camera == null ) return;
-
-        float targetMinOpacity = (playerHealth != null && playerHealth.Health <= LowHealthThreshold) 
-            ? LowHealthOpacity 
+        if ( currentOpacity < epsilon || Scene.Camera == null ) return;
+        
+        float targetMinOpacity = (playerHealth != null && playerHealth.Health <= LowHealthThreshold)
+            ? LowHealthOpacity
             : 0f;
 
         currentOpacity = currentOpacity.LerpTo( targetMinOpacity, Time.Delta * FadeSpeed );
 
-        if ( currentOpacity <= 0.01f ) return;
-
+        if ( currentOpacity < epsilon ) return;
+        
         var hud = Scene.Camera.Hud;
         var screenRect = new Rect( 0, 0, Screen.Size.x, Screen.Size.y );
         
@@ -69,16 +63,13 @@ public sealed class DmgFlash : Component, IPlayerEvent
             0,
             new Vector4( 180 * currentOpacity ), 
             FlashColor.WithAlpha( currentOpacity * 0.15f ) 
-      );
+        );
 
         currentOpacity = currentOpacity.LerpTo( 0f, Time.Delta * FadeSpeed );
     }
 
     protected override void OnDestroy()
     {
-        if ( playerHealth != null )
-        {
-            playerHealth.OnDamage -= HandleDamage;
-        }
+        playerHealth?.OnDamage -= HandleDamage;
     }
 }

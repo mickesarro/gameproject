@@ -3,8 +3,8 @@ namespace Shooter.UISystem;
 
 public abstract class UILayer : PanelComponent
 {
-    public virtual bool IsOverlay { get; set; } = false;
-    public virtual int HideTimeMs { get; set; } = 0;
+    public virtual bool IsOverlay { get; protected set; } = false;
+    public virtual int HideTimeMs { get; protected set; } = 0;
 
     public virtual void Show() 
     {

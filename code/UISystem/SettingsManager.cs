@@ -1,6 +1,7 @@
 using Sandbox;
 using Sandbox.Audio;
 using System;
+using Shooter.UI;
 
 namespace Shooter;
 public class SettingsManager : SingletonBase<SettingsManager>

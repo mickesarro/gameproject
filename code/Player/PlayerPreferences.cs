@@ -1,5 +1,5 @@
 using System;
-using Sandbox;
+using Shooter.UI;
 
 namespace Shooter;
 

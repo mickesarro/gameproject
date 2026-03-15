@@ -108,26 +108,25 @@
 
 	public override void Show()
 	{
-		StateHasChanged();
 		GameObject.Enabled = true;
-		cursorActive = false;
-		selectedPlayer = null; // Close popup when reopening scoreboard
-		Mouse.Visibility = MouseVisibility.Hidden;
+		ResetProperties();
 
-		if ( Panel != null )
-		{
-			Panel.Style.PointerEvents = PointerEvents.None;
-		}
+		StateHasChanged();
 	}
 
 	public override void Hide()
 	{
 		GameObject.Enabled = false;
+		ResetProperties();
+	}
+
+	private void ResetProperties()
+	{
 		cursorActive = false;
 		selectedPlayer = null;
 		Mouse.Visibility = MouseVisibility.Hidden;
 
-		if ( Panel != null )
+		if (Panel != null)
 		{
 			Panel.Style.PointerEvents = PointerEvents.None;
 		}
@@ -151,13 +150,11 @@
 		if (!cursorActive) return; 
 
 		selectedPlayer = player;
-		StateHasChanged();
 	}
 
 	private void ClosePopup()
 	{
 		selectedPlayer = null;
-		StateHasChanged();
 	}
 
 	/// <summary>
@@ -179,7 +176,7 @@
 		return character.Network?.Owner?.DisplayName ?? "Unknown";
     }
 
-    private async void OpenProfile(ulong steamId)
+    private async void OpenProfile(SteamId steamId)
     {
         try
         {

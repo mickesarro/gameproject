@@ -1,115 +1,116 @@
 using Sandbox;
 using Sandbox.Rendering;
 
-namespace Shooter.UI
+namespace Shooter.UI;
+
+public sealed class Crosshair : Component, IPlayerEvent
 {
-    public sealed class Crosshair : Component, IPlayerEvent
-    {
-        private GunData gunData;
-        private PlayerInventory inventory;
+    private PlayerInventory inventory;
 
-        public Color CurrentCrosshairColor { get; private set; } = Color.White;
+    public Color CurrentCrosshairColor { get; private set; } = Color.White;
 
-        // --- Available colors ---
-        public static readonly (string Name, string Hex)[] AvailableColors = new[]
-        {
+    // --- Available colors ---
+    public static readonly (string Name, string Hex)[] AvailableColors =
+    [
         ("White", "#FFFFFF"),
         ("Green", "#00FF00"),
         ("Cyan", "#00FFFF"),
         ("Yellow", "#FFFF00"),
         ("Red", "#FF0000"),
         ("Magenta", "#FF00FF")
-    };
-        public CrosshairType crosshairType;
+    ];
 
-        protected override void OnStart() // Start so all are created
+    private CrosshairType crosshairType;
+
+    protected override void OnStart() // Start so all are created
+    {
+        base.OnStart();
+        crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
+        UpdateCrosshairColor( SettingsManager.Instance.PlayerPreferences.CrosshairColor );
+
+        SettingsManager.Instance.OnCrosshairColorChanged += UpdateCrosshairColor;
+        SettingsManager.Instance.OnCrosshairStyleChanged += UpdateCrosshairStyle;
+
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        SettingsManager.Instance?.OnCrosshairColorChanged -= UpdateCrosshairColor;
+        SettingsManager.Instance?.OnCrosshairStyleChanged -= UpdateCrosshairStyle;
+    }
+
+    private void UpdateCrosshairColor( string hex )
+    {
+        if ( !Color.TryParse(hex, out var colour) )
         {
-            base.OnStart();
-            crosshairType = SettingsManager.Instance.PlayerPreferences.CrosshairStyle;
-            UpdateCrosshairColor( SettingsManager.Instance.PlayerPreferences.CrosshairColor );
-
-            SettingsManager.Instance.OnCrosshairColorChanged += UpdateCrosshairColor;
-            SettingsManager.Instance.OnCrosshairStyleChanged += UpdateCrosshairStyle;
-
+            colour = Color.White;
         }
+        CurrentCrosshairColor = colour;
+    }
 
-        protected override void OnDestroy()
+    private void UpdateCrosshairStyle( CrosshairType type )
+    {
+        crosshairType = type;
+    }
+
+    protected override void OnUpdate()
+    {
+        if ( inventory?.CurrentWeapon == null || Scene.Camera == null ) return;
+
+        var hud = Scene.Camera.Hud;
+        var center = Screen.Size * 0.5f;
+
+        switch ( crosshairType )
         {
-            base.OnDestroy();
-            SettingsManager.Instance?.OnCrosshairColorChanged -= UpdateCrosshairColor;
-            SettingsManager.Instance?.OnCrosshairStyleChanged -= UpdateCrosshairStyle;
+            case CrosshairType.Dot:
+                DrawDot( hud, center );
+                break;
+            case CrosshairType.Circle:
+                DrawCircle( hud, center );
+                break;
+            default:
+                DrawLines( hud, center, crosshairType );
+                break;
         }
+    }
 
-        private void UpdateCrosshairColor( string hex )
-        {
-            try { CurrentCrosshairColor = Color.Parse( hex ) ?? Color.White; }
-            catch { CurrentCrosshairColor = Color.White; }
-        }
+    void IPlayerEvent.OnSpawn( GameObject player )
+    {
+        if ( player.IsProxy ) return;
+        inventory = player.GetComponent<PlayerInventory>();
+    }
 
-        private void UpdateCrosshairStyle( CrosshairType type )
-        {
-            crosshairType = type;
-        }
+    private void DrawLines( HudPainter hud, Vector2 center, CrosshairType type )
+    {
+        float gap = type == CrosshairType.Cross ? 0f : 3f;
+        float length = 15f;
+        float width = 2f;
+        var color = CurrentCrosshairColor;
 
-        protected override void OnUpdate()
-        {
-            if ( inventory?.CurrentWeapon == null || Scene.Camera == null ) return;
+        if ( type != CrosshairType.TStyle )
+            hud.DrawLine( center + Vector2.Up * (length + gap), center + Vector2.Up * gap, width, color );
 
-            var hud = Scene.Camera.Hud;
-            var center = Screen.Size * 0.5f;
+        hud.DrawLine( center + Vector2.Left * (length + gap), center + Vector2.Left * gap, width, color );
+        hud.DrawLine( center + Vector2.Right * (length + gap), center + Vector2.Right * gap, width, color );
+        hud.DrawLine( center + Vector2.Down * (length + gap), center + Vector2.Down * gap, width, color );
+    }
 
-            switch ( crosshairType )
-            {
-                case CrosshairType.Dot:
-                    DrawDot( hud, center );
-                    break;
-                case CrosshairType.Circle:
-                    DrawCircle( hud, center );
-                    break;
-                default:
-                    DrawLines( hud, center, crosshairType );
-                    break;
-            }
-        }
+    private void DrawDot( HudPainter hud, Vector2 center ) => hud.DrawCircle( center, 3f, CurrentCrosshairColor );
 
-        void IPlayerEvent.OnSpawn( GameObject player )
-        {
-            if ( player.IsProxy ) return;
-            gunData = player.GetComponent<GunData>();
-            inventory = player.GetComponent<PlayerInventory>();
-        }
-
-        private void DrawLines( HudPainter hud, Vector2 center, CrosshairType type )
-        {
-            float gap = type == CrosshairType.Cross ? 0f : 3f;
-            float length = 15f;
-            float width = 2f;
-            var color = CurrentCrosshairColor;
-
-            if ( type != CrosshairType.TStyle )
-                hud.DrawLine( center + Vector2.Up * (length + gap), center + Vector2.Up * gap, width, color );
-
-            hud.DrawLine( center + Vector2.Left * (length + gap), center + Vector2.Left * gap, width, color );
-            hud.DrawLine( center + Vector2.Right * (length + gap), center + Vector2.Right * gap, width, color );
-            hud.DrawLine( center + Vector2.Down * (length + gap), center + Vector2.Down * gap, width, color );
-        }
-
-        private void DrawDot( HudPainter hud, Vector2 center ) => hud.DrawCircle( center, 3f, CurrentCrosshairColor );
-
-        private void DrawCircle( HudPainter hud, Vector2 center )
-        {
-            DrawDot( hud, center );
-            float size = 30f, width = 2f;
-            hud.DrawRect( new Rect( center - new Vector2( size / 2 ), new Vector2( size, size ) ),
-                         Color.Transparent,
-                         new Vector4( all: size / 2 ),
-                         new Vector4( all: width ),
-                         CurrentCrosshairColor );
-        }
+    private void DrawCircle( HudPainter hud, Vector2 center )
+    {
+        DrawDot( hud, center );
+        float size = 30f, width = 2f;
+        hud.DrawRect( new Rect( center - new Vector2( size / 2 ), new Vector2( size, size ) ),
+                        Color.Transparent,
+                        new Vector4( all: size / 2 ),
+                        new Vector4( all: width ),
+                        CurrentCrosshairColor );
     }
 }
 
-namespace Shooter {
+
 // --- Crosshair type enum ---
 public enum CrosshairType
 {
@@ -120,14 +121,13 @@ public enum CrosshairType
     Cross     // Four lines, no gap
 }
 
-    // --- Enum display names ---
-    public static class CrosshairTypeExtensions
-    {
-        public static string ToDisplayName( this CrosshairType type ) =>
-            type switch
-            {
-                CrosshairType.TStyle => "T-Style",
-                _ => type.ToString()
-            };
-    }
+// --- Enum display names ---
+public static class CrosshairTypeExtensions
+{
+    public static string ToDisplayName( this CrosshairType type ) 
+        => type switch
+        {
+            CrosshairType.TStyle => "T-Style",
+            _ => type.ToString()
+        };
 }

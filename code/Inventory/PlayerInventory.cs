@@ -33,7 +33,10 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 	// The actual collection of the weapons
 	// Dictionary would add overhead for such small array, but also would be more type safe.
 	private readonly ICollectable[] weapons = new ICollectable[(int)WeaponType.Total]; // Plus 1 for empty
-	public IEnumerable<ICollectable> Items => weapons;
+	public IReadOnlyList<ICollectable> Items => weapons;
+    
+    public ICollectable GetItem( int slot )
+        => slot < weapons.Length ? weapons[slot] : default;
 
     [Property] public AmmoInventory AmmoInventory { get; private set; }
 

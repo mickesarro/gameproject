@@ -18,9 +18,12 @@ public class Inventory : Component, IInventory
 
 	public ICollectable CurrentItem { get; private set; } = null;
 
-	public IEnumerable<ICollectable> Items => inventoryItems;
+	public IReadOnlyList<ICollectable> Items => inventoryItems;
 
-	protected override void OnAwake()
+    public ICollectable GetItem( int slot )
+        => slot < inventoryItems.Count ? inventoryItems[slot] : default;
+
+    protected override void OnAwake()
 	{
 		base.OnAwake();
 		Owner ??= GameObject;
