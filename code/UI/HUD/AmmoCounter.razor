@@ -12,8 +12,8 @@
         <div class="pickup-container">
             @foreach(var popup in _activePopups)
             {
-                <div class="pickup-text" style="color: @HudColour;">+@popup.Amount</div>
-            }
+				<UIPopupCard HudColour="@HudColour" UIPopup="@popup" />
+			}
         </div>
 
         <div class="current-ammo">@AmmoLeft</div>

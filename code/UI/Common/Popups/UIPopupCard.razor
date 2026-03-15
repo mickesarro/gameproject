@@ -1,0 +1,24 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@namespace Shooter.UI
+
+<root class="pickup-container" style="left: @(Left)px;">
+	<div class="pickup-text" style="color: @HudColour; font-size: @(FontSize)px;">
+		+@UIPopup.Amount
+	</div>
+</root>
+
+@code
+{
+	[Property] public string HudColour { get; set; } = "#FFFFFF";
+	[Property] public UIPopup UIPopup { get; set; }
+
+	[Property] public int FontSize { get; set; } = 60;
+	[Property] public int Left { get; set; } = 30;
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( UIPopup );
+}

@@ -1,6 +1,6 @@
 namespace Shooter.UI;
 
-public class UIPopup
+public sealed class UIPopup
 {
     public int Amount { get; set; }
     public float LifeTime { get; set; }
