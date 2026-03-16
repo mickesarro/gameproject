@@ -8152,13 +8152,260 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "SpawnPoint (1)",
+      "Position": "-1203.729,-8738.736,130.373",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "spawnpoint",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.SpawnPoint",
+          "__guid": "9f6f4af7-ad6a-4cf2-98b7-cf15a1ea43a7",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "d97e6c80-d76d-436f-9ab4-d5156844bd95",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Collider",
+      "Position": "-355.2397,-8193.242,114.6738",
+      "Rotation": "0,0,0,1",
+      "Scale": "5,5,0.5700004",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "3601ccf7-6fcf-435f-b8c6-506f94d25196",
+          "__enabled": true,
+          "Flags": 0,
+          "Center": "0,0,0",
+          "ColliderFlags": 0,
+          "Elasticity": null,
+          "Friction": null,
+          "IsTrigger": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RollingResistance": null,
+          "Scale": "50,50,169.54",
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "65e211c7-8115-45fa-9178-909918b60b0f",
+          "__enabled": true,
+          "Flags": 0,
+          "BodyGroups": 18446744073709551615,
+          "CreateAttachments": false,
+          "LodOverride": null,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Materials": null,
+          "Model": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "234820d5-092f-45d7-9f91-d24ae037d201",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Tutorial Levels",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Shooter.TutorialGameMode",
+          "__guid": "b2685f26-28b1-43fb-9d34-474e40974675",
+          "__enabled": true,
+          "Flags": 0,
+          "CameraType": "Orbit",
+          "MaxPlayers": 1,
+          "MinPlayers": 1,
+          "ModeName": "Tutorial",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PopulateWithNPCs": false,
+          "ScoreLimit": 0,
+          "Stages": [
+            {
+              "_type": "component",
+              "component_id": "03fba41a-21b0-4fde-b05f-9a7886b743b7",
+              "go": "c849f813-0aa9-4d38-85ba-ecd89a5fdce9",
+              "component_type": "TutorialStage"
+            },
+            {
+              "_type": "component",
+              "component_id": "ea15c180-1924-49b4-9928-214ed0f52c42",
+              "go": "0ddac309-0ed2-4ccf-920d-a59bff5b089b",
+              "component_type": "TutorialStage"
+            }
+          ],
+          "startCountdown": 0
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "c849f813-0aa9-4d38-85ba-ecd89a5fdce9",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Level 1",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.TutorialStage",
+              "__guid": "03fba41a-21b0-4fde-b05f-9a7886b743b7",
+              "__enabled": true,
+              "Flags": 0,
+              "InstructionText": "Do the thing.",
+              "MediaPath": null,
+              "ObjectiveType": "ReachSpeed",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "SpawnPoint": {
+                "_type": "gameobject",
+                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
+              },
+              "StageName": "Level 1",
+              "TargetArea": null,
+              "TargetSpeed": 400
+            }
+          ],
+          "Children": []
+        },
+        {
+          "__guid": "0ddac309-0ed2-4ccf-920d-a59bff5b089b",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Level 2",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.TutorialStage",
+              "__guid": "ea15c180-1924-49b4-9928-214ed0f52c42",
+              "__enabled": true,
+              "Flags": 0,
+              "InstructionText": "thing",
+              "MediaPath": null,
+              "ObjectiveType": "ReachTargetArea",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "SpawnPoint": {
+                "_type": "gameobject",
+                "go": "be7b6d7b-26b9-4fb2-9803-c061be23b01c"
+              },
+              "StageName": "stage level 2",
+              "TargetArea": {
+                "_type": "gameobject",
+                "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
+              },
+              "TargetSpeed": 400
+            }
+          ],
+          "Children": []
+        }
+      ]
     }
   ],
   "SceneProperties": {
     "NetworkInterpolation": true,
     "TimeScale": 1,
     "WantsSystemScene": false,
-    "Metadata": {},
+    "Metadata": {
+      "Name": "Tutorial",
+      "ScoreLimit": "0",
+      "MaxPlayers": "1",
+      "MinPlayers": "1",
+      "Objective": "Score points"
+    },
     "NavMesh": {
       "Enabled": true,
       "IncludeStaticBodies": true,
@@ -8175,7 +8422,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "133270a8-30dd-48be-a955-43f3ea04b06b"
+          "$blob": "b0d82789-d2fd-4f7e-9b17-d0e8cc6e5a10"
         }
       }
     }

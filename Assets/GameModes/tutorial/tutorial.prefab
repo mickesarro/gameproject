@@ -16,14 +16,14 @@
     "OwnerTransfer": 1,
     "Components": [
       {
-        "__type": "Shooter.Deathmatch",
-        "__guid": "7acd0b80-cfc3-4c72-aaac-ea0846edbab3",
+        "__type": "Shooter.TutorialGameMode",
+        "__guid": "5ac89358-b303-403e-bd5d-b823388e0f5c",
         "__enabled": true,
         "Flags": 0,
         "CameraType": "Orbit",
-        "maxPlayers": 4,
-        "minPlayers": 1,
-        "modeName": "Tutorial",
+        "MaxPlayers": 1,
+        "MinPlayers": 1,
+        "ModeName": "Tutorial",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -31,7 +31,8 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "PopulateWithNPCs": false,
-        "scoreLimit": 20,
+        "ScoreLimit": 0,
+        "Stages": [],
         "startCountdown": 0
       }
     ],
@@ -42,8 +43,8 @@
       "WantsSystemScene": true,
       "Metadata": {
         "Name": "Tutorial",
-        "ScoreLimit": "20",
-        "MaxPlayers": "4",
+        "ScoreLimit": "0",
+        "MaxPlayers": "1",
         "MinPlayers": "1",
         "Objective": "Score points"
       },
