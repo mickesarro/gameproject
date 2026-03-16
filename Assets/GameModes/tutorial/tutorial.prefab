@@ -1,0 +1,72 @@
+{
+  "RootObject": {
+    "__guid": "da206018-3b84-4cbc-8673-b9371357f465",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "tutorial",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Shooter.Deathmatch",
+        "__guid": "7acd0b80-cfc3-4c72-aaac-ea0846edbab3",
+        "__enabled": true,
+        "Flags": 0,
+        "CameraType": "Orbit",
+        "maxPlayers": 4,
+        "minPlayers": 1,
+        "modeName": "Tutorial",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "PopulateWithNPCs": false,
+        "scoreLimit": 20
+      }
+    ],
+    "Children": [],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {
+        "Name": "Tutorial",
+        "ScoreLimit": "20",
+        "MaxPlayers": "4",
+        "MinPlayers": "1",
+        "Objective": "Score points"
+      },
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "CustomBounds": false
+      }
+    },
+    "__variables": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}
