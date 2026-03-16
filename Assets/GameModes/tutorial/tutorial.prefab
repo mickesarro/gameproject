@@ -31,7 +31,8 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "PopulateWithNPCs": false,
-        "scoreLimit": 20
+        "scoreLimit": 20,
+        "startCountdown": 0
       }
     ],
     "Children": [],

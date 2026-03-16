@@ -17,6 +17,10 @@ public sealed class Deathmatch : GameMode
     [Property] private int minPlayers { get; set; } = 2;
     public override int MinPlayers => minPlayers;
 
+    [Property] private int startCountdown { get; set; } = 5;
+    public override int StartCountdown => startCountdown;
+
+
     [Property] private CameraType CameraType { get; set; } = CameraType.Orbit;
     public override CameraType Camera => CameraType;
 
