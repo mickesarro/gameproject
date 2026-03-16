@@ -13,6 +13,7 @@
                 <div class="dropdown_section">
                     <div class="dropdown_row">
                         <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="Crosshair: @SelectedCrosshairLabel ▼" ButtonCallback="@(() => OpenSettingContextMenu("Style"))" /> 
+                        <CrosshairPreview Style="@SelectedCrosshair" ColorHex="@SelectedColorHex" />
                     </div>
                     <DropDown @ref="CrosshairDropdown" class="crosshair_dropdown" style="display:none;" />
                 </div>

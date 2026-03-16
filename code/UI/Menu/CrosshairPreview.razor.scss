@@ -1,0 +1,54 @@
+root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px; 
+}
+
+.crosshair_preview {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ch_dot {
+    width: 6px; 
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ch_circle {
+    width: 30px; 
+    height: 30px;
+    border-width: 2px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ch_line {
+    position: absolute;
+}
+
+// Layouts for the lines based on the selected enum class 
+.standard .ch_line, .tstyle .ch_line { width: 2px; height: 15px; }
+.standard .ch_left, .standard .ch_right, .tstyle .ch_left, .tstyle .ch_right { width: 15px; height: 2px; }
+
+.standard .ch_top { top: calc(50% - 18px); left: calc(50% - 1px); }
+.standard .ch_bottom, .tstyle .ch_bottom { top: calc(50% + 3px); left: calc(50% - 1px); }
+.standard .ch_left, .tstyle .ch_left { right: calc(50% + 3px); top: calc(50% - 1px); }
+.standard .ch_right, .tstyle .ch_right { left: calc(50% + 3px); top: calc(50% - 1px); }
+
+.cross .ch_line { width: 2px; height: 15px; }
+.cross .ch_left, .cross .ch_right { width: 15px; height: 2px; }
+
+.cross .ch_top { top: calc(50% - 15px); left: calc(50% - 1px); }
+.cross .ch_bottom { top: 50%; left: calc(50% - 1px); }
+.cross .ch_left { right: 50%; top: calc(50% - 1px); }
+.cross .ch_right { left: 50%; top: calc(50% - 1px); }

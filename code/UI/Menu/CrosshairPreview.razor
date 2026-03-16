@@ -1,0 +1,35 @@
+@using Sandbox.UI
+@namespace Shooter.UI
+
+<root>
+    <div class="crosshair_preview @Style.ToString().ToLower()">
+        
+        @if (Style == CrosshairType.Dot)
+        {
+            <div class="ch_dot" style="background-color: @ColorHex;"></div>
+        }
+        else if (Style == CrosshairType.Circle)
+        {
+            <div class="ch_dot" style="background-color: @ColorHex;"></div>
+            <div class="ch_circle" style="border-color: @ColorHex;"></div>
+        }
+        else
+        {
+            @if (Style != CrosshairType.TStyle)
+            {
+                <div class="ch_line ch_top" style="background-color: @ColorHex;"></div>
+            }
+            <div class="ch_line ch_bottom" style="background-color: @ColorHex;"></div>
+            <div class="ch_line ch_left" style="background-color: @ColorHex;"></div>
+            <div class="ch_line ch_right" style="background-color: @ColorHex;"></div>
+        }
+
+    </div>
+</root>
+
+@code {
+    public CrosshairType Style { get; set; } = CrosshairType.Standard;
+    public string ColorHex { get; set; } = "#FFFFFF";
+
+    protected override int BuildHash() => System.HashCode.Combine(Style, ColorHex);
+}
