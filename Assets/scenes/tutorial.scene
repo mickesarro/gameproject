@@ -8335,15 +8335,15 @@
                 },
                 {
                   "Text": "This is instruction 2",
-                  "MediaPath": null
+                  "MediaPath": "media\\videos\\200w.gif"
                 },
                 {
                   "Text": "This is instruction 3",
-                  "MediaPath": null
+                  "MediaPath": "Media\\Videos\\cama.webm"
                 },
                 {
                   "Text": "Level 1 completed (E to advance)",
-                  "MediaPath": null
+                  "MediaPath": "Media\\Videos\\cama4.mp4"
                 }
               ],
               "ObjectiveType": "ReachSpeed",
@@ -8424,6 +8424,55 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "897ac921-debc-48fb-8cca-25d70e060f1a",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "TutorialUI",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "440b50dc-7d15-4211-9b6b-08cb354376ce",
+          "__enabled": true,
+          "Flags": 0,
+          "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "TargetCamera": null,
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.UI.Tutorial.Tutorial",
+          "__guid": "235044ce-af7d-4278-9359-98597163a487",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {
@@ -8453,7 +8502,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "4ad3bfe5-5948-4f64-8a2f-64393626cde0"
+          "$blob": "cc161aa1-581a-4ea2-8844-129e00e23c82"
         }
       }
     }

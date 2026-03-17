@@ -15,7 +15,7 @@ public struct TutorialInstruction
     [Property, TextArea] 
     public string Text { get; set; }
 
-    [Property, Description("Path to the .mp4 or .webm file")] 
+    [Property, FilePath, Description("Pick the .mp4, .webm, or image file")] 
     public string MediaPath { get; set; }
 }
 
@@ -39,11 +39,12 @@ public sealed class TutorialStage : Component
     [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachSpeed)]
     public float TargetSpeed { get; set; } = 400f;
 
-    private int currentInstructionIndex = 0;
-    private bool isStageActive = false;
-    
-    private bool objectiveCompleted = false; 
-    private bool isFullyComplete = false; 
+    public int CurrentInstructionIndex { get; private set; } = 0;
+    public bool IsStageActive { get; private set; } = false;
+    public bool ObjectiveCompleted { get; private set; } = false;
+    public bool IsFullyComplete { get; private set; } = false;
+
+    public TutorialInstruction CurrentInstruction => Instructions.Count > 0 ? Instructions[CurrentInstructionIndex] : default;
 
     public void StartStage(PlayerController player)
     {
@@ -62,22 +63,22 @@ public sealed class TutorialStage : Component
 
         Log.Info($"Starting Tutorial Stage: {StageName}");
         
-        isStageActive = true;
-        objectiveCompleted = false;
-        isFullyComplete = false;
-        currentInstructionIndex = 0;
+        IsStageActive = true;
+        ObjectiveCompleted = false;
+        IsFullyComplete = false;
+        CurrentInstructionIndex = 0;
         
         ShowCurrentInstruction();
     }
 
     public void EndStage()
     {
-        isStageActive = false;
+        IsStageActive = false;
     }
 
     protected override void OnUpdate()
     {
-        if (!isStageActive || Instructions == null || Instructions.Count == 0) 
+        if (!IsStageActive || Instructions == null || Instructions.Count == 0) 
             return;
 
         if (Input.Pressed("back"))
@@ -86,9 +87,9 @@ public sealed class TutorialStage : Component
         }
         else if (Input.Pressed("use")) 
         {
-            if (objectiveCompleted && currentInstructionIndex == Instructions.Count - 1)
+            if (ObjectiveCompleted && CurrentInstructionIndex == Instructions.Count - 1)
             {
-                isFullyComplete = true;
+                IsFullyComplete = true;
                 return;
             }
 
@@ -98,22 +99,22 @@ public sealed class TutorialStage : Component
 
     private void NavigateInstructions(int direction)
     {
-        int previousIndex = currentInstructionIndex;
-        currentInstructionIndex += direction;
+        int previousIndex = CurrentInstructionIndex;
+        CurrentInstructionIndex += direction;
 
         // If objective is not complete, max index is the 2nd to last instruction (Count - 2)
         // If objective is complete, max index is the final instruction (Count - 1)
-        int maxAllowedIndex = objectiveCompleted ? Instructions.Count - 1 : Instructions.Count - 2;
+        int maxAllowedIndex = ObjectiveCompleted ? Instructions.Count - 1 : Instructions.Count - 2;
         
         // Failsafe in case there's only 1 instruction total
         if (maxAllowedIndex < 0) maxAllowedIndex = 0;
 
-        if (currentInstructionIndex < 0) 
-            currentInstructionIndex = 0;
-        if (currentInstructionIndex > maxAllowedIndex) 
-            currentInstructionIndex = maxAllowedIndex;
+        if (CurrentInstructionIndex < 0) 
+            CurrentInstructionIndex = 0;
+        if (CurrentInstructionIndex > maxAllowedIndex) 
+            CurrentInstructionIndex = maxAllowedIndex;
 
-        if (currentInstructionIndex != previousIndex)
+        if (CurrentInstructionIndex != previousIndex)
         {
             ShowCurrentInstruction();
         }
@@ -123,9 +124,9 @@ public sealed class TutorialStage : Component
     {
         if (Instructions.Count == 0) return;
 
-        var instruction = Instructions[currentInstructionIndex];
+        var instruction = Instructions[CurrentInstructionIndex];
         
-        Log.Info($"[{StageName} - Instruction {currentInstructionIndex + 1}/{Instructions.Count}] {instruction.Text}");
+        Log.Info($"[{StageName} - Instruction {CurrentInstructionIndex + 1}/{Instructions.Count}] {instruction.Text}");
         
         if (!string.IsNullOrWhiteSpace(instruction.MediaPath))
         {
@@ -135,19 +136,19 @@ public sealed class TutorialStage : Component
 
     public bool CheckCompletion(PlayerController playerController)
     {
-        if (!isStageActive || playerController == null) return false;
+        if (!IsStageActive || playerController == null) return false;
 
-        if (isFullyComplete) return true;
+        if (IsFullyComplete) return true;
 
-        if (objectiveCompleted) return false;
+        if (ObjectiveCompleted) return false;
 
         bool isObjectiveMet = false;
 
         switch (ObjectiveType)
         {
             case TutorialObjectiveType.ReachSpeed:
-                float currentSpeed = playerController.Velocity.WithZ(0).Length;
-                if (currentSpeed >= TargetSpeed)
+                float CurrentSpeed = playerController.Velocity.WithZ(0).Length;
+                if (CurrentSpeed >= TargetSpeed)
                 {
                     isObjectiveMet = true;
                 }
@@ -176,9 +177,9 @@ public sealed class TutorialStage : Component
         if (isObjectiveMet)
         {
             Log.Info($"[{StageName}] Objective reached! Final instruction unlocked.");
-            objectiveCompleted = true;
+            ObjectiveCompleted = true;
             
-            currentInstructionIndex = Instructions.Count - 1;
+            CurrentInstructionIndex = Instructions.Count - 1;
             ShowCurrentInstruction();
         }
 

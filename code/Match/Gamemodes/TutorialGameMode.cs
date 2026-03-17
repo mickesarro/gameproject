@@ -20,7 +20,8 @@ public sealed class TutorialGameMode : GameMode
 
     [Property] public List<TutorialStage> Stages { get; set; } = new();
 
-    private int currentStageIndex = 0;
+    public int CurrentStageIndex { get; private set; } = 0;
+    public TutorialStage CurrentStage => (Stages != null && CurrentStageIndex < Stages.Count) ? Stages[CurrentStageIndex] : null;
     private bool isCurrentStageStarted = false;
 
     protected override void OnStart()
@@ -33,22 +34,22 @@ public sealed class TutorialGameMode : GameMode
     {
         base.OnUpdate();
 
-        if (Stages == null || Stages.Count == 0 || currentStageIndex >= Stages.Count) return;
+        if (Stages == null || Stages.Count == 0 || CurrentStageIndex >= Stages.Count) return;
 
-        var currentStage = Stages[currentStageIndex];
+        var CurrentStage = Stages[CurrentStageIndex];
 
-        if (currentStage == null) return;
+        if (CurrentStage == null) return;
 
         var localPlayer = PlayerController.Local;
         if (localPlayer == null || localPlayer.GameObject == null) return;
 
         if (!isCurrentStageStarted)
         {
-            currentStage.StartStage(localPlayer);
+            CurrentStage.StartStage(localPlayer);
             isCurrentStageStarted = true;
         }
 
-        if (currentStage.CheckCompletion(localPlayer))
+        if (CurrentStage.CheckCompletion(localPlayer))
         {
             AdvanceStage();
         }
@@ -57,17 +58,17 @@ public sealed class TutorialGameMode : GameMode
     private void AdvanceStage()
     {
         // Disable old stage after completion
-        if (currentStageIndex < Stages.Count)
+        if (CurrentStageIndex < Stages.Count)
         {
-            var oldStage = Stages[currentStageIndex];
+            var oldStage = Stages[CurrentStageIndex];
             oldStage.EndStage();
         }
 
-        currentStageIndex++;
+        CurrentStageIndex++;
         isCurrentStageStarted = false;
         Log.Info("Advanced to next stage");
 
-        if (currentStageIndex >= Stages.Count)
+        if (CurrentStageIndex >= Stages.Count)
         {
             WinCondition(null);
         }
