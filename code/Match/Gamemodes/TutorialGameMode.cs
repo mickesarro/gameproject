@@ -44,10 +44,8 @@ public sealed class TutorialGameMode : GameMode
 
         if (!isCurrentStageStarted)
         {
-            Log.Info("lvl 2 started");
             currentStage.StartStage(localPlayer.GameObject);
             isCurrentStageStarted = true;
-            Log.Info("stage started");
         }
 
         if (currentStage.CheckCompletion(localPlayer))
@@ -58,6 +56,13 @@ public sealed class TutorialGameMode : GameMode
 
     private void AdvanceStage()
     {
+        // Disable old stage after completion
+        if (currentStageIndex < Stages.Count)
+        {
+            var oldStage = Stages[currentStageIndex];
+            oldStage.EndStage();
+        }
+
         currentStageIndex++;
         isCurrentStageStarted = false;
         Log.Info("Advanced to next stage");

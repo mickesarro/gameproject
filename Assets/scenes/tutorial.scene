@@ -8328,8 +8328,24 @@
               "__guid": "03fba41a-21b0-4fde-b05f-9a7886b743b7",
               "__enabled": true,
               "Flags": 0,
-              "InstructionText": "Do the thing.",
-              "MediaPath": null,
+              "Instructions": [
+                {
+                  "Text": "This is instruction 1",
+                  "MediaPath": null
+                },
+                {
+                  "Text": "This is instruction 2",
+                  "MediaPath": null
+                },
+                {
+                  "Text": "This is instruction 3",
+                  "MediaPath": null
+                },
+                {
+                  "Text": "Level 1 completed (E to advance)",
+                  "MediaPath": null
+                }
+              ],
               "ObjectiveType": "ReachSpeed",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -8342,7 +8358,10 @@
                 "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
               },
               "StageName": "Level 1",
-              "TargetArea": null,
+              "TargetArea": {
+                "_type": "gameobject",
+                "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
+              },
               "TargetSpeed": 400
             }
           ],
@@ -8369,8 +8388,20 @@
               "__guid": "ea15c180-1924-49b4-9928-214ed0f52c42",
               "__enabled": true,
               "Flags": 0,
-              "InstructionText": "thing",
-              "MediaPath": null,
+              "Instructions": [
+                {
+                  "Text": "You made it! This is istr 1 for level 2",
+                  "MediaPath": null
+                },
+                {
+                  "Text": "this is stage 2 of lelvl 2",
+                  "MediaPath": null
+                },
+                {
+                  "Text": "Level 3 completed!",
+                  "MediaPath": null
+                }
+              ],
               "ObjectiveType": "ReachTargetArea",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -8382,7 +8413,7 @@
                 "_type": "gameobject",
                 "go": "be7b6d7b-26b9-4fb2-9803-c061be23b01c"
               },
-              "StageName": "stage level 2",
+              "StageName": "Level 2",
               "TargetArea": {
                 "_type": "gameobject",
                 "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
@@ -8422,7 +8453,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "b0d82789-d2fd-4f7e-9b17-d0e8cc6e5a10"
+          "$blob": "4ad3bfe5-5948-4f64-8a2f-64393626cde0"
         }
       }
     }
