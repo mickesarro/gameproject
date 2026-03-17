@@ -45,17 +45,18 @@ public sealed class TutorialStage : Component
     private bool objectiveCompleted = false; 
     private bool isFullyComplete = false; 
 
-    public void StartStage(GameObject player)
+    public void StartStage(PlayerController player)
     {
         if (SpawnPoint != null && player != null)
         {
-            player.WorldPosition = SpawnPoint.WorldPosition;
-            player.WorldRotation = SpawnPoint.WorldRotation;
+            player.WorldPosition = SpawnPoint.WorldPosition; 
+
+            var lookAngle = new Vector2(SpawnPoint.WorldRotation.Pitch(), SpawnPoint.WorldRotation.Yaw());
+            player.LookAngle = lookAngle;
             
-            var controller = player.Components.Get<PlayerController>();
-            if (controller != null)
+            if (player != null)
             {
-                controller.Velocity = Vector3.Zero;
+                player.Velocity = Vector3.Zero;
             }
         }
 

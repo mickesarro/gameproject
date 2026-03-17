@@ -44,7 +44,7 @@ public sealed class TutorialGameMode : GameMode
 
         if (!isCurrentStageStarted)
         {
-            currentStage.StartStage(localPlayer.GameObject);
+            currentStage.StartStage(localPlayer);
             isCurrentStageStarted = true;
         }
 
