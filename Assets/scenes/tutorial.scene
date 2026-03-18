@@ -8334,16 +8334,16 @@
                   "MediaPath": null
                 },
                 {
-                  "Text": "This is instruction 2",
-                  "MediaPath": "media\\videos\\200w.gif"
+                  "Text": "* Start by jumping\n\n* Next you need to strafe in the air",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
                 },
                 {
                   "Text": "This is instruction 3",
-                  "MediaPath": "Media\\Videos\\cama.webm"
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop2.webm"
                 },
                 {
-                  "Text": "Level 1 completed (E to advance)",
-                  "MediaPath": "Media\\Videos\\cama4.mp4"
+                  "Text": "You got it! You can now advance to the next level",
+                  "MediaPath": null
                 }
               ],
               "ObjectiveText": "Reach 500 speed (u/s)",
@@ -8504,7 +8504,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "a34e6e34-06ff-4e24-a743-b5440c7fd5cf"
+          "$blob": "11d4f100-f6a8-4ac7-82f4-ef3571dbc5a7"
         }
       }
     }
