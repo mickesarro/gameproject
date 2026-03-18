@@ -10,10 +10,13 @@
     @if (ActiveStage != null && ActiveStage.IsStageActive && ActiveStage.Instructions.Count > 0)
     {
         var instruction = ActiveStage.CurrentInstruction;
+        var hasMedia = !string.IsNullOrWhiteSpace(instruction.MediaPath);
         
-        <div class="instruction-panel" @key="ActiveStage.CurrentInstructionIndex">
+        <div class="instruction-panel @(hasMedia ? "has-media" : "")" @key="ActiveStage.CurrentInstructionIndex">
             
             <h1 class="stage-title">@ActiveStage.StageName</h1>
+
+            <div class="instruction-text">Objective: </div>
 
             @if (!string.IsNullOrWhiteSpace(ActiveStage.ObjectiveText))
             {
@@ -23,7 +26,7 @@
                 </div>
             }
             
-            @if (!string.IsNullOrWhiteSpace(instruction.MediaPath))
+            @if (hasMedia)
             {
                 <div class="media-container">
                     <div class="tutorial-media" style="background-image: url('@instruction.MediaPath');"></div>

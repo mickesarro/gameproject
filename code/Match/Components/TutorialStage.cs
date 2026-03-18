@@ -7,7 +7,8 @@ namespace Shooter;
 public enum TutorialObjectiveType
 {
     ReachSpeed,
-    ReachTargetArea
+    ReachTargetArea,
+    ReadInstructions
     // Shoot targets, etc.
 }
 
@@ -150,6 +151,13 @@ public sealed class TutorialStage : Component
 
         switch (ObjectiveType)
         {
+            case TutorialObjectiveType.ReadInstructions:
+                if (CurrentInstructionIndex == Instructions.Count - 2)
+                {
+                    isObjectiveMet = true;
+                }
+                break;
+
             case TutorialObjectiveType.ReachSpeed:
                 float CurrentSpeed = playerController.Velocity.WithZ(0).Length;
                 if (CurrentSpeed >= TargetSpeed)
