@@ -78,7 +78,7 @@ Tutorial {
                 background-color: rgba(77, 255, 77, 0.05);
                 
                 .icon {
-                    color: #4dff4d; // Green Checkmark
+                    color: #4dff4d;
                     text-shadow: 0 0 8px rgba(77, 255, 77, 0.4);
                     animation: popIcon 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
                 }
@@ -98,7 +98,7 @@ Tutorial {
             
             .tutorial-media {
                 width: 100%;
-                height: 250px; // Needs tweaking
+                height: 250px;
                 background-size: cover; 
                 background-position: center;
             }
@@ -107,9 +107,17 @@ Tutorial {
         .instruction-text {
             color: rgba(255, 255, 255, 0.95);
             font-size: 20px;
-            line-height: 1.5;
+            line-height: 20;
             margin: 0;
             text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
+            
+            display: flex;
+            flex-direction: column;
+            gap: 5px; 
+
+            .instruction-line {
+                min-height: 1.2em;
+            }
         }
 
         .controls {

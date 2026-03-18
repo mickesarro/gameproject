@@ -8330,11 +8330,11 @@
               "Flags": 0,
               "Instructions": [
                 {
-                  "Text": "This is instruction 1",
+                  "Text": "• This is instruction 1 for if you need to go faster\n• Your first objective is to reach a speed of 500\n• 3",
                   "MediaPath": null
                 },
                 {
-                  "Text": "* Start by jumping\n\n* Next you need to strafe in the air",
+                  "Text": "Your first objective is to reach 500 u/s",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
                 },
                 {
@@ -8504,7 +8504,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "11d4f100-f6a8-4ac7-82f4-ef3571dbc5a7"
+          "$blob": "adfacf07-89a1-498c-88f3-ec58b0f06e57"
         }
       }
     }
