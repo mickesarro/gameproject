@@ -3,6 +3,16 @@ using Shooter.UI;
 
 namespace Shooter;
 
+public enum SpeedDisplayPosition
+{
+    Off,
+    UnderCrosshair,
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight
+}
+
 /// <summary>
 /// Used as a data class for the preferences of the player.
 /// Can be serialized with FileManager without type conversions.
@@ -43,5 +53,6 @@ public sealed class PlayerPreferences : ISerializable
 	public CrosshairType CrosshairStyle { get; set; } = CrosshairType.Standard;
 	public string CrosshairColor { get; set; } = "#FFFFFF";
 	public string HudColor { get; set; } = "#FFFFFF";
+	public SpeedDisplayPosition SpeedDisplay { get; set; } = SpeedDisplayPosition.Off;
 
 }

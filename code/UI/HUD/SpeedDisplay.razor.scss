@@ -1,0 +1,50 @@
+@import "/UI/Styles/Theme.scss";
+
+.speed-counter {
+    position: absolute;
+    font-size: 24px;
+    color: $main-text-color;
+    font-family: $main-font;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    font-weight: bold;
+    
+    /* ADDED: Smoothly transition the color changes */
+    transition: color 0.2s ease-out;
+
+    /* ADDED: Color classes */
+    &.speed-green {
+        color: #4dff4d;
+        text-shadow: 0 0 8px rgba(77, 255, 77, 0.4); /* Optional: adds a slight green glow */
+    }
+
+    &.speed-yellow {
+        color: #ffff4d;
+        text-shadow: 0 0 8px rgba(255, 255, 77, 0.4); /* Optional: adds a slight yellow glow */
+    }
+
+    &.speed-under-crosshair {
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.speed-top-left {
+        top: 20px;
+        left: 20px;
+    }
+
+    &.speed-top-right {
+        top: 20px;
+        right: 20px;
+    }
+
+    &.speed-bottom-left {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    &.speed-bottom-right {
+        bottom: 80px;
+        right: 20px;
+    }
+}

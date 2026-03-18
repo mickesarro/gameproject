@@ -18,6 +18,7 @@ public class SettingsManager : SingletonBase<SettingsManager>
 	public event Action<string> OnHudColorChanged;
 	public event Action<float> OnFovChanged;
 	public event Action<float> OnVolumeChanged;
+	public event Action<SpeedDisplayPosition> OnSpeedDisplayChanged;
 
 	private readonly Dictionary<CameraComponent, Action<float>> cameraFovHandlers = new();
 
@@ -59,6 +60,16 @@ public class SettingsManager : SingletonBase<SettingsManager>
 
         stateChanged = true;
     }
+
+	public void SetSpeedDisplay(SpeedDisplayPosition position)
+	{
+		if (playerPreferences.SpeedDisplay == position) return;
+		
+        playerPreferences.SpeedDisplay = position;
+		OnSpeedDisplayChanged?.Invoke(position);
+		
+        stateChanged = true;
+	}
 
 	public void SetFOV(float fov)
 	{
@@ -125,6 +136,7 @@ public class SettingsManager : SingletonBase<SettingsManager>
         OnHudColorChanged?.Invoke( playerPreferences.HudColor );
         OnFovChanged?.Invoke( playerPreferences.Fov );
         OnVolumeChanged?.Invoke( playerPreferences.Volume );
+		OnSpeedDisplayChanged?.Invoke( playerPreferences.SpeedDisplay );
 
 		IsLoaded = true;
     }

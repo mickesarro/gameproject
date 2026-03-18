@@ -38,6 +38,13 @@
                     <label class="slider_label">FOV: @currentFov</label>
                     <SliderControl Min="@MinFov" Max="@MaxFov" Step="@Step" Value="@currentFov" OnValueChanged="@OnFovChanged" ShowRange="@true" ShowValueTooltip="@false" />
                 </div>
+
+                <div class="dropdown_section">
+                    <div class="dropdown_row">
+                        <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="Show Speed: @SelectedSpeedDisplayLabel ▼" ButtonCallback="@(() => OpenSettingContextMenu("SpeedDisplay"))" /> 
+                    </div>
+                    <DropDown @ref="SpeedDisplayDropdown" class="speed_dropdown" style="display:none;" />
+                </div>
             </div>
 
             <div class="spacer"></div>
@@ -68,7 +75,11 @@
     private string SelectedColorLabel => Crosshair.AvailableColors.FirstOrDefault(c => c.Hex == SelectedColorHex).Name ?? "Unknown";
     private string SelectedHudColorLabel => Crosshair.AvailableColors.FirstOrDefault(c => c.Hex == SelectedHudColorHex).Name ?? "Unknown";
 
-    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov);
+    private DropDown SpeedDisplayDropdown;
+    private SpeedDisplayPosition SelectedSpeedDisplay => playerPreferences.SpeedDisplay;
+    private string SelectedSpeedDisplayLabel => GetSpeedDisplayLabel(SelectedSpeedDisplay);
+
+    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov, SelectedSpeedDisplay);
     
     protected override void OnEnabled()
     {
@@ -128,6 +139,20 @@
         }
     }
 
+    private string GetSpeedDisplayLabel(SpeedDisplayPosition pos)
+    {
+        return pos switch
+        {
+            SpeedDisplayPosition.Off => "Off",
+            SpeedDisplayPosition.UnderCrosshair => "Under Crosshair",
+            SpeedDisplayPosition.TopLeft => "Top Left",
+            SpeedDisplayPosition.TopRight => "Top Right",
+            SpeedDisplayPosition.BottomLeft => "Bottom Left",
+            SpeedDisplayPosition.BottomRight => "Bottom Right",
+            _ => "Unknown"
+        };
+    }
+
     private void OpenSettingContextMenu(string settingType)
     {
         DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : 
@@ -147,6 +172,22 @@
                     StateHasChanged();
                 });
                 if (type == SelectedCrosshair) panel.AddClass("active");
+                
+                panel.Style.Width = 280;
+                panel.Style.BackgroundColor = Color.Black.WithAlpha(0.4f);
+                panel.Style.FontColor = Color.White;
+            }
+        }
+        else if  ( settingType == "SpeedDisplay" )
+        {
+            foreach (SpeedDisplayPosition type in Enum.GetValues<SpeedDisplayPosition>())
+            {
+                var panel = popup.AddOption(GetSpeedDisplayLabel(type), "", () =>
+                {
+                    SettingsManager.Instance.SetSpeedDisplay(type);
+                    StateHasChanged();
+                });
+                if (type == SelectedSpeedDisplay) panel.AddClass("active");
                 
                 panel.Style.Width = 280;
                 panel.Style.BackgroundColor = Color.Black.WithAlpha(0.4f);
