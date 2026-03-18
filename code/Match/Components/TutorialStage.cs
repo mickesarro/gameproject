@@ -1,5 +1,6 @@
 using Sandbox;
 using System.Collections.Generic;
+using Shooter.Sounds;
 
 namespace Shooter;
 
@@ -181,6 +182,8 @@ public sealed class TutorialStage : Component
         {
             Log.Info($"[{StageName}] Objective reached! Final instruction unlocked.");
             ObjectiveCompleted = true;
+
+            SoundManager.PlayLocal(SoundManager.SoundType.Completed, 0.4f);
             
             CurrentInstructionIndex = Instructions.Count - 1;
             ShowCurrentInstruction();
