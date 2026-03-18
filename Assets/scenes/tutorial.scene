@@ -543,15 +543,15 @@
               "Flags": 0,
               "Instructions": [
                 {
-                  "Text": "• The core movement mechanic is Bhopping\n• It allows you to gain speed on the ground\n• You can hold SPACE to auto Bhop\n Page [1/3]\n",
+                  "Text": "• One of our core movement mechanics is Bhopping\n• It allows you to gain speed by jumping repeatedly\n• You can hold SPACE to auto Bhop\n Page [1/3]\n",
                   "MediaPath": null
                 },
                 {
-                  "Text": "• Bhopping works by strafing\n• Strafing works by moving your mouse to the same direction you're moving\n• After you're in the air, only press left or right (No W key)\n  Page [2/3]",
+                  "Text": "• Bhopping works by strafing\n• To strafe you need to slide your mouse in the same direction as your movement key\n• After you're in the air with some speed, only press left or right (No W key)\n  Page [2/3]",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
                 },
                 {
-                  "Text": "• By strafing you gain speed\n• You can also gain speed by strafing smoothly to the same direction\n• The better you sync these movements, the more speed you gain\n Page [3/3]",
+                  "Text": "• By strafing you gain speed\n• You can also gain speed by strafing smoothly in the same direction\n• The better you sync these movements, the more speed you gain\n Page [3/3]",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop2.webm"
                 },
                 {
@@ -8608,7 +8608,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "3725ccb4-2875-4692-90f8-62a0851a4c7b"
+          "$blob": "27a70829-7e8f-4d53-b1a9-d783e976da45"
         }
       }
     }
