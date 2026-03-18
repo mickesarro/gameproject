@@ -44,6 +44,52 @@ Tutorial {
             text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
         }
 
+        @keyframes popIcon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+
+        .objective-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            .icon {
+                font-size: 20px;
+                color: #ff2a1b;
+                font-weight: bold;
+                text-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+            }
+
+            .text {
+                color: rgba(255, 255, 255, 0.95);
+                font-size: 18px;
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+
+            &.completed {
+                border-color: rgba(77, 255, 77, 0.3);
+                background-color: rgba(77, 255, 77, 0.05);
+                
+                .icon {
+                    color: #4dff4d; // Green Checkmark
+                    text-shadow: 0 0 8px rgba(77, 255, 77, 0.4);
+                    animation: popIcon 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                }
+                
+                .text {
+                    color: rgba(255, 255, 255, 0.6);
+                    text-decoration: line-through; 
+                }
+            }
+        }
+
         .media-container {
             width: 100%;
             border-radius: 8px;
@@ -69,19 +115,39 @@ Tutorial {
         .controls {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 15px;
             
             .control-text {
+                display: flex;
+                align-items: center;
+                gap: 8px;
                 color: rgba(255, 255, 255, 0.5);
                 font-size: 16px;
                 font-weight: 600;
                 text-transform: uppercase;
-                transition: color 0.2s;
+                transition: opacity 0.2s;
                 
                 &.hidden {
                     opacity: 0;
+                }
+
+                .key-box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 28px;
+                    height: 28px;
+                    padding: 0 8px;
+                    background-color: rgba(255, 255, 255, 0.15);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 4px;
+                    color: white;
+                    font-weight: 800;
+                    font-size: 14px;
+                    box-shadow: 0 3px 0 rgba(255, 255, 255, 0.2); 
                 }
             }
         }

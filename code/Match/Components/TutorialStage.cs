@@ -31,6 +31,9 @@ public sealed class TutorialStage : Component
     public GameObject SpawnPoint { get; set; }
 
     [Property, Group("Objective")]
+    public string ObjectiveText { get; set; } = "Complete the objective";
+
+    [Property, Group("Objective")]
     public TutorialObjectiveType ObjectiveType { get; set; } = TutorialObjectiveType.ReachSpeed;
 
     [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachTargetArea)] 

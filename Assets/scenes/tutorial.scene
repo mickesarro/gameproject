@@ -8346,6 +8346,7 @@
                   "MediaPath": "Media\\Videos\\cama4.mp4"
                 }
               ],
+              "ObjectiveText": "Reach 500 speed (u/s)",
               "ObjectiveType": "ReachSpeed",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -8357,12 +8358,12 @@
                 "_type": "gameobject",
                 "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
               },
-              "StageName": "Level 1",
+              "StageName": "Level 1: BHopping",
               "TargetArea": {
                 "_type": "gameobject",
                 "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
               },
-              "TargetSpeed": 400
+              "TargetSpeed": 500
             }
           ],
           "Children": []
@@ -8402,6 +8403,7 @@
                   "MediaPath": null
                 }
               ],
+              "ObjectiveText": "Reach the Area",
               "ObjectiveType": "ReachTargetArea",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -8502,7 +8504,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "cc161aa1-581a-4ea2-8844-129e00e23c82"
+          "$blob": "a34e6e34-06ff-4e24-a743-b5440c7fd5cf"
         }
       }
     }

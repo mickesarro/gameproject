@@ -12,6 +12,14 @@
         <div class="instruction-panel" @key="ActiveStage.CurrentInstructionIndex">
             
             <h1 class="stage-title">@ActiveStage.StageName</h1>
+
+            @if (!string.IsNullOrWhiteSpace(ActiveStage.ObjectiveText))
+            {
+                <div class="objective-container @(ActiveStage.ObjectiveCompleted ? "completed" : "")">
+                    <div class="icon">@(ActiveStage.ObjectiveCompleted ? "✔" : "❌")</div>
+                    <div class="text">@ActiveStage.ObjectiveText</div>
+                </div>
+            }
             
             @if (!string.IsNullOrWhiteSpace(instruction.MediaPath))
             {
@@ -24,10 +32,10 @@
             
             <div class="controls">
                 <div class="control-text @(ActiveStage.CurrentInstructionIndex > 0 ? "" : "hidden")">
-                    ◀ [BACK] Previous
+                    ◀ <div class="key-box">@(Input.GetButtonOrigin("back")?.ToUpper())</div> Previous
                 </div>
                 <div class="control-text @(CanGoNext() ? "" : "hidden")">
-                    [USE] Next ▶
+                    <div class="key-box">@(Input.GetButtonOrigin("use")?.ToUpper())</div> Next ▶
                 </div>
             </div>
             
