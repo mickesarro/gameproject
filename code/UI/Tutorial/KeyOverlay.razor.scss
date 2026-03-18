@@ -2,7 +2,7 @@
 
 .key-overlay {
     position: absolute;
-    top: 70%; 
+    top: 75%; 
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -20,8 +20,8 @@
     }
 
     .key {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
         background-color: rgba(20, 20, 20, 0.9);
         border: 2px solid rgba(255, 255, 255, 0.2);
         border-radius: 8px;
@@ -37,8 +37,8 @@
         transition: all 0.05s ease-out;
 
         &.space {
-            width: 192px;
-            height: 40px;
+            width: 400px;
+            height: 120px;
             font-size: 16px;
             letter-spacing: 2px;
         }
