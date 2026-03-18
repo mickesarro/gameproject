@@ -28,6 +28,12 @@ public sealed class TutorialGameMode : GameMode
     {
         base.OnStart();
         Log.Info("Tutorial stages count: " + Stages?.Count);
+
+        // Force speed display for tutorial (you can still turn it off)
+        if (SettingsManager.Instance != null)
+        {
+            SettingsManager.Instance.SetSpeedDisplay(SpeedDisplayPosition.UnderCrosshair);
+        }
     }
 
     protected override void OnUpdate()
