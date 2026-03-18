@@ -1,0 +1,39 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Shooter
+
+@if (Shooter.TutorialGameMode.InputOverlay)
+{
+    <div class="key-overlay">
+        <div class="row">
+            <div class="key @(IsDown("forward") ? "pressed" : "")">W</div>
+        </div>
+        <div class="row">
+            <div class="key @(IsDown("left") ? "pressed" : "")">A</div>
+            <div class="key @(IsDown("backward") ? "pressed" : "")">S</div>
+            <div class="key @(IsDown("right") ? "pressed" : "")">D</div>
+        </div>
+        <div class="row">
+            <div class="key space @(IsDown("jump") ? "pressed" : "")">SPACE</div>
+        </div>
+    </div>
+}
+
+@code {
+    protected override int BuildHash() => System.HashCode.Combine(
+        Shooter.TutorialGameMode.InputOverlay, 
+        IsDown("forward"), 
+        IsDown("backward"), 
+        IsDown("left"), 
+        IsDown("right"), 
+        IsDown("jump")
+    );
+
+    private bool IsDown(string action)
+    {
+        // Don't bother checking inputs if the overlay is hidden
+        if (!Shooter.TutorialGameMode.InputOverlay) return false; 
+        
+        return Input.Down(action);
+    }
+}

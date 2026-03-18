@@ -1,0 +1,55 @@
+@import "/UI/Styles/Theme.scss";
+
+.key-overlay {
+    position: absolute;
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 100;
+    
+    pointer-events: none; 
+
+    .row {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+    }
+
+    .key {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(20, 20, 20, 0.9);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 24px;
+        font-weight: 800;
+        font-family: $main-font;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.6);
+        transition: all 0.05s ease-out;
+
+        &.space {
+            width: 192px;
+            height: 40px;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        &.pressed {
+            background-color: white;
+            color: black;
+            border-color: white;
+            
+            transform: translateY(6px); 
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
+        }
+    }
+}

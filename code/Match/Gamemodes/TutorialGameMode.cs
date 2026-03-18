@@ -24,6 +24,12 @@ public sealed class TutorialGameMode : GameMode
     public TutorialStage CurrentStage => (Stages != null && CurrentStageIndex < Stages.Count) ? Stages[CurrentStageIndex] : null;
     private bool isCurrentStageStarted = false;
 
+    // Editor utility for showing the player input with console command "InputOverlay true/false"
+    #if DEBUG
+        [ConVar( Help = "Toggle the WASD recording overlay" )]
+        public static bool InputOverlay { get; set; } = false;
+    #endif
+
     protected override void OnStart()
     {
         base.OnStart();
