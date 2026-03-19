@@ -1,79 +1,75 @@
 @using Sandbox;
 @using Sandbox.UI;
+@inherits Panel
+
 @namespace Shooter.UI
 
-@if (DisplayPosition != SpeedDisplayPosition.Off)
-{
-    <div class="speed-counter @GetSpeedClass() @GetColorClass()">
-        @($"{currentSpeed} u/s")
-    </div>
-}
+@if (DisplayPosition == SpeedDisplayPosition.Off) return;
+
+<root class="speed-counter @GetSpeedClass() @GetColorClass()">
+	<div>@($"{currentSpeed} u/s")</div>
+</root>
 
 @code {
-    private SpeedDisplayPosition DisplayPosition = SpeedDisplayPosition.Off;
-    private int currentSpeed = 0;
-    private int lastSpeed = -1;
+	private SpeedDisplayPosition DisplayPosition = SpeedDisplayPosition.Off;
+	private int currentSpeed = 0;
 
-    protected override int BuildHash() => System.HashCode.Combine(DisplayPosition, currentSpeed);
+	protected override int BuildHash()
+	{
+		if (DisplayPosition == SpeedDisplayPosition.Off) return 0;
 
-    protected override void OnAfterTreeRender(bool firstTime)
-    {
-        if (firstTime && SettingsManager.Instance != null)
-        {
-            DisplayPosition = SettingsManager.Instance.PlayerPreferences.SpeedDisplay;
-            SettingsManager.Instance.OnSpeedDisplayChanged += UpdateSpeedDisplay;
-        }
-    }
+		UpdateSpeed();
+		return currentSpeed;
+	}
 
-    public override void OnDeleted()
-    {
-        base.OnDeleted();
-        if (SettingsManager.Instance != null)
-        {
-            SettingsManager.Instance.OnSpeedDisplayChanged -= UpdateSpeedDisplay;
-        }
-    }
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		if (firstTime && SettingsManager.Instance != null)
+		{
+			DisplayPosition = SettingsManager.Instance.PlayerPreferences.SpeedDisplay;
+			SettingsManager.Instance.OnSpeedDisplayChanged += UpdateSpeedDisplay;
+			StateHasChanged();
+		}
+	}
 
-    private void UpdateSpeedDisplay(SpeedDisplayPosition pos)
-    {
-        DisplayPosition = pos;
-        StateHasChanged();
-    }
+	public override void OnDeleted()
+	{
+		base.OnDeleted();
 
-    private string GetSpeedClass()
-    {
-        return DisplayPosition switch
-        {
-            SpeedDisplayPosition.UnderCrosshair => "speed-under-crosshair",
-            SpeedDisplayPosition.TopLeft => "speed-top-left",
-            SpeedDisplayPosition.TopRight => "speed-top-right",
-            SpeedDisplayPosition.BottomLeft => "speed-bottom-left",
-            SpeedDisplayPosition.BottomRight => "speed-bottom-right",
-            _ => ""
-        };
-    }
+		SettingsManager.Instance?.OnSpeedDisplayChanged -= UpdateSpeedDisplay;
 
-    // Change the color of the text based on how fast the player is moving
-    private string GetColorClass()
-    {
-        if (currentSpeed > 1000) return "speed-yellow";
-        if (currentSpeed > 500) return "speed-green";
-        return "";
-    }
+	}
 
-    public override void Tick()
-    {
-        base.Tick();
+	private void UpdateSpeedDisplay(SpeedDisplayPosition pos)
+	{
+		DisplayPosition = pos;
+	}
 
-        if (DisplayPosition != SpeedDisplayPosition.Off && Shooter.PlayerController.Local != null)
-        {
-            currentSpeed = Shooter.PlayerController.Local.Velocity.WithZ(0).Length.CeilToInt();
+	private string GetSpeedClass() => DisplayPosition switch
+	{
+		SpeedDisplayPosition.UnderCrosshair => "speed-under-crosshair",
+		SpeedDisplayPosition.TopLeft => "speed-top-left",
+		SpeedDisplayPosition.TopRight => "speed-top-right",
+		SpeedDisplayPosition.BottomLeft => "speed-bottom-left",
+		SpeedDisplayPosition.BottomRight => "speed-bottom-right",
+		_ => ""
+	};
 
-            if (currentSpeed != lastSpeed)
-            {
-                lastSpeed = currentSpeed;
-                StateHasChanged();
-            }
-        }
-    }
+	// Change the color of the text based on how fast the player is moving
+	private string GetColorClass()
+	{
+		if (currentSpeed > 1000) return "speed-yellow";
+		if (currentSpeed > 500) return "speed-green";
+		return "";
+	}
+
+	private void UpdateSpeed()
+	{
+		// Only runs when it is needed i.e. Display is not off
+
+		if (Shooter.PlayerController.Local != null)
+		{
+			currentSpeed = Shooter.PlayerController.Local.Velocity.WithZ(0).Length.CeilToInt();
+		}
+	}
 }

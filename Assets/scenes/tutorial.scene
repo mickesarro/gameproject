@@ -28,7 +28,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "populate": true
+          "populate": false
         },
         {
           "__type": "Shooter.MatchStatsManager",
@@ -71,6 +71,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "RemoveUnownedItems": true,
           "Source": "Manual",
           "WorkshopItems": []
         }
@@ -8608,7 +8609,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "27a70829-7e8f-4d53-b1a9-d783e976da45"
+          "$blob": "e2eaa3db-bc13-4c09-9db9-82a2192ea4a0"
         }
       }
     }
