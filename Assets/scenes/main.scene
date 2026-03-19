@@ -47,7 +47,6 @@
           "__guid": "aed51838-1822-4aa2-a79b-1eefc2af4c5b",
           "__enabled": true,
           "Flags": 0,
-          "dresser": null,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -72,6 +71,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "RemoveUnownedItems": true,
           "Source": "Manual",
           "WorkshopItems": []
         }
@@ -14404,12 +14404,13 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "CustomBounds": false
     },
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "91ff031c-1981-4d43-a87f-572a4b390ebe"
+          "$blob": "2d11185e-8f71-4e10-afdf-1072be7f23a8"
         }
       }
     }

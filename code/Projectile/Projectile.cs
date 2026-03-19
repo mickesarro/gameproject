@@ -24,8 +24,6 @@ public sealed class Projectile : Component
 		return projectile;
 	}
 
-	private Collider collider; // Can be used with different types of colliders
-
 	protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -36,6 +34,7 @@ public sealed class Projectile : Component
 		else
 		{
 			Log.Warning( "No collider found" );
+            DestroyGameObject();
 		}
 	}
 
@@ -49,8 +48,6 @@ public sealed class Projectile : Component
 	{
 
         if ( IsProxy ) return;
-
-        if ( objectHit.Tags.Has( "pickup" ) ) return;
 
         if ( objectHit.Root == Attacker )
 		{
