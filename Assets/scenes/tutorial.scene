@@ -181,7 +181,7 @@
           "UseMapFromLaunch": false
         },
         {
-          "__type": "Shooter.NetworkHelper",
+          "__type": "Shooter.Tutorial.TutorialNetworkHelper",
           "__guid": "442622cd-5cdd-4f4f-98bf-7eab2f25f6b9",
           "__enabled": true,
           "Flags": 0,
@@ -812,7 +812,7 @@
           "ZIndex": 100
         },
         {
-          "__type": "Sandbox.UI.Tutorial.Tutorial",
+          "__type": "Shooter.UI.Tutorial",
           "__guid": "235044ce-af7d-4278-9359-98597163a487",
           "__enabled": true,
           "Flags": 0,
@@ -8609,7 +8609,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "e2eaa3db-bc13-4c09-9db9-82a2192ea4a0"
+          "$blob": "c8981c5d-6c60-4b4b-9849-a6f2b5734e90"
         }
       }
     }

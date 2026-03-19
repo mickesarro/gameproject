@@ -9,7 +9,7 @@ namespace Shooter;
 [Title( "Custom Network Helper" )]
 [Category( "Networking" )]
 [Icon( "electrical_services" )]
-public sealed class NetworkHelper : Component, Component.INetworkListener
+public class NetworkHelper : Component, Component.INetworkListener
 {
     /// <summary>
     /// Create a server (if we're not joining one)
