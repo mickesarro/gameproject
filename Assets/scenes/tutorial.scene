@@ -661,9 +661,9 @@
               "StageName": "Level 2",
               "TargetArea": {
                 "_type": "component",
-                "component_id": "3601ccf7-6fcf-435f-b8c6-506f94d25196",
+                "component_id": "ae8d7289-7d05-4b14-b067-28aff8648b39",
                 "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95",
-                "component_type": "BoxCollider"
+                "component_type": "SphereCollider"
               },
               "TargetSpeed": 400
             }
@@ -674,9 +674,9 @@
               "__version": 2,
               "Flags": 0,
               "Name": "Collider",
-              "Position": "-355.2397,-8193.242,114.6738",
+              "Position": "1108.147,-8043.415,641.696",
               "Rotation": "0,0,0,1",
-              "Scale": "5,5,0.5700004",
+              "Scale": "3.979983,5.710018,2.039999",
               "Tags": "player_trigger",
               "Enabled": true,
               "NetworkMode": 2,
@@ -688,7 +688,7 @@
                 {
                   "__type": "Sandbox.BoxCollider",
                   "__guid": "3601ccf7-6fcf-435f-b8c6-506f94d25196",
-                  "__enabled": true,
+                  "__enabled": false,
                   "Flags": 0,
                   "Center": "0,0,0",
                   "ColliderFlags": 0,
@@ -721,8 +721,12 @@
                   "LodOverride": null,
                   "MaterialGroup": null,
                   "MaterialOverride": null,
-                  "Materials": null,
-                  "Model": null,
+                  "Materials": {
+                    "indexed": {
+                      "0": "materials/rare-gun-cylinder.vmat"
+                    }
+                  },
+                  "Model": "models/cylinder.vmdl",
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
@@ -735,19 +739,126 @@
                     "BloomLayer": false,
                     "AfterUILayer": false
                   },
-                  "RenderType": "On",
+                  "RenderType": "Off",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.SphereCollider",
+                  "__guid": "ae8d7289-7d05-4b14-b067-28aff8648b39",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Center": "0,0,-3.139969",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "Radius": 34.079945,
+                  "RollingResistance": null,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
                 }
               ],
-              "Children": []
+              "Children": [
+                {
+                  "__guid": "778f74c5-3784-475f-ab93-1fbffb3f2fc1",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Arrow",
+                  "Position": "-1.070482,-0.007867203,102.4808",
+                  "Rotation": "1,0,-0,-0.00000004371139",
+                  "Scale": "1.708551,1.19089,0.6764733",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.SpriteRenderer",
+                      "__guid": "e6b65675-0ab9-49c6-bd87-08c301940eb9",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "__version": 2,
+                      "Additive": false,
+                      "AlphaCutoff": 0,
+                      "Billboard": "YOnly",
+                      "Color": "1,1,0,1",
+                      "DepthFeather": 0,
+                      "FlipHorizontal": false,
+                      "FlipVertical": false,
+                      "FogStrength": 1,
+                      "IsSorted": false,
+                      "Lighting": false,
+                      "OnAnimationEnd": null,
+                      "OnAnimationStart": null,
+                      "OnBroadcastMessage": null,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "Opaque": false,
+                      "OverlayColor": "1,1,1,0",
+                      "PlaybackSpeed": 1,
+                      "RenderOptions": {
+                        "GameLayer": true,
+                        "OverlayLayer": false,
+                        "BloomLayer": false,
+                        "AfterUILayer": false
+                      },
+                      "Shadows": false,
+                      "Size": "20.09004,84.32949",
+                      "Sprite": {
+                        "$compiler": "embed",
+                        "$source": null,
+                        "data": {
+                          "Animations": [
+                            {
+                              "Name": "Default",
+                              "FrameRate": 15,
+                              "Origin": "0.5,0.5",
+                              "LoopMode": "Loop",
+                              "Frames": [
+                                {
+                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "BroadcastMessages": []
+                                }
+                              ]
+                            }
+                          ],
+                          "__references": null
+                        },
+                        "compiled": null
+                      },
+                      "StartingAnimationName": "Default",
+                      "TextureFilter": "Bilinear"
+                    }
+                  ],
+                  "Children": []
+                }
+              ]
             },
             {
               "__guid": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
               "__version": 2,
               "Flags": 0,
               "Name": "SpawnPoint (1)",
-              "Position": "-282.1138,-9466.589,130.3734",
-              "Rotation": "0,0,0.7071068,0.7071068",
+              "Position": "-1577.327,-9214.979,771.2034",
+              "Rotation": "0,0,0.3826835,0.9238795",
               "Scale": "1,1,1",
               "Tags": "spawnpoint",
               "Enabled": true,
@@ -8579,6 +8690,180 @@
           "Children": []
         }
       ]
+    },
+    {
+      "__guid": "36176eb7-2370-4028-a20c-24d8443e5f8a",
+      "__version": 2,
+      "__Prefab": "gunpickup.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "4e54a2e9-3a86-4a65-b5f4-41e0cee3d278"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "4e54a2e9-3a86-4a65-b5f4-41e0cee3d278",
+              "__version": 2,
+              "__Prefab": "floaties/rpgfloaty.prefab",
+              "__PrefabInstancePatch": {
+                "AddedObjects": [],
+                "RemovedObjects": [],
+                "PropertyOverrides": [
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Name",
+                    "Value": "Object"
+                  },
+                  {
+                    "Target": {
+                      "Type": "GameObject",
+                      "IdValue": "1fba6ab8-6c4a-4acc-be97-9d5f50390365"
+                    },
+                    "Property": "Position",
+                    "Value": "0,0,7.25"
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "8e470fcd-d067-4df7-a46e-750e2630a823"
+                    },
+                    "Property": "Color",
+                    "Value": "1,0,0,1"
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "8e470fcd-d067-4df7-a46e-750e2630a823"
+                    },
+                    "Property": "DepthFeather",
+                    "Value": 100
+                  },
+                  {
+                    "Target": {
+                      "Type": "Component",
+                      "IdValue": "3b8a8aef-5616-4aec-8a72-ed62c63abd12"
+                    },
+                    "Property": "LightColor",
+                    "Value": "1,0,0,1"
+                  }
+                ],
+                "MovedObjects": []
+              },
+              "__PrefabIdToInstanceId": {
+                "1fba6ab8-6c4a-4acc-be97-9d5f50390365": "4e54a2e9-3a86-4a65-b5f4-41e0cee3d278",
+                "d74068d3-ab03-4d25-8666-4d3567097e1f": "2a1b0088-1671-4e15-9ce8-d49000cc19ed",
+                "8e470fcd-d067-4df7-a46e-750e2630a823": "245c998f-fe96-49ae-9418-aa4e847f250e",
+                "3b8a8aef-5616-4aec-8a72-ed62c63abd12": "7ff5db44-2a4e-4f00-b7cc-bbf13d0ecf17"
+              }
+            }
+          }
+        ],
+        "RemovedObjects": [
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "1d8d7a8e-578e-4be0-9498-61c04d2f47d0"
+            }
+          },
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "8b1ca92f-1eae-4e67-a356-fcf79843d5de"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "5dd09498-807f-4dc9-8671-53e08250fac2"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "2313ffc2-2263-4d68-bf8a-6b858149b839"
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "ab4ea4df-acbb-4f31-9562-2dba12a28320"
+            }
+          }
+        ],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Name",
+            "Value": "RPG pickup (1)"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Position",
+            "Value": "-1443.802,-9133.136,781.1526"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Scale",
+            "Value": "1.5,1.5,1.5"
+          },
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
+            },
+            "Property": "Tags",
+            "Value": ""
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
+            },
+            "Property": "RenderType",
+            "Value": "Off"
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "HideForTime",
+            "Value": null
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8": "36176eb7-2370-4028-a20c-24d8443e5f8a",
+        "118343a8-2b32-4b3d-bb65-ed6230a2dfed": "7b79f724-7b96-40e4-9774-3769e088738e",
+        "db491a2f-51f3-447a-a0da-b6a931c07baa": "ee0d5594-f037-4e07-9119-36dcfb185c4f",
+        "fa042a0c-10da-4ba6-83b3-fe0abad44a0e": "b1d598dd-5ac6-46c2-b94b-5b7aba33cfff",
+        "8b1ca92f-1eae-4e67-a356-fcf79843d5de": "2a11e235-256c-4298-b252-b0bc48441e81",
+        "5dd09498-807f-4dc9-8671-53e08250fac2": "72eeb6b0-6211-41c7-bea0-f8d906f69e7c",
+        "1d8d7a8e-578e-4be0-9498-61c04d2f47d0": "61f95bda-fc62-48da-be8a-6c66ed008231",
+        "2313ffc2-2263-4d68-bf8a-6b858149b839": "e313e963-ba06-4a98-b419-f1c88f4b39ba",
+        "ab4ea4df-acbb-4f31-9562-2dba12a28320": "0a4d4cab-e6dc-4b4c-b6e8-a3f12fb76309"
+      }
     }
   ],
   "SceneProperties": {
@@ -8608,7 +8893,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "00d566f7-c9c4-4cb5-9baf-f6aa69440877"
+          "$blob": "5d85218d-d934-424b-babb-bd7a5fa68915"
         }
       }
     }

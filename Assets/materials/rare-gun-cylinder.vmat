@@ -5,8 +5,12 @@ Layer0
 	shader "shaders/complex.shader"
 
 	//---- PBR ----
+	F_DIFFUSE_WRAP 1
 	F_METALNESS_TEXTURE 1
 	F_SPECULAR 1
+
+	//---- Rendering ----
+	F_RENDER_BACKFACES 1
 
 	//---- Translucent ----
 	F_TRANSLUCENT 1
@@ -17,7 +21,7 @@ Layer0
 	TextureAmbientOcclusion "materials/railgun/blue-shiny-metal/blue-worn-shiny-metal_ao.png"
 
 	//---- Color ----
-	g_flModelTintAmount "1.000"
+	g_flModelTintAmount "0.624"
 	g_vColorTint "[1.000000 1.000000 0.000000 1.000000]"
 	TextureColor "[1.000000 1.000000 1.000000 0.000000]"
 
@@ -38,11 +42,16 @@ Layer0
 	TextureRoughness "materials/railgun/blue-shiny-metal/blue-worn-shiny-metal_rough.png"
 
 	//---- Texture Coordinates ----
-	g_vTexCoordOffset "[-1.000 0.005]"
-	g_vTexCoordScale "[0.000 1.000]"
+	g_vTexCoordOffset "[-1.000 0.023]"
+	g_vTexCoordScale "[0.000 1.826]"
 	g_vTexCoordScrollSpeed "[0.000 0.000]"
 
 	//---- Translucent ----
-	g_flOpacityScale "1.000"
+	g_flOpacityScale "0.644"
 	TextureTranslucency "materials/railgun/blue-shiny-metal/translucent-map.jpg"
+
+	//---- Transmission ----
+	g_flDiffuseExponent "1.000"
+	g_flDiffuseWrap "1.000"
+	g_vDiffuseWrapColor "[1.000000 0.501961 0.301961 0.000000]"
 }
