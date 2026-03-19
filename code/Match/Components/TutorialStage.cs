@@ -1,5 +1,3 @@
-using Sandbox;
-using System.Collections.Generic;
 using Shooter.Sounds;
 
 namespace Shooter;
@@ -24,25 +22,25 @@ public struct TutorialInstruction
 public sealed class TutorialStage : Component
 {
     [Property, Group("Configuration")] 
-    public string StageName { get; set; } = "New Stage";
+    public string StageName { get; private set; } = "New Stage";
 
     [Property, Group("Configuration")]
     public List<TutorialInstruction> Instructions { get; set; } = new();
 
     [Property, Group("Level Setup")] 
-    public GameObject SpawnPoint { get; set; }
+    public GameObject SpawnPoint { get; private set; }
 
     [Property, Group("Objective")]
-    public string ObjectiveText { get; set; } = "Complete the objective";
+    public string ObjectiveText { get; private set; } = "Complete the objective";
 
     [Property, Group("Objective")]
-    public TutorialObjectiveType ObjectiveType { get; set; } = TutorialObjectiveType.ReachSpeed;
+    public TutorialObjectiveType ObjectiveType { get; private set; } = TutorialObjectiveType.ReachSpeed;
 
     [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachTargetArea)] 
-    public GameObject TargetArea { get; set; }
+    public Collider TargetArea { get; private set; }
 
     [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachSpeed)]
-    public float TargetSpeed { get; set; } = 400f;
+    public float TargetSpeed { get; private set; } = 400f;
 
     public int CurrentInstructionIndex { get; private set; } = 0;
     public bool IsStageActive { get; private set; } = false;
@@ -60,10 +58,7 @@ public sealed class TutorialStage : Component
             var lookAngle = new Vector2(SpawnPoint.WorldRotation.Pitch(), SpawnPoint.WorldRotation.Yaw());
             player.LookAngle = lookAngle;
             
-            if (player != null)
-            {
-                player.Velocity = Vector3.Zero;
-            }
+            player?.Velocity = Vector3.Zero;
         }
 
         Log.Info($"Starting Tutorial Stage: {StageName}");
@@ -74,11 +69,14 @@ public sealed class TutorialStage : Component
         CurrentInstructionIndex = 0;
         
         ShowCurrentInstruction();
+
+        TargetArea?.OnObjectTriggerEnter += IsPlayerOnArea;
     }
 
     public void EndStage()
     {
         IsStageActive = false;
+        TargetArea?.OnObjectTriggerEnter -= IsPlayerOnArea;
     }
 
     protected override void OnUpdate()
@@ -139,6 +137,7 @@ public sealed class TutorialStage : Component
         }
     }
 
+    private bool isObjectiveMet = false;
     public bool CheckCompletion(PlayerController playerController)
     {
         if (!IsStageActive || playerController == null) return false;
@@ -146,8 +145,6 @@ public sealed class TutorialStage : Component
         if (IsFullyComplete) return true;
 
         if (ObjectiveCompleted) return false;
-
-        bool isObjectiveMet = false;
 
         switch (ObjectiveType)
         {
@@ -160,29 +157,14 @@ public sealed class TutorialStage : Component
 
             case TutorialObjectiveType.ReachSpeed:
                 float CurrentSpeed = playerController.Velocity.WithZ(0).Length;
-                if (CurrentSpeed >= TargetSpeed)
+                if ( CurrentSpeed > TargetSpeed )
                 {
                     isObjectiveMet = true;
                 }
                 break;
 
             case TutorialObjectiveType.ReachTargetArea:
-                if (TargetArea != null)
-                {
-                    var boxCollider = TargetArea.Components.Get<BoxCollider>();
-                    if (boxCollider != null)
-                    {
-                        var playerPos = playerController.GameObject.WorldPosition;
-                        var localPos = TargetArea.WorldTransform.PointToLocal(playerPos);
-                        var halfSize = boxCollider.Scale * 0.5f;
-                        var localBounds = new BBox(boxCollider.Center - halfSize, boxCollider.Center + halfSize);
-
-                        if (localBounds.Contains(localPos))
-                        {
-                            isObjectiveMet = true;
-                        }
-                    }
-                }
+                // IsPlayerOnArea handles this condition now
                 break;
         }
 
@@ -198,5 +180,10 @@ public sealed class TutorialStage : Component
         }
 
         return false; 
+    }
+
+    private void IsPlayerOnArea( GameObject target )
+    {
+        isObjectiveMet = target.Root.Tags.Has( "player" );
     }
 }

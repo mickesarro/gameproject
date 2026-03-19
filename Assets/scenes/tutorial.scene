@@ -573,10 +573,7 @@
                 "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
               },
               "StageName": "Level 1: BHopping",
-              "TargetArea": {
-                "_type": "gameobject",
-                "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
-              },
+              "TargetArea": null,
               "TargetSpeed": 500
             }
           ],
@@ -663,8 +660,10 @@
               },
               "StageName": "Level 2",
               "TargetArea": {
-                "_type": "gameobject",
-                "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95"
+                "_type": "component",
+                "component_id": "3601ccf7-6fcf-435f-b8c6-506f94d25196",
+                "go": "d97e6c80-d76d-436f-9ab4-d5156844bd95",
+                "component_type": "BoxCollider"
               },
               "TargetSpeed": 400
             }
@@ -678,7 +677,7 @@
               "Position": "-355.2397,-8193.242,114.6738",
               "Rotation": "0,0,0,1",
               "Scale": "5,5,0.5700004",
-              "Tags": "",
+              "Tags": "player_trigger",
               "Enabled": true,
               "NetworkMode": 2,
               "NetworkFlags": 0,
@@ -708,7 +707,7 @@
                   "OnTriggerExit": null,
                   "RollingResistance": null,
                   "Scale": "50,50,169.54",
-                  "Static": false,
+                  "Static": true,
                   "Surface": null,
                   "SurfaceVelocity": "0,0,0"
                 },
@@ -8609,7 +8608,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "c8981c5d-6c60-4b4b-9849-a6f2b5734e90"
+          "$blob": "00d566f7-c9c4-4cb5-9baf-f6aa69440877"
         }
       }
     }
