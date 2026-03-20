@@ -442,8 +442,8 @@
           "Stages": [
             {
               "_type": "component",
-              "component_id": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
-              "go": "8a377c33-e0b9-46df-8a44-3f3de8ae722d",
+              "component_id": "ea15c180-1924-49b4-9928-214ed0f52c42",
+              "go": "0ddac309-0ed2-4ccf-920d-a59bff5b089b",
               "component_type": "TutorialStage"
             },
             {
@@ -484,6 +484,7 @@
               "__guid": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
               "__enabled": true,
               "Flags": 0,
+              "Checkpoints": [],
               "Instructions": [
                 {
                   "Text": "• Welcome to the tutorial!\n• You can navigate these instructions with Previous and Next\n Page [1/2]",
@@ -511,8 +512,10 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "SpawnPoint": {
-                "_type": "gameobject",
-                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
+                "_type": "component",
+                "component_id": "d83c5c22-a447-4703-ac62-a09c39372682",
+                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14",
+                "component_type": "SpawnPoint"
               },
               "StageName": "Tutorial",
               "TargetArea": null,
@@ -542,6 +545,7 @@
               "__guid": "03fba41a-21b0-4fde-b05f-9a7886b743b7",
               "__enabled": true,
               "Flags": 0,
+              "Checkpoints": [],
               "Instructions": [
                 {
                   "Text": "• One of our core movement mechanics is Bhopping\n• It allows you to gain speed by jumping repeatedly\n• You can hold SPACE to auto Bhop\n Page [1/3]\n",
@@ -569,8 +573,10 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "SpawnPoint": {
-                "_type": "gameobject",
-                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14"
+                "_type": "component",
+                "component_id": "d83c5c22-a447-4703-ac62-a09c39372682",
+                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14",
+                "component_type": "SpawnPoint"
               },
               "StageName": "Level 1: BHopping",
               "TargetArea": null,
@@ -632,6 +638,20 @@
               "__guid": "ea15c180-1924-49b4-9928-214ed0f52c42",
               "__enabled": true,
               "Flags": 0,
+              "Checkpoints": [
+                {
+                  "_type": "component",
+                  "component_id": "55a14034-a205-486d-bb6e-e5b80082759d",
+                  "go": "0e070ffe-3b25-48a3-91fc-f59aba4b1d2b",
+                  "component_type": "SpawnPoint"
+                },
+                {
+                  "_type": "component",
+                  "component_id": "70416294-25de-4a45-8acb-544651e64eff",
+                  "go": "21dd6399-5514-4ea2-a84c-d86755f26d79",
+                  "component_type": "SpawnPoint"
+                }
+              ],
               "Instructions": [
                 {
                   "Text": "• Reach the target area",
@@ -655,8 +675,10 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "SpawnPoint": {
-                "_type": "gameobject",
-                "go": "be7b6d7b-26b9-4fb2-9803-c061be23b01c"
+                "_type": "component",
+                "component_id": "9f6f4af7-ad6a-4cf2-98b7-cf15a1ea43a7",
+                "go": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
+                "component_type": "SpawnPoint"
               },
               "StageName": "Level 2",
               "TargetArea": {
@@ -670,6 +692,427 @@
           ],
           "Children": [
             {
+              "__guid": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "SpawnPoint (1)",
+              "Position": "-1577.327,-9214.979,771.2034",
+              "Rotation": "0,0,0.3826835,0.9238795",
+              "Scale": "1,1,1",
+              "Tags": "spawnpoint",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Shooter.SpawnPoint",
+                  "__guid": "9f6f4af7-ad6a-4cf2-98b7-cf15a1ea43a7",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null
+                }
+              ],
+              "Children": []
+            },
+            {
+              "__guid": "0e070ffe-3b25-48a3-91fc-f59aba4b1d2b",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Checkpoint",
+              "Position": "-611.1007,-9054.102,768.3896",
+              "Rotation": "0,0,0,1",
+              "Scale": "3.979983,5.710018,2.039999",
+              "Tags": "checkpoint,player_trigger",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.BoxCollider",
+                  "__guid": "ccdc6e51-bab4-4f37-b76d-d1624c5083ff",
+                  "__enabled": false,
+                  "Flags": 0,
+                  "Center": "0,0,0",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RollingResistance": null,
+                  "Scale": "50,50,169.54",
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "658fb864-7f4d-4496-ae7a-64cf4a0e9b9f",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "LodOverride": null,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Materials": {
+                    "indexed": {
+                      "0": "materials/jump-pad-cylinder.vmat"
+                    }
+                  },
+                  "Model": "models/cylinder.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "Off",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.SphereCollider",
+                  "__guid": "808b9fae-9ad8-432b-9893-4927926d2fea",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Center": "0,0,-3.139969",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "Radius": 34.079945,
+                  "RollingResistance": null,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Shooter.SpawnPoint",
+                  "__guid": "55a14034-a205-486d-bb6e-e5b80082759d",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null
+                }
+              ],
+              "Children": [
+                {
+                  "__guid": "3c15b340-9c1a-4bc2-8046-aa61ed34ed8c",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Arrow",
+                  "Position": "-1.070482,-0.007867203,102.4808",
+                  "Rotation": "1,0,-0,-0.00000004371139",
+                  "Scale": "1.708551,1.19089,0.6764733",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.SpriteRenderer",
+                      "__guid": "f5c7c757-e223-41a9-ad6a-56dcaf6b67c2",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "__version": 2,
+                      "Additive": false,
+                      "AlphaCutoff": 0,
+                      "Billboard": "YOnly",
+                      "Color": "0,0.33333,1,1",
+                      "DepthFeather": 0,
+                      "FlipHorizontal": false,
+                      "FlipVertical": false,
+                      "FogStrength": 1,
+                      "IsSorted": false,
+                      "Lighting": false,
+                      "OnAnimationEnd": null,
+                      "OnAnimationStart": null,
+                      "OnBroadcastMessage": null,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "Opaque": false,
+                      "OverlayColor": "1,1,1,0",
+                      "PlaybackSpeed": 1,
+                      "RenderOptions": {
+                        "GameLayer": true,
+                        "OverlayLayer": false,
+                        "BloomLayer": false,
+                        "AfterUILayer": false
+                      },
+                      "Shadows": false,
+                      "Size": "20.09004,84.32949",
+                      "Sprite": {
+                        "$compiler": "embed",
+                        "$source": null,
+                        "data": {
+                          "Animations": [
+                            {
+                              "Name": "Default",
+                              "FrameRate": 15,
+                              "Origin": "0.5,0.5",
+                              "LoopMode": "Loop",
+                              "Frames": [
+                                {
+                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "BroadcastMessages": []
+                                }
+                              ]
+                            }
+                          ],
+                          "__references": null
+                        },
+                        "compiled": null
+                      },
+                      "StartingAnimationName": "Default",
+                      "TextureFilter": "Bilinear"
+                    }
+                  ],
+                  "Children": []
+                }
+              ]
+            },
+            {
+              "__guid": "21dd6399-5514-4ea2-a84c-d86755f26d79",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "Checkpoint 2",
+              "Position": "147.4358,-8457.739,768.3895",
+              "Rotation": "0,0,0,1",
+              "Scale": "3.979983,5.710018,2.039999",
+              "Tags": "checkpoint,player_trigger",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.BoxCollider",
+                  "__guid": "bccd0fed-2693-43e4-809e-7afa2f98d068",
+                  "__enabled": false,
+                  "Flags": 0,
+                  "Center": "0,0,0",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RollingResistance": null,
+                  "Scale": "50,50,169.54",
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "cd7b1165-7e34-44a4-9414-59c9064e0107",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "LodOverride": null,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Materials": {
+                    "indexed": {
+                      "0": "materials/jump-pad-cylinder.vmat"
+                    }
+                  },
+                  "Model": "models/cylinder.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "Off",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.SphereCollider",
+                  "__guid": "18bfe210-c8ed-4f9a-896c-214762ebad9a",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "Center": "0,0,-3.139969",
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": true,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "Radius": 34.079945,
+                  "RollingResistance": null,
+                  "Static": true,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                },
+                {
+                  "__type": "Shooter.SpawnPoint",
+                  "__guid": "70416294-25de-4a45-8acb-544651e64eff",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null
+                }
+              ],
+              "Children": [
+                {
+                  "__guid": "da5970d5-2f93-4e52-a4f2-e906385fdb3e",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Arrow",
+                  "Position": "-1.070482,-0.007867203,102.4808",
+                  "Rotation": "1,0,-0,-0.00000004371139",
+                  "Scale": "1.708551,1.19089,0.6764733",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.SpriteRenderer",
+                      "__guid": "88e7435d-558c-4074-ad62-6a1899b3947c",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "__version": 2,
+                      "Additive": false,
+                      "AlphaCutoff": 0,
+                      "Billboard": "YOnly",
+                      "Color": "0,0.33333,1,1",
+                      "DepthFeather": 0,
+                      "FlipHorizontal": false,
+                      "FlipVertical": false,
+                      "FogStrength": 1,
+                      "IsSorted": false,
+                      "Lighting": false,
+                      "OnAnimationEnd": null,
+                      "OnAnimationStart": null,
+                      "OnBroadcastMessage": null,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "Opaque": false,
+                      "OverlayColor": "1,1,1,0",
+                      "PlaybackSpeed": 1,
+                      "RenderOptions": {
+                        "GameLayer": true,
+                        "OverlayLayer": false,
+                        "BloomLayer": false,
+                        "AfterUILayer": false
+                      },
+                      "Shadows": false,
+                      "Size": "20.09004,84.32949",
+                      "Sprite": {
+                        "$compiler": "embed",
+                        "$source": null,
+                        "data": {
+                          "Animations": [
+                            {
+                              "Name": "Default",
+                              "FrameRate": 15,
+                              "Origin": "0.5,0.5",
+                              "LoopMode": "Loop",
+                              "Frames": [
+                                {
+                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "BroadcastMessages": []
+                                }
+                              ]
+                            }
+                          ],
+                          "__references": null
+                        },
+                        "compiled": null
+                      },
+                      "StartingAnimationName": "Default",
+                      "TextureFilter": "Bilinear"
+                    }
+                  ],
+                  "Children": []
+                }
+              ]
+            },
+            {
               "__guid": "d97e6c80-d76d-436f-9ab4-d5156844bd95",
               "__version": 2,
               "Flags": 0,
@@ -677,7 +1120,7 @@
               "Position": "1108.147,-8043.415,641.696",
               "Rotation": "0,0,0,1",
               "Scale": "3.979983,5.710018,2.039999",
-              "Tags": "player_trigger",
+              "Tags": "player_trigger,target",
               "Enabled": true,
               "NetworkMode": 2,
               "NetworkFlags": 0,
@@ -851,37 +1294,6 @@
                   "Children": []
                 }
               ]
-            },
-            {
-              "__guid": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
-              "__version": 2,
-              "Flags": 0,
-              "Name": "SpawnPoint (1)",
-              "Position": "-1577.327,-9214.979,771.2034",
-              "Rotation": "0,0,0.3826835,0.9238795",
-              "Scale": "1,1,1",
-              "Tags": "spawnpoint",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "NetworkFlags": 0,
-              "NetworkOrphaned": 0,
-              "NetworkTransmit": true,
-              "OwnerTransfer": 1,
-              "Components": [
-                {
-                  "__type": "Shooter.SpawnPoint",
-                  "__guid": "9f6f4af7-ad6a-4cf2-98b7-cf15a1ea43a7",
-                  "__enabled": true,
-                  "Flags": 0,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null
-                }
-              ],
-              "Children": []
             }
           ]
         }
@@ -8893,7 +9305,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "5d85218d-d934-424b-babb-bd7a5fa68915"
+          "$blob": "72ff5465-7442-4e31-af1a-706b68b1b811"
         }
       }
     }

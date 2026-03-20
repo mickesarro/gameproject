@@ -1,4 +1,6 @@
 using Shooter.Sounds;
+using System;
+using System.Collections.Generic;
 
 namespace Shooter;
 
@@ -21,15 +23,26 @@ public struct TutorialInstruction
 
 public sealed class TutorialStage : Component
 {
+    private PlayerController _activePlayer;
+
+    // Instructions
     [Property, Group("Configuration")] 
     public string StageName { get; private set; } = "New Stage";
 
     [Property, Group("Configuration")]
     public List<TutorialInstruction> Instructions { get; set; } = new();
 
+    // Spawns & Checkpoints
     [Property, Group("Level Setup")] 
-    public GameObject SpawnPoint { get; private set; }
+    public SpawnPoint SpawnPoint { get; private set; }
 
+    [Property, Group("Level Setup")] 
+    public List<SpawnPoint> Checkpoints { get; set; } = new();
+    
+    // Hidden from inspector since it's managed entirely by code
+    public List<SpawnPoint> ActiveCheckpoints { get; private set; } = new();
+
+    // Objective variables
     [Property, Group("Objective")]
     public string ObjectiveText { get; private set; } = "Complete the objective";
 
@@ -49,40 +62,76 @@ public sealed class TutorialStage : Component
 
     public TutorialInstruction CurrentInstruction => Instructions.Count > 0 ? Instructions[CurrentInstructionIndex] : default;
 
+    public void SpawnPlayer(PlayerController player, SpawnPoint position)
+    {
+        if (position == null || player == null) return;
+
+        player.WorldPosition = position.Position; 
+        player.LookAngle = new Vector2(position.WorldRotation.Pitch(), position.WorldRotation.Yaw());
+        player.Velocity = Vector3.Zero;
+    }
+
+    public void ReturnToCheckpoint()
+    {
+        if (_activePlayer == null) return;
+
+        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1] : SpawnPoint;
+        SpawnPlayer(_activePlayer, target);
+        Log.Info($"[{StageName}] Player returned to checkpoint.");
+    }
+
     public void StartStage(PlayerController player)
     {
-        if (SpawnPoint != null && player != null)
-        {
-            player.WorldPosition = SpawnPoint.WorldPosition; 
-
-            var lookAngle = new Vector2(SpawnPoint.WorldRotation.Pitch(), SpawnPoint.WorldRotation.Yaw());
-            player.LookAngle = lookAngle;
-            
-            player?.Velocity = Vector3.Zero;
-        }
-
-        Log.Info($"Starting Tutorial Stage: {StageName}");
+        _activePlayer = player;
         
         IsStageActive = true;
         ObjectiveCompleted = false;
         IsFullyComplete = false;
         CurrentInstructionIndex = 0;
         
+        ActiveCheckpoints.Clear(); 
+
+        Log.Info($"Starting Tutorial Stage: {StageName}");
+        SpawnPlayer(player, SpawnPoint);
         ShowCurrentInstruction();
 
         TargetArea?.OnObjectTriggerEnter += IsPlayerOnArea;
+
+        // Attach new Checkpoint triggers
+        foreach (var checkpoint in Checkpoints)
+        {
+            if (checkpoint == null) continue;
+            
+            var triggerLogic = checkpoint.GameObject.Components.GetOrCreate<CheckpointTrigger>();
+            triggerLogic.Initialize(this, checkpoint);
+        }
     }
 
     public void EndStage()
     {
         IsStageActive = false;
+        
         TargetArea?.OnObjectTriggerEnter -= IsPlayerOnArea;
+        
+        ActiveCheckpoints.Clear(); 
+    }
+
+    public void RegisterCheckpoint(SpawnPoint checkpoint)
+    {
+        if (!IsStageActive) return;
+
+        if (!ActiveCheckpoints.Contains(checkpoint))
+        {
+            ActiveCheckpoints.Add(checkpoint);
+            Log.Info($"[{StageName}] Checkpoint Saved: {checkpoint.GameObject.Name}");
+            Sound.Play("UI_accept");
+            // TODO: Show in UI
+        }
     }
 
     protected override void OnUpdate()
     {
-        if (!IsStageActive || Instructions == null || Instructions.Count == 0) 
-            return;
+        if (!IsStageActive || Instructions == null || Instructions.Count == 0) return;
 
         if (Input.Pressed("back"))
         {
@@ -95,8 +144,11 @@ public sealed class TutorialStage : Component
                 IsFullyComplete = true;
                 return;
             }
-
             NavigateInstructions(1);
+        }
+        else if (Input.Pressed("reload"))
+        {
+            ReturnToCheckpoint();
         }
     }
 
@@ -105,17 +157,10 @@ public sealed class TutorialStage : Component
         int previousIndex = CurrentInstructionIndex;
         CurrentInstructionIndex += direction;
 
-        // If objective is not complete, max index is the 2nd to last instruction (Count - 2)
-        // If objective is complete, max index is the final instruction (Count - 1)
         int maxAllowedIndex = ObjectiveCompleted ? Instructions.Count - 1 : Instructions.Count - 2;
-        
-        // Failsafe in case there's only 1 instruction total
         if (maxAllowedIndex < 0) maxAllowedIndex = 0;
 
-        if (CurrentInstructionIndex < 0) 
-            CurrentInstructionIndex = 0;
-        if (CurrentInstructionIndex > maxAllowedIndex) 
-            CurrentInstructionIndex = maxAllowedIndex;
+        CurrentInstructionIndex = Math.Clamp(CurrentInstructionIndex, 0, maxAllowedIndex);
 
         if (CurrentInstructionIndex != previousIndex)
         {
@@ -128,7 +173,6 @@ public sealed class TutorialStage : Component
         if (Instructions.Count == 0) return;
 
         var instruction = Instructions[CurrentInstructionIndex];
-        
         Log.Info($"[{StageName} - Instruction {CurrentInstructionIndex + 1}/{Instructions.Count}] {instruction.Text}");
         
         if (!string.IsNullOrWhiteSpace(instruction.MediaPath))
@@ -149,20 +193,14 @@ public sealed class TutorialStage : Component
         switch (ObjectiveType)
         {
             case TutorialObjectiveType.ReadInstructions:
-                if (CurrentInstructionIndex == Instructions.Count - 2)
-                {
-                    isObjectiveMet = true;
-                }
+                isObjectiveMet = (CurrentInstructionIndex == Instructions.Count - 2);
                 break;
 
             case TutorialObjectiveType.ReachSpeed:
-                float CurrentSpeed = playerController.Velocity.WithZ(0).Length;
-                if ( CurrentSpeed > TargetSpeed )
-                {
-                    isObjectiveMet = true;
-                }
+                float currentSpeed = playerController.Velocity.WithZ(0).Length;
+                isObjectiveMet = (currentSpeed > TargetSpeed);
                 break;
-
+                
             case TutorialObjectiveType.ReachTargetArea:
                 // IsPlayerOnArea handles this condition now
                 break;
@@ -170,20 +208,30 @@ public sealed class TutorialStage : Component
 
         if (isObjectiveMet)
         {
-            Log.Info($"[{StageName}] Objective reached! Final instruction unlocked.");
-            ObjectiveCompleted = true;
-
-            SoundManager.PlayLocal(SoundManager.SoundType.Completed, 0.4f);
-            
-            CurrentInstructionIndex = Instructions.Count - 1;
-            ShowCurrentInstruction();
+            MarkObjectiveComplete();
         }
 
         return false; 
     }
 
-    private void IsPlayerOnArea( GameObject target )
+    private void MarkObjectiveComplete()
     {
-        isObjectiveMet = target.Root.Tags.Has( "player" );
+        if (ObjectiveCompleted) return;
+
+        Log.Info($"[{StageName}] Objective reached! Final instruction unlocked.");
+        ObjectiveCompleted = true;
+
+        SoundManager.PlayLocal(SoundManager.SoundType.Completed, 0.4f);
+        
+        CurrentInstructionIndex = Instructions.Count - 1;
+        ShowCurrentInstruction();
+    }
+
+    private void IsPlayerOnArea(GameObject target)
+    {
+        if (!ObjectiveCompleted && target.Root.Tags.Has("player"))
+        {
+            MarkObjectiveComplete();
+        }
     }
 }
