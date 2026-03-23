@@ -84,6 +84,8 @@ public sealed class TutorialStage : Component
     public void StartStage(PlayerController player)
     {
         _activePlayer = player;
+
+        EnableLevelObjects( true );
         
         IsStageActive = true;
         ObjectiveCompleted = false;
@@ -113,6 +115,19 @@ public sealed class TutorialStage : Component
         TargetArea?.OnObjectTriggerEnter -= IsPlayerOnArea;
         
         ActiveCheckpoints.Clear(); 
+
+        EnableLevelObjects( false );
+
+        var inventory = _activePlayer?.Components.Get<PlayerInventory>();
+        inventory.Clear();
+    }
+
+    private void EnableLevelObjects( bool isEnabled )
+    {
+        foreach ( var child in GameObject.Children )
+        {
+            child.Enabled = isEnabled;
+        }
     }
 
     public void RegisterCheckpoint(CheckpointTrigger checkpoint)
