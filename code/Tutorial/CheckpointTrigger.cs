@@ -56,18 +56,16 @@ public sealed class CheckpointTrigger : Component, Component.ITriggerListener
     {
         IsActivated = true;
         
+        // Visuals
         if ( CylinderRenderer.IsValid() && ActiveMaterial is not null )
         {
             CylinderRenderer.MaterialOverride = ActiveMaterial;
         }
 
-        if ( IconRenderer.IsValid() )
+        if ( IconRenderer.IsValid() && ActiveSprite is not null )
         {
-            if ( ActiveSprite is not null )
-            {
-                IconRenderer.Sprite = Sprite.FromTexture( ActiveSprite );
-            }
-            
+            IconRenderer.Sprite = Sprite.FromTexture( ActiveSprite );
+
             IconRenderer.Color = ActiveColor;
         }
 

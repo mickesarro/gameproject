@@ -26,34 +26,20 @@ public sealed class TutorialStage : Component
     private PlayerController _activePlayer;
 
     // Instructions
-    [Property, Group("Configuration")] 
-    public string StageName { get; private set; } = "New Stage";
-
-    [Property, Group("Configuration")]
-    public List<TutorialInstruction> Instructions { get; set; } = new();
+    [Property, Group("Configuration")] public string StageName { get; private set; } = "New Stage";
+    [Property, Group("Configuration")] public List<TutorialInstruction> Instructions { get; set; } = new();
 
     // Spawns & Checkpoints
-    [Property, Group("Level Setup")] 
-    public SpawnPoint SpawnPoint { get; private set; }
-
-    [Property, Group("Level Setup")] 
-    public List<CheckpointTrigger> Checkpoints { get; set; } = new();
+    [Property, Group("Level Setup")] public SpawnPoint SpawnPoint { get; private set; }
+    [Property, Group("Level Setup")] public List<CheckpointTrigger> Checkpoints { get; set; } = new();
     
-    // Hidden from inspector since it's managed entirely by code
     public List<CheckpointTrigger> ActiveCheckpoints { get; private set; } = new();
 
     // Objective variables
-    [Property, Group("Objective")]
-    public string ObjectiveText { get; private set; } = "Complete the objective";
-
-    [Property, Group("Objective")]
-    public TutorialObjectiveType ObjectiveType { get; private set; } = TutorialObjectiveType.ReachSpeed;
-
-    [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachTargetArea)] 
-    public Collider TargetArea { get; private set; }
-
-    [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachSpeed)]
-    public float TargetSpeed { get; private set; } = 400f;
+    [Property, Group("Objective")] public string ObjectiveText { get; private set; } = "Complete the objective";
+    [Property, Group("Objective")] public TutorialObjectiveType ObjectiveType { get; private set; } = TutorialObjectiveType.ReachSpeed;
+    [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachTargetArea)] public Collider TargetArea { get; private set; }
+    [Property, Group("Objective"), ShowIf("ObjectiveType", TutorialObjectiveType.ReachSpeed)] public float TargetSpeed { get; private set; }
 
     public int CurrentInstructionIndex { get; private set; } = 0;
     public bool IsStageActive { get; private set; } = false;
