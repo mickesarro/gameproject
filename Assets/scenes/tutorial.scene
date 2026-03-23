@@ -644,6 +644,12 @@
                   "component_id": "735ed9ba-aa23-4302-9e06-26d3f6b52a8d",
                   "go": "0e070ffe-3b25-48a3-91fc-f59aba4b1d2b",
                   "component_type": "CheckpointTrigger"
+                },
+                {
+                  "_type": "component",
+                  "component_id": "9db0a96b-beb6-4044-80c3-cb496658daf7",
+                  "go": "6a2a1c7d-5271-45b9-8f9d-9c39571dcdb8",
+                  "component_type": "CheckpointTrigger"
                 }
               ],
               "Instructions": [
@@ -957,13 +963,13 @@
               ]
             },
             {
-              "__guid": "21dd6399-5514-4ea2-a84c-d86755f26d79",
+              "__guid": "6a2a1c7d-5271-45b9-8f9d-9c39571dcdb8",
               "__version": 2,
               "Flags": 0,
               "Name": "Checkpoint 2",
-              "Position": "147.4358,-8457.739,768.3895",
+              "Position": "151.4533,-8447.093,766.8525",
               "Rotation": "0,0,0,1",
-              "Scale": "3.979983,5.710018,2.039999",
+              "Scale": "3.5,5.5,2",
               "Tags": "checkpoint,player_trigger",
               "Enabled": true,
               "NetworkMode": 2,
@@ -973,39 +979,8 @@
               "OwnerTransfer": 1,
               "Components": [
                 {
-                  "__type": "Sandbox.ModelRenderer",
-                  "__guid": "cd7b1165-7e34-44a4-9414-59c9064e0107",
-                  "__enabled": true,
-                  "Flags": 0,
-                  "BodyGroups": 18446744073709551615,
-                  "CreateAttachments": false,
-                  "LodOverride": null,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Materials": {
-                    "indexed": {
-                      "0": "materials/jump-pad-cylinder.vmat"
-                    }
-                  },
-                  "Model": "models/cylinder.vmdl",
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "RenderOptions": {
-                    "GameLayer": true,
-                    "OverlayLayer": false,
-                    "BloomLayer": false,
-                    "AfterUILayer": false
-                  },
-                  "RenderType": "Off",
-                  "Tint": "1,1,1,1"
-                },
-                {
                   "__type": "Sandbox.SphereCollider",
-                  "__guid": "18bfe210-c8ed-4f9a-896c-214762ebad9a",
+                  "__guid": "a368983b-cae2-4620-8d79-a45762550827",
                   "__enabled": true,
                   "Flags": 0,
                   "Center": "0,0,-3.139969",
@@ -1030,26 +1005,78 @@
                   "SurfaceVelocity": "0,0,0"
                 },
                 {
-                  "__type": "Shooter.SpawnPoint",
-                  "__guid": "70416294-25de-4a45-8acb-544651e64eff",
+                  "__type": "Shooter.CheckpointTrigger",
+                  "__guid": "9db0a96b-beb6-4044-80c3-cb496658daf7",
                   "__enabled": true,
                   "Flags": 0,
+                  "ActiveColor": "0,1,0,1",
+                  "ActiveMaterial": "materials/common-gun-cylinder.vmat",
+                  "ActiveSprite": "textures/shapes/arrow3.vtex",
+                  "CylinderRenderer": {
+                    "_type": "component",
+                    "component_id": "76fb5e4f-eea0-4b8d-87f0-0de6809e8127",
+                    "go": "f9256daa-bd0a-4fbe-8ba5-c21f3bba55ad",
+                    "component_type": "ModelRenderer"
+                  },
+                  "IconRenderer": {
+                    "_type": "component",
+                    "component_id": "7f3b6e26-ddf6-4544-9eb7-55a17892b98b",
+                    "go": "18481255-d15f-448b-862d-09bf884d83e4",
+                    "component_type": "SpriteRenderer"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
-                  "OnComponentUpdate": null
+                  "OnComponentUpdate": null,
+                  "SpawnPointNode": {
+                    "_type": "component",
+                    "component_id": "7068d091-d186-4dbd-8962-e1243dcae6a8",
+                    "go": "64457bff-a971-4adb-9a3f-b008fc3e506d",
+                    "component_type": "SpawnPoint"
+                  }
                 }
               ],
               "Children": [
                 {
-                  "__guid": "da5970d5-2f93-4e52-a4f2-e906385fdb3e",
+                  "__guid": "64457bff-a971-4adb-9a3f-b008fc3e506d",
                   "__version": 2,
                   "Flags": 0,
-                  "Name": "Arrow",
+                  "Name": "SpawnNode",
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0.258819,0.9659258",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Shooter.SpawnPoint",
+                      "__guid": "7068d091-d186-4dbd-8962-e1243dcae6a8",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null
+                    }
+                  ],
+                  "Children": []
+                },
+                {
+                  "__guid": "18481255-d15f-448b-862d-09bf884d83e4",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Sprite",
                   "Position": "-1.070482,-0.007867203,102.4808",
-                  "Rotation": "1,0,-0,-0.00000004371139",
+                  "Rotation": "-1,0,-0,-0.00000004371139",
                   "Scale": "1.708551,1.19089,0.6764733",
                   "Tags": "",
                   "Enabled": true,
@@ -1061,7 +1088,7 @@
                   "Components": [
                     {
                       "__type": "Sandbox.SpriteRenderer",
-                      "__guid": "88e7435d-558c-4074-ad62-6a1899b3947c",
+                      "__guid": "7f3b6e26-ddf6-4544-9eb7-55a17892b98b",
                       "__enabled": true,
                       "Flags": 0,
                       "__version": 2,
@@ -1119,6 +1146,56 @@
                       },
                       "StartingAnimationName": "Default",
                       "TextureFilter": "Bilinear"
+                    }
+                  ],
+                  "Children": []
+                },
+                {
+                  "__guid": "f9256daa-bd0a-4fbe-8ba5-c21f3bba55ad",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Cylinder",
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "76fb5e4f-eea0-4b8d-87f0-0de6809e8127",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "BodyGroups": 18446744073709551615,
+                      "CreateAttachments": false,
+                      "LodOverride": null,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Materials": {
+                        "indexed": {
+                          "0": "materials/jump-pad-cylinder.vmat"
+                        }
+                      },
+                      "Model": "models/cylinder.vmdl",
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "RenderOptions": {
+                        "GameLayer": true,
+                        "OverlayLayer": false,
+                        "BloomLayer": false,
+                        "AfterUILayer": false
+                      },
+                      "RenderType": "Off",
+                      "Tint": "1,1,1,1"
                     }
                   ],
                   "Children": []
@@ -9156,14 +9233,6 @@
           },
           {
             "Target": {
-              "Type": "GameObject",
-              "IdValue": "d3e5216d-37d0-4ea5-8ba0-ba14c17c7fc8"
-            },
-            "Property": "Tags",
-            "Value": ""
-          },
-          {
-            "Target": {
               "Type": "Component",
               "IdValue": "db491a2f-51f3-447a-a0da-b6a931c07baa"
             },
@@ -9177,6 +9246,17 @@
             },
             "Property": "HideForTime",
             "Value": null
+          },
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "fa042a0c-10da-4ba6-83b3-fe0abad44a0e"
+            },
+            "Property": "ItemPrefab",
+            "Value": {
+              "_type": "gameobject",
+              "prefab": "tutorial_rockets_test.prefab"
+            }
           }
         ],
         "MovedObjects": []
@@ -9221,7 +9301,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "7eda9b91-e8c6-4a04-b971-49c437172a00"
+          "$blob": "da20e5ed-43ab-4372-94e5-00db96764879"
         }
       }
     }

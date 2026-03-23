@@ -199,8 +199,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
             if ( !TryReload() ) return;
         }
 
-        --FireData.AmmoLeft;
-
+		if ( !FireData.HasInfiniteAmmo )
+		{
+			--FireData.AmmoLeft;
+		}
+        
         BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 2000f, 0.3f );
 
 		// Shoot from the viewport
@@ -367,8 +370,11 @@ public sealed class Gun : Component, IWeapon, ICollectable
             if ( !TryReload() ) return;
         }
 
-        --FireData.AmmoLeft;
-
+		if ( !FireData.HasInfiniteAmmo )
+		{
+			--FireData.AmmoLeft;
+		}
+        
 		BroadcastSound( FireData.FiringSound, GameObject.WorldPosition, 6900f, 0.3f );
 		
 		Projectile.Spawn( FireData.BulletData.ProjectilePrefab, gunData.BarrelEnd.WorldTransform, User );
