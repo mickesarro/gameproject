@@ -37,10 +37,10 @@ public sealed class TutorialStage : Component
     public SpawnPoint SpawnPoint { get; private set; }
 
     [Property, Group("Level Setup")] 
-    public List<SpawnPoint> Checkpoints { get; set; } = new();
+    public List<CheckpointTrigger> Checkpoints { get; set; } = new();
     
     // Hidden from inspector since it's managed entirely by code
-    public List<SpawnPoint> ActiveCheckpoints { get; private set; } = new();
+    public List<CheckpointTrigger> ActiveCheckpoints { get; private set; } = new();
 
     // Objective variables
     [Property, Group("Objective")]
@@ -75,7 +75,8 @@ public sealed class TutorialStage : Component
     {
         if (_activePlayer == null) return;
 
-        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1] : SpawnPoint;
+        // Grab the SpawnPointNode from the last active CheckpointTrigger
+        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
         SpawnPlayer(_activePlayer, target);
         Log.Info($"[{StageName}] Player returned to checkpoint.");
     }
@@ -97,13 +98,11 @@ public sealed class TutorialStage : Component
 
         TargetArea?.OnObjectTriggerEnter += IsPlayerOnArea;
 
-        // Attach new Checkpoint triggers
+        // Initialize and visually reset all Checkpoint triggers
         foreach (var checkpoint in Checkpoints)
         {
             if (checkpoint == null) continue;
-            
-            var triggerLogic = checkpoint.GameObject.Components.GetOrCreate<CheckpointTrigger>();
-            triggerLogic.Initialize(this, checkpoint);
+            checkpoint.Initialize(this); 
         }
     }
 
@@ -116,7 +115,7 @@ public sealed class TutorialStage : Component
         ActiveCheckpoints.Clear(); 
     }
 
-    public void RegisterCheckpoint(SpawnPoint checkpoint)
+    public void RegisterCheckpoint(CheckpointTrigger checkpoint)
     {
         if (!IsStageActive) return;
 
@@ -125,7 +124,6 @@ public sealed class TutorialStage : Component
             ActiveCheckpoints.Add(checkpoint);
             Log.Info($"[{StageName}] Checkpoint Saved: {checkpoint.GameObject.Name}");
             Sound.Play("UI_accept");
-            // TODO: Show in UI
         }
     }
 

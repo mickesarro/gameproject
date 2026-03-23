@@ -641,15 +641,9 @@
               "Checkpoints": [
                 {
                   "_type": "component",
-                  "component_id": "55a14034-a205-486d-bb6e-e5b80082759d",
+                  "component_id": "735ed9ba-aa23-4302-9e06-26d3f6b52a8d",
                   "go": "0e070ffe-3b25-48a3-91fc-f59aba4b1d2b",
-                  "component_type": "SpawnPoint"
-                },
-                {
-                  "_type": "component",
-                  "component_id": "70416294-25de-4a45-8acb-544651e64eff",
-                  "go": "21dd6399-5514-4ea2-a84c-d86755f26d79",
-                  "component_type": "SpawnPoint"
+                  "component_type": "CheckpointTrigger"
                 }
               ],
               "Instructions": [
@@ -695,7 +689,7 @@
               "__guid": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
               "__version": 2,
               "Flags": 0,
-              "Name": "SpawnPoint (1)",
+              "Name": "Spawn",
               "Position": "-1577.327,-9214.979,771.2034",
               "Rotation": "0,0,0.3826835,0.9238795",
               "Scale": "1,1,1",
@@ -726,10 +720,10 @@
               "__guid": "0e070ffe-3b25-48a3-91fc-f59aba4b1d2b",
               "__version": 2,
               "Flags": 0,
-              "Name": "Checkpoint",
-              "Position": "-611.1007,-9054.102,768.3896",
+              "Name": "Checkpoint 1",
+              "Position": "-615.434,-9072.943,766.8524",
               "Rotation": "0,0,0,1",
-              "Scale": "3.979983,5.710018,2.039999",
+              "Scale": "3.5,5.5,2",
               "Tags": "checkpoint,player_trigger",
               "Enabled": true,
               "NetworkMode": 2,
@@ -738,63 +732,6 @@
               "NetworkTransmit": true,
               "OwnerTransfer": 1,
               "Components": [
-                {
-                  "__type": "Sandbox.BoxCollider",
-                  "__guid": "ccdc6e51-bab4-4f37-b76d-d1624c5083ff",
-                  "__enabled": false,
-                  "Flags": 0,
-                  "Center": "0,0,0",
-                  "ColliderFlags": 0,
-                  "Elasticity": null,
-                  "Friction": null,
-                  "IsTrigger": true,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "OnObjectTriggerEnter": null,
-                  "OnObjectTriggerExit": null,
-                  "OnTriggerEnter": null,
-                  "OnTriggerExit": null,
-                  "RollingResistance": null,
-                  "Scale": "50,50,169.54",
-                  "Static": true,
-                  "Surface": null,
-                  "SurfaceVelocity": "0,0,0"
-                },
-                {
-                  "__type": "Sandbox.ModelRenderer",
-                  "__guid": "658fb864-7f4d-4496-ae7a-64cf4a0e9b9f",
-                  "__enabled": true,
-                  "Flags": 0,
-                  "BodyGroups": 18446744073709551615,
-                  "CreateAttachments": false,
-                  "LodOverride": null,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Materials": {
-                    "indexed": {
-                      "0": "materials/jump-pad-cylinder.vmat"
-                    }
-                  },
-                  "Model": "models/cylinder.vmdl",
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "RenderOptions": {
-                    "GameLayer": true,
-                    "OverlayLayer": false,
-                    "BloomLayer": false,
-                    "AfterUILayer": false
-                  },
-                  "RenderType": "Off",
-                  "Tint": "1,1,1,1"
-                },
                 {
                   "__type": "Sandbox.SphereCollider",
                   "__guid": "808b9fae-9ad8-432b-9893-4927926d2fea",
@@ -822,26 +759,78 @@
                   "SurfaceVelocity": "0,0,0"
                 },
                 {
-                  "__type": "Shooter.SpawnPoint",
-                  "__guid": "55a14034-a205-486d-bb6e-e5b80082759d",
+                  "__type": "Shooter.CheckpointTrigger",
+                  "__guid": "735ed9ba-aa23-4302-9e06-26d3f6b52a8d",
                   "__enabled": true,
                   "Flags": 0,
+                  "ActiveColor": "0,1,0,1",
+                  "ActiveMaterial": "materials/common-gun-cylinder.vmat",
+                  "ActiveSprite": "textures/shapes/arrow3.vtex",
+                  "CylinderRenderer": {
+                    "_type": "component",
+                    "component_id": "318fcb1c-007a-4b5b-93bd-f29ab7000ab2",
+                    "go": "699170af-3fbd-4240-94a5-b0a5d45458ed",
+                    "component_type": "ModelRenderer"
+                  },
+                  "IconRenderer": {
+                    "_type": "component",
+                    "component_id": "f5c7c757-e223-41a9-ad6a-56dcaf6b67c2",
+                    "go": "3c15b340-9c1a-4bc2-8046-aa61ed34ed8c",
+                    "component_type": "SpriteRenderer"
+                  },
                   "OnComponentDestroy": null,
                   "OnComponentDisabled": null,
                   "OnComponentEnabled": null,
                   "OnComponentFixedUpdate": null,
                   "OnComponentStart": null,
-                  "OnComponentUpdate": null
+                  "OnComponentUpdate": null,
+                  "SpawnPointNode": {
+                    "_type": "component",
+                    "component_id": "08715798-adca-41be-8aad-c8af83dd4257",
+                    "go": "2d364ac2-d1ac-4c01-ac1b-cb847dadcf85",
+                    "component_type": "SpawnPoint"
+                  }
                 }
               ],
               "Children": [
                 {
+                  "__guid": "2d364ac2-d1ac-4c01-ac1b-cb847dadcf85",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "SpawnNode",
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0.258819,0.9659258",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Shooter.SpawnPoint",
+                      "__guid": "08715798-adca-41be-8aad-c8af83dd4257",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null
+                    }
+                  ],
+                  "Children": []
+                },
+                {
                   "__guid": "3c15b340-9c1a-4bc2-8046-aa61ed34ed8c",
                   "__version": 2,
                   "Flags": 0,
-                  "Name": "Arrow",
+                  "Name": "Sprite",
                   "Position": "-1.070482,-0.007867203,102.4808",
-                  "Rotation": "1,0,-0,-0.00000004371139",
+                  "Rotation": "-1,0,-0,-0.00000004371139",
                   "Scale": "1.708551,1.19089,0.6764733",
                   "Tags": "",
                   "Enabled": true,
@@ -914,6 +903,56 @@
                     }
                   ],
                   "Children": []
+                },
+                {
+                  "__guid": "699170af-3fbd-4240-94a5-b0a5d45458ed",
+                  "__version": 2,
+                  "Flags": 0,
+                  "Name": "Cylinder",
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkFlags": 0,
+                  "NetworkOrphaned": 0,
+                  "NetworkTransmit": true,
+                  "OwnerTransfer": 1,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "318fcb1c-007a-4b5b-93bd-f29ab7000ab2",
+                      "__enabled": true,
+                      "Flags": 0,
+                      "BodyGroups": 18446744073709551615,
+                      "CreateAttachments": false,
+                      "LodOverride": null,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Materials": {
+                        "indexed": {
+                          "0": "materials/jump-pad-cylinder.vmat"
+                        }
+                      },
+                      "Model": "models/cylinder.vmdl",
+                      "OnComponentDestroy": null,
+                      "OnComponentDisabled": null,
+                      "OnComponentEnabled": null,
+                      "OnComponentFixedUpdate": null,
+                      "OnComponentStart": null,
+                      "OnComponentUpdate": null,
+                      "RenderOptions": {
+                        "GameLayer": true,
+                        "OverlayLayer": false,
+                        "BloomLayer": false,
+                        "AfterUILayer": false
+                      },
+                      "RenderType": "Off",
+                      "Tint": "1,1,1,1"
+                    }
+                  ],
+                  "Children": []
                 }
               ]
             },
@@ -933,32 +972,6 @@
               "NetworkTransmit": true,
               "OwnerTransfer": 1,
               "Components": [
-                {
-                  "__type": "Sandbox.BoxCollider",
-                  "__guid": "bccd0fed-2693-43e4-809e-7afa2f98d068",
-                  "__enabled": false,
-                  "Flags": 0,
-                  "Center": "0,0,0",
-                  "ColliderFlags": 0,
-                  "Elasticity": null,
-                  "Friction": null,
-                  "IsTrigger": true,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "OnObjectTriggerEnter": null,
-                  "OnObjectTriggerExit": null,
-                  "OnTriggerEnter": null,
-                  "OnTriggerExit": null,
-                  "RollingResistance": null,
-                  "Scale": "50,50,169.54",
-                  "Static": true,
-                  "Surface": null,
-                  "SurfaceVelocity": "0,0,0"
-                },
                 {
                   "__type": "Sandbox.ModelRenderer",
                   "__guid": "cd7b1165-7e34-44a4-9414-59c9064e0107",
@@ -1116,7 +1129,7 @@
               "__guid": "d97e6c80-d76d-436f-9ab4-d5156844bd95",
               "__version": 2,
               "Flags": 0,
-              "Name": "Collider",
+              "Name": "TargetArea",
               "Position": "1108.147,-8043.415,641.696",
               "Rotation": "0,0,0,1",
               "Scale": "3.979983,5.710018,2.039999",
@@ -1128,32 +1141,6 @@
               "NetworkTransmit": true,
               "OwnerTransfer": 1,
               "Components": [
-                {
-                  "__type": "Sandbox.BoxCollider",
-                  "__guid": "3601ccf7-6fcf-435f-b8c6-506f94d25196",
-                  "__enabled": false,
-                  "Flags": 0,
-                  "Center": "0,0,0",
-                  "ColliderFlags": 0,
-                  "Elasticity": null,
-                  "Friction": null,
-                  "IsTrigger": true,
-                  "OnComponentDestroy": null,
-                  "OnComponentDisabled": null,
-                  "OnComponentEnabled": null,
-                  "OnComponentFixedUpdate": null,
-                  "OnComponentStart": null,
-                  "OnComponentUpdate": null,
-                  "OnObjectTriggerEnter": null,
-                  "OnObjectTriggerExit": null,
-                  "OnTriggerEnter": null,
-                  "OnTriggerExit": null,
-                  "RollingResistance": null,
-                  "Scale": "50,50,169.54",
-                  "Static": true,
-                  "Surface": null,
-                  "SurfaceVelocity": "0,0,0"
-                },
                 {
                   "__type": "Sandbox.ModelRenderer",
                   "__guid": "65e211c7-8115-45fa-9178-909918b60b0f",
@@ -8149,77 +8136,6 @@
           "Children": []
         },
         {
-          "__guid": "fa293538-5497-49fc-b283-0cd281b07956",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "shipping_container (9)",
-          "Position": "943.9374,-8048.938,524.4479",
-          "Rotation": "-0.2418448,0.2418447,-0.664463,0.664463",
-          "Scale": "1.330131,1,1",
-          "Tags": "",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.ModelRenderer",
-              "__guid": "d8f3b5c9-f4a8-411d-b11f-b263c280db98",
-              "__enabled": true,
-              "Flags": 0,
-              "BodyGroups": 18446744073709551615,
-              "CreateAttachments": false,
-              "LodOverride": null,
-              "MaterialGroup": "yellow",
-              "MaterialOverride": null,
-              "Materials": null,
-              "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            },
-            {
-              "__type": "Sandbox.ModelCollider",
-              "__guid": "4c4f0964-eefa-42d8-8270-de87fe0aa082",
-              "__enabled": true,
-              "Flags": 0,
-              "ColliderFlags": 0,
-              "Elasticity": null,
-              "Friction": null,
-              "IsTrigger": false,
-              "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnObjectTriggerEnter": null,
-              "OnObjectTriggerExit": null,
-              "OnTriggerEnter": null,
-              "OnTriggerExit": null,
-              "RollingResistance": null,
-              "Static": false,
-              "Surface": null,
-              "SurfaceVelocity": "0,0,0"
-            }
-          ],
-          "Children": []
-        },
-        {
           "__guid": "76045062-66b8-4fb8-b913-d2f80f80c169",
           "__version": 2,
           "Flags": 0,
@@ -9305,7 +9221,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "72ff5465-7442-4e31-af1a-706b68b1b811"
+          "$blob": "7eda9b91-e8c6-4a04-b971-49c437172a00"
         }
       }
     }

@@ -2,37 +2,95 @@ using Sandbox;
 
 namespace Shooter;
 
-public sealed class CheckpointTrigger : Component
+public sealed class CheckpointTrigger : Component, Component.ITriggerListener
 {
-    private TutorialStage _stage;
-    private SpawnPoint _spawnPoint;
-    private Collider _collider;
+    [Property, Group("References")] public ModelRenderer CylinderRenderer { get; set; }
+    [Property, Group("References")] public SpriteRenderer IconRenderer { get; set; }
+    [Property, Group("References")] public SpawnPoint SpawnPointNode { get; set; }
 
-    public void Initialize(TutorialStage stage, SpawnPoint spawnPoint)
+    [Property, Group("Active Checkpoint Visuals")] public Material ActiveMaterial { get; set; }
+    [Property, Group("Active Checkpoint Visuals")] public Texture ActiveSprite { get; set; }
+    [Property, Group("Active Checkpoint Visuals")] public Color ActiveColor { get; set; } = Color.Green;
+
+    public bool IsActivated { get; private set; }
+    
+    private TutorialStage _stage;
+
+    private bool _isCached;
+    private Sprite _defaultSprite;
+    private Texture _defaultTexture;
+    private Color _defaultColor;
+
+    public void Initialize(TutorialStage stage)
     {
         _stage = stage;
-        _spawnPoint = spawnPoint;
+        CacheDefaults();
+        ResetCheckpoint();
+    }
+
+    private void CacheDefaults()
+    {
+        if ( _isCached ) return;
+
+        if ( IconRenderer.IsValid() )
+        {
+            _defaultSprite = IconRenderer.Sprite;
+            _defaultTexture = IconRenderer.Texture;
+            _defaultColor = IconRenderer.Color;
+        }
+
+        _isCached = true;
+    }
+
+    public void OnTriggerEnter( Collider other )
+    {
+        if ( !IsActivated && other.Tags.Has( "player" ) )
+        {
+            ActivateCheckpoint();
+        }
+    }
+
+    public void OnTriggerExit( Collider other ) { }
+
+    public void ActivateCheckpoint()
+    {
+        IsActivated = true;
         
-        _collider = Components.Get<Collider>();
-        if (_collider != null)
+        if ( CylinderRenderer.IsValid() && ActiveMaterial is not null )
         {
-            _collider.OnObjectTriggerEnter += OnTriggerEnter; 
+            CylinderRenderer.MaterialOverride = ActiveMaterial;
+        }
+
+        if ( IconRenderer.IsValid() )
+        {
+            if ( ActiveSprite is not null )
+            {
+                IconRenderer.Sprite = Sprite.FromTexture( ActiveSprite );
+            }
+            
+            IconRenderer.Color = ActiveColor;
+        }
+
+        if ( _stage != null )
+        {
+            _stage.RegisterCheckpoint( this );
         }
     }
 
-    private void OnTriggerEnter(GameObject other)
+    public void ResetCheckpoint()
     {
-        if (other.Root.Tags.Has("player"))
+        IsActivated = false;
+        
+        if ( CylinderRenderer.IsValid() )
         {
-            _stage.RegisterCheckpoint(_spawnPoint);
+            CylinderRenderer.MaterialOverride = null;
         }
-    }
 
-    protected override void OnDestroy()
-    {
-        if (_collider != null)
+        if ( IconRenderer.IsValid() )
         {
-            _collider.OnObjectTriggerEnter -= OnTriggerEnter;
+            IconRenderer.Sprite = _defaultSprite;
+            IconRenderer.Texture = _defaultTexture;
+            IconRenderer.Color = _defaultColor;
         }
     }
 }
