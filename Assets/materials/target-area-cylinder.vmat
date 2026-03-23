@@ -43,7 +43,7 @@ Layer0
 
 	//---- Texture Coordinates ----
 	g_vTexCoordOffset "[-1.000 0.023]"
-	g_vTexCoordScale "[0.000 1.826]"
+	g_vTexCoordScale "[0.000 1.600]"
 	g_vTexCoordScrollSpeed "[0.000 0.000]"
 
 	//---- Translucent ----

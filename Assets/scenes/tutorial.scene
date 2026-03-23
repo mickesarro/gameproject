@@ -770,8 +770,8 @@
                   "__enabled": true,
                   "Flags": 0,
                   "ActiveColor": "0,1,0,1",
-                  "ActiveMaterial": "materials/common-gun-cylinder.vmat",
-                  "ActiveSprite": "textures/shapes/arrow3.vtex",
+                  "ActiveMaterial": "materials/active-checkpoint-cylinder.vmat",
+                  "ActiveSprite": "icons/checkmark.vtex",
                   "CylinderRenderer": {
                     "_type": "component",
                     "component_id": "318fcb1c-007a-4b5b-93bd-f29ab7000ab2",
@@ -836,7 +836,7 @@
                   "Flags": 0,
                   "Name": "Sprite",
                   "Position": "-1.070482,-0.007867203,102.4808",
-                  "Rotation": "-1,0,-0,-0.00000004371139",
+                  "Rotation": "0,0,0,1",
                   "Scale": "1.708551,1.19089,0.6764733",
                   "Tags": "",
                   "Enabled": true,
@@ -855,7 +855,7 @@
                       "Additive": false,
                       "AlphaCutoff": 0,
                       "Billboard": "YOnly",
-                      "Color": "0,0.33333,1,1",
+                      "Color": "0,0.39608,0.91765,1",
                       "DepthFeather": 0,
                       "FlipHorizontal": false,
                       "FlipVertical": false,
@@ -894,7 +894,7 @@
                               "LoopMode": "Loop",
                               "Frames": [
                                 {
-                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "Texture": "icons/arrow.vtex",
                                   "BroadcastMessages": []
                                 }
                               ]
@@ -938,7 +938,7 @@
                       "MaterialOverride": null,
                       "Materials": {
                         "indexed": {
-                          "0": "materials/jump-pad-cylinder.vmat"
+                          "0": "materials/checkpoint-cylinder.vmat"
                         }
                       },
                       "Model": "models/cylinder.vmdl",
@@ -1010,8 +1010,8 @@
                   "__enabled": true,
                   "Flags": 0,
                   "ActiveColor": "0,1,0,1",
-                  "ActiveMaterial": "materials/common-gun-cylinder.vmat",
-                  "ActiveSprite": "textures/shapes/arrow3.vtex",
+                  "ActiveMaterial": "materials/active-checkpoint-cylinder.vmat",
+                  "ActiveSprite": "icons/checkmark.vtex",
                   "CylinderRenderer": {
                     "_type": "component",
                     "component_id": "76fb5e4f-eea0-4b8d-87f0-0de6809e8127",
@@ -1076,7 +1076,7 @@
                   "Flags": 0,
                   "Name": "Sprite",
                   "Position": "-1.070482,-0.007867203,102.4808",
-                  "Rotation": "-1,0,-0,-0.00000004371139",
+                  "Rotation": "0,0,0,1",
                   "Scale": "1.708551,1.19089,0.6764733",
                   "Tags": "",
                   "Enabled": true,
@@ -1095,7 +1095,7 @@
                       "Additive": false,
                       "AlphaCutoff": 0,
                       "Billboard": "YOnly",
-                      "Color": "0,0.33333,1,1",
+                      "Color": "0,0.39705,0.91628,1",
                       "DepthFeather": 0,
                       "FlipHorizontal": false,
                       "FlipVertical": false,
@@ -1134,7 +1134,7 @@
                               "LoopMode": "Loop",
                               "Frames": [
                                 {
-                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "Texture": "icons/arrow.vtex",
                                   "BroadcastMessages": []
                                 }
                               ]
@@ -1178,7 +1178,7 @@
                       "MaterialOverride": null,
                       "Materials": {
                         "indexed": {
-                          "0": "materials/jump-pad-cylinder.vmat"
+                          "0": "materials/checkpoint-cylinder.vmat"
                         }
                       },
                       "Model": "models/cylinder.vmdl",
@@ -1230,7 +1230,7 @@
                   "MaterialOverride": null,
                   "Materials": {
                     "indexed": {
-                      "0": "materials/rare-gun-cylinder.vmat"
+                      "0": "materials/target-area-cylinder.vmat"
                     }
                   },
                   "Model": "models/cylinder.vmdl",
@@ -1283,8 +1283,8 @@
                   "Flags": 0,
                   "Name": "Arrow",
                   "Position": "-1.070482,-0.007867203,102.4808",
-                  "Rotation": "1,0,-0,-0.00000004371139",
-                  "Scale": "1.708551,1.19089,0.6764733",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
                   "Tags": "",
                   "Enabled": true,
                   "NetworkMode": 2,
@@ -1328,7 +1328,7 @@
                         "AfterUILayer": false
                       },
                       "Shadows": false,
-                      "Size": "20.09004,84.32949",
+                      "Size": "40,75",
                       "Sprite": {
                         "$compiler": "embed",
                         "$source": null,
@@ -1341,7 +1341,7 @@
                               "LoopMode": "Loop",
                               "Frames": [
                                 {
-                                  "Texture": "textures/shapes/arrow1.vtex",
+                                  "Texture": "icons/arrow.vtex",
                                   "BroadcastMessages": []
                                 }
                               ]
@@ -9338,7 +9338,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "9e223d0e-9b2a-4389-9fb5-3c84cd09d79b"
+          "$blob": "e5312d60-d1c4-433c-a73f-cd9afc119894"
         }
       }
     }

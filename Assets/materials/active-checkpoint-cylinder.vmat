@@ -19,7 +19,7 @@ Layer0
 
 	//---- Color ----
 	g_flModelTintAmount "0.000"
-	g_vColorTint "[0.098039 0.501961 0.098039 1.000000]"
+	g_vColorTint "[0.000000 1.000000 0.000000 1.000000]"
 	TextureColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Fade ----
@@ -49,7 +49,7 @@ Layer0
 
 	//---- Texture Coordinates ----
 	g_vTexCoordOffset "[-1.000 0.005]"
-	g_vTexCoordScale "[0.000 1.000]"
+	g_vTexCoordScale "[0.000 1.600]"
 	g_vTexCoordScrollSpeed "[0.000 0.000]"
 
 	//---- Translucent ----
