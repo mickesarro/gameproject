@@ -126,6 +126,28 @@ public sealed class PlayerInventory : Component, IInventory, IPlayerEvent
 		weapons[ind] = null;
 	}
 
+	/// <summary>
+    /// Clears all weapons from the player's inventory EXCEPT the melee weapon
+    /// </summary>
+	public void Clear()
+    {
+        if ( IsProxy ) return;
+
+        for ( int i = 0; i < weapons.Length - 1; i++ )
+        {
+            if ( weapons[i] != null )
+            {
+                RemoveItem( i );
+            }
+        }
+
+		// Automatically equip melee after clearing
+		if (CurrentItem == null )
+		{
+			ChangeCurrentItem( InventorySlot.Next );
+		}
+    }
+
 	void IPlayerEvent.OnSwitchItem( ICollectable collectable ) => ChangeCurrentItem( collectable );
 	void IPlayerEvent.OnSwitchItem( InventorySlot slot ) => ChangeCurrentItem( slot );
 
