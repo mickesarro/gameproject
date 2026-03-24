@@ -1,6 +1,7 @@
 using Shooter.Sounds;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Shooter;
 
@@ -47,6 +48,8 @@ public sealed class TutorialStage : Component
     public bool ObjectiveCompleted { get; private set; } = false;
     public bool IsFullyComplete { get; private set; } = false;
 
+    public static Action OnReturnToCheckpoint;
+
     public TutorialInstruction CurrentInstruction => Instructions.Count > 0 ? Instructions[CurrentInstructionIndex] : default;
 
     public void SpawnPlayer(PlayerController player, SpawnPoint position)
@@ -66,6 +69,9 @@ public sealed class TutorialStage : Component
         SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
         SpawnPlayer(_activePlayer, target);
         SoundManager.PlayLocal(SoundManager.SoundType.Morph, 0.5f);
+
+        OnReturnToCheckpoint?.Invoke();
+
         Log.Info($"[{StageName}] Player returned to checkpoint.");
     }
 

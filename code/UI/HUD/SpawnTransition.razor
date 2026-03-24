@@ -1,0 +1,41 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@using System.Threading.Tasks;
+@inherits Panel
+@namespace Shooter.UI
+
+<root class="@(IsActive ? "active" : "")">
+    <div class="flash"></div>
+    <div class="scanline"></div>
+</root>
+
+@code
+{
+    private bool IsActive { get; set; } = false;
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        if (firstTime)
+        {
+            TutorialStage.OnReturnToCheckpoint += TriggerEffect;
+        }
+    }
+
+    public override void Delete(bool b = false)
+    {
+        TutorialStage.OnReturnToCheckpoint -= TriggerEffect;
+        base.Delete(b);
+    }
+
+    private async void TriggerEffect()
+    {
+        IsActive = true;
+        StateHasChanged();
+
+        await Task.Delay(500);
+
+        IsActive = false;
+        StateHasChanged();
+    }
+}
