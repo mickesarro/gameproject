@@ -32,6 +32,7 @@ public sealed class TutorialStage : Component
     // Spawns & Checkpoints
     [Property, Group("Level Setup")] public SpawnPoint SpawnPoint { get; private set; }
     [Property, Group("Level Setup")] public List<CheckpointTrigger> Checkpoints { get; set; } = new();
+    [Property, Group("Level Setup")] public GameObject ResetTrigger { get; set; } = new();
     
     public List<CheckpointTrigger> ActiveCheckpoints { get; private set; } = new();
 
@@ -92,6 +93,15 @@ public sealed class TutorialStage : Component
         {
             if (checkpoint == null) continue;
             checkpoint.Initialize(this); 
+        }
+
+        // Initialize Reset Triggers
+        if ( !ResetTrigger.IsValid() ) return;
+
+        var resetTriggers = ResetTrigger?.Components.GetAll<ResetTrigger>( FindMode.EverythingInSelfAndDescendants );
+        foreach (var resetTrigger in resetTriggers)
+        {
+            resetTrigger.Initialize(this);
         }
     }
 
