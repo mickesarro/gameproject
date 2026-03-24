@@ -553,7 +553,7 @@
                   "MediaPath": null
                 },
                 {
-                  "Text": "• Bhopping works by strafing\n• To strafe you need to slide your mouse in the same direction as your movement key\n• After you're in the air with some speed, only press left or right (No W key)\n  Page [2/3]",
+                  "Text": "• Bhopping works by strafing\n• To strafe you need to slide your mouse in the same direction as your movement key\n• After you're in the air, only press left or right (No W key)\n  Page [2/3]",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
                 },
                 {
@@ -656,19 +656,19 @@
               ],
               "Instructions": [
                 {
-                  "Text": "• Reach the target area",
+                  "Text": "• One of the main ways to gain speed and height is to rocket jump\n• Start by equipping the RPG\n• Shoot under your feet while jumping\n Page [1/2]",
                   "MediaPath": null
                 },
                 {
-                  "Text": "• Go to the white square",
-                  "MediaPath": null
+                  "Text": "• Control yourself in the air by strafing\n• Control the speed and angle of the jump by where you shoot\n• Reach the target without hitting the ground\n Page [2/2]",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 2\\rocketjump1.webm"
                 },
                 {
                   "Text": "Level 3 completed!",
                   "MediaPath": null
                 }
               ],
-              "ObjectiveText": "Reach the Area",
+              "ObjectiveText": "Reach the Target",
               "ObjectiveType": "ReachTargetArea",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -686,7 +686,7 @@
                 "go": "be7b6d7b-26b9-4fb2-9803-c061be23b01c",
                 "component_type": "SpawnPoint"
               },
-              "StageName": "Level 2",
+              "StageName": "Level 2: Rocket Jumping",
               "TargetArea": {
                 "_type": "component",
                 "component_id": "ae8d7289-7d05-4b14-b067-28aff8648b39",
@@ -10132,7 +10132,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "617b3ded-35f4-497e-bd79-3e555d106529"
+          "$blob": "530887a7-f321-4dc0-8705-c4042045c293"
         }
       }
     }
