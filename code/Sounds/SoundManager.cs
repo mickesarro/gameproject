@@ -26,7 +26,9 @@ public static class SoundManager
         HealthPack,
         RailgunHit,
         Headshot,
-        Completed
+        Completed,
+        Checkpoint,
+        Morph
     }
 
     private static readonly Dictionary<SoundType, string> SoundPaths = new()
@@ -46,7 +48,9 @@ public static class SoundManager
         {SoundType.PlayerDeath, "sounds/characters/neck-crack.sound" },
         {SoundType.RailgunHit, "sounds/characters/railgun-hit.sound" },
         {SoundType.Headshot, "sounds/weapons/hitmarker-headshot.sound"},
-        {SoundType.Completed, "sounds/ui/completed.sound"}
+        {SoundType.Completed, "sounds/ui/completed.sound"},
+        {SoundType.Checkpoint, "sounds/ui/checkpoint.sound"},
+        {SoundType.Morph, "sounds/ui/morph.sound"}
         //{SoundType.GunshotRocket, "sounds/weapons/rocket_launcher/rocketlauncherlaunchbit.sound_c"},
         //{SoundType.OutOfAmmo, "sounds/hits/nope.sound"},
     };

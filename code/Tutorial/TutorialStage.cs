@@ -64,6 +64,7 @@ public sealed class TutorialStage : Component
         // Grab the SpawnPointNode from the last active CheckpointTrigger
         SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
         SpawnPlayer(_activePlayer, target);
+        SoundManager.PlayLocal(SoundManager.SoundType.Morph, 0.5f);
         Log.Info($"[{StageName}] Player returned to checkpoint.");
     }
 
@@ -124,7 +125,7 @@ public sealed class TutorialStage : Component
         {
             ActiveCheckpoints.Add(checkpoint);
             Log.Info($"[{StageName}] Checkpoint Saved: {checkpoint.GameObject.Name}");
-            Sound.Play("UI_accept");
+            SoundManager.PlayLocal(SoundManager.SoundType.Checkpoint, 0.5f);
         }
     }
 
