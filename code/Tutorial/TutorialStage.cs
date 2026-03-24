@@ -32,7 +32,7 @@ public sealed class TutorialStage : Component
     // Spawns & Checkpoints
     [Property, Group("Level Setup")] public SpawnPoint SpawnPoint { get; private set; }
     [Property, Group("Level Setup")] public List<CheckpointTrigger> Checkpoints { get; set; } = new();
-    [Property, Group("Level Setup")] public GameObject ResetTrigger { get; set; } = new();
+    [Property, Group("Level Setup")] public GameObject ResetTrigger { get; set; }
     
     public List<CheckpointTrigger> ActiveCheckpoints { get; private set; } = new();
 
@@ -96,12 +96,15 @@ public sealed class TutorialStage : Component
         }
 
         // Initialize Reset Triggers
-        if ( !ResetTrigger.IsValid() ) return;
-
-        var resetTriggers = ResetTrigger?.Components.GetAll<ResetTrigger>( FindMode.EverythingInSelfAndDescendants );
-        foreach (var resetTrigger in resetTriggers)
+        if ( ResetTrigger.IsValid() )
         {
-            resetTrigger.Initialize(this);
+            ResetTrigger.Enabled = true;
+            
+            var resetTriggers = ResetTrigger.Components.GetAll<ResetTrigger>( FindMode.EverythingInSelfAndDescendants );
+            foreach (var resetTrigger in resetTriggers)
+            {
+                resetTrigger.Initialize(this);
+            }
         }
     }
 
@@ -112,6 +115,11 @@ public sealed class TutorialStage : Component
         TargetArea?.OnObjectTriggerEnter -= IsPlayerOnArea;
         
         ActiveCheckpoints.Clear(); 
+
+        if ( ResetTrigger.IsValid() )
+        {
+            ResetTrigger.Enabled = false;
+        }
 
         EnableLevelObjects( false );
 
