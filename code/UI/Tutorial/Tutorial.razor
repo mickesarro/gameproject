@@ -44,10 +44,22 @@
             
             <div class="controls">
                 <div class="control-text @(ActiveStage.CurrentInstructionIndex > 0 ? "" : "hidden")">
-                    ◀ <div class="key-box">@(Input.GetButtonOrigin("back")?.ToUpper())</div> Previous
+                    ◀ <div class="key-box">@(Input.GetButtonOrigin("back")?.ToUpper() ?? "Q")</div> PREVIOUS
                 </div>
+                
+                <div class="control-text center-action">
+                    <div class="key-box">
+                        <div class="fill" style="width: @(Shooter.TutorialStage.ReloadHoldProgress * 100)%"></div>
+                        <div class="key-text">@(Input.GetButtonOrigin("reload")?.ToUpper() ?? "R")</div>
+                    </div>
+                    <div class="action-labels">
+                        <span>CHECKPOINT (PRESS)</span>
+                        <span>START (HOLD)</span>
+                    </div>
+                </div>
+
                 <div class="control-text @(CanGoNext() ? "" : "hidden")">
-                    <div class="key-box">@(Input.GetButtonOrigin("use")?.ToUpper())</div> Next ▶
+                    NEXT <div class="key-box">@(Input.GetButtonOrigin("use")?.ToUpper() ?? "E")</div> ▶
                 </div>
             </div>
             
@@ -64,7 +76,12 @@
 
     protected override int BuildHash()
     {
-        return System.HashCode.Combine(ActiveStage?.CurrentInstructionIndex, ActiveStage?.ObjectiveCompleted, ActiveStage?.IsStageActive);
+        return System.HashCode.Combine(
+            ActiveStage?.CurrentInstructionIndex, 
+            ActiveStage?.ObjectiveCompleted, 
+            ActiveStage?.IsStageActive,
+            Shooter.TutorialStage.ReloadHoldProgress
+        );
     }
 
     private bool CanGoNext()

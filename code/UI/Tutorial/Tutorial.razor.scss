@@ -19,8 +19,7 @@ Tutorial {
         position: absolute;
         top: 25%;
         left: 40px;
-        width: 450px;
-        // Theme variables
+        width: 500px;
         background-color: rgba(0, 0, 0, 0.95);
         
         padding: 30px;
@@ -34,12 +33,12 @@ Tutorial {
         animation: slideInLeft 0.25s ease-out forwards;
 
         &.has-media {
-            top: 7%; // Place the instructions higher if it has media to avoid overlap with HUD
+            top: 7%; 
         }
 
         .stage-title {
             color: white;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             margin: 0;
             text-transform: uppercase;
@@ -125,11 +124,9 @@ Tutorial {
 
         .controls {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; 
+            align-items: flex-start;
             margin-top: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 15px;
             
             .control-text {
                 display: flex;
@@ -140,12 +137,31 @@ Tutorial {
                 font-weight: 600;
                 text-transform: uppercase;
                 transition: opacity 0.2s;
+                flex-shrink: 0; 
                 
                 &.hidden {
                     opacity: 0;
+                    pointer-events: none; 
+                }
+
+                &.center-action {
+                    flex-direction: column;
+                    gap: 6px;
+                    
+                    .action-labels {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 13px;
+                        line-height: 10;
+                        color: rgba(255, 255, 255, 0.4);
+                        white-space: nowrap;
+                    }
                 }
 
                 .key-box {
+                    position: relative; 
+                    overflow: hidden; 
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -159,6 +175,21 @@ Tutorial {
                     font-weight: 800;
                     font-size: 14px;
                     box-shadow: 0 3px 0 rgba(255, 255, 255, 0.2); 
+                    
+                    .key-text {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    .fill {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        background-color: rgba(100, 255, 255, 0.4); 
+                        z-index: 1;
+                        transition: width 0.05s linear; 
+                    }
                 }
             }
         }

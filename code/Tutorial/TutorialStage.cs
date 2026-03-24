@@ -52,6 +52,9 @@ public sealed class TutorialStage : Component
     public static Action OnMorphStart;
     public static Action OnMorphEnd;
 
+    public static float ReloadHoldProgress { get; private set; } = 0f;
+    private bool _hasTriggeredHold = false;
+
     public TutorialInstruction CurrentInstruction => Instructions.Count > 0 ? Instructions[CurrentInstructionIndex] : default;
 
     public void SpawnPlayer(PlayerController player, SpawnPoint position)
@@ -63,7 +66,7 @@ public sealed class TutorialStage : Component
         player.Velocity = Vector3.Zero;
     }
 
-    public async void ReturnToCheckpoint()
+    public async void ReturnToCheckpoint(bool forceStart = false)
     {
         if (_activePlayer == null) return;
 
@@ -74,7 +77,10 @@ public sealed class TutorialStage : Component
         // Wait a bit so that the effect is not instant
         await Task.Delay(200);
 
-        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
+        // 2. If forceStart is true, ignore active checkpoints and use the main SpawnPoint.
+        SpawnPoint target = (ActiveCheckpoints.Count > 0 && !forceStart) 
+            ? ActiveCheckpoints[^1].SpawnPointNode 
+            : SpawnPoint;
         SpawnPlayer(_activePlayer, target);
 
         // Trigger the reverse visual effect after moving the player
@@ -163,11 +169,11 @@ public sealed class TutorialStage : Component
     {
         if (!IsStageActive || Instructions == null || Instructions.Count == 0) return;
 
-        if (Input.Pressed("back"))
+        if (Input.Pressed( "back" ))
         {
             NavigateInstructions(-1);
         }
-        else if (Input.Pressed("use")) 
+        else if (Input.Pressed( "use" )) 
         {
             if (ObjectiveCompleted && CurrentInstructionIndex == Instructions.Count - 1)
             {
@@ -176,9 +182,43 @@ public sealed class TutorialStage : Component
             }
             NavigateInstructions(1);
         }
-        else if (Input.Pressed("reload"))
+        HandleReloadInput();
+    }
+    
+    // -- Handles pressing vs holding the reset button --
+    private void HandleReloadInput()
+    {
+        if (Input.Down("reload"))
         {
-            ReturnToCheckpoint();
+            if (!_hasTriggeredHold)
+            {
+                // Increase progress based on frame time
+                ReloadHoldProgress += Time.Delta; 
+
+                // If held for 1 second, force return to start
+                if (ReloadHoldProgress >= 1.0f)
+                {
+                    ReturnToCheckpoint(forceStart: true);
+                    _hasTriggeredHold = true;
+                    ReloadHoldProgress = 0f;
+                }
+            }
+        }
+        else if (Input.Released("reload"))
+        {
+            // If released before 1 second, do a normal checkpoint reset
+            if (!_hasTriggeredHold && ReloadHoldProgress > 0f)
+            {
+                ReturnToCheckpoint(forceStart: false);
+            }
+            
+            ReloadHoldProgress = 0f;
+            _hasTriggeredHold = false;
+        }
+        else
+        {
+            ReloadHoldProgress = 0f;
+            _hasTriggeredHold = false;
         }
     }
 
