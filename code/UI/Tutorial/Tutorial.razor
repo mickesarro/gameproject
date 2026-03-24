@@ -11,6 +11,8 @@
     {
         var instruction = ActiveStage.CurrentInstruction;
         var hasMedia = !string.IsNullOrWhiteSpace(instruction.MediaPath);
+
+        <SpawnTransition />
         
         <div class="instruction-panel @(hasMedia ? "has-media" : "")" @key="ActiveStage.CurrentInstructionIndex">
             

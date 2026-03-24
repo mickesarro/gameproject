@@ -5,37 +5,49 @@
 @inherits Panel
 @namespace Shooter.UI
 
-<root class="@(IsActive ? "active" : "")">
+<root class="@CurrentState">
+    <div class="distortion-layer"></div>
     <div class="flash"></div>
     <div class="scanline"></div>
 </root>
 
 @code
 {
-    private bool IsActive { get; set; } = false;
+    private string CurrentState { get; set; } = "hidden";
 
     protected override void OnAfterTreeRender(bool firstTime)
     {
         if (firstTime)
         {
-            TutorialStage.OnReturnToCheckpoint += TriggerEffect;
+            TutorialStage.OnMorphStart += HandleMorphStart;
+            TutorialStage.OnMorphEnd += HandleMorphEnd;
         }
     }
 
     public override void Delete(bool b = false)
     {
-        TutorialStage.OnReturnToCheckpoint -= TriggerEffect;
+        TutorialStage.OnMorphStart -= HandleMorphStart;
+        TutorialStage.OnMorphEnd -= HandleMorphEnd;
         base.Delete(b);
     }
 
-    private async void TriggerEffect()
+    private void HandleMorphStart()
     {
-        IsActive = true;
+        CurrentState = "morph-out";
+        StateHasChanged();
+    }
+
+    private async void HandleMorphEnd()
+    {
+        CurrentState = "morph-in";
         StateHasChanged();
 
         await Task.Delay(500);
 
-        IsActive = false;
-        StateHasChanged();
+        if (CurrentState == "morph-in")
+        {
+            CurrentState = "hidden";
+            StateHasChanged();
+        }
     }
 }

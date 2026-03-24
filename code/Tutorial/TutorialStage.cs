@@ -48,7 +48,9 @@ public sealed class TutorialStage : Component
     public bool ObjectiveCompleted { get; private set; } = false;
     public bool IsFullyComplete { get; private set; } = false;
 
-    public static Action OnReturnToCheckpoint;
+    // Actions for Respawn Effect
+    public static Action OnMorphStart;
+    public static Action OnMorphEnd;
 
     public TutorialInstruction CurrentInstruction => Instructions.Count > 0 ? Instructions[CurrentInstructionIndex] : default;
 
@@ -61,18 +63,22 @@ public sealed class TutorialStage : Component
         player.Velocity = Vector3.Zero;
     }
 
-    public void ReturnToCheckpoint()
+    public async void ReturnToCheckpoint()
     {
         if (_activePlayer == null) return;
 
-        // Grab the SpawnPointNode from the last active CheckpointTrigger
-        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
-        SpawnPlayer(_activePlayer, target);
+        // Start visual visual effect
+        OnMorphStart?.Invoke();
         SoundManager.PlayLocal(SoundManager.SoundType.Morph, 0.5f);
 
-        OnReturnToCheckpoint?.Invoke();
+        // Wait a bit so that the effect is not instant
+        await Task.Delay(200);
 
-        Log.Info($"[{StageName}] Player returned to checkpoint.");
+        SpawnPoint target = ActiveCheckpoints.Count > 0 ? ActiveCheckpoints[^1].SpawnPointNode : SpawnPoint;
+        SpawnPlayer(_activePlayer, target);
+
+        // Trigger the reverse visual effect after moving the player
+        OnMorphEnd?.Invoke();
     }
 
     public void StartStage(PlayerController player)

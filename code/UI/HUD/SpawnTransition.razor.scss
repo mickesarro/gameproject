@@ -4,16 +4,25 @@ SpawnTransition {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; // Make sure it doesn't block player input/clicks
+    pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease-out; // Smooth fade out
-    z-index: 100; // Render on top of everything
+    z-index: 100;
+
+    // Blur effect under the scanline
+    .distortion-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(15px) contrast(1.2) saturate(1.5);
+        
+        clip-path: inset(0 0 100% 0); 
+    }
 
     .flash {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(100, 255, 255, 0.4); // Bright sci-fi cyan
+        background-color: rgba(100, 255, 255, 0.25);
         mix-blend-mode: screen;
     }
 
@@ -21,18 +30,55 @@ SpawnTransition {
         position: absolute;
         width: 100%;
         height: 15%;
-        background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8), transparent);
-        top: -20%; // Start above screen
+        background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9), transparent);
+        top: -20%; 
     }
 
-    // When the effect is triggered:
-    &.active {
+    // Line wiping down
+    &.morph-out {
         opacity: 1;
-        transition: opacity 0.05s ease-in; // Snap in instantly
+        transition: opacity 0.05s ease-in; 
 
         .scanline {
-            top: 120%; // Animate the scanline down the screen
-            transition: top 0.3s ease-out; 
+            top: 120%; 
+            transition: top 0.2s ease-out; 
+        }
+
+        .distortion-layer {
+            // Un-clip the blur from top to bottom, following the scanline
+            clip-path: inset(0 0 0% 0);
+            transition: clip-path 0.2s ease-out; 
+        }
+    }
+
+    // Line wiping up
+    &.morph-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-out; 
+
+        .scanline {
+            top: -20%; 
+            transition: top 0.4s ease-out; 
+        }
+
+        .distortion-layer {
+            clip-path: inset(0 0 100% 0);
+            transition: clip-path 0.4s ease-out; 
+        }
+    }
+
+    &.hidden {
+        opacity: 0;
+        transition: none; 
+        
+        .scanline {
+            top: -20%;
+            transition: none;
+        }
+
+        .distortion-layer {
+            clip-path: inset(0 0 100% 0);
+            transition: none;
         }
     }
 }
