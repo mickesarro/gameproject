@@ -45,7 +45,7 @@ public sealed class JumpPad : Component, Component.ITriggerListener
         // Makes sure that bots hitting the JumpPad don't play the sound to you locally
         if ( character.IsPlayer )
 		{
-			SoundManager.PlayLocal( SoundManager.SoundType.JumpPad, 0.5f );
+			SoundManager.PlayLocal( SoundManager.SoundType.JumpPad, 0.3f );
 		}
 	}
 
