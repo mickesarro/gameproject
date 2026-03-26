@@ -135,6 +135,12 @@
               "component_id": "58da8ab3-b3e9-4042-b904-743131d5ecb1",
               "go": "9ecea3ff-37b4-4109-bbd8-5b1242bef8a5",
               "component_type": "NewLobbyCreator"
+            },
+            {
+              "_type": "component",
+              "component_id": "342beffb-6c93-4022-92a4-7a786503fa3a",
+              "go": "ab21ccdf-4db8-4557-83d8-340cc81bfa83",
+              "component_type": "TutorialPage"
             }
           ]
         }
@@ -306,6 +312,64 @@
             }
           ],
           "Children": []
+        },
+        {
+          "__guid": "ab21ccdf-4db8-4557-83d8-340cc81bfa83",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "TutorialPage",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.UI.TutorialPage",
+              "__guid": "342beffb-6c93-4022-92a4-7a786503fa3a",
+              "__enabled": true,
+              "Flags": 0,
+              "Levels": [
+                {
+                  "Name": "Tutorial",
+                  "Description": "• Info 1\n• Info 1\n• Info 1\n• Info 1\n• Info 1",
+                  "MediaPath": "media\\images\\background.jpg"
+                },
+                {
+                  "Name": "Level 1: Bhopping",
+                  "Description": "• This is info 1\n• This is info 2\n• Info 1",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
+                },
+                {
+                  "Name": "Level 2: Rocket Jumping",
+                  "Description": "• Rocket Jump",
+                  "MediaPath": null
+                },
+                {
+                  "Name": "Level 4",
+                  "Description": null,
+                  "MediaPath": null
+                },
+                {
+                  "Name": "Level 5",
+                  "Description": null,
+                  "MediaPath": null
+                }
+              ],
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ],
+          "Children": []
         }
       ]
     }
@@ -325,12 +389,13 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "CustomBounds": false
     },
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "f26d7cf2-3b76-4fb2-964e-aa054f6237a3"
+          "$blob": "97f1e884-8691-4bc3-be6a-00dd039f8ca0"
         }
       }
     }

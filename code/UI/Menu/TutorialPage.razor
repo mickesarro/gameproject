@@ -1,0 +1,134 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Text.RegularExpressions;
+@using UISystem
+@inherits UILayer
+@namespace Shooter.UI
+
+<root>
+    <div class="tutorial-page-container">
+        <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@GoBack"></UIButton>
+
+        <div class="content-layout">
+            <div class="level-list flex-col">
+                @if (Levels != null)
+                {
+                    @foreach (var level in Levels)
+                    {
+                        <UIButton class="menu_btn level-btn @(SelectedLevel.Name == level.Name ? "active" : "")" 
+                                  T="string" 
+                                  DisplayValue="@level.Name" 
+                                  ButtonCallback="@(() => SelectLevel(level))">
+                        </UIButton>
+                    }
+                }
+            </div>
+
+            <div class="level-details flex-col">
+                @if (!string.IsNullOrEmpty(SelectedLevel.Name))
+                {
+                    <div class="title-box">
+                        <h1>@SelectedLevel.Name</h1>
+                    </div>
+
+                    @if (!string.IsNullOrWhiteSpace(SelectedLevel.MediaPath))
+                    {
+                        <div class="media-container">
+                            <div class="tutorial-media" style="background-image: url('@SelectedLevel.MediaPath');"></div>
+                        </div>
+                    }
+                    
+                    <div class="info-box">
+                        <div class="description-text">
+                            @foreach (var line in GetParsedLines(SelectedLevel.Description))
+                            {
+                                <div class="description-line">@PreserveEdgeSpaces(line)</div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="start-tutorial-container">
+            <UIButton class="menu_btn start_btn" T="string" DisplayValue="Start Tutorial" ButtonCallback="@StartTutorialGame"></UIButton>
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public struct TutorialPageInfo
+    {
+        [Property] public string Name { get; set; }
+        [Property, TextArea] public string Description { get; set; }
+        [Property, FilePath, Description("Pick the .mp4, .webm, or image file")] 
+        public string MediaPath { get; set; }
+    }
+
+    [Property, Group("Tutorial Settings")] 
+    public List<TutorialPageInfo> Levels { get; set; } = new();
+
+    public TutorialPageInfo SelectedLevel { get; set; }
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        
+        if (Levels != null && Levels.Count > 0)
+        {
+            SelectedLevel = Levels[0];
+        }
+    }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        if ( Input.EscapePressed )
+        {
+            Input.EscapePressed = false;
+            GoBack();
+        }
+    }
+
+    private void SelectLevel(TutorialPageInfo level)
+    {
+        SelectedLevel = level;
+    }
+
+    private void StartTutorialGame()
+    {
+        Log.Info( "Starting Tutorial Level" );
+        var slo = new SceneLoadOptions { ShowLoadingScreen = true };
+        slo.SetScene( "/scenes/tutorial.scene" );
+        Scene.Load( slo );
+
+        GameMode.SetGameMode("gamemodes/tutorial/tutorial.prefab");
+        Mouse.Visibility = MouseVisibility.Hidden;
+        LoadingScreen.Title = "Starting Tutorial...";
+    }
+
+    private void GoBack()
+    {
+        UIManager.Instance.ShowLastLayer();
+    }
+
+    private string PreserveEdgeSpaces(string text)
+    {
+        if (string.IsNullOrEmpty(text)) return text;
+        text = Regex.Replace(text, @"^ +", m => new string('\u00A0', m.Length));
+        text = Regex.Replace(text, @" +$", m => new string('\u00A0', m.Length));
+        return text;
+    }
+
+    private IEnumerable<string> GetParsedLines(string input)
+    {
+        if (string.IsNullOrEmpty(input)) yield break;
+        var lines = input.Replace("\r", "").Split('\n');
+
+        foreach (var line in lines)
+        {
+            yield return string.IsNullOrEmpty(line) ? " " : line;
+        }
+    }
+}
