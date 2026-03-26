@@ -75,6 +75,16 @@ MainMenu {
                 }
             }
 
+            .tutorial_btn {
+                color: #4CAF50;
+                text-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+
+                &:hover {
+                    color: #81C784;
+                    text-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
+                }
+            }
+
             .back_btn {
                 margin-top: 15px;
                 font-size: 24px;

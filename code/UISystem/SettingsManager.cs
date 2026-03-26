@@ -71,6 +71,15 @@ public class SettingsManager : SingletonBase<SettingsManager>
         stateChanged = true;
 	}
 
+	public void SetTutorialComplete(bool complete)
+    {
+        if (playerPreferences.TutorialComplete == complete) return;
+
+        playerPreferences.TutorialComplete = complete;
+        stateChanged = true;
+        Save();
+    }
+
 	public void SetFOV(float fov)
 	{
 		playerPreferences.Fov = fov; 

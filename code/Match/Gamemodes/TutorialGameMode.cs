@@ -24,10 +24,24 @@ public sealed class TutorialGameMode : GameMode
     public TutorialStage CurrentStage => (Stages != null && CurrentStageIndex < Stages.Count) ? Stages[CurrentStageIndex] : null;
     private bool isCurrentStageStarted = false;
 
-    // Editor utility for showing the player input with console command "InputOverlay true/false"
     #if DEBUG
+        // Editor utility for showing the player input with console command "InputOverlay true/false"
         [ConVar( Help = "Toggle the WASD recording overlay" )]
         public static bool InputOverlay { get; set; } = false;
+
+        [ConCmd("tutorial_set_complete", Help = "Force the tutorial completion state (true/false)")]
+        public static void SetTutorialCompleteCommand(bool isComplete)
+        {
+            if (SettingsManager.Instance != null)
+            {
+                SettingsManager.Instance.SetTutorialComplete(isComplete);
+                Log.Info($"[Debug] Tutorial completion state forced to: {isComplete}");
+            }
+            else
+            {
+                Log.Warning("SettingsManager is not initialized yet.");
+            }
+        }
 #endif
 
     protected override void OnStart()
@@ -77,7 +91,8 @@ public sealed class TutorialGameMode : GameMode
         isCurrentStageStarted = false;
         Log.Info("Advanced to next stage");
 
-        if (CurrentStageIndex >= Stages.Count)
+        // Changed this to stages.count - 1 since the last stage tells the player they completed
+        if (CurrentStageIndex == (Stages.Count - 1))
         {
             WinCondition(null);
         }
@@ -85,8 +100,12 @@ public sealed class TutorialGameMode : GameMode
 
     public override void WinCondition(PlayerStats latestScoreEvent)
     {
-        MatchManager.Instance?.EndGame();
         Log.Info("Tutorial Completed!");
+        
+        if (SettingsManager.Instance != null)
+        {
+            SettingsManager.Instance.SetTutorialComplete(true);
+        }
     }
 
     public override void DetermineWinners()

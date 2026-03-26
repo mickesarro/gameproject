@@ -442,8 +442,8 @@
           "Stages": [
             {
               "_type": "component",
-              "component_id": "0337e2a3-64e3-4b70-9e2a-e97610e423ed",
-              "go": "80c69c8f-365b-4050-8c10-5e73488c82e3",
+              "component_id": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
+              "go": "8a377c33-e0b9-46df-8a44-3f3de8ae722d",
               "component_type": "TutorialStage"
             },
             {
@@ -474,6 +474,12 @@
               "_type": "component",
               "component_id": "02622b3d-4401-492c-8992-5347b76607b5",
               "go": "fb1c055d-edd1-4b49-adc1-332afc8b6c24",
+              "component_type": "TutorialStage"
+            },
+            {
+              "_type": "component",
+              "component_id": "d32ab09e-8962-42da-95ac-4d6a3a6f7300",
+              "go": "814013c4-0fda-472d-92a4-eb4b1e1f20bc",
               "component_type": "TutorialStage"
             }
           ],
@@ -9483,6 +9489,56 @@
               ]
             }
           ]
+        },
+        {
+          "__guid": "814013c4-0fda-472d-92a4-eb4b1e1f20bc",
+          "__version": 2,
+          "Flags": 0,
+          "Name": "Level 6",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkFlags": 0,
+          "NetworkOrphaned": 0,
+          "NetworkTransmit": true,
+          "OwnerTransfer": 1,
+          "Components": [
+            {
+              "__type": "Shooter.TutorialStage",
+              "__guid": "d32ab09e-8962-42da-95ac-4d6a3a6f7300",
+              "__enabled": true,
+              "Flags": 0,
+              "Checkpoints": [],
+              "Instructions": [
+                {
+                  "Text": "•Congratulations! You completed the tutorial\n• You can now access all of the levels from the Menu",
+                  "MediaPath": null
+                }
+              ],
+              "ObjectiveText": "Complete The Tutorial",
+              "ObjectiveType": "ReadInstructions",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ResetTrigger": null,
+              "SpawnPoint": {
+                "_type": "component",
+                "component_id": "d83c5c22-a447-4703-ac62-a09c39372682",
+                "go": "b0cdb49e-6b15-4ecd-99fc-e8dcea8e3e14",
+                "component_type": "SpawnPoint"
+              },
+              "StageName": "Tutorial Completed!",
+              "TargetArea": null,
+              "TargetSpeed": 0
+            }
+          ],
+          "Children": []
         }
       ]
     },
@@ -16178,7 +16234,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "8ab46307-c26c-4c41-a365-ae601864cf06"
+          "$blob": "3a904134-656e-4aaf-bf78-5cdc9da54ee5"
         }
       }
     }

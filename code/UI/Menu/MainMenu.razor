@@ -20,6 +20,11 @@
         {
             <div class="menu_cluster">
                 <h1>Play</h1>
+
+                @if (!SettingsManager.Instance.PlayerPreferences.TutorialComplete)
+                {
+                    <UIButton class="menu_btn tutorial_btn" T="string" DisplayValue="TUTORIAL (RECOMMENDED!)" ButtonCallback="@OpenTutorialPage"></UIButton>
+                }
                 <UIButton class="menu_btn" T="string" DisplayValue="Join Game" ButtonCallback="@OpenLobbyBrowser"></UIButton>
                 <UIButton class="menu_btn" T="string" DisplayValue="Create Game" ButtonCallback="@OpenCreateGame"></UIButton>
                 <UIButton class="menu_btn back_btn" T="string" DisplayValue="← Back" ButtonCallback="@CloseSubMenus"></UIButton>
@@ -125,6 +130,11 @@
     private void OpenCreateGame()
     {
         UIManager.Instance.ShowLayer<NewLobbyCreator>();
+    }
+
+    private void OpenTutorialPage()
+    {
+        UIManager.Instance.ShowLayer<TutorialPage>();
     }
 
     private void ShowInfo()

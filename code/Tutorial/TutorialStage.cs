@@ -274,7 +274,7 @@ public sealed class TutorialStage : Component
         switch (ObjectiveType)
         {
             case TutorialObjectiveType.ReadInstructions:
-                isObjectiveMet = (CurrentInstructionIndex == Instructions.Count - 2);
+                isObjectiveMet = (CurrentInstructionIndex >= Instructions.Count - 2);
                 break;
 
             case TutorialObjectiveType.ReachSpeed:
