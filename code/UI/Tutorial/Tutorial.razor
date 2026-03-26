@@ -11,7 +11,7 @@
     {
         var instruction = ActiveStage.CurrentInstruction;
         var hasMedia = !string.IsNullOrWhiteSpace(instruction.MediaPath);
-        bool hasCheckpoint = Checkpoints > 0 ? true : false;
+        bool hasCheckpoint = Checkpoints > 0;
 
         <SpawnTransition />
         

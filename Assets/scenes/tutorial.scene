@@ -442,14 +442,14 @@
           "Stages": [
             {
               "_type": "component",
-              "component_id": "ea15c180-1924-49b4-9928-214ed0f52c42",
-              "go": "0ddac309-0ed2-4ccf-920d-a59bff5b089b",
+              "component_id": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
+              "go": "8a377c33-e0b9-46df-8a44-3f3de8ae722d",
               "component_type": "TutorialStage"
             },
             {
               "_type": "component",
-              "component_id": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
-              "go": "8a377c33-e0b9-46df-8a44-3f3de8ae722d",
+              "component_id": "03fba41a-21b0-4fde-b05f-9a7886b743b7",
+              "go": "c849f813-0aa9-4d38-85ba-ecd89a5fdce9",
               "component_type": "TutorialStage"
             },
             {
@@ -16234,7 +16234,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "fb60f412-7721-40cc-a5ac-9c8820513bfe"
+          "$blob": "ea16653e-216c-482e-9084-4955b033de9d"
         }
       }
     }
