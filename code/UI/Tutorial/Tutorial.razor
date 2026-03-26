@@ -11,6 +11,7 @@
     {
         var instruction = ActiveStage.CurrentInstruction;
         var hasMedia = !string.IsNullOrWhiteSpace(instruction.MediaPath);
+        bool hasCheckpoint = Checkpoints > 0 ? true : false;
 
         <SpawnTransition />
         
@@ -47,17 +48,20 @@
                     ◀ <div class="key-box">@(Input.GetButtonOrigin("back")?.ToUpper() ?? "Q")</div> PREVIOUS
                 </div>
                 
-                <div class="control-text center-action">
-                    <div class="key-box">
-                        <div class="fill" style="width: @(Shooter.TutorialStage.ReloadHoldProgress * 100)%"></div>
-                        <div class="key-text">@(Input.GetButtonOrigin("reload")?.ToUpper() ?? "R")</div>
+                @if (hasCheckpoint)
+                {
+                    <div class="control-text center-action">
+                        <div class="key-box">
+                            <div class="fill" style="width: @(Shooter.TutorialStage.ReloadHoldProgress * 100)%"></div>
+                            <div class="key-text">@(Input.GetButtonOrigin("reload")?.ToUpper() ?? "R")</div>
+                        </div>
+                        <div class="action-labels">
+                            <span>CHECKPOINT (PRESS)</span>
+                            <span>START (HOLD)</span>
+                        </div>
                     </div>
-                    <div class="action-labels">
-                        <span>CHECKPOINT (PRESS)</span>
-                        <span>START (HOLD)</span>
-                    </div>
-                </div>
-
+                }
+                
                 <div class="control-text @(CanGoNext() ? "" : "hidden")">
                     NEXT <div class="key-box">@(Input.GetButtonOrigin("use")?.ToUpper() ?? "E")</div> ▶
                 </div>
@@ -73,6 +77,7 @@
 @code {
     public TutorialGameMode GameMode => Game.ActiveScene.GetAllComponents<TutorialGameMode>().FirstOrDefault();
     public TutorialStage ActiveStage => GameMode?.CurrentStage;
+    public int Checkpoints => ActiveStage.Checkpoints.Count();
 
     protected override int BuildHash()
     {
