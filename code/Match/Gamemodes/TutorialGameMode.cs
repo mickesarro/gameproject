@@ -20,6 +20,7 @@ public sealed class TutorialGameMode : GameMode
 
     [Property] public List<TutorialStage> Stages { get; set; } = new();
 
+    public static int StartingStageIndex {get; set; } = 0;
     public int CurrentStageIndex { get; private set; } = 0;
     public TutorialStage CurrentStage => (Stages != null && CurrentStageIndex < Stages.Count) ? Stages[CurrentStageIndex] : null;
     private bool isCurrentStageStarted = false;
@@ -48,6 +49,11 @@ public sealed class TutorialGameMode : GameMode
     {
         base.OnStart();
         Log.Info("Tutorial stages count: " + Stages?.Count);
+
+        CurrentStageIndex = StartingStageIndex;
+
+        // Reset to start for the future
+        StartingStageIndex = 0;
 
         // Force speed display for tutorial (you can still turn it off)
         SettingsManager.Instance?.SetSpeedDisplay(SpeedDisplayPosition.UnderCrosshair);
@@ -96,6 +102,28 @@ public sealed class TutorialGameMode : GameMode
         {
             WinCondition(null);
         }
+    }
+
+    public void GoToStage(int stageIndex)
+    {
+        if (Stages == null || stageIndex < 0 || stageIndex >= Stages.Count) 
+        {
+            Log.Warning($"Attempted to go to invalid tutorial stage: {stageIndex}");
+            return;
+        }
+
+        // End the current stage if one is active
+        if (isCurrentStageStarted && CurrentStageIndex < Stages.Count)
+        {
+            var oldStage = Stages[CurrentStageIndex];
+            oldStage?.EndStage();
+        }
+
+        // Set the new stage index and reset the started flag
+        CurrentStageIndex = stageIndex;
+        isCurrentStageStarted = false; // This forces StartStage() to run on the next OnUpdate loop
+        
+        Log.Info($"Fast-traveled to tutorial stage: {stageIndex}");
     }
 
     public override void WinCondition(PlayerStats latestScoreEvent)

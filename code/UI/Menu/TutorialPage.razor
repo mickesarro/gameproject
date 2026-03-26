@@ -13,12 +13,20 @@
             <div class="level-list flex-col">
                 @if (Levels != null)
                 {
-                    @foreach (var level in Levels)
+                    @for (int i = 0; i < Levels.Count; i++)
                     {
-                        <UIButton class="menu_btn level-btn @(SelectedLevel.Name == level.Name ? "active" : "")" 
+                        var level = Levels[i];
+                        
+                        // Unlocked if the tutorial is complete OR if it's the first level
+                        bool isUnlocked = SettingsManager.Instance.PlayerPreferences.TutorialComplete || i == 0;
+                        
+                        string activeClass = SelectedLevel.Name == level.Name ? "active" : "";
+                        string disabledClass = !isUnlocked ? "disabled" : "";
+
+                        <UIButton class="menu_btn level-btn @activeClass @disabledClass" 
                                   T="string" 
                                   DisplayValue="@level.Name" 
-                                  ButtonCallback="@(() => SelectLevel(level))">
+                                  ButtonCallback="@(() => { if (isUnlocked) SelectLevel(level); })">
                         </UIButton>
                     }
                 }
@@ -51,7 +59,7 @@
         </div>
 
         <div class="start-tutorial-container">
-            <UIButton class="menu_btn start_btn" T="string" DisplayValue="Start Tutorial" ButtonCallback="@StartTutorialGame"></UIButton>
+            <UIButton class="menu_btn start_btn" T="string" DisplayValue="@GetButtonText()" ButtonCallback="@StartTutorialGame"></UIButton>
         </div>
     </div>
 </root>
@@ -64,6 +72,8 @@
         [Property, TextArea] public string Description { get; set; }
         [Property, FilePath, Description("Pick the .mp4, .webm, or image file")] 
         public string MediaPath { get; set; }
+
+        [Property] public int TargetStageIndex { get; set; }
     }
 
     [Property, Group("Tutorial Settings")] 
@@ -96,16 +106,27 @@
         SelectedLevel = level;
     }
 
+    private string GetButtonText()
+    {
+        if (SelectedLevel.TargetStageIndex == 0)
+        {
+            return "Start Tutorial";
+        }
+        
+        return $"Go to level  {SelectedLevel.TargetStageIndex}";
+    }
+
     private void StartTutorialGame()
     {
-        Log.Info( "Starting Tutorial Level" );
+        Shooter.TutorialGameMode.StartingStageIndex = SelectedLevel.TargetStageIndex;
+        
         var slo = new SceneLoadOptions { ShowLoadingScreen = true };
         slo.SetScene( "/scenes/tutorial.scene" );
         Scene.Load( slo );
 
         GameMode.SetGameMode("gamemodes/tutorial/tutorial.prefab");
         Mouse.Visibility = MouseVisibility.Hidden;
-        LoadingScreen.Title = "Starting Tutorial...";
+        LoadingScreen.Title = $"Loading {SelectedLevel.Name}...";
     }
 
     private void GoBack()

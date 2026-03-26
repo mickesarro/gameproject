@@ -138,7 +138,7 @@
             },
             {
               "_type": "component",
-              "component_id": "342beffb-6c93-4022-92a4-7a786503fa3a",
+              "component_id": "ccece68a-8f56-42de-94c6-18c74372bc77",
               "go": "ab21ccdf-4db8-4557-83d8-340cc81bfa83",
               "component_type": "TutorialPage"
             }
@@ -331,34 +331,45 @@
           "Components": [
             {
               "__type": "Shooter.UI.TutorialPage",
-              "__guid": "342beffb-6c93-4022-92a4-7a786503fa3a",
+              "__guid": "ccece68a-8f56-42de-94c6-18c74372bc77",
               "__enabled": true,
               "Flags": 0,
               "Levels": [
                 {
                   "Name": "Tutorial",
                   "Description": "• Info 1\n• Info 1\n• Info 1\n• Info 1\n• Info 1",
-                  "MediaPath": "media\\images\\background.jpg"
+                  "MediaPath": "media\\images\\background.jpg",
+                  "TargetStageIndex": 0
                 },
                 {
                   "Name": "Level 1: Bhopping",
                   "Description": "• This is info 1\n• This is info 2\n• Info 1",
-                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm"
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm",
+                  "TargetStageIndex": 1
                 },
                 {
                   "Name": "Level 2: Rocket Jumping",
                   "Description": "• Rocket Jump",
-                  "MediaPath": null
+                  "MediaPath": null,
+                  "TargetStageIndex": 2
+                },
+                {
+                  "Name": "Level 3",
+                  "Description": null,
+                  "MediaPath": null,
+                  "TargetStageIndex": 3
                 },
                 {
                   "Name": "Level 4",
                   "Description": null,
-                  "MediaPath": null
+                  "MediaPath": null,
+                  "TargetStageIndex": 4
                 },
                 {
                   "Name": "Level 5",
                   "Description": null,
-                  "MediaPath": null
+                  "MediaPath": null,
+                  "TargetStageIndex": 5
                 }
               ],
               "OnComponentDestroy": null,
@@ -395,7 +406,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "97f1e884-8691-4bc3-be6a-00dd039f8ca0"
+          "$blob": "ed8e0d16-a158-4851-a587-43e527a28b00"
         }
       }
     }
