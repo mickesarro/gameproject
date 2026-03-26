@@ -11,3 +11,4 @@
 *.vtex_c filter=lfs diff=lfs merge=lfs -text
 *.vmat_c filter=lfs diff=lfs merge=lfs -text
 *.ogg filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
