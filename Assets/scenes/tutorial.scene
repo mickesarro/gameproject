@@ -442,8 +442,8 @@
           "Stages": [
             {
               "_type": "component",
-              "component_id": "845b9ad0-8342-4293-a8db-d0d26f065ef2",
-              "go": "8a377c33-e0b9-46df-8a44-3f3de8ae722d",
+              "component_id": "0337e2a3-64e3-4b70-9e2a-e97610e423ed",
+              "go": "80c69c8f-365b-4050-8c10-5e73488c82e3",
               "component_type": "TutorialStage"
             },
             {
@@ -16174,6 +16174,13 @@
       "ExcludedBodies": "",
       "IncludedBodies": "",
       "CustomBounds": false
+    },
+    "GameObjectSystems": {
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "8ab46307-c26c-4c41-a365-ae601864cf06"
+        }
+      }
     }
   },
   "ResourceVersion": 3,

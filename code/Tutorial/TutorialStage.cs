@@ -79,8 +79,19 @@ public sealed class TutorialStage : Component
 
         // 2. If forceStart is true, ignore active checkpoints and use the main SpawnPoint.
         SpawnPoint target = (ActiveCheckpoints.Count > 0 && !forceStart) 
-            ? ActiveCheckpoints[^1].SpawnPointNode 
-            : SpawnPoint;
+        ? ActiveCheckpoints[^1].SpawnPointNode 
+        : SpawnPoint;
+
+        if (forceStart)
+        {
+            foreach (var checkpoint in ActiveCheckpoints)
+            {
+                checkpoint.ResetCheckpoint();
+            }
+            
+            ActiveCheckpoints.Clear();
+        }
+
         SpawnPlayer(_activePlayer, target);
 
         // Trigger the reverse visual effect after moving the player
