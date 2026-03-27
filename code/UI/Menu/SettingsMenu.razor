@@ -45,6 +45,14 @@
                     </div>
                     <DropDown @ref="SpeedDisplayDropdown" class="speed_dropdown" style="display:none;" />
                 </div>
+
+                <div class="dropdown_section">
+                    <div class="dropdown_row">
+                        <UIButton class="menu_btn dropdown_button" T="string" DisplayValue="Easy Strafe: @(SelectedEasyStrafe ? "On" : "Off") ▼" ButtonCallback="@(() => OpenSettingContextMenu("EasyStrafe"))" /> 
+                    </div>
+                    <DropDown @ref="EasyStrafeDropdown" class="easy_strafe_dropdown" style="display:none;" />
+                </div>
+
             </div>
 
             <div class="spacer"></div>
@@ -79,7 +87,10 @@
     private SpeedDisplayPosition SelectedSpeedDisplay => playerPreferences.SpeedDisplay;
     private string SelectedSpeedDisplayLabel => GetSpeedDisplayLabel(SelectedSpeedDisplay);
 
-    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov, SelectedSpeedDisplay);
+    private DropDown EasyStrafeDropdown;
+    private bool SelectedEasyStrafe => playerPreferences.EasyStrafe;
+
+    protected override int BuildHash() => System.HashCode.Combine(SelectedCrosshair, SelectedColorHex, SelectedHudColorHex, currentFov, SelectedSpeedDisplay, SelectedEasyStrafe);
     
     protected override void OnEnabled()
     {
@@ -155,7 +166,9 @@
     private void OpenSettingContextMenu(string settingType)
     {
         DropDown targetDropdown = settingType == "Style" ? CrosshairDropdown : 
-                                  settingType == "Color" ? ColorDropdown : HudColorDropdown;
+                              settingType == "Color" ? ColorDropdown : 
+                              settingType == "HudColor" ? HudColorDropdown :
+                              settingType == "EasyStrafe" ? EasyStrafeDropdown : SpeedDisplayDropdown;
         
         if (targetDropdown == null) return;
 
@@ -213,6 +226,26 @@
                 panel.Style.Width = 280;
                 panel.Style.FontFamily = "Poppins";
                 panel.Style.FontColor = Color.Parse(color.Hex);
+            }
+        }
+
+        else if (settingType == "EasyStrafe")
+        {
+            bool[] options = { true, false };
+            foreach (bool option in options)
+            {
+                string label = option ? "On" : "Off";
+                var panel = popup.AddOption(label, "", () =>
+                {
+                    SettingsManager.Instance.SetEasyStrafe(option);
+                    StateHasChanged();
+                });
+
+                if (option == SelectedEasyStrafe) panel.AddClass("active");
+                
+                panel.Style.Width = 280;
+                panel.Style.BackgroundColor = Color.Black.WithAlpha(0.4f);
+                panel.Style.FontColor = Color.White;
             }
         }
 

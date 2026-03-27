@@ -33,6 +33,8 @@ public sealed class PlayerController : Component, ICharacterBase
 
     // Check if local playercontroller 
     public static PlayerController Local { get; private set; }
+
+    private bool EasyStrafeEnabled = false;
     
 	private PlayerStats playerStats;
 
@@ -258,7 +260,23 @@ public sealed class PlayerController : Component, ICharacterBase
         WishDir = 0;
 
         var rot = LookAngleAngles.WithPitch(0).ToRotation();
-        WishDir = (rot.Forward * Input.AnalogMove.x) + (rot.Left * Input.AnalogMove.y);
+
+        var moveX = Input.AnalogMove.x; // Forward/Back
+        var moveY = Input.AnalogMove.y; // Left/Right
+
+        // EASY STRAFE LOGIC:
+        // If enabled, in the air, pressing forward, AND pressing a strafe key
+        if (EasyStrafeEnabled && !IsOnGround) 
+        {
+            if (moveX > 0 && Math.Abs(moveY) > 0.1f) 
+            {
+                moveX = 0; // Ignore the W key, allowing pure sideways acceleration
+            }
+        }
+
+        // THE ORIGINAL!
+        // WishDir = (rot.Forward * Input.AnalogMove.x) + (rot.Left * Input.AnalogMove.y);
+        WishDir = (rot.Forward * moveX) + (rot.Left * moveY);
         if (!WishDir.IsNearZeroLength) WishDir = WishDir.Normal;
 
         IsWalking = Input.Down("Slow");
@@ -378,6 +396,11 @@ public sealed class PlayerController : Component, ICharacterBase
     private void AirMove() {
         AirAccelerate(WishDir, InternalMoveSpeed * Weight, AirAcceleration);
     }
+
+    private void ApplyEasyStrafeSetting(bool val)
+    {
+        EasyStrafeEnabled = val;
+    }
     
 	// Overrides
     
@@ -406,6 +429,12 @@ public sealed class PlayerController : Component, ICharacterBase
         base.OnDestroy();
 
         if ( !IsProxy ) Local = null;
+
+        if ( SettingsManager.Instance != null )
+        {
+            SettingsManager.Instance.OnEasyStrafeChanged -= ApplyEasyStrafeSetting;
+        }
+
     }
 
     protected override void OnFixedUpdate() {
@@ -521,6 +550,13 @@ public sealed class PlayerController : Component, ICharacterBase
 		    Height = StandingHeight;
 		    HeightGoal = StandingHeight;
 
+            if (SettingsManager.Instance != null)
+            {
+                EasyStrafeEnabled = SettingsManager.Instance.PlayerPreferences.EasyStrafe;
+                SettingsManager.Instance.OnEasyStrafeChanged += ApplyEasyStrafeSetting;
+                Log.Info("Easy strafe: " + EasyStrafeEnabled);
+            }
+
 		    if ( UseCustomFOV && SettingsManager.Instance != null )
 		    {
 			    Camera.FieldOfView = SettingsManager.Instance.PlayerPreferences.Fov;
@@ -541,37 +577,41 @@ public sealed class PlayerController : Component, ICharacterBase
     }
 
     protected override void OnUpdate() {
-		if ( !IsProxy ) {
-	        // LookAngle += new Vector2((Input.MouseDelta.y - ControllerInput.y), -(Input.MouseDelta.x + ControllerInput.x)) * Preferences.Sensitivity * 0.022f;
+        if ( !IsProxy ) {
+            
             if ( Input.UsingController )
             {
-                LookAngle += new Vector2( (Input.GetAnalog( InputAnalog.RightStickY ) * 0.5f), -(Input.GetAnalog( InputAnalog.RightStickX )) * 1.5f ) * Preferences.Sensitivity;
-            } else {
-                LookAngle += new Vector2( (Input.MouseDelta.y), -(Input.MouseDelta.x) ) * Preferences.Sensitivity * 0.022f;
+                // Controller inputs are continuous, so we multiply by Time.Delta 
+                // and use the specific controller speed preferences.
+                float pitch = Input.GetAnalog( InputAnalog.RightStickY ) * Preferences.ControllerLookPitchSpeed * Time.Delta;
+                float yaw = -Input.GetAnalog( InputAnalog.RightStickX ) * Preferences.ControllerLookYawSpeed * Time.Delta;
+                
+                LookAngle += new Vector2( pitch, yaw );
+            } 
+            else 
+            {
+                // Mouse delta is already frame-independent, so it just needs the sensitivity multiplier
+                LookAngle += new Vector2( Input.MouseDelta.y, -Input.MouseDelta.x ) * Preferences.Sensitivity * 0.022f;
             }
-	        LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
-			
-	        var angles = LookAngleAngles;
 
-	        if (CameraRollEnabled) {
-	            sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
-	            angles += new Angles(0, 0, sidetiltLerp); 
-	        }
-	        
+            LookAngle = LookAngle.WithX(LookAngle.x.Clamp(-89f, 89f));
+            
+            var angles = LookAngleAngles;
 
-			Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
-			Camera.WorldRotation = angles.ToRotation();
-			
-		}
-		SmoothLookAngle = SmoothLookAngle.LerpTo( LookAngle, Time.Delta / 0.035f );
+            if (CameraRollEnabled) {
+                sidetiltLerp = sidetiltLerp.LerpTo(Velocity.Cross(angles.Forward).z * CameraRollDamping * (Velocity.WithZ(0).Length / MoveSpeed), Time.Delta / CameraRollSmoothing).Clamp(-CameraRollAngleLimit, CameraRollAngleLimit);
+                angles += new Angles(0, 0, sidetiltLerp); 
+            }
+            
+            Camera.WorldPosition = GameObject.WorldPosition + new Vector3(0, 0, Height * 0.89f * GameObject.WorldScale.z);
+            Camera.WorldRotation = angles.ToRotation();
+        }
+        
+        SmoothLookAngle = SmoothLookAngle.LerpTo( LookAngle, Time.Delta / 0.035f );
 
-		UpdateCitizenAnims();
-
-		//if ( Body == null || Camera == null || BodyRenderer == null ) return;
-		
-		// Changed this from Body.Transform.Rotation that implicitly returns World.Rotation
-		// Body rotation might not need to happen in world space but rather in local space.
-		Body.WorldRotation = SmoothLookAngleAngles.WithPitch( 0 ).ToRotation();
+        UpdateCitizenAnims();
+        
+        Body.WorldRotation = SmoothLookAngleAngles.WithPitch( 0 ).ToRotation();
     }
 
 }
