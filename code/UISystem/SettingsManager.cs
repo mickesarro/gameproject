@@ -19,6 +19,7 @@ public class SettingsManager : SingletonBase<SettingsManager>
 	public event Action<float> OnFovChanged;
 	public event Action<float> OnVolumeChanged;
 	public event Action<SpeedDisplayPosition> OnSpeedDisplayChanged;
+	public event Action<bool> OnEasyStrafeChanged;
 
 	private readonly Dictionary<CameraComponent, Action<float>> cameraFovHandlers = new();
 
@@ -69,6 +70,16 @@ public class SettingsManager : SingletonBase<SettingsManager>
 		OnSpeedDisplayChanged?.Invoke(position);
 		
         stateChanged = true;
+	}
+
+	public void SetEasyStrafe(bool enabled)
+	{
+		if (playerPreferences.EasyStrafe == enabled) return;
+			
+		playerPreferences.EasyStrafe = enabled;
+		OnEasyStrafeChanged?.Invoke(enabled);
+			
+		stateChanged = true;
 	}
 
 	public void SetTutorialComplete(bool complete)
@@ -146,6 +157,7 @@ public class SettingsManager : SingletonBase<SettingsManager>
         OnFovChanged?.Invoke( playerPreferences.Fov );
         OnVolumeChanged?.Invoke( playerPreferences.Volume );
 		OnSpeedDisplayChanged?.Invoke( playerPreferences.SpeedDisplay );
+		OnEasyStrafeChanged?.Invoke( playerPreferences.EasyStrafe );
 
 		IsLoaded = true;
     }

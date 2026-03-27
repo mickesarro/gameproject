@@ -54,6 +54,7 @@ public sealed class PlayerPreferences : ISerializable
 	public string CrosshairColor { get; set; } = "#FFFFFF";
 	public string HudColor { get; set; } = "#FFFFFF";
 	public SpeedDisplayPosition SpeedDisplay { get; set; } = SpeedDisplayPosition.Off;
+	public bool EasyStrafe { get; set; } = false;
 	public bool TutorialComplete { get; set; } = false;
 
 }
