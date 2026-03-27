@@ -12,7 +12,7 @@
                 <h1>Paused</h1>
                 <UIButton class="menu_btn" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
 
-                @if (SettingsManager.Instance.PlayerPreferences.TutorialComplete)
+                @if (SettingsManager.Instance?.PlayerPreferences?.TutorialComplete != false)
                 {
                     <UIButton class="menu_btn" T="string" DisplayValue="Tutorial Levels" ButtonCallback="@OpenTutorialPage"></UIButton>
                 }

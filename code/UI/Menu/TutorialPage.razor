@@ -18,7 +18,7 @@
                         var level = Levels[i];
                         
                         // Unlocked if the tutorial is complete OR if it's the first level
-                        bool isUnlocked = SettingsManager.Instance.PlayerPreferences.TutorialComplete || i == 0;
+                        bool isUnlocked = SettingsManager.Instance?.PlayerPreferences?.TutorialComplete != false || i == 0;
                         
                         string activeClass = SelectedLevel.Name == level.Name ? "active" : "";
                         string disabledClass = !isUnlocked ? "disabled" : "";
@@ -124,7 +124,7 @@
         {
             return "Start Tutorial";
         }
-        
+
         return $"Go to level  {SelectedLevel.TargetStageIndex}";
     }
 

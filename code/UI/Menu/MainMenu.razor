@@ -21,7 +21,7 @@
             <div class="menu_cluster">
                 <h1>Play</h1>
 
-                @if (!SettingsManager.Instance.PlayerPreferences.TutorialComplete)
+                @if (!SettingsManager.Instance?.PlayerPreferences?.TutorialComplete != false)
                 {
                     <UIButton class="menu_btn tutorial_btn" T="string" DisplayValue="TUTORIAL (RECOMMENDED!)" ButtonCallback="@OpenTutorialPage"></UIButton>
                 }
