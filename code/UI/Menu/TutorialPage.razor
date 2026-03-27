@@ -155,6 +155,15 @@
     private void GoBack()
     {
         UIManager.Instance.ShowLastLayer();
+
+        if (UIManager.Instance.CurrentLayer is NewLobbyCreator)
+        {
+            UIManager.Instance.ShowLayer<NewLobbyCreator>();
+        }
+        else if (UIManager.Instance.CurrentLayer is PauseMenu pauseMenu)
+        {
+            pauseMenu.CloseSubMenus();
+        }
     }
 
     private string PreserveEdgeSpaces(string text)
