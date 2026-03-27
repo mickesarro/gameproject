@@ -6,9 +6,147 @@
       "__version": 2,
       "__Prefab": "prefabs/ui.prefab",
       "__PrefabInstancePatch": {
-        "AddedObjects": [],
+        "AddedObjects": [
+          {
+            "Id": {
+              "Type": "GameObject",
+              "IdValue": "47f32857-1c5b-442c-97a8-1403b4f51930"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "6aec1b73-e38e-4436-96db-4f884162970b"
+            },
+            "PreviousElement": {
+              "Type": "GameObject",
+              "IdValue": "3c269391-9a4f-448a-81cd-80b1a4bdde8e"
+            },
+            "ContainerProperty": "Children",
+            "IsContainerArray": true,
+            "Data": {
+              "__guid": "47f32857-1c5b-442c-97a8-1403b4f51930",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "TutorialPage",
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Enabled": true,
+              "NetworkMode": 0,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [],
+              "Children": []
+            }
+          },
+          {
+            "Id": {
+              "Type": "Component",
+              "IdValue": "39d79765-413e-42dd-8e62-6460945377db"
+            },
+            "Parent": {
+              "Type": "GameObject",
+              "IdValue": "47f32857-1c5b-442c-97a8-1403b4f51930"
+            },
+            "PreviousElement": null,
+            "ContainerProperty": "Components",
+            "IsContainerArray": true,
+            "Data": {
+              "__type": "Shooter.UI.TutorialPage",
+              "__guid": "39d79765-413e-42dd-8e62-6460945377db",
+              "__enabled": true,
+              "Flags": 0,
+              "Levels": [
+                {
+                  "Name": "Tutorial",
+                  "Description": "• Info 1\n• Info 1\n• Info 1\n\n• Info 1\n\n",
+                  "MediaPath": "media\\images\\background.jpg",
+                  "TargetStageIndex": 0
+                },
+                {
+                  "Name": "Level 1: Bhopping",
+                  "Description": "• This is info 1\n• This is info 2\n• Info 1",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm",
+                  "TargetStageIndex": 1
+                },
+                {
+                  "Name": "Level 2: Rocket Jumping",
+                  "Description": "• Rocket Jump",
+                  "MediaPath": null,
+                  "TargetStageIndex": 2
+                },
+                {
+                  "Name": "Level 3",
+                  "Description": null,
+                  "MediaPath": null,
+                  "TargetStageIndex": 3
+                },
+                {
+                  "Name": "Level 4",
+                  "Description": null,
+                  "MediaPath": null,
+                  "TargetStageIndex": 4
+                },
+                {
+                  "Name": "Level 5",
+                  "Description": null,
+                  "MediaPath": null,
+                  "TargetStageIndex": 5
+                }
+              ],
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          }
+        ],
         "RemovedObjects": [],
-        "PropertyOverrides": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "Component",
+              "IdValue": "b3cbec8b-fae9-45af-9ec0-8c9222684eb1"
+            },
+            "Property": "UILayers",
+            "Value": [
+              {
+                "_type": "component",
+                "component_id": "dda31a64-6e25-4a53-b6c9-7daa84d6b20e",
+                "go": "172d4b78-a7f0-4510-b74a-07a09e1aed84",
+                "component_type": "HUD"
+              },
+              {
+                "_type": "component",
+                "component_id": "e774a10d-6e14-4d3d-a9a2-59a457d5e70a",
+                "go": "f1d627a5-b56c-44da-8de3-be7eb10c3836",
+                "component_type": "PauseMenu"
+              },
+              {
+                "_type": "component",
+                "component_id": "a2b5bbff-4bb4-4364-b1db-ae1dd091cbd4",
+                "go": "a57483a2-781b-4ede-b4fd-5131df48da5e",
+                "component_type": "SettingsMenu"
+              },
+              {
+                "_type": "component",
+                "component_id": "c136b065-d8fa-4670-a083-065636caaaa1",
+                "go": "3c269391-9a4f-448a-81cd-80b1a4bdde8e",
+                "component_type": "StatsUI"
+              },
+              {
+                "_type": "component",
+                "component_id": "39d79765-413e-42dd-8e62-6460945377db",
+                "go": "47f32857-1c5b-442c-97a8-1403b4f51930",
+                "component_type": "TutorialPage"
+              }
+            ]
+          }
+        ],
         "MovedObjects": []
       },
       "__PrefabIdToInstanceId": {
@@ -76,12 +214,13 @@
       "AgentStepSize": 18,
       "AgentMaxSlope": 40,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "",
+      "CustomBounds": false
     },
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "c2cf0cda-7a59-4838-855a-d6006a30fe98"
+          "$blob": "a1194abb-0bdb-4197-bbcd-46f5e9e7cafd"
         }
       }
     }

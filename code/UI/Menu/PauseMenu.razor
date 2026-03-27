@@ -11,6 +11,12 @@
             <div class="menu_cluster">
                 <h1>Paused</h1>
                 <UIButton class="menu_btn" T="string" DisplayValue="Resume" ButtonCallback="@ResumeGame"></UIButton>
+
+                @if (SettingsManager.Instance.PlayerPreferences.TutorialComplete)
+                {
+                    <UIButton class="menu_btn" T="string" DisplayValue="Tutorial Levels" ButtonCallback="@OpenTutorialPage"></UIButton>
+                }
+
                 <UIButton class="menu_btn" T="string" DisplayValue="Settings" ButtonCallback="@OpenSettingsOptions"></UIButton>
                 <UIButton class="menu_btn" T="string" DisplayValue="Main menu" ButtonCallback="@ExitToMainMenu"></UIButton>
             </div>
@@ -94,5 +100,10 @@
     private void OpenPreferences()
     {
         UIManager.Instance.ShowLayer<SettingsMenu>();
+    }
+
+    private void OpenTutorialPage()
+    {
+        UIManager.Instance.ShowLayer<TutorialPage>();
     }
 }

@@ -72,7 +72,6 @@
         [Property, TextArea] public string Description { get; set; }
         [Property, FilePath, Description("Pick the .mp4, .webm, or image file")] 
         public string MediaPath { get; set; }
-
         [Property] public int TargetStageIndex { get; set; }
     }
 
@@ -84,7 +83,6 @@
     protected override void OnAwake()
     {
         base.OnAwake();
-        
         if (Levels != null && Levels.Count > 0)
         {
             SelectedLevel = Levels[0];
@@ -99,6 +97,20 @@
             Input.EscapePressed = false;
             GoBack();
         }
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        Mouse.Visibility = MouseVisibility.Visible;
+        GameObject.Enabled = true;
+    }
+
+    public override void Hide()
+    {
+        base.Hide();
+        Mouse.Visibility = MouseVisibility.Hidden;
+        GameObject.Enabled = false;
     }
 
     private void SelectLevel(TutorialPageInfo level)
@@ -118,8 +130,19 @@
 
     private void StartTutorialGame()
     {
+        var tutorialMode = Game.ActiveScene.GetAllComponents<TutorialGameMode>().FirstOrDefault();
+
+        // Check if we're already in the tutorial
+        if (tutorialMode != null)
+        {
+            tutorialMode.GoToStage(SelectedLevel.TargetStageIndex);
+            
+            UIManager.Instance.ResetToStartLayer(); 
+            return;
+        }
+
+        // Otherwise load the scene
         Shooter.TutorialGameMode.StartingStageIndex = SelectedLevel.TargetStageIndex;
-        
         var slo = new SceneLoadOptions { ShowLoadingScreen = true };
         slo.SetScene( "/scenes/tutorial.scene" );
         Scene.Load( slo );
