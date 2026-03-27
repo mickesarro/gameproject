@@ -43,6 +43,26 @@
         HideTimeMs = 200; // For fade-in animation
     }
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        if ( Input.EscapePressed )
+        {
+            Game.Overlay.Close();
+            Input.EscapePressed = false;
+            
+            // Go back a layer if in sub-menus, or entirely close if in the root pause menu
+            if ( ShowSettingsOptions )
+            {
+                CloseSubMenus();
+            }
+            else
+            {
+                ResumeGame();
+            }
+        }
+    }
+
     public override void Show()
     {
         Mouse.Visibility = MouseVisibility.Visible;

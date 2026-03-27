@@ -109,7 +109,6 @@
     public override void Hide()
     {
         base.Hide();
-        Mouse.Visibility = MouseVisibility.Hidden;
         GameObject.Enabled = false;
     }
 
@@ -155,10 +154,10 @@
     private void GoBack()
     {
         UIManager.Instance.ShowLastLayer();
-
-        if (UIManager.Instance.CurrentLayer is NewLobbyCreator)
+        
+        if (UIManager.Instance.CurrentLayer is MainMenu mainMenu)
         {
-            UIManager.Instance.ShowLayer<NewLobbyCreator>();
+            mainMenu.OpenPlayOptions();
         }
         else if (UIManager.Instance.CurrentLayer is PauseMenu pauseMenu)
         {

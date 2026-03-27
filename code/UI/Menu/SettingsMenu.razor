@@ -119,7 +119,6 @@
 
     public override void Hide()
     {
-        Mouse.Visibility = MouseVisibility.Hidden;
         GameObject.Enabled = false;
         SettingsManager.Instance?.Save();
     }

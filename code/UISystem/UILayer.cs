@@ -25,7 +25,17 @@ public abstract class UILayer : PanelComponent
         }
 
         Panel?.AddClass("closing");
-        await Task.Delay( HideTimeMs );
+
+        // Catch an arbitrary error caused by closing the Pause Menu
+        try 
+        {
+            await Task.Delay( HideTimeMs );
+        }
+        catch (System.OperationCanceledException)
+        {
+            return;
+        }
+        
 
         // Stop execution if the component was destroyed during the delay
         if ( !IsValid ) return;
