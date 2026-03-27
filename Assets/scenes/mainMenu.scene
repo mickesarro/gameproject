@@ -337,37 +337,37 @@
               "Levels": [
                 {
                   "Name": "Tutorial",
-                  "Description": "• Info 1\n• Info 1\n• Info 1\n• Info 1\n• Info 1",
-                  "MediaPath": "media\\images\\background.jpg",
+                  "Description": "• This tutorial goes through the movement mechanics of the game\n• If you're already familiar with source movement, It will only take a few minutes!\n\n\n",
+                  "MediaPath": "media\\images\\tutorial.png",
                   "TargetStageIndex": 0
                 },
                 {
                   "Name": "Level 1: Bhopping",
-                  "Description": "• This is info 1\n• This is info 2\n• Info 1",
+                  "Description": "• Learn the basics of strafing and Bunnyhopping\n• You can gain speed by Bhopping, but it's mainy for maintaining your speed",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 1\\bhop1.webm",
                   "TargetStageIndex": 1
                 },
                 {
                   "Name": "Level 2: Rocket Jumping",
-                  "Description": "• Rocket Jump",
-                  "MediaPath": null,
+                  "Description": "• Gain speed and height by rocket jumping\n• You can switch weapons between jumps to shoot the enemy",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 2\\rocketjump1.webm",
                   "TargetStageIndex": 2
                 },
                 {
-                  "Name": "Level 3",
-                  "Description": null,
+                  "Name": "Level 3: Jump Pads",
+                  "Description": "• Jump pads are another way to get height\n• Slanted Jump Pads also speed you up\n",
                   "MediaPath": null,
                   "TargetStageIndex": 3
                 },
                 {
-                  "Name": "Level 4",
-                  "Description": null,
+                  "Name": "Level 4: Jump pads 2",
+                  "Description": "• You can combine jump pads and rocket jumping to gain extra velocity",
                   "MediaPath": null,
                   "TargetStageIndex": 4
                 },
                 {
-                  "Name": "Level 5",
-                  "Description": null,
+                  "Name": "Level 5: Surfing",
+                  "Description": "• By surfing you can link your movements together while keeping your speed\n• And look cool doing it",
                   "MediaPath": null,
                   "TargetStageIndex": 5
                 }
@@ -406,7 +406,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "ed8e0d16-a158-4851-a587-43e527a28b00"
+          "$blob": "0ac8952e-9217-4f5a-afac-dec38a20da8b"
         }
       }
     }

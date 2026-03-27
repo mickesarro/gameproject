@@ -515,7 +515,7 @@
                   "MediaPath": null
                 },
                 {
-                  "Text": "• This tutorial goes through the mechanics of the game\n• If you're already familiar with source movement, It will only take a few minutes!\n Page [2/2]\n",
+                  "Text": "• TIPS!\n• If you're a beginner OR playing with a controller, turn on Easy Strafe from the Preferences menu\n• You can also Toggle/Move the Speed Display\n\n\n Page [2/2]\n",
                   "MediaPath": null
                 },
                 {
@@ -1674,7 +1674,10 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
-              "ResetTrigger": null,
+              "ResetTrigger": {
+                "_type": "gameobject",
+                "go": "7a6474f0-45c9-43b9-a0c0-9ee0cd01a703"
+              },
               "SpawnPoint": {
                 "_type": "component",
                 "component_id": "560eb89a-fbf6-4dc1-8f1c-76cadfcfafed",
@@ -3022,7 +3025,7 @@
                   "__version": 2,
                   "Flags": 0,
                   "Name": "Jump Pad",
-                  "Position": "-2287.307,-8230.733,255.5998",
+                  "Position": "-2287.307,-8238.273,260.5393",
                   "Rotation": "0,0,0,1",
                   "Scale": "2,2,2",
                   "Tags": "",
@@ -4733,6 +4736,77 @@
                   ]
                 }
               ]
+            },
+            {
+              "__guid": "ff125f84-22e7-41cd-850f-ba333bf8eb89",
+              "__version": 2,
+              "Flags": 0,
+              "Name": "container",
+              "Position": "-2455.039,-8237.488,151.3242",
+              "Rotation": "0.000000000000000000000004067715,-0.000000009159678,0.0000000000000004440893,1",
+              "Scale": "1.557822,1.161222,1",
+              "Tags": "",
+              "Enabled": false,
+              "NetworkMode": 2,
+              "NetworkFlags": 0,
+              "NetworkOrphaned": 0,
+              "NetworkTransmit": true,
+              "OwnerTransfer": 1,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "8c8f01f8-5755-4cd0-b13b-48ae38e6227a",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "BodyGroups": 18446744073709551615,
+                  "CreateAttachments": false,
+                  "LodOverride": null,
+                  "MaterialGroup": "green",
+                  "MaterialOverride": null,
+                  "Materials": null,
+                  "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "Sandbox.ModelCollider",
+                  "__guid": "320f81a1-ae36-4c43-9441-5fa971a14428",
+                  "__enabled": true,
+                  "Flags": 0,
+                  "ColliderFlags": 0,
+                  "Elasticity": null,
+                  "Friction": null,
+                  "IsTrigger": false,
+                  "Model": "models/sbox_props/shipping_container/shipping_container.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnObjectTriggerEnter": null,
+                  "OnObjectTriggerExit": null,
+                  "OnTriggerEnter": null,
+                  "OnTriggerExit": null,
+                  "RollingResistance": null,
+                  "Static": false,
+                  "Surface": null,
+                  "SurfaceVelocity": "0,0,0"
+                }
+              ],
+              "Children": []
             }
           ]
         },
@@ -5055,7 +5129,7 @@
               "__version": 2,
               "Flags": 0,
               "Name": "TargetArea",
-              "Position": "145.6949,-8391.678,769.5565",
+              "Position": "145.6949,-8391.678,765.5309",
               "Rotation": "0,0,0,1",
               "Scale": "3.5,4,2.039999",
               "Tags": "player_trigger,target",
@@ -9617,7 +9691,7 @@
           "Rotation": "0.2588191,-0.000000001799177,0.0000000004820881,0.9659258",
           "Scale": "2,2,2",
           "Tags": "",
-          "Enabled": true,
+          "Enabled": false,
           "NetworkMode": 2,
           "NetworkFlags": 0,
           "NetworkOrphaned": 0,
@@ -10842,7 +10916,7 @@
           "Rotation": "0.2391176,-0.09904574,-0.3696438,0.8923992",
           "Scale": "2,2,2",
           "Tags": "",
-          "Enabled": true,
+          "Enabled": false,
           "NetworkMode": 2,
           "NetworkFlags": 0,
           "NetworkOrphaned": 0,
@@ -12557,7 +12631,7 @@
           "Rotation": "0,-0.258819,0,0.9659258",
           "Scale": "2,2,2",
           "Tags": "",
-          "Enabled": true,
+          "Enabled": false,
           "NetworkMode": 2,
           "NetworkFlags": 0,
           "NetworkOrphaned": 0,
@@ -16234,7 +16308,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "8dffa4f4-b530-4492-9c72-ac71b69dbf75"
+          "$blob": "eca254e4-b3ee-4a0c-bd4a-691ec503fe06"
         }
       }
     }
