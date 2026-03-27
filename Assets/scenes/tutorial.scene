@@ -1416,7 +1416,7 @@
                       "__enabled": true,
                       "Flags": 0,
                       "displayRenderer": null,
-                      "HideTime": 9999,
+                      "HideTime": 0,
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -4855,7 +4855,7 @@
                       "__enabled": true,
                       "Flags": 0,
                       "displayRenderer": null,
-                      "HideTime": 9999,
+                      "HideTime": 0,
                       "OnComponentDestroy": null,
                       "OnComponentDisabled": null,
                       "OnComponentEnabled": null,
@@ -16234,7 +16234,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "a100b417-5596-4ec3-bda9-8d53232d9178"
+          "$blob": "8dffa4f4-b530-4492-9c72-ac71b69dbf75"
         }
       }
     }
