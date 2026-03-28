@@ -80,19 +80,19 @@
                 {
                   "Name": "Level 3: Jump Pads",
                   "Description": "• Jump pads are another way to get height\n• Slanted Jump Pads also speed you up\n",
-                  "MediaPath": null,
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 3\\jump-pad.webm",
                   "TargetStageIndex": 3
                 },
                 {
                   "Name": "Level 4: Jump pads 2",
                   "Description": "• You can combine jump pads and rocket jumping to gain extra velocity",
-                  "MediaPath": null,
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 4\\jump-pad2.webm",
                   "TargetStageIndex": 4
                 },
                 {
                   "Name": "Level 5: Surfing",
                   "Description": "• By surfing you can link your movements together while keeping your speed\n• And look cool doing it",
-                  "MediaPath": null,
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 5\\surf4.webm",
                   "TargetStageIndex": 5
                 }
               ],
@@ -220,7 +220,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "67c7d05a-c2c0-4e71-ae8f-f29759f76b13"
+          "$blob": "848e45a6-0bad-48f7-862d-1ce473a7bc12"
         }
       }
     }

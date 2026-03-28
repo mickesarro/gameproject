@@ -4846,7 +4846,7 @@
               "Checkpoints": [],
               "Instructions": [
                 {
-                  "Text": "• You can combine Jump pads and Rocket Jumping\n• Rocket jump right after you hit the Jump pad\n Page [1/1]",
+                  "Text": "• You can combine jump pads and rocket jumping\n• Rocket jump right after you hit the jump pad for extra velocity\n Page [1/1]",
                   "MediaPath": "Media\\Videos\\Tutorial\\Level 4\\jump-pad2.webm"
                 },
                 {
@@ -9612,7 +9612,7 @@
               "Checkpoints": [],
               "Instructions": [
                 {
-                  "Text": "•Congratulations! You completed the tutorial\n• You can now access all of the levels from the Menu\n\n",
+                  "Text": "• Congratulations! You completed the tutorial\n• You can now access all of the levels from the Pause Menu\n• You can also find it from the \"Create Game\" tab in the Main Menu\n\n",
                   "MediaPath": null
                 }
               ],
@@ -17501,7 +17501,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "bc2a3366-20f5-4589-b168-48833cca8e6f"
+          "$blob": "144209a5-8c97-4365-8d81-0cee2ac8634b"
         }
       }
     }
