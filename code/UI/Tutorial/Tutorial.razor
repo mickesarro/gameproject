@@ -1,12 +1,17 @@
-@using Sandbox;
-@using Sandbox.UI;
-@using System.Text.RegularExpressions;
-@using Shooter.UISystem;
+@using Sandbox
+@using Sandbox.UI
+@using System.Text.RegularExpressions
+@using Shooter.UISystem
 @inherits UILayer
 
 @namespace Shooter.UI
 
 <root>
+
+    @* Don't want to show the rest of the UI when filming tutorials *@
+    <KeyOverlay />
+    @if (TutorialGameMode.InputOverlay) return;
+
     @if (ActiveStage != null && ActiveStage.IsStageActive && ActiveStage.Instructions.Count > 0)
     {
         var instruction = ActiveStage.CurrentInstruction;
@@ -69,8 +74,6 @@
             
         </div>
     }
-
-    <KeyOverlay />
 
 </root>
 

@@ -5,7 +5,7 @@
 @implements IMatchEvents
 @namespace Shooter.UI
 
-@if (!ShouldDisplay) return;
+@if (!ShouldDisplay || TutorialGameMode.InputOverlay) return;
 
 <root>
     <KillFeed @ref="killFeed" />
