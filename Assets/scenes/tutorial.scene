@@ -1667,7 +1667,7 @@
               "Instructions": [
                 {
                   "Text": "• You can also move using jump pads\n Page [1/2]",
-                  "MediaPath": null
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 3\\jump-pad.webm"
                 },
                 {
                   "Text": "• Flat jump pads only propel you upwards, but you can still keep your lateral speed\n Page [2/2]",
@@ -4847,7 +4847,7 @@
               "Instructions": [
                 {
                   "Text": "• You can combine Jump pads and Rocket Jumping\n• Rocket jump right after you hit the Jump pad\n Page [1/1]",
-                  "MediaPath": null
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 4\\jump-pad2.webm"
                 },
                 {
                   "Text": "Level 4 Completed!",
@@ -5583,16 +5583,20 @@
               ],
               "Instructions": [
                 {
-                  "Text": "• You can surf by holding the movement key towards the the surf\n• In this case left\n Page [1/3]",
-                  "MediaPath": null
+                  "Text": "• You can surf by holding the movement key towards the the surf\n• In this case left\n Page [1/4]",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 5\\surf1.webm"
                 },
                 {
-                  "Text": "• By aiming you control whether you slide up or down on the surf\n• Aiming down gives you a lot of speed, but be careful not to slide off the surf\n Page [2/3]",
-                  "MediaPath": null
+                  "Text": "• By aiming you control whether you slide up or down on the surf\n• Aiming down gives you a lot of speed, but be careful not to slide off the surf\n Page [2/4]",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 5\\surf2.webm"
                 },
                 {
-                  "Text": "• Aiming up slows you down, but gets you higher \n• By doing so, you can transfer your momentum to upwards movement\n Page [3/3]",
-                  "MediaPath": null
+                  "Text": "• For maximum speed, start from the top of the surf and smoothly slide down\n Page [3/4]",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 5\\surf3.webm"
+                },
+                {
+                  "Text": "• Aiming up slows you down, but gets you higher \n• By doing so, you can transfer your momentum to upwards movement\n Page [4/4]",
+                  "MediaPath": "Media\\Videos\\Tutorial\\Level 5\\surf4.webm"
                 },
                 {
                   "Text": "Level 5 Completed!",
@@ -17497,7 +17501,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "0b1e7534-5243-40fa-8e34-7aca8fde55e3"
+          "$blob": "29c629f7-d1f5-4a52-ba17-028cc2892cfc"
         }
       }
     }
