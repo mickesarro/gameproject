@@ -82,6 +82,7 @@
     protected override int BuildHash()
     {
         return System.HashCode.Combine(
+            GameMode?.CurrentStageIndex,
             ActiveStage?.CurrentInstructionIndex, 
             ActiveStage?.ObjectiveCompleted, 
             ActiveStage?.IsStageActive,
