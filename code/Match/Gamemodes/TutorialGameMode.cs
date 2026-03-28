@@ -24,6 +24,7 @@ public sealed class TutorialGameMode : GameMode
     public int CurrentStageIndex { get; private set; } = 0;
     public TutorialStage CurrentStage => (Stages != null && CurrentStageIndex < Stages.Count) ? Stages[CurrentStageIndex] : null;
     private bool isCurrentStageStarted = false;
+    private bool isTutorialCompleted = false;
 
     #if DEBUG
         // Editor utility for showing the player input with console command "InputOverlay true/false"
@@ -76,6 +77,13 @@ public sealed class TutorialGameMode : GameMode
         {
             CurrentStage?.StartStage(localPlayer);
             isCurrentStageStarted = true;
+
+            // If on the last stage, tutorial is completed
+            if (CurrentStageIndex >= Stages.Count - 1 && !isTutorialCompleted)
+            {
+                WinCondition(null);
+                isTutorialCompleted = true;
+            }
         }
 
         if (CurrentStage.CheckCompletion(localPlayer))
@@ -86,6 +94,11 @@ public sealed class TutorialGameMode : GameMode
 
     private void AdvanceStage()
     {
+        if (CurrentStageIndex >= Stages.Count - 1)
+        {
+            return; // Don't advance further than the last stage
+        }
+
         // Disable old stage after completion
         if (CurrentStageIndex < Stages.Count)
         {
@@ -96,16 +109,12 @@ public sealed class TutorialGameMode : GameMode
         CurrentStageIndex++;
         isCurrentStageStarted = false;
         Log.Info("Advanced to next stage");
-
-        // Changed this to stages.count - 1 since the last stage tells the player they completed
-        if (CurrentStageIndex == (Stages.Count - 1))
-        {
-            WinCondition(null);
-        }
     }
 
     public void GoToStage(int stageIndex)
     {
+        isTutorialCompleted = false;
+
         if (Stages == null || stageIndex < 0 || stageIndex >= Stages.Count) 
         {
             Log.Warning($"Attempted to go to invalid tutorial stage: {stageIndex}");
@@ -128,7 +137,7 @@ public sealed class TutorialGameMode : GameMode
 
     public override void WinCondition(PlayerStats latestScoreEvent)
     {
-        Log.Info("Tutorial Completed!");
+        Log.Info("tutorial set to complete");
         
         if (SettingsManager.Instance != null)
         {

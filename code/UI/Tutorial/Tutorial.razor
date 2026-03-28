@@ -8,9 +8,8 @@
 
 <root>
 
-    @* Don't want to show the rest of the UI when filming tutorials *@
     <KeyOverlay />
-    @if (TutorialGameMode.InputOverlay) return;
+    @if (TutorialGameMode.InputOverlay) return; @* Don't want to show the rest of the UI when filming tutorials *@
 
     @if (ActiveStage != null && ActiveStage.IsStageActive && ActiveStage.Instructions.Count > 0)
     {
@@ -96,8 +95,9 @@
     private bool CanGoNext()
     {
         if (ActiveStage == null) return false;
+        if (ActiveStage.Instructions.Count <= 1) return false;
         if (ActiveStage.ObjectiveCompleted) return true; 
-        return ActiveStage.CurrentInstructionIndex < ActiveStage.Instructions.Count - 1;
+        return ActiveStage.CurrentInstructionIndex < ActiveStage.Instructions.Count - 2;
     }
 
     // --- Instruction parser so that newlines get parsed correctly ---

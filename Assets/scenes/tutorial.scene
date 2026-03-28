@@ -16723,7 +16723,7 @@
           "Position": "-331.196,-7974.864,104.571",
           "Rotation": "0,0,0,1",
           "Scale": "78.60278,78.97238,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -16807,7 +16807,7 @@
           "Position": "-1513.433,-7426.729,235.1024",
           "Rotation": "0,0,0,1",
           "Scale": "35.76047,37.83551,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -16891,7 +16891,7 @@
           "Position": "-298.9323,-7404.479,235.1024",
           "Rotation": "0,0,0,1",
           "Scale": "12.81195,7.750396,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -16975,7 +16975,7 @@
           "Position": "-2293.249,-8395.718,235.1027",
           "Rotation": "0,0,0,1",
           "Scale": "15.83992,29.68278,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17059,7 +17059,7 @@
           "Position": "-1906.612,-9454.979,235.1031",
           "Rotation": "0,0,0,1",
           "Scale": "30.72266,12.69789,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17143,7 +17143,7 @@
           "Position": "1059.635,-7532.76,235.1029",
           "Rotation": "0,0,0,1",
           "Scale": "15.82022,12.69789,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17227,7 +17227,7 @@
           "Position": "-323.4467,-7670.812,138.2276",
           "Rotation": "0,0.1564345,0,0.9876884",
           "Scale": "12.81195,7.750396,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17311,7 +17311,7 @@
           "Position": "1051.02,-8138.317,145.018",
           "Rotation": "0.1106159,0.1106159,-0.6984012,0.6984012",
           "Scale": "12.81195,15.24894,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17395,7 +17395,7 @@
           "Position": "-837.5802,-9528.263,138.2283",
           "Rotation": "0,0.1564345,0,0.9876884",
           "Scale": "12.81195,10.70618,1",
-          "Tags": "",
+          "Tags": "player_trigger",
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkFlags": 0,
@@ -17501,7 +17501,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "29c629f7-d1f5-4a52-ba17-028cc2892cfc"
+          "$blob": "bc2a3366-20f5-4589-b168-48833cca8e6f"
         }
       }
     }
